@@ -1,0 +1,19 @@
+<%= provide :title, t(".title") %>
+
+<h2 class="text-center"><%= t ".title" %></h2>
+<div class="content-wrapper">
+  <%= paginate @member, theme: "twitter-bootstrap-4" %>
+  <div class="row all-member">
+    <% @member.each do |member| %>
+      <div class="col-md-4 each-member">
+        <div class="avatar">
+          <%= image_tag get_avatar(member), class:"avatar" %>
+        </div>
+        <div class="info-member">
+          <h3><%= member.name %></h3>
+          <p><%= member.email %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<% provide :title, t(".manage_user") %>
+<nav aria-label="breadcrumb" class="col-md-12">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to t(".home"), root_path %></li>
+    <li class="breadcrumb-item"><%= link_to t(".trainees"), supervisor_users_path %></li></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav>
+<div class="col-md-12 text-right">
+  <%= link_to new_supervisor_user_path, class:"nav-link" do %>
+      <i class="fa fa-user-plus"></i>&nbsp;<%= t(".create_trainee") %>
+  <% end %>
+</div>
+<div class="col-md-12">
+  <%= paginate @users, theme: "twitter-bootstrap-4" %>
+  <table class="table table-bordered table-hover bg-primary">
+    <thead>
+      <tr>
+        <th><%= t(".name") %></th>
+        <th><%= t(".email") %></th>
+        <th><%= t(".address") %></th>
+        <th><%= t(".phone") %></th>
+        <th><%= t(".joined") %></th>
+        <th><%= t(".action") %></th>
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <%= render @users %>
+    </tbody>
+  </table>
+  <%= paginate @users, theme: "twitter-bootstrap-4" %>
+</div>

@@ -1,0 +1,63 @@
+<div class="content-wrapper">
+  <div class="col-md-12">
+    <h4><strong><%= t ".course_detail" %> - <%= @course.name %></strong></h4>
+  </div>
+  <div class="row">
+    <div class="col-md-4 all-member">
+      <h3><strong><%= @course.name %></strong></h3>
+      <p><%= @course.description %></p>
+      <p><%= training_time @course %></p>
+    </div>
+    <div class="row col-md-8">
+      <% @course.subjects.each_with_index do |subject, index| %>
+        <div class="col-md-6 all-member">
+          <h3><strong><%= subject.name %></strong></h3>
+          <p><%= subject.description %></p>
+          <p><%= training_time subject %></p>
+        </div>
+        <div class="col-md-6 all-member">
+          <% subject.tasks.each_with_index do |task, index| %>
+            <h4><strong><%= task.name %></strong></h4>
+            <p><%= task.description %></p>
+            <p><%= task.content %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="content-wrapper">
+  <h4 class="panel-title"><strong><%= t "user.suppervisor_course" %></strong><span class="badge"><%= @supervisors.size %></span></h4>
+  <div class="row all-member">
+    <% @supervisors.each do |supervisor| %>
+      <div class="col-md-4 each-member">
+        <div class="avatar">
+          <%= image_tag get_avatar(supervisor), class:"avatar" %>
+        </div>
+        <div class="info-member">
+          <h3><%= supervisor.name %></h3>
+          <p><%= supervisor.email %></p>
+            <%= link_to t(".view"), supervisor_user_path(supervisor.id), class:"btn pull-left bt-view" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h4 class="panel-title"><strong>
+    <%= t "user.trainee_course" %><span class="badge"><%= @trainees.size %></span></strong></h4>
+  <div class="row all-member">
+    <% @trainees.each do |trainee| %>
+      <div class="col-md-4 each-member">
+        <div class="avatar">
+          <%= image_tag get_avatar(trainee), class:"avatar" %>
+        </div>
+        <div class="info-member">
+          <h3><%= trainee.name %></h3>
+          <p><%= trainee.email %></p>
+          <%= link_to t(".view"), trainee_user_path(trainee.id), class:"btn pull-left bt-view" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="modal fade" id="modal-id">
+</div>

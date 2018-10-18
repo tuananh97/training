@@ -1,0 +1,23 @@
+<% provide :title, t(".edit_trainee") %>
+<div class="container">
+  <h3><%= t(".edit_trainee") %></h3>
+  <div class="col-md-8" id="supervisor-edit-trainee">
+    <%= form_for [:supervisor, @user] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div><br />
+
+      <div class="form-group">
+        <%= f.submit t(".edit_trainee"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

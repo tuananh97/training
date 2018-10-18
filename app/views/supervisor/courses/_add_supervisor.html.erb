@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <%= supervisor.name %>
+  <td>
+    <%= supervisor.email %>
+  </td>
+  <td>
+    <% if load_user_form(@course, supervisor) %>
+      <%= render partial: "remove_user", object: @user = supervisor %>
+    <% else %>
+      <%= form_for([:supervisor, @course.user_courses.build], remote: true) do |f| %>
+        <%= hidden_field_tag :user_id, supervisor.id %>
+        <%= hidden_field_tag :course_id, @course.id %>
+
+        <%= f.submit t("supervisor.courses.add_user.btn_submit"), class: "btn btn-success" %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

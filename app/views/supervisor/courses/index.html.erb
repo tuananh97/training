@@ -1,0 +1,83 @@
+<% provide :title, t(".title") %>
+
+<div class="content-wrapper">
+  <%= link_to new_supervisor_course_path, class: "btn btn-success" do %>
+    <i class="fa fa-plus pull-right"></i>&nbsp;<%= t ".add_course" %>
+  <% end %>
+  <table class="table table-hover" id="all-course" >
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t ".course" %></th>
+        <th><%= t ".subject" %></th>
+        <th><%= t ".show" %></th>
+        <th><%= t ".edit" %></th>
+        <th><%= t ".delete" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @courses.each_with_index do |course, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td>
+            <p><%= course.name %><p>
+            <p><%= training_time(course) %></p>
+            <% unless course.finish? %>
+              <div class="pull-left">
+                <%= link_to t(".finish_course"), supervisor_course_finish_path(course), class: "badge badge-pill badge-danger", data: {confirm: t(".confirm")}, method: :patch %>
+              </div>
+            <% end %>
+          </td>
+          <td>
+            <% course.subjects.each_with_index do |subject, index| %>
+              <%= index + 1 %>:&nbsp;<%= subject.name %><br>
+              <p>
+                <%= link_to edit_supervisor_course_subject_path(course, subject) do %>
+                  <i class="fa fa-edit" data-toogle="tooltip"
+                    title="<%= t '.edit_subject' %>"></i>&nbsp;&nbsp;
+                <% end %>
+                <%= link_to supervisor_course_subject_path(course, subject),
+                  data: {confirm: t(".confirm")}, method: :delete do %>
+                  <i class="fa fa-trash" data-toogle="tooltip"
+                    title="<%= t '.del_subject' %>"></i>&nbsp;&nbsp;
+                <% end %>
+                <%= link_to supervisor_course_subject_path(course, subject) do %>
+                  <i class="fa fa-leanpub" data-toogle="tooltip"
+                    title="<%= t '.detail_subject' %>"></i>&nbsp;&nbsp;
+                <% end %>
+                <% unless course.finish? || subject.finish? %>
+                  <%= link_to supervisor_course_subject_finish_path(course, subject),
+                    data: {confirm: t(".confirm")}, method: :patch do %>
+                    <i class="fa fa-lock" data-toogle="tooltip" title="<%= t '.finish_subject' %>"></i>
+                  <% end %>
+                <% end %>
+              </p>
+            <% end %>
+            <%= link_to new_supervisor_course_subject_path(course),
+              class: "badge badge-pill badge-info" do %>
+              <i class="fa fa-plus"></i>&nbsp;<%= t ".add_a_subject" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to supervisor_course_path(course.id) do %>
+              <i class="fa fa-book" data-toogle="tooltip"
+                title="<%= t '.detail' %>"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_supervisor_course_path(course.id) do %>
+              <i class="fa fa-edit" ></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to supervisor_course_path(course), method: :delete,
+              data: {confirm: t(".confirm")} do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @courses, theme: "twitter-bootstrap-4" %>
+</div>

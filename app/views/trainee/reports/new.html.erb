@@ -1,0 +1,11 @@
+<div class="content-wrapper">
+  <%= form_for [:trainee, @report] do |f| %>
+    <div class="col-md-8 error">
+      <%= render "shared/error", object: @report %>
+    </div>
+    <%= render "form_report", f: f %>
+    <div class="col-md-12 submit-report">
+      <%= f.submit t(".send"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

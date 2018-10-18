@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+  <h3><%= t ".my_courses" %></h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t ".course" %></th>
+        <th><%= t ".subjects" %></th>
+        <th><%= t ".members" %></th>
+        <th><%= t ".view_progress" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @my_courses.each do |mycourse| %>
+        <tr>
+          <td><%= mycourse.name %></td>
+          <td>
+            <% mycourse.subjects.each_with_index do |subject, index| %>
+              <%= index + 1 %>:&nbsp;<%= subject.name %><br>
+            <% end %>
+          </td>
+          <td>
+            <ul>
+            <%= link_to t(".all member"), trainee_path(mycourse.id), class: "btn btn-info" %>
+            </ul>
+          </td>
+          <td>
+            <%= link_to t(".your_progress"), trainee_course_path(mycourse.id), class: "btn btn-info" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

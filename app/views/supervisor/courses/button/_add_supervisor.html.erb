@@ -1,0 +1,8 @@
+  <% supervisor ||= @user %>
+  <% course ||= @course %>
+  <%= form_for([:supervisor, course.user_courses.build], html: {remote: true, id: "new_user_course_#{supervisor.id}"}) do |f| %>
+    <%= hidden_field_tag :user_id, supervisor.id %>
+    <%= hidden_field_tag :course_id, course.id %>
+
+    <%= f.submit t("supervisor.courses.add_user.btn_submit"), class: "btn btn-success" %>
+<% end %>

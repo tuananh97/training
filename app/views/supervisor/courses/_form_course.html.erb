@@ -1,0 +1,27 @@
+<div class="row form-group">
+  <div class="col-md-2">
+    <%= course.label :name, t(".name"), class: "required" %>
+  </div>
+  <div class="col-md-10">
+    <%= course.text_field :name, required: true, class: "form-control" %>
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-2">
+    <%= course.label :description, t(".description"), class: "required" %>
+  </div>
+  <div class="col-md-10">
+    <%= course.text_area :description, required: true, class: "form-control" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= course.label :from, class: "required" %>
+    <%= course.date_field :start_time, required: true, class:"datepicker form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= course.label :to, class: "required" %>
+    <%= course.date_field :end_time, required: true, class:"datepicker form-control" %>
+  </div>
+</div>

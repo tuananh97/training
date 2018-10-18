@@ -1,0 +1,7 @@
+$('#new_user_course_<%= @user_course.user.id %>').parent().html('<%= j(render('supervisor/courses/button/remove_user', object: @user_course)) %>');
+showAlert(I18n.t("alert.added"));
+
+function showAlert(message){
+  $('.alert-popup').html(message);
+  $('.alert-popup').show().fadeIn().delay(3000).fadeOut();
+}

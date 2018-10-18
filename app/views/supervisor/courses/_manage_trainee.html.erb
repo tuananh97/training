@@ -1,0 +1,16 @@
+<tr>
+  <% course ||= @course %>
+  <% trainee ||= @user %>
+  <td>
+    <%= trainee.name %>
+  <td>
+    <%= trainee.email %>
+  </td>
+  <td>
+    <% if load_user_form(@course, trainee) == false %>
+      <%= render partial: "supervisor/courses/button/remove_user", locals:{user: trainee, course: @course} %>
+    <% else %>
+      <%= render partial: "supervisor/courses/button/add_trainee", locals:{trainee: trainee, course: @course} %>
+    <% end %>
+  </td>
+</tr>

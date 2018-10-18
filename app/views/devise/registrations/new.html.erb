@@ -1,0 +1,49 @@
+<div class="container">
+  <h2><%= t ".sign_up" %></h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: t(".email") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em><%= t ".password_length", length: @minimum_password_length %></em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: t(".new-password") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: t(".new-password") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: t(".name") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone %><br />
+      <%= f.text_field :phone, autofocus: true, autocomplete: t(".phone") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address %><br />
+      <%= f.text_field :address, autofocus: true, autocomplete: t(".address") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :avatar %><br />
+      <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", autofocus: true, autocomplete: t(".avatar") %>
+    </div><br />
+
+    <div class="actions">
+      <%= f.submit t(".sign_up") %>
+    </div>
+  <% end %>
+</div>

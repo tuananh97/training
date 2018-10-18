@@ -1,0 +1,8 @@
+<div class="content-wrapper">
+  <h3><%= t ".task" %> - <%= @task.name %></h3>
+  <p><%= @task.description %></p>
+  <p><%= @task.content %></p>
+  <% unless find_trainee_task(@task.id).finish? %>
+    <%= link_to t(".finish"), trainee_task_path(@task.id), method: :put, class: "btn btn-success" %>
+  <% end %>
+</div>

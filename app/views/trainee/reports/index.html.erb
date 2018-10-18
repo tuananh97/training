@@ -1,0 +1,36 @@
+<div class="content-wrapper">
+  <div class="">
+    <h3><%= t ".daily_report" %></h3>
+    <div class="pull-right">
+      <%= link_to new_trainee_report_path, class: "btn btn-success" do %>
+        <i class="fa fa-plus"></i>&nbsp;<%= t ".new_report" %>
+      <% end %>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><%= t ".title" %></th>
+          <th><%= t ".description" %></th>
+          <th><%= t ".receivers" %></th>
+          <th><%= t ".send_time" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @list_reports.each do |report| %>
+          <tr>
+            <td><%= report.title %></td>
+            <td><%= report.description %></td>
+            <td>
+              <% report.trainee_reports.each_with_index do |trainee_report, index| %>
+                <%= index + 1 %>:&nbsp;<%= trainee_report.user.name %>
+                <br>
+              <% end %>
+            </td>
+            <td><%= report.created_at.strftime(Settings.format_time) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= paginate @list_reports, theme: "twitter-bootstrap-4" %>
+</div>

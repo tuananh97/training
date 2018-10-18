@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= t "mailer.welcome", name: @user.name %></h1>
+    <p><%= t "mailer.assign_to_course", name: @course.name %></p>
+    <p><%= t "mailer.thanks" %></p>
+  </body>
+</html>

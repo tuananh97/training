@@ -1,0 +1,4 @@
+<%= form_for([:supervisor, @user_course],
+  html: {method: :delete}, remote: true, data: {confirm: t(".confirm_delete")}) do |f| %>
+  <%= f.submit t(".btn_submit"), class: "btn btn-danger" %>
+<% end %>

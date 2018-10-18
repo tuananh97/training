@@ -1,0 +1,76 @@
+<div class="content-wrapper">
+  <h3><%= t ".content" %></h3>
+  <div class="row form-group">
+    <div class="col-md-2">
+      <%= f.label :title, t(".title"), class: "required" %>
+    </div>
+    <div class="col-md-10">
+      <%= f.text_field :title, required: true, class: "form-control" %>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-2">
+      <%= f.label :description, t(".description"), class: "required" %>
+    </div>
+    <div class="col-md-10">
+      <%= f.text_area :description, required: true, class: "form-control" %>
+    </div>
+  </div>
+  <%= f.hidden_field :sender_id, value: current_user.id %>
+  <h3><%= t ".receiver" %></h3>
+  <div class="row" id="list_trainers">
+    <div class="col-md-6">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th><%= t ".name" %></th>
+            <th><%= t ".phone" %></th>
+            <th><%= t ".receiver" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @trainers.each_with_index do |trainer, index| %>
+            <% if index.odd? %>
+              <tr>
+                <td><%= trainer.name %></td>
+                <td><%= trainer.phone %></td>
+                <td>
+                  <%= check_box_tag "receiver_ids[]", trainer.id, nil, {id: trainer.id} %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th><%= t ".name" %></th>
+            <th><%= t ".phone" %></th>
+            <th><%= t ".receiver" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @trainers.each_with_index do |trainer, index| %>
+            <% if index.even? %>
+              <tr>
+                <td><%= trainer.name %></td>
+                <td><%= trainer.phone %></td>
+                <td>
+                  <%= check_box_tag "receiver_ids[]", trainer.id %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-12">
+      <div class="pull-right">
+        <%= t ".sum" %>:&nbsp;<%= @sum_trainers %>
+      </div>
+    </div>
+  </div>
+</div>

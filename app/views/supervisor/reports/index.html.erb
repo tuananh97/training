@@ -1,0 +1,23 @@
+<div class="content-wrapper">
+  <h3><%= t ".daily_report" %></h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th><%= t ".sender" %></th>
+        <th><%= t ".title" %></th>
+        <th><%= t ".content" %></th>
+        <th><%= t ".send_time" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @list_reports.each do |report| %>
+        <tr>
+          <td><%= find_user(report.sender_id).name %></td>
+          <td><%= report.title %></td>
+          <td><%= report.description %></td>
+          <td><%= report.created_at.strftime(Settings.format_time) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
