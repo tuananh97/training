@@ -1,29 +1,22 @@
 <div class="content-wrapper">
+  <strong><%= @course.name %></strong> <%= training_time(@course) %>
+</div>
+<br><br><br>
+<div class="content-wrapper">
   <div class="row">
-    <div class="col-md-6">
-      <h3><%= t ".course" %></h3>
-      <strong><%= @course.name %></strong>
-      <p><strong><%= t ".description" %>:&nbsp;</strong><%= @course.description %></p>
-      <p><%= training_time(@course) %></p>
-    </div>
-    <div class="col-md-6">
-      <h3><%= t ".subjects" %></h3>
+    <div class="col-md-3">
       <% @course.subjects.each_with_index do |subject, index| %>
         <strong><%= index + 1 %>:&nbsp;<%= subject.name %></strong>
-        <% if subject.finish? %>
-          <div class="pull-right status"><%= t ".trainer_finish" %></div>
-        <% else %>
           <ol>
             <% subject.tasks.each do |task| %>
               <li>
-                <strong><%= task.name %></strong>
-                <br>
-                <%= link_to t(".learn"), trainee_task_path(task.id), class:"btn btn-success" %>
+                <%= link_to task.name, trainee_task_path(task.id)%>
               </li>
             <% end %>
           </ol>
         <% end %>
-      <% end %>
+    </div>
+    <div class="col-md-9">
     </div>
   </div>
 </div>

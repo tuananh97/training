@@ -26,7 +26,18 @@ en:
       made_in: "Made by ... © 2018"
       located: "144 Xuan Thuy, Cau Giay, Ha Noi"
   static_pages:
-    home:
+    welcome:
+      home: "Home"
+      continue_learn: "Continue learning"
+      label_course: "Course"
+      name_course: "Course example"
+      short_description: "This course about...."
+      not_found: "User not found"
+      subject_not_found: "Subject not found!"
+      task_not_found: "Task not found!"
+      learn: "Learn"
+  home_pages:
+    index:
       home: "Home"
       continue_learn: "Continue learning"
       label_course: "Course"
@@ -141,6 +152,7 @@ en:
       all_supervisors:
         not_permission: "You not permission access page"
         title: "All supervisors"
+      supervisors:
         view: "View"
     courses:
       not_found_course: "Course not found!"

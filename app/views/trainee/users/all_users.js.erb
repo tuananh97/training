@@ -1,0 +1,2 @@
+$("#members").html("<%= j render 'users' %>");
+$("#paginator").html("<%= j paginate(@members, theme: "twitter-bootstrap-4", remote: true) %>");

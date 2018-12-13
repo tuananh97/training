@@ -1,5 +1,4 @@
-class Trainee::CoursesController < ApplicationController
-  before_action :authenticate_user!
+class Trainee::CoursesController < Trainee::BaseController
   before_action :find_course, only: [:show, :show_member]
 
    def index

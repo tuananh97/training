@@ -1,12 +1,9 @@
-class Supervisor::UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :check_supervisor
+class Supervisor::UsersController < Supervisor::BaseController
   before_action :load_user, only: %i(edit update destroy)
   before_action :find_supervisor, only: :show
 
   def index
-    @users = User.trainee.by_lastest.page(params[:page])
-      .per Settings.pages.per_user
+    @users = User.trainee.by_lastest.page(params[:page]).per 10
   end
 
   def new
@@ -45,7 +42,7 @@ class Supervisor::UsersController < ApplicationController
   end
 
   def all_supervisors
-    @supervisors = User.by_fields.supervisor.page(params[:page]).per Settings.per_page
+    @supervisors = User.by_fields.supervisor.page(params[:page]).per 5
   end
 
   private

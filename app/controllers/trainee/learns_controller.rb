@@ -1,5 +1,5 @@
-class Trainee::LearnsController < ApplicationController
-  before_action :find_course, only: [:show]
+class Trainee::LearnsController < Trainee::BaseController
+  before_action :find_course, only: :show
 
   def show; end
 

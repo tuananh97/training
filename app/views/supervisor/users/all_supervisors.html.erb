@@ -2,19 +2,10 @@
 
 <h2 class="text-center"><%= t ".title" %></h2>
 <div class="content-wrapper">
-  <%= paginate @supervisors, theme: "twitter-bootstrap-4" %>
-  <div class="row all-member">
-    <% @supervisors.each do |supervisor| %>
-      <div class="col-md-4 each-member">
-        <div class="avatar">
-          <%= image_tag get_avatar(supervisor), class:"avatar" %>
-        </div>
-        <div class="info-member">
-          <h3><%= supervisor.name %></h3>
-          <p><%= supervisor.email %></p>
-          <%= link_to t(".view"), supervisor_user_path(supervisor.id), class:"btn pull-left bt-view" %>
-        </div>
-      </div>
-    <% end %>
+  <div id="paginator">
+    <%= paginate @supervisors, remote: true, theme: "twitter-bootstrap-4" %>
+  </div>
+  <div id="supervisors">
+    <%= render "supervisors" %>
   </div>
 </div>

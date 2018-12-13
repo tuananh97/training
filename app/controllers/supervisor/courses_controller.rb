@@ -1,6 +1,4 @@
-class Supervisor::CoursesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :check_supervisor
+class Supervisor::CoursesController < Supervisor::BaseController
   before_action :find_course, except: [:index, :new, :finish]
 
   def index

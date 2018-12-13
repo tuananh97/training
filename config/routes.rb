@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
-  devise_for :users
+  root "static_pages#welcome"
+
+  devise_for :users, controllers: {sessions: "users/sessions"}
+
+  get "/home", to: "home_pages#index"
+
   namespace :trainee do
     resources :users, only: :show
     get "/members", to: "users#all_users"

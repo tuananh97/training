@@ -3,16 +3,14 @@ class Trainee::TasksController < ApplicationController
 
   def show
     @trainee_task = TraineeTask.find_by task_id: @task.id
-
     unless @trainee_task.finish?
-      @trainee_task.update_attributes status: :inprogress
+      @trainee_task.update status: :inprogress
     end
   end
 
   def update
     @trainee_task = TraineeTask.find_by task_id: @task.id
-
-    if @trainee_task.update_attributes status: :finish
+    if @trainee_task.update status: :finish
       flash[:success] = t ".success"
       redirect_to trainee_task_path @task
     else
@@ -25,7 +23,6 @@ class Trainee::TasksController < ApplicationController
 
   def find_task
     @task = Task.find_by_id params[:id]
-
     return if @task
     flash[:danger] = t ".not_found"
     redirect_to root_path

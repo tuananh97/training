@@ -1,4 +1,4 @@
-class Trainee::ReportsController < ApplicationController
+class Trainee::ReportsController < Trainee::BaseController
   before_action :authenticate_user!
 
   def index

@@ -1,6 +1,4 @@
-class Supervisor::UserCoursesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :check_supervisor
+class Supervisor::UserCoursesController < Supervisor::BaseController
   before_action :check_params, only: %i(create)
   before_action :set_user_course, only: %i(destroy)
 

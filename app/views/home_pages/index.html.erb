@@ -18,7 +18,7 @@
     <% if current_user.supervisor? %>
       <div class="right-info-member">
         <div class="count-course">
-          <div class="count"><%= @supervisor_course.length %></div>
+          <div class="count"><%= @supervisor_courses.length %></div>
           <div class="lable-course"><%= t ".label_course" %></div>
         </div>
       </div>
@@ -35,15 +35,15 @@
 <% if current_user.trainee? %>
   <div class="row content-wrapper" id="info-course">
     <% @my_courses.each do |my_course| %>
-      <div class="col-md-4">
+      <div class="col-md-3 card-size">
         <div class="card">
-          <div class="topBar"></div>
+          <img class="card-img-top" src="/assets/course.svg" tyle="width:100%">
           <div class="card-body">
             <h3 class="title-course"><%= my_course.name %></h3>
             <span class="short-description"><%= my_course.description %></span>
           </div>
           <div class="card-footer">
-            <%= link_to t(".learn"), trainee_learn_path(my_course.id), class:"btn btn-success", target: "_blank" %>
+            <%= link_to t(".learn"), trainee_learn_path(my_course.id), class:"btn btn-success"%>
           </div>
         </div>
       </div>
@@ -51,10 +51,10 @@
   </div>
 <% else %>
   <div class="row content-wrapper" id="info-course">
-    <% @supervisor_course.each do |course| %>
-      <div class="col-md-4" style="padding-bottom: 10px">
+    <% @supervisor_courses.each do |course| %>
+      <div class="col-md-3 card-size">
         <div class="card">
-          <div class="topBar"></div>
+          <img class="card-img-top" src="/assets/course.svg" tyle="width:100%">
           <div class="card-body">
             <h3 class="title-course"><%= course.name %></h3>
             <span class="short-description"><%= course.description %></span>

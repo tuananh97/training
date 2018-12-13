@@ -12,7 +12,9 @@
   <% end %>
 </div>
 <div class="col-md-12">
-  <%= paginate @users, theme: "twitter-bootstrap-4" %>
+  <div id="paginator">
+    <%= paginate @users, remote: true, theme: "twitter-bootstrap-4" %>
+  </div>
   <table class="table table-bordered table-hover bg-primary">
     <thead>
       <tr>
@@ -24,9 +26,8 @@
         <th><%= t(".action") %></th>
       </tr>
     </thead>
-    <tbody class="bg-white">
+    <tbody class="bg-white" id="users">
       <%= render @users %>
     </tbody>
   </table>
-  <%= paginate @users, theme: "twitter-bootstrap-4" %>
 </div>
