@@ -25,6 +25,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
 
   def update
     if @subject.update_attributes subject_params
+      assign_task
       flash[:success] = t ".success"
     else
       flash[:danger] = t ".failure"
@@ -58,6 +59,16 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     params.require(:subject).permit :name, :description, :start_time,
       :end_time, :status, tasks_attributes: [:id, :name, :description,
       :content, :destroy]
+  end
+
+  def assign_task
+    TraineeSubject.find_trainee_on_subject(@course.id, @subject.id).each do |user|
+      TraineeTask.bulk_insert(ignore: true) do |work_task|
+        @subject.tasks.task_not_assign_trainee.each do |task|
+          work_task.add({task_id: task.task_id_new, trainee_id: user.trainee_id, course_id: @course.id})
+        end
+      end
+    end
   end
 
   def find_subject

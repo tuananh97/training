@@ -1,8 +1,5 @@
 <div class="content-wrapper">
   <%= form_for [:supervisor, @course, @subject] do |f| %>
-    <div class="col-md-8 error">
-      <%= render "shared/error", object: @subject %>
-    </div>
     <div class="col-md-8" id="form_subject">
       <h4><%= t ".create_subject" %></h4>
       <%= render "form_subject", f: f %>

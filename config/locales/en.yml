@@ -1,12 +1,12 @@
 en:
-  base_title: "Training system"
+  base_title: "UET Learning Online"
   time:
     formats:
       own: "%H:%M:%S, %d-%m-%Y"
       short: "%d/%m/%Y"
   layouts:
     header:
-      logo: "Training System"
+      logo: "UET Learning Online"
       home: "Home"
       login: "Log in"
       logout: "Log out"
@@ -22,9 +22,15 @@ en:
       notification: "Notifications"
       daily_report: "Daily report"
     footer:
-      inc: "UET-VNU."
-      made_in: "Made by ... © 2018"
-      located: "144 Xuan Thuy, Cau Giay, Ha Noi"
+      products: "Products"
+      useful_link: "Useful links"
+      contact: "Contact"
+      link: "Useful links"
+      address: "144 Xuân Thủy, Cầu Giấy, Hà Nội"
+      email: "uet@vnu.edu.vn"
+      tel: "024.37547.461"
+      fax: "024.37547.460"
+      copyright: "© 2018 Copyright"
   static_pages:
     welcome:
       home: "Home"
@@ -47,8 +53,35 @@ en:
       subject_not_found: "Subject not found!"
       task_not_found: "Task not found!"
       learn: "Learn"
+  learns:
+    learn: "Learn"
+  tasks:
+    comment_form:
+      submit: "Comment"
+    update:
+      finish: "Finish task"
+      task: "Task"
+      success: "Finish task successfully"
+      failure: "Finish task failure"
+  comments:
+    comment:
+      commented: "%{user} commented %{time} ago."
+      edit: "Edit"
+      delete: "Delete"
+      confirm: "You sure delete?"
+      reply: "Reply"
+    load_comment:
+       danger: "Not find commnet!"
+    edit:
+      submit: "Save"
+    update:
+      danger: "Update comment not success!"
+    new_reply:
+      submit: "Reply"
   trainee:
     users:
+      users:
+        view: "View"
       show:
         profile: "Profile"
         count: "5"
@@ -77,8 +110,6 @@ en:
       create:
         success: "Send report successfully!"
         failure: "Send report failure!"
-    learns:
-      learn: "Learn"
     courses:
       index:
         my_courses: "My Courses"
@@ -90,12 +121,6 @@ en:
       show:
         description: "Description"
         time: "Time"
-    tasks:
-      update:
-        finish: "Finish task"
-        task: "Task"
-        success: "Finish task successfully"
-        failure: "Finish task failure"
   shared:
     error_messages:
       form_error_warning:
@@ -143,6 +168,7 @@ en:
         delete: "Delete"
         confirm: "You are sure to delete this trainee?"
         edit: "Edit"
+        view: "View"
       edit:
         edit_trainee: "Edit Trainee"
       show:
@@ -200,7 +226,7 @@ en:
         confirm_delete: "Are you sure?"
         del_title: "Delete task"
       edit:
-        edit: "Edit"
+        edit: "Save All Change Of Course"
         success: "Successfully updated course!"
         failure: "Update course failure!"
         supervisors: "Supervisors"
@@ -209,6 +235,12 @@ en:
         email: "Email"
         option: "Action"
         not_found: "Not found this course"
+        create_course: "Edit Course"
+        create_subject: "Edit Subject"
+        add_subject: "Add Subject"
+      subject_fields:
+        add_task: "Add Task"
+        del_title: "Delete subject"
       update:
         success: "Successfully updated course!"
         failure: "Update course failure!"
@@ -231,6 +263,9 @@ en:
         failure: "Finish course failure!"
       show:
         course_detail: "Course detail"
+        view: "Views"
+        suppervisor_course: "Suppervisor"
+        trainee_course: "Trainee"
     subjects:
       new:
         create: "Create"

@@ -1,10 +1,13 @@
 <% provide :title, t(".title") %>
 
 <div class="content-wrapper">
-  <%= link_to new_supervisor_course_path, class: "btn btn-success" do %>
-    <i class="fa fa-plus pull-right"></i>&nbsp;<%= t ".add_course" %>
-  <% end %>
+  <div class="text-right">
+    <%= link_to new_supervisor_course_path, class: "btn btn-success" do %>
+      <i class="fa fa-plus pull-right"></i>&nbsp;<%= t ".add_course" %>
+    <% end %>
+  </div>
   <table class="table table-hover" id="all-course" >
+    <%= paginate @courses, theme: "twitter-bootstrap-4" %>
     <thead>
       <tr>
         <th>#</th>
@@ -79,5 +82,4 @@
       <% end %>
     </tbody>
   </table>
-  <%= paginate @courses, theme: "twitter-bootstrap-4" %>
 </div>

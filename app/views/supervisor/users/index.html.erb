@@ -1,33 +1,38 @@
 <% provide :title, t(".manage_user") %>
-<nav aria-label="breadcrumb" class="col-md-12">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to t(".home"), root_path %></li>
-    <li class="breadcrumb-item"><%= link_to t(".trainees"), supervisor_users_path %></li></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
-  </ol>
-</nav>
-<div class="col-md-12 text-right">
-  <%= link_to new_supervisor_user_path, class:"nav-link" do %>
-      <i class="fa fa-user-plus"></i>&nbsp;<%= t(".create_trainee") %>
-  <% end %>
-</div>
-<div class="col-md-12">
-  <div id="paginator">
-    <%= paginate @users, remote: true, theme: "twitter-bootstrap-4" %>
+
+<div class="panel panel-primary filterable">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= t ".manage_user" %>
+    </h3>
   </div>
-  <table class="table table-bordered table-hover bg-primary">
+  <div class="col-md-12 text-right">
+    <%= link_to new_supervisor_user_path, class:"nav-link" do %>
+        <i class="fa fa-user-plus"></i>&nbsp;<%= t(".create_trainee") %>
+    <% end %>
+  </div>
+  <table class="table" id="myTableadmin">
     <thead>
-      <tr>
-        <th><%= t(".name") %></th>
-        <th><%= t(".email") %></th>
-        <th><%= t(".address") %></th>
-        <th><%= t(".phone") %></th>
-        <th><%= t(".joined") %></th>
-        <th><%= t(".action") %></th>
+      <tr class="filters">
+        <th></th>
+        <th><input type="text" class="form-control"
+          placeholder="<%= t '.name' %>"></th>
+        <th><input type="text" class="form-control"
+          placeholder="<%= t '.email' %>"></th>
+        <th><input type="text" class="form-control"
+          placeholder="<%= t '.address' %>"></th>
+        <th><input type="text" class="form-control"
+          placeholder="<%= t '.phone' %>"></th>
+        <th><input type="text" class="form-control"
+          placeholder="<%= t '.joined' %>"></th>
+        <th></th>
       </tr>
     </thead>
-    <tbody class="bg-white" id="users">
-      <%= render @users %>
-    </tbody>
+      <tbody id="users">
+        <%= render "user" %>
+      </tbody>
   </table>
+</div>
+<div id="paginator">
+  <%= paginate @users, remote: true, theme: "twitter-bootstrap-4" %>
 </div>

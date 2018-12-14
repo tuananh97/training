@@ -1,0 +1,8 @@
+<%= form_for @comment, remote: true, id: "edit-cmt-#{@comment.id}" do |f| %>
+  <%= f.hidden_field :task_id %>
+  <%= f.hidden_field :user_id %>
+  <div class="form-group">
+    <%= f.cktext_area :content, rows: 10, id: "content-#{@comment.user_id}"  %>
+  </div>
+  <%= f.submit t(".submit"), class: "btn btn-primary" %>
+<% end %>

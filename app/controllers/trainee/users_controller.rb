@@ -3,11 +3,11 @@ class Trainee::UsersController < ApplicationController
   before_action :find_user, only: :show
 
   def show
-    @my_courses = @user.courses.page(params[:page]).per Settings.per_page
+    @my_courses = @user.courses.page(params[:page]).per Settings.user.per_page
   end
 
   def all_users
-    @members = User.by_fields.trainee.page(params[:page]).per Settings.per_page
+    @members = User.load_data.trainee.page(params[:page]).per Settings.user.per_page
   end
 
   private

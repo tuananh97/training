@@ -1,21 +1,21 @@
 <div class="content-wrapper">
   <div class="col-md-12">
-    <h4><strong><%= t ".course_detail" %> - <%= @course.name %></strong></h4>
+    <h3><strong><%= t ".course_detail" %> - <%= @course.name %></strong></h3>
   </div>
   <div class="row">
-    <div class="col-md-4 all-member">
-      <h3><strong><%= @course.name %></strong></h3>
+    <div class="col-md-4">
+      <h4><strong><%= @course.name %></strong></h4>
       <p><%= @course.description %></p>
       <p><%= training_time @course %></p>
     </div>
     <div class="row col-md-8">
       <% @course.subjects.each_with_index do |subject, index| %>
-        <div class="col-md-6 all-member">
-          <h3><strong><%= subject.name %></strong></h3>
+        <div class="col-md-6">
+          <h4><strong><%= subject.name %></strong></h4>
           <p><%= subject.description %></p>
           <p><%= training_time subject %></p>
         </div>
-        <div class="col-md-6 all-member">
+        <div class="col-md-6">
           <% subject.tasks.each_with_index do |task, index| %>
             <h4><strong><%= task.name %></strong></h4>
             <p><%= task.description %></p>
@@ -27,8 +27,11 @@
   </div>
 </div>
 <div class="content-wrapper">
-  <h4 class="panel-title"><strong><%= t "user.suppervisor_course" %></strong><span class="badge"><%= @supervisors.size %></span></h4>
-  <div class="row all-member">
+  <h4 class="panel-title">
+    <strong><%= t ".suppervisor_course" %></strong>
+    <span class="badge"><%= @supervisors.size %></span>
+  </h4>
+  <div class="row">
     <% @supervisors.each do |supervisor| %>
       <div class="col-md-4 each-member">
         <div class="avatar">
@@ -42,9 +45,11 @@
       </div>
     <% end %>
   </div>
-  <h4 class="panel-title"><strong>
-    <%= t "user.trainee_course" %><span class="badge"><%= @trainees.size %></span></strong></h4>
-  <div class="row all-member">
+  <h4 class="panel-title">
+    <strong><%= t ".trainee_course" %></strong>
+    <span class="badge"><%= @trainees.size %></span>
+  </h4>
+  <div class="row">
     <% @trainees.each do |trainee| %>
       <div class="col-md-4 each-member">
         <div class="avatar">
@@ -58,6 +63,4 @@
       </div>
     <% end %>
   </div>
-</div>
-<div class="modal fade" id="modal-id">
 </div>

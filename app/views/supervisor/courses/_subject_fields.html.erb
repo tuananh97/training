@@ -4,8 +4,7 @@
       <div class="col-md-2">
         <%= f.label :name, t(".subject"), class:"required" %>&nbsp;
         <%= link_to_remove_association f, data: {confirm: t(".confirm_delete")} do %>
-          <i class="fa fa-trash" data-toogle="tooltip"
-            title="<%= t '.del_title' %>"></i>
+          <i class="fa fa-trash" data-toogle="tooltip" title="<%= t '.del_title' %>"></i>
         <% end %>
       </div>
       <div class="col-md-10">
@@ -32,7 +31,9 @@
   <%= f.fields_for :tasks do |task| %>
     <%= render "task_fields", f: task %>
   <% end %>
-  <p><%= link_to_add_association f, :tasks, class:"btn btn-success form-group" do %>
-    <i class="fa fa-plus"></i>&nbsp;<%= t ".add_task" %>
-  <% end %></p>
+  <p>
+    <%= link_to_add_association f, :tasks, class:"btn btn-success form-group" do %>
+      <i class="fa fa-plus"></i>&nbsp;<%= t ".add_task" %>
+    <% end %>
+  </p>
 </div>

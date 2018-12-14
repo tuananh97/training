@@ -1,58 +1,80 @@
-<div class="row">
-  <div class="col-md-6">
-    <table class="table table-bordered">
-     <h3><%= t ".supervisors" %></h3>
-     <thead>
-       <tr>
-         <th><%= t".name" %></th>
-         <th><%= t".email" %></th>
-         <th><%= t".option" %></th>
-       </tr>
-     </thead>
-     <tbody>
-       <%= render partial: "manage_supervisor", collection: @supervisors, as: :supervisor %>
-     </tbody>
-    </table>
-    <%= paginate @supervisors, theme: "twitter-bootstrap-4" %>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-course-tab" data-toggle="tab"
+      href="#nav-course" role="tab">
+      <%= t "course.courses" %></a>
+    <a class="nav-item nav-link" id="nav-member-tab" data-toggle="tab"
+      href="#nav-member" role="tab"><%= t "user.member" %></a>
+  </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-course">
+    <div class="content-wrapper">
+      <%= form_for [:supervisor, @course] do |f| %>
+        <div class="row">
+          <div class="col-md-4 course">
+            <h3><%= t ".create_course" %></h3>
+            <%= render "form_course", course: f %>
+          </div>
+          <div class="col-md-8 subjects">
+            <h4><%= t ".create_subject" %></h4>
+            <%= f.fields_for :subjects do |subject| %>
+              <%= render "subject_fields", f: subject %>
+            <% end %>
+            <p>
+              <%= link_to_add_association f, :subjects, class:"btn btn-info" do %>
+                <i class="fa fa-plus"></i>&nbsp;<%= t ".add_subject" %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-12 submit-course">
+          <%= f.submit t(".edit"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <div class="col-md-6">
-    <table class="table table-bordered">
-       <h3><%= t ".trainees" %></h3>
-       <thead>
-         <tr>
-           <th><%= t".name" %></th>
-           <th><%= t".email" %></th>
-           <th><%= t".option" %></th>
-         </tr>
-       </thead>
-       <tbody>
-         <%= render partial: "manage_trainee", collection: @trainees, as: :trainee %>
-       </tbody>
-    </table>
-    <%= paginate @trainees, theme: "twitter-bootstrap-4" %>
+  <div class="tab-pane fade" id="nav-member">
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-bordered">
+         <h3><%= t ".supervisors" %></h3>
+         <thead>
+           <tr>
+             <th><%= t".name" %></th>
+             <th><%= t".email" %></th>
+             <th><%= t".option" %></th>
+           </tr>
+         </thead>
+         <tbody id="supervisors">
+           <%= render partial: "manage_supervisor", collection: @supervisors, as: :supervisor %>
+         </tbody>
+        </table>
+        <div id="paginator">
+          <%= paginate @supervisors, remote: true, theme: "twitter-bootstrap-4" %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <table class="table table-bordered">
+           <h3><%= t ".trainees" %></h3>
+           <thead>
+             <tr>
+               <th><%= t".name" %></th>
+               <th><%= t".email" %></th>
+               <th><%= t".option" %></th>
+             </tr>
+           </thead>
+           <tbody id="trainees">
+             <%= render partial: "manage_trainee", collection: @trainees, as: :trainee %>
+           </tbody>
+        </table>
+        <div id="paginator1">
+          <%= paginate @trainees, remote: true, theme: "twitter-bootstrap-4" %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<div class="content-wrapper">
-  <%= form_for [:supervisor, @course] do |f| %>
-    <div class="col-md-8 error">
-      <%= render "shared/error", object: @course %>
-    </div>
-    <div class="col-md-8 course">
-      <h3><%= t ".create_course" %></h3>
-      <%= render "form_course", course: f %>
-    </div>
-    <div class="col-md-8 subjects">
-      <h4><%= t ".create_subject" %></h4>
-      <%= f.fields_for :subjects do |subject| %>
-        <%= render "subject_fields", f: subject %>
-      <% end %>
-      <p><%= link_to_add_association f, :subjects, class:"btn btn-info" do %>
-        <i class="fa fa-plus"></i>&nbsp;<%= t ".add_subject" %>
-      <% end %></p>
-    </div>
-    <div class="col-md-12 submit-course">
-      <%= f.submit t(".edit"), class: "btn btn-primary" %>
-    </div>
-  <% end %>
 </div>

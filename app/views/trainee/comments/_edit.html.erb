@@ -1,0 +1,9 @@
+<%= form_for @comment, remote: true, id: "edit-cmt-#{@comment.id}" do |f| %>
+  <%= f.hidden_field :task_id %>
+  <%= f.hidden_field :user_id %>
+  <div class="form-group">
+    <%= f.text_area :content, class: "form-control",
+      rows: Settings.comment.rows, id: "content-#{@comment.user_id}"  %>
+  </div>
+  <%= f.submit t(".submit"), class: "btn btn-primary" %>
+<% end %>

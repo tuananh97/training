@@ -1,0 +1,12 @@
+<div class="well" id ="reply-form-<%= @comment.new_reply.parent_id %>">
+  <%= form_for @comment.new_reply, remote: true do |f| %>
+    <%= f.hidden_field :task_id %>
+    <%= f.hidden_field :parent_id %>
+    <div class="form-group">
+      <%= f.text_area :content, class: "form-control",
+        rows: Settings.comment.rows,
+        id: "content-#{@comment.new_reply.parent_id}"  %>
+    </div>
+    <%= f.submit t(".submit"), class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -74,7 +74,7 @@ en:
         confirm_current_password: "(we need your current password to confirm your changes)"
         update: "Update"
         back: "Back"
-        edit: "Edit %{name}"
+        edit: "Change Profile"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."

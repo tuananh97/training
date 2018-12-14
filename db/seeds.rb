@@ -1,30 +1,20 @@
-namespace :sample_data do
-  task create: :environment do
-    puts "Create Users"
-    User.bulk_insert do |user|
-      supervisor = 0
-      trainee = 1
-      password = "123456"
-      20.times do
-        user.add(
+20.times do |i|
+        User.create!
           name: Faker::Name.name,
-          email: Faker::Internet.email,
-          phone: Faker::PhoneNumber.phone_number.gsub(/\s/, ""),
+          email: "admin_#{i}@email.com",
+          phone: "097659430#{i}",
           address: Faker::Address.street_address,
-          role: supervisor,
-          password: password,
-          encrypted_password: BCrypt::Password.create(password))
-      end
-      20.times do
-        user.add(
+          role: 1,
+          password: "123456",
+          encrypted_password: BCrypt::Password.create("123456")
+end
+20.times do |j|
+         User.create!
           name: Faker::Name.name,
-          email: Faker::Internet.email,
-          phone: Faker::PhoneNumber.phone_number.gsub(/\s/, ""),
+          email: "user_#{j}@email.com",
+          phone: "097659420#{j}",
           address: Faker::Address.street_address,
-          role: trainee,
-          password: password,
-          encrypted_password: BCrypt::Password.create(password))
-      end
-    end
-  end
+          role: 0,
+          password: "123456",
+          encrypted_password: BCrypt::Password.create(password"123456")
 end

@@ -2,28 +2,39 @@
 <div class="container">
   <h2 class="my-md-3"><%= t(".create_trainee") %></h2>
   <%= form_for [:supervisor, @user] do |f| %>
-    <%= render "shared/error_messages", object: f.object %>
 
     <div class="field">
       <%= f.label :email %>
       <%= f.email_field :email, class: "form-control" %>
+    </div>
+    <div align="right" class="error-messages-devise" >
+      <%= @user.errors.full_messages_for(:email).first %>
     </div>
 
     <div class="field">
       <%= f.label :password %>
       <%= f.password_field :password, class: "form-control" %>
     </div>
+    <div align="right" class="error-messages-devise" >
+      <%= @user.errors.full_messages_for(:password).first %>
+    </div>
 
     <div class="field">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
+    <div align="right" class="error-messages-devise" >
+      <%= @user.errors.full_messages_for(:password_confirmation).first %>
+    </div>
 
     <div class="field">
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %>
-    </div><br />
-
+    </div>
+    <div align="right" class="error-messages-devise" >
+      <%= @user.errors.full_messages_for(:name).first %>
+    </div>
+    <br>
     <div class="form-group">
       <%= f.submit t(".create_trainee"), class: "btn btn-primary" %>
     </div>

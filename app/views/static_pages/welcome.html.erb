@@ -1,15 +1,5 @@
 <%= provide :title, t(".home") %>
-<div class="member">
-  <div class="content-wrapper container-member">
-    <img class="img-course" src="/assets/course.svg">
-      <div class="right-info-member">
-        <div class="count-course">
-          <div class="count"><%= @courses.length %></div>
-          <div class="lable-course"><%= t ".label_course" %></div>
-        </div>
-      </div>
-  </div>
-</div>
+
 <div class="row content-wrapper" id="info-course">
   <% @courses.each do |course| %>
     <div class="col-md-3 card-size">
@@ -20,7 +10,7 @@
           <span class="short-description"><%= course.description %></span>
         </div>
         <div class="card-footer">
-          <%= link_to t(".learn"), root_path, class:"btn btn-success", target: "_blank" %>
+          <%= link_to t(".learn"), root_path, class:"btn btn-success" %>
         </div>
       </div>
     </div>

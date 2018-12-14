@@ -1,5 +1,5 @@
 class Subject < ApplicationRecord
-  has_many :trainee_subjects
+  has_many :trainee_subjects, dependent: :destroy
   belongs_to :course
   has_many :tasks, dependent: :destroy
   accepts_nested_attributes_for :tasks, allow_destroy: true

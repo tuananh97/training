@@ -11,6 +11,7 @@ gem "bootstrap4-kaminari-views"
 gem "bulk_insert"
 gem "cancancan", "~> 1.10"
 gem "carrierwave", "1.2.2"
+gem "ckeditor"
 gem "cocoon"
 gem "coffee-rails", "~> 4.2"
 gem "config"
@@ -30,6 +31,7 @@ gem "rolify"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "sidekiq"
+gem 'toastr-rails'
 gem "uglifier", ">= 1.3.0"
 gem "validates_timeliness", "~> 5.0.0.alpha3"
 gem "whenever", :require => false
@@ -47,8 +49,7 @@ group :development do
 end
 
 group :production do
-  gem "fog", "1.42"
-  gem "pg"
+  gem "mysql2"
 end
 
 group :test do

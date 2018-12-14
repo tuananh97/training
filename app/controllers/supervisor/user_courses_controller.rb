@@ -4,16 +4,15 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
 
   def create
     if @course.assign_user @user
-      TrainingMailer.assign_to_course(@user, @course).deliver_later
       @user_course = @user.user_courses.find_by(course_id: @course.id)
       @course = Course.find_by_id @course.id
       if @user.trainee?
         TraineeSubject.bulk_insert(ignore: true) do |worker_subject|
           @course.subjects.each do |subject|
-            worker_subject.add({trainee_id: @user.id, subject_id: subject.id})
+            worker_subject.add({trainee_id: @user.id, subject_id: subject.id, course_id: @course.id})
             TraineeTask.bulk_insert(ignore: true) do |work_task|
               subject.tasks.each do |task|
-                work_task.add({trainee_id: @user.id, task_id: task.id})
+                work_task.add({trainee_id: @user.id, task_id: task.id, course_id: @course.id})
               end
             end
           end
@@ -33,8 +32,12 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
     @course = @user_course.course
     @user = @user_course.user
     @user_course_id = @user_course.id
+    if @user.trainee?
+        @user2 = User.find_by_id @user.id
+        @user2.trainee_tasks.where(course_id: @course.id).delete_all
+        @user2.trainee_subjects.where(course_id: @course.id).delete_all
+    end
     if @course.remove_user @user
-      TrainingMailer.remove_from_course(@user, @course).deliver_later
       remove_sucess
     else
       flash[:danger] = t "supervisor.courses.button.remove_user.failed"

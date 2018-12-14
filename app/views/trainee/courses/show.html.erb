@@ -10,6 +10,7 @@
       <div class="col-md-12">
         <h3><%= t ".subjects" %></h3>
       </div>
+
       <% @course.subjects.each_with_index do |subject, index| %>
         <div class="col-md-6">
           <strong><%= index + 1 %>:&nbsp;<%= subject.name %></strong>
@@ -26,7 +27,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <% if subject.finish? %>
+          <% if subject.status == 2 %>
             <div class="pull-right status"><%= t ".trainer_finish" %></div>
           <% else %>
             <% if check_status_subject(current_user.id, subject.id).first.finish? %>

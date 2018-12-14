@@ -18,7 +18,7 @@ class Course < ApplicationRecord
 
   def assign_user user
     if user.supervisor?
-      user_courses.create user_id: user.id
+      user_courses.create user_id: user.id, status: :trainee_start
     else
       user_courses.create user_id: user.id, status: :trainee_start
     end

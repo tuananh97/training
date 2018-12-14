@@ -1,86 +1,16 @@
-section {
-  min-height: 500px;
+.learn{
+  margin-left:50px;
+  margin-right:50px;
 }
 
-.session_nav_content {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  z-index: 1;
-}
-
-.content-nav {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.content-wrapper {
-  padding-left: 6rem;
-  padding-right: 6rem;
-}
-
-.content-nav-right {
-  flex: 1 1;
-  justify-content: flex-end;
-}
-
-.content-footer {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
-header {
-  position: relative;
-  height: 3.5rem;
+.image_cm {
+  width: 80px;
+  height: 80px;
+  padding-right: 10px;
 }
 
 .flash {
   margin: auto;
-}
-
-footer {
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: $white_smoke;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.inc, .made_in, .located {
-  display: inline-block;
-  font-size: 0.875rem;
-  width: 30%;
-}
-
-.member {
-  background-color: $victoria;
-  color: $white;
-}
-
-.container-member {
-  height: 12.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.left-info-member {
-  width: 80%;
-  display: flex;
-  height: 5rem;
-  z-index: 1;
-}
-
-.right-info-member {
-  width: 20%;
-  display: flex;
-  height: 5rem;
-  z-index: 1;
 }
 
 .avt {
@@ -116,6 +46,39 @@ footer {
   line-height: 2rem;
   text-align: center;
   font-weight: bold;
+}
+
+.inc, .made_in, .located {
+  display: inline-block;
+  font-size: 0.875rem;
+  width: 30%;
+}
+
+.member {
+  background-color: $victoria;
+  color: $white;
+}
+
+.container-member {
+  height: 12.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.left-info-member {
+  width: 80%;
+  display: flex;
+  height: 5rem;
+  z-index: 1;
+}
+
+.right-info-member {
+  width: 20%;
+  display: flex;
+  height: 5rem;
+  z-index: 1;
 }
 
 .img-course {
@@ -165,11 +128,12 @@ footer {
   opacity: 0.7;
 }
 
-// profile
+// User Profile
 .avatar-profile {
   height: 120px;
   width: 120px;
   border-radius: 50%;
+  margin: 0px 0px 5px 15px
 }
 
 .info-profile {
@@ -292,13 +256,16 @@ h3 {
   text-align: center;
   margin-bottom: 15px;
 }
+
 .login-logo span {
   color: #ffffff;
   font-size: 24px;
 }
+
 .login-logo img {
   height: 75px;
 }
+
 .login-content {
   margin: 100px 0;
 }
@@ -318,6 +285,7 @@ h3 {
 .login-form .checkbox label {
   text-transform: none;
 }
+
 .login-form .btn {
   width: 100%;
   text-transform: uppercase;
@@ -325,10 +293,12 @@ h3 {
   padding: 15px;
   border: 0px;
 }
+
 .login-form label {
   color: #455a64;
   text-transform: uppercase;
 }
+
 .login-form label a {
   color: #4680ff;
 }
@@ -343,10 +313,6 @@ h3 {
 
 h3, h4 {
   text-align: center;
-}
-
-.all-member {
-  border-left: 4px solid $springRain;
 }
 
 #supervisor-edit-trainee, #edit-profile {

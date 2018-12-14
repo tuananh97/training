@@ -13,21 +13,6 @@
   </div>
 </div>
 
-<div class="content-wrapper detail-profile">
-  <div class="profile-left">
-    <div class="course-completed">
-      <div class="count-course"><%= @my_courses.count %></div>
-      <div class="title-completed-course"><%= t ".completed_course" %></div>
-    </div>
-  </div>
-  <div class="profile-right">
-    <div class="count-subject-course">
-      <div class="quantity-subject"><%= @my_courses.count %></div>
-      <div class="title-subject"><%= t ".quantity_subject" %></div>
-    </div>
-  </div>
-</div>
-
 <div class="row content-wrapper" id="info-course">
   <%= render partial: "course_trainee", collection: @my_courses, as: :course %>
 </div>

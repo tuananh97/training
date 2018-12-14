@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_16_164141) do
+ActiveRecord::Schema.define(version: 2018_12_24_113401) do
+
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "task_id"
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_comments_on_task_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -66,6 +89,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_164141) do
   create_table "trainee_subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "subject_id"
     t.bigint "trainee_id"
+    t.integer "course_id"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,6 +100,7 @@ ActiveRecord::Schema.define(version: 2018_09_16_164141) do
   create_table "trainee_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "task_id"
     t.bigint "trainee_id"
+    t.integer "course_id"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -110,6 +135,8 @@ ActiveRecord::Schema.define(version: 2018_09_16_164141) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "tasks"
+  add_foreign_key "comments", "users"
   add_foreign_key "subjects", "courses"
   add_foreign_key "tasks", "subjects"
   add_foreign_key "trainee_reports", "reports"

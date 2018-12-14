@@ -43,7 +43,7 @@
             <span class="short-description"><%= my_course.description %></span>
           </div>
           <div class="card-footer">
-            <%= link_to t(".learn"), trainee_learn_path(my_course.id), class:"btn btn-success"%>
+            <%= link_to t(".learn"), learn_path(my_course.id), class:"btn btn-success"%>
           </div>
         </div>
       </div>
@@ -58,6 +58,9 @@
           <div class="card-body">
             <h3 class="title-course"><%= course.name %></h3>
             <span class="short-description"><%= course.description %></span>
+          </div>
+          <div class="card-footer">
+            <%= link_to t(".view"), learn_path(course.id), class:"btn btn-success"%>
           </div>
         </div>
       </div>
