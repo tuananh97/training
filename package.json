@@ -1,5 +1,8 @@
 {
   "name": "fts_81",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "sweetalert2": "^7.33.1",
+    "toastr": "^2.1.4"
+  }
 }

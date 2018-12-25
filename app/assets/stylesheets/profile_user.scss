@@ -1,0 +1,90 @@
+.avt {
+  display: inline-block;
+}
+
+.image_cm {
+  height: 80px;
+  width: 80px;
+  margin-right: 10px;
+}
+
+.avatar {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.avatar-profile {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin: 0px 0px 5px 15px
+}
+
+.avatar_header {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+}
+
+.container-profile {
+  height: 15.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.info-profile {
+  margin: auto;
+}
+
+.profile {
+  background-color: $zircon;
+  color: $regalBlue;
+}
+
+.detail-profile {
+  display: flex;
+  height: 8rem;
+  padding-top: 20px;
+}
+
+.profile-left, .profile-right {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  height: 5rem;
+}
+
+.detail-user {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 16px;
+}
+
+.count {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.count-course, .quantity-subject {
+  font-size: 2rem;
+}
+
+.profile-right:hover, .profile-left:hover {
+  background-color: $azure;
+  border-left: 4px solid $springRain;
+}
+
+.username {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: bold;
+}
+
+.title{
+  margin-bottom:20px;
+}

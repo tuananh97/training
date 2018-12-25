@@ -1,8 +1,14 @@
 @import "bootstrap";
-@import "color.scss";
 @import "font-awesome";
+@import "color.scss";
 @import "custom.scss";
-@import "toastr";
-@import "table_admin.scss";
+@import "list_user.scss";
+@import "course.scss";
+@import "learn.scss";
 @import "static_pages.scss";
+@import "login_form.scss";
 @import "navbar.scss";
+@import "profile_user.scss";
+@import "table_admin.scss";
+@import "toastr/build/toastr.min";
+@import 'sweetalert2/dist/sweetalert2.min';

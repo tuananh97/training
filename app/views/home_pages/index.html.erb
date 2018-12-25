@@ -1,8 +1,9 @@
 <%= provide :title, t(".home") %>
+<div class="content-wrapper"" id="info-course">
 <div class="member">
-  <div class="content-wrapper container-member">
-    <img class="img-course" src="/assets/course.svg">
-    <div class="left-info-member">
+  <div class="container-member">
+    <img class="img-course img-fluid" src="/assets/course.svg">
+    <div class="left-info-member" style="padding-left: 50px;">
       <div>
         <% if user_signed_in? %>
           <div class="avt">
@@ -33,11 +34,11 @@
   </div>
 </div>
 <% if current_user.trainee? %>
-  <div class="row content-wrapper" id="info-course">
+  <div class="row" id="info-course">
     <% @my_courses.each do |my_course| %>
       <div class="col-md-3 card-size">
         <div class="card">
-          <img class="card-img-top" src="/assets/course.svg" tyle="width:100%">
+          <img class="card-img-top" src="/assets/course.png" tyle="width:100%">
           <div class="card-body">
             <h3 class="title-course"><%= my_course.name %></h3>
             <span class="short-description"><%= my_course.description %></span>
@@ -50,11 +51,11 @@
     <% end %>
   </div>
 <% else %>
-  <div class="row content-wrapper" id="info-course">
+  <div class="row" id="info-course">
     <% @supervisor_courses.each do |course| %>
       <div class="col-md-3 card-size">
         <div class="card">
-          <img class="card-img-top" src="/assets/course.svg" tyle="width:100%">
+          <img class="card-img-top" src="/assets/course.png" tyle="width:100%">
           <div class="card-body">
             <h3 class="title-course"><%= course.name %></h3>
             <span class="short-description"><%= course.description %></span>
@@ -67,3 +68,4 @@
     <% end %>
   </div>
 <% end %>
+</div>

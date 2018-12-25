@@ -1,0 +1,58 @@
+.login-logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.login-logo span {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.login-logo img {
+  height: 75px;
+}
+
+.login-content {
+  margin: 100px 0;
+}
+
+.login-form {
+  background: #ffffff;
+  padding: 30px 30px 20px;
+  border-radius: 2px;
+}
+
+.login-form h4 {
+  color: #455a64;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.login-form .checkbox {
+  color: #455a64;
+}
+
+.login-form .checkbox label {
+  text-transform: none;
+}
+
+.login-form .btn {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 15px;
+  border: 0px;
+}
+
+.login-form label {
+  color: #455a64;
+  text-transform: uppercase;
+}
+
+.login-form label a {
+  color: #4680ff;
+}
+
+.status {
+  color: $neonBlue;
+}

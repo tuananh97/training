@@ -1,51 +1,18 @@
+.container-fluid {
+  padding: 0 30px 25px;
+}
+
 .learn{
   margin-left:50px;
   margin-right:50px;
 }
 
-.image_cm {
-  width: 80px;
-  height: 80px;
-  padding-right: 10px;
+.new-object{
+  margin-bottom: 10px;
 }
 
-.flash {
-  margin: auto;
-}
-
-.avt {
-  display: inline-block;
-}
-
-.avatar {
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-}
-
-.avatar_header {
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 50%;
-}
-
-.detail-user {
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 16px;
-}
-
-.username {
-  font-size: 2.2rem;
-  line-height: 3rem;
-  font-weight: bold;
-}
-
-.count {
-  font-size: 1.8rem;
-  line-height: 2rem;
-  text-align: center;
-  font-weight: bold;
+.fa-trash {
+  color: $red;
 }
 
 .inc, .made_in, .located {
@@ -54,148 +21,18 @@
   width: 30%;
 }
 
-.member {
-  background-color: $victoria;
-  color: $white;
-}
-
-.container-member {
-  height: 12.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.left-info-member {
-  width: 80%;
-  display: flex;
-  height: 5rem;
-  z-index: 1;
-}
-
-.right-info-member {
-  width: 20%;
-  display: flex;
-  height: 5rem;
-  z-index: 1;
-}
-
-.img-course {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-}
-
-.picture-course {
-  background-color: $white;
-}
-
-.avt-course {
-  vertical-align: middle;
-  height: 11.5rem;
-}
-
-#info-course {
-  padding-top: 20px;
-}
-
-.topLine {
-  color: $victoria;
-}
-.card-size{
-  padding-bottom: 20px;
-}
-.link-card {
-  height: 12.5rem;
-  color: $charcoal;
-}
-
-.topBar {
-  background-color: $scampi;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 0.5rem;
-  width: 100%;
-}
-
-.card:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  opacity: 0.7;
-}
-
-// User Profile
-.avatar-profile {
-  height: 120px;
-  width: 120px;
-  border-radius: 50%;
-  margin: 0px 0px 5px 15px
-}
-
-.info-profile {
+.flash {
   margin: auto;
 }
 
-.profile {
-  background-color: $zircon;
-  color: $regalBlue;
+.error {
+  margin: auto;
 }
 
-.container-profile {
-  height: 15.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-}
-
-.detail-profile {
-  display: flex;
-  height: 8rem;
-  padding-top: 20px;
-}
-
-.profile-left, .profile-right {
-  width: 50%;
+h3, h4 {
   text-align: center;
-  margin: auto;
-  height: 5rem;
 }
 
-.count-course, .quantity-subject {
-  font-size: 2rem;
-}
-
-.profile-right:hover, .profile-left:hover {
-  background-color: $azure;
-  border-left: 4px solid $springRain;
-}
-
-// all members
-.each-member {
-  padding: 20px;
-  display: flex;
-}
-
-.bt-view {
-  opacity: 0;
-  transition: opacity .35s ease;
-}
-
-.each-member:hover .bt-view {
-  background-color: $gumLeaf;
-  opacity: 1.0;
-}
-
-.info-member {
-  padding-left: 10px;
-}
-
-// flash
 .alert-notice {
   background-color: $hintOfGreen;
   border-color: frostee;
@@ -206,123 +43,4 @@
 label.required:after{
   content: " *";
   color: $red;
-}
-
-.submit-course {
-  margin: auto;
-  text-align: center;
-}
-
-.subjects, .course {
-  min-height: 20px;
-  background-color: $whiteSmoke;
-  box-shadow: rgba(0, 0, 0, 0.05) 0 1px 1px inset;
-  padding: 19px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: $gainsboro;
-  border-image: initial;
-  border-radius: 4px;
-  margin: 10px auto;
-}
-
-.subject {
-  border-bottom: 2px dashed $monochromatic;
-  margin-bottom: 10px;
-}
-
-.task {
-  width: 80%;
-  margin-left: auto;
-}
-
-.fa-trash {
-  color: $red;
-}
-
-.error {
-  margin: auto;
-}
-
-h3 {
-  text-align: center;
-}
-
-.container-fluid {
-  padding: 0 30px 25px;
-}
-
-.login-logo {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.login-logo span {
-  color: #ffffff;
-  font-size: 24px;
-}
-
-.login-logo img {
-  height: 75px;
-}
-
-.login-content {
-  margin: 100px 0;
-}
-.login-form {
-  background: #ffffff;
-  padding: 30px 30px 20px;
-  border-radius: 2px;
-}
-.login-form h4 {
-  color: #455a64;
-  text-align: center;
-  margin-bottom: 50px;
-}
-.login-form .checkbox {
-  color: #455a64;
-}
-.login-form .checkbox label {
-  text-transform: none;
-}
-
-.login-form .btn {
-  width: 100%;
-  text-transform: uppercase;
-  font-size: 14px;
-  padding: 15px;
-  border: 0px;
-}
-
-.login-form label {
-  color: #455a64;
-  text-transform: uppercase;
-}
-
-.login-form label a {
-  color: #4680ff;
-}
-
-.status {
-  color: $neonBlue;
-}
-
-#form_subject, #form_task {
-  margin: auto;
-}
-
-h3, h4 {
-  text-align: center;
-}
-
-#supervisor-edit-trainee, #edit-profile {
-  margin: auto;
-}
-
-.progress-bar {
-  animation: progress-bar-stripes 2s linear infinite;
-}
-
-.progress-bar {
-  background-color: #20c997;
 }

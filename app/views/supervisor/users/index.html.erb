@@ -1,38 +1,41 @@
 <% provide :title, t(".manage_user") %>
+<div class="content-wrapper">
+  <div class="panel panel-primary filterable">
+    <div class="panel-heading">
+      <h3 class="panel-title"> <%= t ".manage_user" %></h3>
+    </div>
+      <div class="text-right new-object">
+        <%= link_to new_supervisor_user_path, class:"nav-link" do %>
+            <i class="fa fa-user-plus"></i>&nbsp;<%= t(".create_trainee") %>
+        <% end %>
+      </div>
+    <div class="row">
+      <div class="col-md-6" id="paginator">
+        <%= paginate @users, remote: true, theme: "twitter-bootstrap-4" %>
+      </div>
 
-<div class="panel panel-primary filterable">
-  <div class="panel-heading">
-    <h3 class="panel-title">
-      <%= t ".manage_user" %>
-    </h3>
-  </div>
-  <div class="col-md-12 text-right">
-    <%= link_to new_supervisor_user_path, class:"nav-link" do %>
-        <i class="fa fa-user-plus"></i>&nbsp;<%= t(".create_trainee") %>
-    <% end %>
-  </div>
-  <table class="table" id="myTableadmin">
-    <thead>
-      <tr class="filters">
-        <th></th>
-        <th><input type="text" class="form-control"
-          placeholder="<%= t '.name' %>"></th>
-        <th><input type="text" class="form-control"
-          placeholder="<%= t '.email' %>"></th>
-        <th><input type="text" class="form-control"
-          placeholder="<%= t '.address' %>"></th>
-        <th><input type="text" class="form-control"
-          placeholder="<%= t '.phone' %>"></th>
-        <th><input type="text" class="form-control"
-          placeholder="<%= t '.joined' %>"></th>
-        <th></th>
-      </tr>
-    </thead>
+    </div>
+
+    <table class="table table-hover" id="myTableadmin">
+      <thead>
+        <tr class="filters">
+          <th>#</th>
+          <th><input type="text" class="form-control"
+            placeholder="<%= t '.name' %>"></th>
+          <th><input type="text" class="form-control"
+            placeholder="<%= t '.email' %>"></th>
+          <th><input type="text" class="form-control"
+            placeholder="<%= t '.address' %>"></th>
+          <th><input type="text" class="form-control"
+            placeholder="<%= t '.phone' %>"></th>
+          <th><input type="text" class="form-control"
+            placeholder="<%= t '.joined' %>"></th>
+          <th></th>
+        </tr>
+      </thead>
       <tbody id="users">
         <%= render "user" %>
       </tbody>
-  </table>
-</div>
-<div id="paginator">
-  <%= paginate @users, remote: true, theme: "twitter-bootstrap-4" %>
+    </table>
+  </div>
 </div>

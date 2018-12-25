@@ -23,7 +23,7 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
         format.js
       end
     else
-      flash[:danger] = t "supervisor.courses.button.add_user.failed"
+      flash[:error] = t "supervisor.courses.button.add_user.failed"
       redirect_to :back
     end
   end
@@ -40,7 +40,7 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
     if @course.remove_user @user
       remove_sucess
     else
-      flash[:danger] = t "supervisor.courses.button.remove_user.failed"
+      flash[:error] = t "supervisor.courses.button.remove_user.failed"
       redirect_to :back
     end
   end
@@ -58,7 +58,7 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
   def set_user_course
     @user_course = UserCourse.find_by id: params[:id]
     return if @user_course
-    flash[:danger] = t "error"
+    flash[:error] = t ".error"
     redirect_to :back
   end
 
@@ -66,11 +66,11 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
     @user = User.find_by id: params[:user_id]
     @course = Course.find_by id: params[:course_id]
     if @user && !@course
-      flash[:danger] = t "supervisor.courses.add_user.course_not_found"
+      flash[:error] = t "supervisor.courses.add_user.course_not_found"
       redirect_to new_supervisor_course_path
     end
     return if @course || @user
-    flash[:danger] = t "error"
+    flash[:error] = t ".error"
     redirect_to supervisor_courses_path
   end
 

@@ -1,0 +1,45 @@
+.container-member {
+  height: 12.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.left-info-member {
+  width: 80%;
+  display: flex;
+  height: 5rem;
+  z-index: 1;
+}
+
+.right-info-member {
+  width: 20%;
+  display: flex;
+  height: 5rem;
+  z-index: 1;
+}
+
+.member {
+  background-color: $victoria;
+  color: $white;
+}
+
+.each-member {
+  padding: 20px;
+  display: flex;
+}
+
+.bt-view {
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.each-member:hover .bt-view {
+  background-color: $gumLeaf;
+  opacity: 1.0;
+}
+
+.info-member {
+  padding-left: 10px;
+}

@@ -29,7 +29,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @trainers.each_with_index do |trainer, index| %>
+          <% User.load_data.supervisor.each_with_index do |trainer, index| %>
             <% if index.odd? %>
               <tr>
                 <td><%= trainer.name %></td>
@@ -53,7 +53,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @trainers.each_with_index do |trainer, index| %>
+          <% User.load_data.supervisor.each_with_index do |trainer, index| %>
             <% if index.even? %>
               <tr>
                 <td><%= trainer.name %></td>

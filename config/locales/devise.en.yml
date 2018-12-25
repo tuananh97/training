@@ -61,6 +61,7 @@ en:
         avatar: "avatar"
         sign_up: "Sign Up"
       edit:
+        edit_profile: "Change My Profile"
         email: "email"
         current-password: "Current Password"
         new-password: "New Password"
@@ -74,7 +75,6 @@ en:
         confirm_current_password: "(we need your current password to confirm your changes)"
         update: "Update"
         back: "Back"
-        edit: "Change Profile"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."

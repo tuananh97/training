@@ -8,12 +8,11 @@
         <%= t ".commented", user: comment.user.name, time: time_ago_in_words(comment.created_at) %>
       </small>
     </span>
-    <div id = "content-<%= comment.id %>">
+    <div id="content-<%= comment.id %>">
       <p><%= comment.content.html_safe %></p>
     </div>
     <% if comment.parent? and user_signed_in? %>
-      <%= link_to t(".reply"), new_reply_comment_path(comment), remote: true,
-        id: "comment-#{comment.id}" %>
+      <%= link_to t(".reply"), new_reply_comment_path(comment), remote: true, id:"comment-#{comment.id}" %>
     <% end %>
     <% if comment.user == current_user %>
       <%= link_to t(".edit"), edit_comment_path(comment), remote: true %>

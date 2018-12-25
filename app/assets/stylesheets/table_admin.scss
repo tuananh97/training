@@ -6,6 +6,11 @@ table.dataTable thead .sorting_desc_disabled {
   background: transparent;
 }
 
+.table-admin{
+  margin-left:30px;
+  margin-right:30px;
+}
+
 table.dataTable thead .sorting_asc:after {
   content: '\f0de';
   float: right;

@@ -1,10 +1,21 @@
+<% provide :title, t(".learn_task", name: @task.name) %>
 
-  <div class="row learn">
+<div class="row learn">
     <div class="col-md-6">
       <h3><%= @task.name %></h3>
       <p><%= @task.description %></p>
-      <p><%= @task.content %></p>
-      <iframe width="820" height="620" frameborder="0" src="https://www.youtube.com/embed/gZtZnZy9QXg"></iframe>
+      <div class="video" style="
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;">
+        <iframe src="https://www.youtube.com/embed/gZtZnZy9QXg" style="
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;"></iframe>
+      </div>
       <% if TraineeTask.find_by(trainee_id: current_user.id, task_id: @task.id) != nil %>
         <% unless TraineeTask.find_by(trainee_id: current_user.id, task_id: @task.id).finish? %>
           <%= link_to t(".finish"), task_path(@task.id), method: :put, class: "btn btn-success" %>
@@ -12,10 +23,10 @@
       <% end %>
     </div>
     <div class="col-md-6">
-      <h3><%= "Hoi Dap" %></h3>
+      <h3><%= t ".discussion" %></h3>
       <%= render "comment_form" %>
       <br/>
       <div class="comment"></div>
       <%= render @comments %>
     </div>
-  </div>
+</div>

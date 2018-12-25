@@ -17,6 +17,7 @@ module ApplicationHelper
     flash.each do |type, message|
       type = "success" if type == "notice"
       type = "error" if type == "alert"
+      type = "warning" if type == "warning"
       text = "toastr.#{type}('#{message}');"
       flash_messages << text if message
     end
@@ -30,6 +31,10 @@ module ApplicationHelper
   end
 
   def get_avatar user
-    user.avatar.present? ? user.avatar.url : Settings.default_image
+    if user.avatar.present?
+      user.avatar.url
+    else
+      user.trainee? ? Settings.default_avatar_trainee : Settings.default_avatar_teacher
+    end
   end
 end

@@ -19,12 +19,10 @@
             <% end %>
           </td>
           <td>
-            <ul>
-            <%= link_to t(".all member"), trainee_path(mycourse.id), class: "btn btn-info" %>
-            </ul>
+            <%= link_to t(".course_members"), trainee_path(mycourse.id) %>
           </td>
           <td>
-            <%= link_to t(".your_progress"), trainee_course_path(mycourse.id), class: "btn btn-info" %>
+            <%= link_to t(".my_progress"), trainee_course_path(mycourse.id) %>
           </td>
         </tr>
       <% end %>

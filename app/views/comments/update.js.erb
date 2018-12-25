@@ -1,1 +1,1 @@
-$('#content-<%= j @comment.id.to_s %>').html('<p><%= @comment.content %></p>')
+$('#content-<%= j @comment.id.to_s %>').html('<p><%= @comment.content.html_safe %></p>')

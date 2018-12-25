@@ -14,7 +14,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     if @subject.save!
       flash[:success] = t ".success"
     else
-      flash[:danger] = t ".failure"
+      flash[:error] = t ".failure"
     end
     redirect_to supervisor_courses_path
   end
@@ -28,7 +28,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
       assign_task
       flash[:success] = t ".success"
     else
-      flash[:danger] = t ".failure"
+      flash[:error] = t ".failure"
     end
     redirect_to supervisor_course_subject_path
   end
@@ -37,7 +37,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     if @subject.destroy
       flash[:success] = t ".success"
     else
-      flash[:danger] = t ".failure"
+      flash[:error] = t ".failure"
     end
     redirect_to supervisor_courses_path
   end
@@ -48,7 +48,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     if @subject.update_attributes status: :finish
       flash[:success] = t ".success"
     else
-      flash[:danger] = t ".failure"
+      flash[:error] = t ".failure"
     end
     redirect_to supervisor_courses_path
   end
@@ -75,7 +75,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     @subject = Subject.find_by_id params[:id]
 
     return if @subject
-    flash[:danger] = t ".not_found"
+    flash[:error] = t ".not_found"
     redirect_to supervisor_courses_path
   end
 
@@ -83,7 +83,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     @course = Course.find_by_id params[:course_id]
 
     return if @course
-    flash[:danger] = t ".not_found"
+    flash[:error] = t ".not_found"
     redirect_to supervisor_courses_path
   end
 end

@@ -1,4 +1,22 @@
 en:
+  confirm_popup:
+    sure_delete: "Are you sure want to delete."
+    delete_text: "Once you delete it, a data can not be restore"
+    agree_delete: "Yes, delete it!"
+    refuse: "No, cancel!"
+    cancelled: "Cancelled"
+    safe_data: "Your data is safe"
+    error: "error"
+    warning: "warning"
+    btn_success: "btn btn-success"
+    btn_danger: "btn btn-danger"
+    sure_exit: "Are you sure want to exit?"
+    exit_text: "Your content can be discarded"
+    agree_exit: "Yes, exit it!"
+    opp: "Opp...."
+    something_wrong: "Something went wrong! Can't not delete email shared!"
+    update_failed: "Something went wrong! Can't not update email shared!"
+    invalid_user: "Invalid user, Please try again!"
   base_title: "UET Learning Online"
   time:
     formats:
@@ -56,6 +74,9 @@ en:
   learns:
     learn: "Learn"
   tasks:
+    show:
+      learn_task: "Learn %{name} "
+      discussion: "Discussion"
     comment_form:
       submit: "Comment"
     update:
@@ -116,11 +137,15 @@ en:
         course: "Courses"
         subject: "Subjects"
         members: "Members"
+        my_progress: "My Progress"
+        course_members: "All Members"
       show_member:
         title: "Members of course"
       show:
+        course: "Course"
         description: "Description"
         time: "Time"
+        completed: "Completed"
   shared:
     error_messages:
       form_error_warning:
@@ -136,6 +161,7 @@ en:
         add_fail: "Add new trainee error. Please recheck information!"
       update:
         success: "Update trainee information success"
+        fail: "Add new trainee error. Please recheck information!"
       destroy:
         success: "Delete this trainee success"
         warning: "Don't delete this trainee. Please recheck information!"
@@ -255,6 +281,8 @@ en:
           confirm_delete: "Are you sure remove this user from course?"
         add_user:
           failed: "Add User Fail"
+      find_course:
+        not_found: "This course not exist!"
       destroy:
         success: "Delete successfully!"
         failure: "Delete course failure"
@@ -266,6 +294,7 @@ en:
         view: "Views"
         suppervisor_course: "Suppervisor"
         trainee_course: "Trainee"
+        not_found: "This course not exist!"
     subjects:
       new:
         create: "Create"
@@ -299,9 +328,10 @@ en:
         task: "Task"
     reports:
       index:
+        title: "Manage Daily Report"
         daily_report: "Daily report"
         sender: "Name of sender"
-        title: "Title"
+        name: "Title"
         content: "Content report"
         send_time: "Send time"
   mailer:

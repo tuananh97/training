@@ -1,8 +1,8 @@
 class Supervisor::CoursesController < Supervisor::BaseController
-  before_action :find_course, except: [:index, :new, :finish]
+  before_action :find_course, except: %i(index new finish)
 
   def index
-    @courses = Course.all_courses.page(params[:page]).per Settings.course.per_page
+    @courses = Course.all_courses.page(params[:page]).per 2
   end
 
   def new
@@ -24,18 +24,28 @@ class Supervisor::CoursesController < Supervisor::BaseController
       flash[:success] = t ".success"
       redirect_to supervisor_courses_path
     else
-      flash[:danger] = t ".failure"
+      flash[:error] = t ".failure"
       render :new
     end
   end
 
   def show
-    @trainees = @course.users.trainee
-    @supervisors = @course.users.supervisor
+    if @course != nil
+      @trainees = @course.users.trainee
+      @supervisors = @course.users.supervisor
+    else
+      flash[:error] = t ".not_found"
+      redirect_to supervisor_courses_path
+    end
   end
 
   def edit
-    load_all_users
+    if @course != nil
+      load_all_users
+    else
+      flash[:error] = t ".not_found"
+      redirect_to supervisor_courses_path
+    end
   end
 
   def update
@@ -43,7 +53,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
       flash[:success] = t ".success"
       redirect_to supervisor_course_path
     else
-      flash[:danger] = t ".failure"
+      flash[:error] = t ".failure"
       render :edit
     end
   end
@@ -52,7 +62,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
     if @course.destroy
       flash[:success] = t ".success"
     else
-      flash[:danger] = t ".failure"
+      flash[:error] = t ".failure"
     end
     redirect_to supervisor_courses_path
   end
@@ -63,7 +73,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
     if @course.update_attributes status: :finish
       flash[:success] = t ".success"
     else
-      flash[:danger] = t ".failure"
+      flash[:error] = t ".failure"
     end
     redirect_to supervisor_courses_path
   end
@@ -77,9 +87,8 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
   def find_course
     @course = Course.find_by_id params[:id]
-
     return @course
-    flash[:danger] = t ".not_found"
+    flash[:error] = t ".not_found"
     redirect_to supervisor_courses_path
   end
 

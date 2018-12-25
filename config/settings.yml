@@ -27,6 +27,7 @@ pages:
   per: 10
 course_times: 2
 task_times: 2
-default_image: "/assets/training.png"
+default_avatar_trainee: "/assets/trainee.png"
+default_avatar_teacher: "/assets/teacher.png"
 format_time: "%d/%m/%Y"
 mail_from: "tuananhk60uet@gmail.com"

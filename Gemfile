@@ -21,6 +21,8 @@ gem "font-awesome-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "kaminari"
+gem "i18n"
+gem "i18n-js"
 gem "mini_magick"
 gem "mini_racer"
 gem "momentjs-rails"
@@ -31,7 +33,6 @@ gem "rolify"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "sidekiq"
-gem 'toastr-rails'
 gem "uglifier", ">= 1.3.0"
 gem "validates_timeliness", "~> 5.0.0.alpha3"
 gem "whenever", :require => false

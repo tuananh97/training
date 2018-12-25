@@ -1,5 +1,4 @@
-class Trainee::UsersController < ApplicationController
-  before_action :authenticate_user!
+class Trainee::UsersController < Trainee::BaseController
   before_action :find_user, only: :show
 
   def show
@@ -17,7 +16,7 @@ class Trainee::UsersController < ApplicationController
     if @user&.trainee?
       return @user
     else
-      flash[:danger] = t ".message.not_found_member"
+      flash[:error] = t ".message.not_found_member"
       redirect_to root_path
     end
   end

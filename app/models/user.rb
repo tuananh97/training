@@ -3,6 +3,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
    :validatable
+
   has_many :user_courses
   has_many :comments, dependent: :destroy
   has_many :courses, through: :user_courses
@@ -16,8 +17,8 @@ class User < ApplicationRecord
   has_many :trainee_reports
   has_many :user_courses
   has_many :courses, through: :user_courses
-  VALID_PHONE_NUMBER_REGEX = Settings.regex.phone
 
+  VALID_PHONE_NUMBER_REGEX = Settings.regex.phone
   validates :name, presence: true,
     length: {maximum: Settings.user.user_name.max_length,
              minimum: Settings.user.user_name.min_length}
@@ -32,6 +33,4 @@ class User < ApplicationRecord
   scope :by_lastest, ->{order created_at: :desc}
   scope :load_data, ->{select :id, :name, :email, :address, :phone, :avatar, :role}
   scope :accounts, ->{select :id, :name, :email, :address, :phone}
-  scope :members, ->{accounts.trainee}
-  scope :trainers, ->{accounts.supervisor}
 end

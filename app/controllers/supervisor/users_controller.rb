@@ -30,6 +30,7 @@ class Supervisor::UsersController < Supervisor::BaseController
       flash[:success] = t ".success"
       redirect_to supervisor_users_path
     else
+      flash[:error] = t ".fail"
       render :edit
     end
   end
@@ -38,7 +39,7 @@ class Supervisor::UsersController < Supervisor::BaseController
     if @user.destroy
       flash[:success] = t ".success"
     else
-      flash[:danger] = t ".warning"
+      flash[:error] = t ".warning"
     end
     redirect_to supervisor_users_path
   end
@@ -56,7 +57,7 @@ class Supervisor::UsersController < Supervisor::BaseController
   def load_user
     @user = User.find_by id: params[:id]
     return if @user
-    flash[:danger] = t ".not_found"
+    flash[:error] = t ".not_found"
     redirect_to supervisor_users_path
   end
 
@@ -65,7 +66,7 @@ class Supervisor::UsersController < Supervisor::BaseController
     if @user&.supervisor?
       return @user
     else
-      flash[:danger] = t ".not_found_supervisor"
+      flash[:error] = t ".not_found_supervisor"
       redirect_to root_path
     end
   end

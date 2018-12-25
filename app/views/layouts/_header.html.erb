@@ -1,109 +1,113 @@
 <header>
-<nav class="navbar navbar-default navbar-expand-xl navbar-light">
-  <div class="navbar-header d-flex col">
-    <%= link_to home_path, class:"navbar-brand" do %>
-      <i class="fa fa-cube"></i>&nbsp;<%= t ".logo" %>
-    <% end %>
-    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
-      <span class="navbar-toggler-icon"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-  </div>
+  <nav class="navbar navbar-default navbar-expand-xl navbar-light">
+    <div class="navbar-header d-flex col">
+      <%= link_to home_path, class:"navbar-brand" do %>
+        <i class="fa fa-cube"></i>&nbsp;<%= t ".logo" %>
+      <% end %>
+      <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+        <span class="navbar-toggler-icon"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
 
-  <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
-    <ul class="nav navbar-nav">
-      <li class="nav-item active">
-        <%= link_to home_path, class:"nav-link" do %>
-          <i class="fa fa-home"></i>&nbsp;<%= t ".home" %>
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="nav-item">
+          <%= link_to home_path, class:"nav-link" do %>
+            <i class="fa fa-home"></i>&nbsp;<%= t ".home" %>
+          <% end %>
+        </li>
+        <% if user_signed_in? %>
+          <% if current_user.supervisor? %>
+            <li class="nav-item">
+              <%= link_to supervisor_users_path, class:"nav-link" do %>
+                <i class="fa fa-user"></i>&nbsp;<%= t ".manage_user" %>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to supervisor_supervisors_path, class:"nav-link" do %>
+                <i class="fa fa-users"></i>&nbsp;<%= t ".supervisors" %>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to supervisor_courses_path, class:"nav-link" do %>
+                <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".catalog" %>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to supervisor_reports_path, class:"nav-link" do %>
+              <i class="fa fa-list-alt"></i>&nbsp;<%= t ".daily_report" %>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to trainee_courses_path, class:"nav-link" do %>
+                <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".mycourse" %>
+              <% end %>
+            </li>
+            <%= link_to trainee_members_path, class:"nav-link" do %>
+              <i class="fa fa-users"></i>&nbsp;<%= t ".all_members" %>
+            <% end %>
+            <li class="nav-item">
+              <%= link_to trainee_reports_path, class:"nav-link" do %>
+              <i class="fa fa-list-alt"></i>&nbsp;<%= t ".daily_report" %>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
-      </li>
-      <% if user_signed_in? %>
-        <% if current_user.supervisor? %>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right ml-auto">
+        <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to supervisor_users_path, class:"nav-link" do %>
-              <i class="fa fa-user"></i>&nbsp;<%= t ".manage_user" %>
-            <% end %>
+            <a href="#" class="nav-link notifications">
+              <i class="fa fa-bell-o"></i><span class="badge">1</span>
+            </a>
           </li>
-          <li class="nav-item">
-            <%= link_to supervisor_supervisors_path, class:"nav-link" do %>
-              <i class="fa fa-users"></i>&nbsp;<%= t ".supervisors" %>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to supervisor_courses_path, class:"nav-link" do %>
-              <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".catalog" %>
-            <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to supervisor_reports_path, class:"nav-link" do %>
-            <i class="fa fa-list-alt"></i>&nbsp;<%= t ".daily_report" %>
-            <% end %>
+          <li class="nav-item dropdown">
+            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action">
+              <%= image_tag get_avatar(current_user), class:"avatar", alt: t(".avatar") %>
+              <%= current_user.name %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <% if current_user.supervisor? %>
+                <li>
+                  <%= link_to supervisor_user_path(current_user.id), class: "dropdown-item" do %>
+                    <i class="fa fa-user-o"></i>&nbsp;<%= t ".profile" %>
+                  <% end %>
+                </li>
+                <% else %>
+                <li>
+                  <%= link_to trainee_user_path(current_user.id), class: "dropdown-item" do %>
+                    <i class="fa fa-user-o"></i>&nbsp;<%= t ".profile" %>
+                  <% end %>
+                </li>
+              <% end %>
+              <li>
+                <%= link_to edit_user_registration_path, class:"dropdown-item" do %>
+                  <i class="fa fa-sliders"></i>&nbsp;<%= t(".change_profile") %>
+                <% end %>
+              </li>
+              <li class="divider dropdown-divider"></li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete, class:"dropdown-item" do %>
+                  <i class="fa fa-sign-out"></i>&nbsp;<%= t ".logout" %>
+                <% end %>
+              </li>
+            </ul>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to trainee_courses_path, class:"nav-link" do %>
-              <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".mycourse" %>
-            <% end %>
-          </li>
-          <%= link_to trainee_members_path, class:"nav-link" do %>
-            <i class="fa fa-users"></i>&nbsp;<%= t ".all_members" %>
-          <% end %>
-          <li class="nav-item">
-            <%= link_to trainee_reports_path, class:"nav-link" do %>
-            <i class="fa fa-list-alt"></i>&nbsp;<%= t ".daily_report" %>
+            <%= link_to new_user_session_path, class:"nav-link" do %>
+              <i class="fa fa-sign-in"></i>&nbsp;<%= t ".login" %>
             <% end %>
           </li>
         <% end %>
-      <% end %>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right ml-auto">
-      <% unless user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to new_user_session_path, class:"nav-link" do %>
-            <i class="fa fa-sign-in"></i>&nbsp;<%= t ".login" %>
-          <% end %>
-        </li>
-      <% end %>
-      <% if user_signed_in? %>
-        <li class="nav-item"><a href="#" class="nav-link notifications"><i class="fa fa-bell-o"></i><span class="badge">1</span></a></li>
-        <li class="nav-item"><a href="#" class="nav-link messages"><i class="fa fa-envelope-o"></i><span class="badge">10</span></a></li>
-        <li class="nav-item dropdown">
-          <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action">
-            <%= image_tag get_avatar(current_user), class:"avatar", alt: t(".avatar") %>
-            <%= current_user.name %> <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <% if current_user.supervisor? %>
-              <li>
-                <%= link_to supervisor_user_path(current_user.id), class: "dropdown-item" do %>
-                  <i class="fa fa-user-o"></i>&nbsp;<%= t ".profile" %>
-                <% end %>
-              </li>
-              <% else %>
-              <li>
-                <%= link_to trainee_user_path(current_user.id), class: "dropdown-item" do %>
-                  <i class="fa fa-user-o"></i>&nbsp;<%= t ".profile" %>
-                <% end %>
-              </li>
-            <% end %>
-            <li>
-              <%= link_to edit_user_registration_path, class:"dropdown-item" do %>
-                <i class="fa fa-sliders"></i>&nbsp;<%= t(".change_profile") %>
-              <% end %>
-            </li>
-            <li class="divider dropdown-divider"></li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete, class:"dropdown-item" do %>
-                <i class="fa fa-sign-out"></i>&nbsp;<%= t ".logout" %>
-              <% end %>
-            </li>
-          </ul>
-        </li>
       </ul>
-    <% end %>
-  </div>
-</nav>
+    </div>
+  </nav>
 </header>

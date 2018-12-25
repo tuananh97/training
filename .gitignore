@@ -32,10 +32,6 @@ bower.json
 
 .byebug_history
 
-node_modules/
-
-config/database.yml
-
 /test
 
 config/settings.local.yml

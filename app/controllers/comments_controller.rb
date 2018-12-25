@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :load_comment, except: %i(index new create)
-  before_action :authenticate_user!
 
   def new; end
 

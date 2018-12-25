@@ -1,6 +1,9 @@
+<% provide :title, t(".edit_profile") %>
+
 <div class="container">
   <div class="col-md-8" id="edit-profile">
-    <h2><%= t ".edit", name: resource_name.to_s.humanize %></h2>
+    <h3 class="title"><%= t ".edit_profile", name: resource_name.to_s.humanize %></h3>
+
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div><%= t ".waiting", email: resource.unconfirmed_email %></div>
@@ -57,7 +60,7 @@
             </div>
           </div>
 
-          <div class="field form-group">
+          <div class="field form-group" style="margin-bottom: 25px">
             <%= f.label :avatar %>
             <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", autofocus: true %>
             <div align="right" class="error-messages-devise" >

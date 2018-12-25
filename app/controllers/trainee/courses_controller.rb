@@ -19,7 +19,7 @@ class Trainee::CoursesController < Trainee::BaseController
     @course = Course.find_by_id params[:id]
 
     return if @course
-    flash[:danger] = t ".not_found"
+    flash[:error] = t ".not_found"
     redirect_to root_path
    end
 end

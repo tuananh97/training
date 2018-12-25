@@ -2,12 +2,12 @@
   <%= form_for @comment, remote: true do |f| %>
     <%= f.hidden_field :task_id %>
     <%= f.hidden_field :user_id %>
-    <div class="form-group">
+    <div class="field form-group">
       <%= f.cktext_area :content, rows: 10 %>
+      <div align="right" class="error-messages-devise" >
+        <%= @comment.errors.full_messages_for(:content).first %>
+      </div>
     </div>
-    <div align="right" class="error-messages-devise" >
-      <%= @comment.errors.full_messages_for(:content).first %>
-    </div>
-    <%= f.submit t(".submit"), class: "btn btn-primary" %>
+    <%= f.submit t(".submit"), class: "btn btn-primary actions" %>
   <% end %>
 </div>
