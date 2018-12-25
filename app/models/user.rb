@@ -2,7 +2,7 @@ class User < ApplicationRecord
   enum role: {trainee: 0, supervisor: 1}
   mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
-   :validatable
+    :validatable
 
   has_many :user_courses
   has_many :comments, dependent: :destroy
@@ -31,6 +31,7 @@ class User < ApplicationRecord
              minimum: Settings.user.address.min_length}
 
   scope :by_lastest, ->{order created_at: :desc}
-  scope :load_data, ->{select :id, :name, :email, :address, :phone, :avatar, :role}
+  scope :load_data, ->{select :id, :name, :email, :address, :phone,
+    :avatar, :role}
   scope :accounts, ->{select :id, :name, :email, :address, :phone}
 end

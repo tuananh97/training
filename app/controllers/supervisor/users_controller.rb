@@ -3,7 +3,8 @@ class Supervisor::UsersController < Supervisor::BaseController
   before_action :find_supervisor, only: :show
 
   def index
-    @users = User.trainee.by_lastest.page(params[:page]).per Settings.user.per_page_index
+    @users = User.trainee.by_lastest.page(params[:page]).per
+      Settings.user.per_page_index
   end
 
   def new
@@ -45,7 +46,8 @@ class Supervisor::UsersController < Supervisor::BaseController
   end
 
   def all_supervisors
-    @supervisors = User.load_data.supervisor.page(params[:page]).per Settings.user.per_page
+    @supervisors = User.load_data.supervisor.page(params[:page]).per
+      Settings.user.per_page
   end
 
   private

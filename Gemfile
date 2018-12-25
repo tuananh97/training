@@ -18,11 +18,11 @@ gem "config"
 gem "devise"
 gem "faker"
 gem "font-awesome-rails"
+gem "i18n"
+gem "i18n-js"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "kaminari"
-gem "i18n"
-gem "i18n-js"
 gem "mini_magick"
 gem "mini_racer"
 gem "momentjs-rails"
@@ -35,7 +35,7 @@ gem "sass-rails", "~> 5.0"
 gem "sidekiq"
 gem "uglifier", ">= 1.3.0"
 gem "validates_timeliness", "~> 5.0.0.alpha3"
-gem "whenever", :require => false
+gem "whenever", require: false
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

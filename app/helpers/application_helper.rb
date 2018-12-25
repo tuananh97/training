@@ -34,7 +34,11 @@ module ApplicationHelper
     if user.avatar.present?
       user.avatar.url
     else
-      user.trainee? ? Settings.default_avatar_trainee : Settings.default_avatar_teacher
+      if user.trainee?
+        Settings.default_avatar_trainee
+      else
+        Settings.default_avatar_teacher
+      end
     end
   end
 end

@@ -11,11 +11,10 @@ class TasksController < ApplicationController
     @trainee_task = TraineeTask.find_by(task_id: @task.id, trainee_id: current_user.id)
     if @trainee_task.update status: :finish
       flash[:success] = t ".success"
-      redirect_to task_path @task
     else
       flash[:danger] = t ".failure"
-      redirect_to task_path @task
     end
+    redirect_to task_path @task
   end
 
   private
@@ -23,7 +22,8 @@ class TasksController < ApplicationController
   def find_task
     @task = Task.find_by_id params[:id]
     if current_user.trainee?
-      if TraineeTask.where(task_id: @task.id, trainee_id: current_user.id).present?
+      if TraineeTask.where(task_id: @task.id,
+        trainee_id: current_user.id).present?
         return @task
       else
         flash[:danger] = t ".not_found"

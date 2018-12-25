@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build comment_params
     if @comment.save!
       respond_to do |format|
-        format.html {redirect_to @comment.task}
+        format.html{redirect_to @comment.task}
         format.js
       end
     end
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
   def edit
     respond_to do |format|
-      format.html {redirect_to @comment.task}
+      format.html{redirect_to @comment.task}
       format.js
     end
   end
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
   def update
     if @comment.update_attributes comment_params
       respond_to do |format|
-        format.html {redirect_to @comment.task}
+        format.html{redirect_to @comment.task}
         format.js
       end
     else
@@ -34,17 +34,16 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if @comment.destroy
-      respond_to do |format|
-        format.html {redirect_to @comment.task}
-        format.js
-      end
+    return if @comment.destroy
+    respond_to do |format|
+      format.html{redirect_to @comment.task}
+      format.js
     end
   end
 
   def new_reply
     respond_to do |format|
-      format.html {redirect_to @comment.task}
+      format.html{redirect_to @comment.task}
       format.js
     end
   end

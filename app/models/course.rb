@@ -8,19 +8,22 @@ class Course < ApplicationRecord
   has_many :be_admins, through: :passive_admin_courses, source: :be_admin
 
   enum status: {init: 0, start: 1, finish: 2}
-  validates_datetime :end_time, after: :start_time, message: I18n.t(".validate_time")
+  validates_datetime :end_time, after: :start_time,
+    message: I18n.t(".validate_time")
 
   accepts_nested_attributes_for :subjects, allow_destroy: true
 
-  scope :all_courses, ->{select(:id, :name, :description, :status, :start_time, :end_time).order created_at: :desc}
-  scope :trainee_courses, ->(id){joins(:user_courses).select(:id, :name, :description, :start_time, :end_time, :status, "user_courses.user_id as user_id, user_courses.course_id as course_id").where(user_courses: {user_id: id, status: [:trainee_start, :trainee_complete]})}
+  scope :all_courses, lambda{select(:id, :name, :description, :status,
+    :start_time, :end_time).order created_at: :desc}
+
+  scope :trainee_courses, lambda{|id| joins(:user_courses)
+    .select(:id, :name, :description, :start_time, :end_time, :status,
+    "user_courses.user_id as user_id, user_courses.course_id as course_id")
+    .where(user_courses: {user_id: id, status: [:trainee_start,
+    :trainee_complete]})}
 
   def assign_user user
-    if user.supervisor?
-      user_courses.create user_id: user.id, status: :trainee_start
-    else
-      user_courses.create user_id: user.id, status: :trainee_start
-    end
+    user_courses.create user_id: user.id, status: :trainee_start
   end
 
   def remove_user user

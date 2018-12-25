@@ -13,7 +13,8 @@ namespace :sample_data do
           address: Faker::Address.street_address,
           role: supervisor,
           password: password,
-          encrypted_password: BCrypt::Password.create(password))
+          encrypted_password: BCrypt::Password.create(password)
+          )
       end
       20.times do |j|
         user.add(
@@ -23,7 +24,8 @@ namespace :sample_data do
           address: Faker::Address.street_address,
           role: trainee,
           password: password,
-          encrypted_password: BCrypt::Password.create(password))
+          encrypted_password: BCrypt::Password.create(password)
+          )
       end
     end
 
@@ -34,7 +36,8 @@ namespace :sample_data do
           name: "Course #{i}",
           description: "description #{i}",
           start_time: 30.days.ago,
-          end_time: 10.days.ago)
+          end_time: 10.days.ago
+          )
       end
     end
 
@@ -44,7 +47,8 @@ namespace :sample_data do
         user_course.add(
           user_id: rand(1..20),
           course_id: course.id,
-          status: 0)
+          status: 0
+          )
       end
     end
 
@@ -57,7 +61,8 @@ namespace :sample_data do
           course_id: course.id,
           start_time: 20.days.ago,
           end_time: 10.days.ago,
-          status: 0)
+          status: 0
+          )
       end
     end
 
@@ -68,7 +73,8 @@ namespace :sample_data do
           name: "task #{index}",
           description: "description task #{index}",
           content: "Content #{index}",
-          subject_id: subject.id)
+          subject_id: subject.id
+          )
       end
     end
   end

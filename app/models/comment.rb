@@ -7,14 +7,15 @@ class Comment < ApplicationRecord
   has_many :replies, class_name: Comment.name, dependent: :destroy,
     foreign_key: :parent_id
 
-  validates :content, presence: true, length: {minimum: Settings.comment.min_length,
+  validates :content, presence: true, length: {
+    minimum: Settings.comment.min_length,
     maximum: Settings.comment.max_length}
 
   def parent?
-    self.parent.nil?
+    parent.nil?
   end
 
   def new_reply
-    self.replies.build task_id: self.task_id
+    replies.build task_id: self.task_id
   end
 end

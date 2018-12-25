@@ -1,6 +1,7 @@
 class Trainee::ReportsController < Trainee::BaseController
   def index
-    @list_reports = Report.trainee_reports(current_user.id).page(params[:page]).per Settings.per_page
+    @list_reports = Report.trainee_reports(current_user.id)
+      .page(params[:page]).per Settings.per_page
   end
 
   def new
@@ -11,7 +12,7 @@ class Trainee::ReportsController < Trainee::BaseController
 
   def create
     @report = Report.new report_params
-    if params[:receiver_ids] != nil
+    if !params[:receiver_ids].nil?
       @report.save
       TraineeReport.bulk_insert(ignore: true) do |worker|
         params[:receiver_ids].each do |receiver_id|

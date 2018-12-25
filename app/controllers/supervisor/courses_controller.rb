@@ -30,7 +30,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def show
-    if @course != nil
+    if !@course.nil?
       @trainees = @course.users.trainee
       @supervisors = @course.users.supervisor
     else
@@ -40,7 +40,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def edit
-    if @course != nil
+    if !@course.nil?
       load_all_users
     else
       flash[:error] = t ".not_found"
