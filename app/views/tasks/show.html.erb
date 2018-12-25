@@ -4,17 +4,8 @@
     <div class="col-md-6">
       <h3><%= @task.name %></h3>
       <p><%= @task.description %></p>
-      <div class="video" style="
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 25px;
-  height: 0;">
-        <iframe src="https://www.youtube.com/embed/gZtZnZy9QXg" style="
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;"></iframe>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/gZtZnZy9QXg"></iframe>
       </div>
       <% if TraineeTask.find_by(trainee_id: current_user.id, task_id: @task.id) != nil %>
         <% unless TraineeTask.find_by(trainee_id: current_user.id, task_id: @task.id).finish? %>
