@@ -87,7 +87,8 @@ en:
       new:
         forgot_password: "Forgot your password?"
         email: "email"
-        send_instructions: "Send me reset password instructions"
+        instructions: "Please enter the email address you used to sign in."
+        send: "Send"
       edit:
         change_password: "Change your password"
         new_password: "New Password"

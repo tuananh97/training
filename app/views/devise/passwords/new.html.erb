@@ -1,15 +1,20 @@
-<div class="container">
+<div class="content-wrapper">
   <h3><%= t ".forgot_password" %></h3>
-  <div class="row justify-content-center">
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
-      <%= devise_error_messages! %>
-      <div class="form-group">
-        <%= f.label :email %><br>
-        <%= f.email_field :email %>
-      </div>
-      <div class="actions form-group">
-        <%= f.submit t(".send_instructions"), class:"btn btn-primary" %>
-      </div>
-    <% end %>
+  <div class="row">
+    <div class="col-md-4 offset-md-4 login-form unix-login">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
+        <p class="instruction"><%= t ".instructions" %></p>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= resource.errors.full_messages_for(:email).first %>
+          </div>
+        </div>
+        <div class="actions form-group">
+          <%= f.submit t(".send"), class:"btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
