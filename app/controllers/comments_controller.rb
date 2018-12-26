@@ -6,11 +6,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build comment_params
-    if @comment.save!
-      respond_to do |format|
-        format.html{redirect_to @comment.task}
-        format.js
-      end
+    return if @comment.save!
+    respond_to do |format|
+      format.html{redirect_to @comment.task}
+      format.js
     end
   end
 

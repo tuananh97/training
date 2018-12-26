@@ -31,7 +31,7 @@ class User < ApplicationRecord
              minimum: Settings.user.address.min_length}
 
   scope :by_lastest, ->{order created_at: :desc}
-  scope :load_data, ->{select :id, :name, :email, :address, :phone,
-    :avatar, :role}
+  attr_select = %i(id name email address phone avatar role)
+  scope :load_data, ->{select attr_select}
   scope :accounts, ->{select :id, :name, :email, :address, :phone}
 end

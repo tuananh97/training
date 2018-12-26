@@ -87,7 +87,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
   def find_course
     @course = Course.find_by_id params[:id]
-    return @course
+    return if @course
     flash[:error] = t ".not_found"
     redirect_to supervisor_courses_path
   end

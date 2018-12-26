@@ -62,11 +62,11 @@ class Supervisor::SubjectsController < Supervisor::BaseController
   end
 
   def assign_task
-    TraineeSubject.find_trainee_on_subject(@course.id, @subject.id).each do |user|
+    TraineeSubject.trainees_on_subject(@course.id, @subject.id).each do |user|
       TraineeTask.bulk_insert(ignore: true) do |work_task|
         @subject.tasks.task_not_assign_trainee.each do |task|
-          work_task.add({task_id: task.task_id_new, trainee_id: user.trainee_id,
-            course_id: @course.id})
+          work_task.add(task_id: task.task_id_new, trainee_id: user.trainee_id,
+          course_id: @course.id)
         end
       end
     end

@@ -1,20 +1,6 @@
-20.times do |i|
-        User.create!
-          name: Faker::Name.name,
-          email: "admin_#{i}@email.com",
-          phone: "097659430#{i}",
-          address: Faker::Address.street_address,
-          role: 1,
-          password: "123456",
-          encrypted_password: BCrypt::Password.create("123456")
-end
-20.times do |j|
-         User.create!
-          name: Faker::Name.name,
-          email: "user_#{j}@email.com",
-          phone: "097659420#{j}",
-          address: Faker::Address.street_address,
-          role: 0,
-          password: "123456",
-          encrypted_password: BCrypt::Password.create(password"123456")
-end
+Rake::Task["db:migrate:reset"].invoke
+Rake::Task["create_supervisor:supervisor_data"].invoke
+Rake::Task["create_trainee:trainee_data"].invoke
+Rake::Task["create_course:course_data"].invoke
+Rake::Task["create_subject:subject_data"].invoke
+Rake::Task["create_task:task_data"].invoke

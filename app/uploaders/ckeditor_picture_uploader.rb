@@ -1,5 +1,4 @@
 class CkeditorPictureUploader < CarrierWave::Uploader::Base
-
   include Ckeditor::Backend::CarrierWave
 
   # Include RMagick or ImageScience support:

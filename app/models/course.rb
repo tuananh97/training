@@ -13,14 +13,15 @@ class Course < ApplicationRecord
 
   accepts_nested_attributes_for :subjects, allow_destroy: true
 
-  scope :all_courses, lambda{select(:id, :name, :description, :status,
-    :start_time, :end_time).order created_at: :desc}
+  attr_select = %i(id name description status start_time end_time)
+  scope :all_courses, ->{select(attr_select).order(created_at: :desc)}
 
-  scope :trainee_courses, lambda{|id| joins(:user_courses)
-    .select(:id, :name, :description, :start_time, :end_time, :status,
-    "user_courses.user_id as user_id, user_courses.course_id as course_id")
-    .where(user_courses: {user_id: id, status: [:trainee_start,
-    :trainee_complete]})}
+  scope :trainee_courses, lambda{|id|
+    joins(:user_courses).select(:id, :name, :description, :start_time,
+      :end_time, :status, "user_courses.user_id as user_id,
+      user_courses.course_id as course_id").where(user_courses:
+      {user_id: id, status: [:trainee_start, :trainee_complete]})
+  }
 
   def assign_user user
     user_courses.create user_id: user.id, status: :trainee_start

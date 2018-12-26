@@ -6,20 +6,7 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
     if @course.assign_user @user
       @user_course = @user.user_courses.find_by(course_id: @course.id)
       @course = Course.find_by_id @course.id
-      if @user.trainee?
-        TraineeSubject.bulk_insert(ignore: true) do |worker_subject|
-          @course.subjects.each do |subject|
-            worker_subject.add({trainee_id: @user.id, subject_id: subject.id,
-              course_id: @course.id})
-            TraineeTask.bulk_insert(ignore: true) do |work_task|
-              subject.tasks.each do |task|
-                work_task.add({trainee_id: @user.id, task_id: task.id,
-                  course_id: @course.id})
-              end
-            end
-          end
-        end
-      end
+      set_trainee_course if @user.trainee?
       respond_to do |format|
         format.html{redirect_to edit_supervisor_course_path(@course)}
         format.js
@@ -48,6 +35,21 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
   end
 
   private
+
+  def set_trainee_course
+    TraineeSubject.bulk_insert(ignore: true) do |worker_subject|
+      @course.subjects.each do |subject|
+        worker_subject.add(trainee_id: @user.id, subject_id: subject.id,
+        course_id: @course.id)
+          TraineeTask.bulk_insert(ignore: true) do |work_task|
+            subject.tasks.each do |task|
+              work_task.add(trainee_id: @user.id, task_id: task.id,
+                course_id: @course.id)
+            end
+          end
+      end
+    end
+  end
 
   def remove_sucess
     @user_course = @course.user_courses.build user_id: @user.id

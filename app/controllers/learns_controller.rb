@@ -2,17 +2,19 @@ class LearnsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_course, only: :show
 
-  def show; end
+  def show
+    return unless UserCourse.find_by(user_id: current_user, course_id:
+      @course.id).nil?
+    flash[:error] = t ".not_permission"
+    redirect_to root_path
+  end
 
   private
 
   def find_course
     @course = Course.find_by_id params[:id]
-    if UserCourse.where(course_id: @course.id, user_id: current_user.id).present?
-      return @course
-    else
-      flash[:danger] = t ".not_found"
-      redirect_to root_path
-    end
+    return if @course
+    flash[:error] = t ".not_found"
+    redirect_to root_path
   end
 end

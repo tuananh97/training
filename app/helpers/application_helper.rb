@@ -13,7 +13,6 @@ module ApplicationHelper
 
   def custom_bootstrap_flash
     flash_messages = []
-    option = "{'closeButton': true}"
     flash.each do |type, message|
       type = "success" if type == "notice"
       type = "error" if type == "alert"
@@ -27,18 +26,14 @@ module ApplicationHelper
   def training_time object
     start_time = object.start_time.strftime(Settings.format_time)
     end_time = object.end_time.strftime(Settings.format_time)
-    return start_time + " - " + end_time
+    start_time + " - " + end_time
   end
 
   def get_avatar user
     if user.avatar.present?
       user.avatar.url
     else
-      if user.trainee?
-        Settings.default_avatar_trainee
-      else
-        Settings.default_avatar_teacher
-      end
+      user.trainee? ? Settings.avatar_trainee : Settings.avatar_teacher
     end
   end
 end

@@ -3,14 +3,14 @@ class Trainee::CoursesController < Trainee::BaseController
 
   def index
     @my_courses = Course.trainee_courses(current_user.id).page(params[:page])
-      .per Settings.per_page
+                        .per Settings.per_page
   end
 
   def show; end
 
   def show_member
-    @member = @course.users.order(role: :desc).page(params[:page]).per
-      Settings.per_page
+    @member = @course.users.order(role: :desc).page(params[:page])
+                     .per Settings.per_page
   end
 
   private

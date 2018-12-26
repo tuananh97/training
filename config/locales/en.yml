@@ -73,8 +73,16 @@ en:
       learn: "Learn"
   learns:
     learn: "Learn"
-  tasks:
     show:
+      not_found: "This course doesn't exist!"
+      not_permission: "You don't permission access this course!"
+  tasks:
+    find_task:
+      not_found: "This task doesn't exist!"
+      not_permission: "You don't permission access this task!"
+    show:
+      not_found: "This task doesn't exist!"
+      not_permission: "You don't permission access this task!"
       learn_task: "Learn %{name} "
       discussion: "Discussion"
     comment_form:

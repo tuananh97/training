@@ -12,20 +12,15 @@
 //
 //= require jquery
 //= require rails-ujs
-//= require i18n
-//= require i18n.js
-//= require translations.js
-//= require activestorage
 //= require jquery3
 //= require popper
-//= require bootstrap-sprockets
 //= require moment
+//= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require cocoon
+//= require activestorage
 //= require toastr/build/toastr.min
 //= require sweetalert2/dist/sweetalert2.all.min
-//= require custom
 //= require ckeditor/init
+//= require custom
 //= require confirm_popup
-//= require_tree .
-

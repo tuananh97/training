@@ -3,8 +3,8 @@ class Supervisor::UsersController < Supervisor::BaseController
   before_action :find_supervisor, only: :show
 
   def index
-    @users = User.trainee.by_lastest.page(params[:page]).per
-      Settings.user.per_page_index
+    @users = User.trainee.by_lastest.page(params[:page])
+                 .per Settings.user.per_page_index
   end
 
   def new
@@ -46,14 +46,15 @@ class Supervisor::UsersController < Supervisor::BaseController
   end
 
   def all_supervisors
-    @supervisors = User.load_data.supervisor.page(params[:page]).per
-      Settings.user.per_page
+    @supervisors = User.load_data.supervisor.page(params[:page])
+                       .per Settings.user.per_page
   end
 
   private
 
   def user_params
-    params.require(:user).permit :name, :email, :password, :password_confirmation
+    params.require(:user).permit :name, :email, :password,
+      :password_confirmation
   end
 
   def load_user
@@ -65,11 +66,8 @@ class Supervisor::UsersController < Supervisor::BaseController
 
   def find_supervisor
     @user = User.find_by_id params[:id]
-    if @user&.supervisor?
-      return @user
-    else
-      flash[:error] = t ".not_found_supervisor"
-      redirect_to root_path
-    end
+    return if @user&.supervisor?
+    flash[:error] = t ".not_found_supervisor"
+    redirect_to root_path
   end
 end
