@@ -11,6 +11,7 @@ gem "bootstrap4-kaminari-views"
 gem "bulk_insert"
 gem "cancancan", "~> 1.10"
 gem "carrierwave", "1.2.2"
+gem 'cloudinary'
 gem "ckeditor"
 gem "cocoon"
 gem "coffee-rails", "~> 4.2"
@@ -36,6 +37,7 @@ gem "sidekiq"
 gem "uglifier", ">= 1.3.0"
 gem "validates_timeliness", "~> 5.0.0.alpha3"
 gem "whenever", require: false
+gem "pagy"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

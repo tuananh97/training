@@ -1,5 +1,4 @@
-class CommentsController < ApplicationController
-  before_action :authenticate_user!
+class CommentsController < HomePagesController
   before_action :load_comment, except: %i(index new create)
 
   def new; end
@@ -27,7 +26,7 @@ class CommentsController < ApplicationController
         format.js
       end
     else
-      flash[:danger] = t ".danger"
+      flash[:error] = t ".danger"
       render :edit
     end
   end
@@ -56,7 +55,7 @@ class CommentsController < ApplicationController
   def load_comment
     @comment = Comment.find_by id: params[:id]
     return if @comment
-    flash[:danger] = t ".danger"
+    flash[:error] = t ".danger"
     redirect_back fallback_location: root_path
   end
 end

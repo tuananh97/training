@@ -10,8 +10,10 @@
     </span>
     <div id="content-<%= comment.id %>">
       <p><%= comment.content.gsub(/\n/, '<br/>').html_safe %></p>
+      <% if !comment.parent? and comment.content.lines.count == 1 and comment.user != current_user %>
+      <br>
+      <% end %>
     </div>
-
     <% if comment.parent? and user_signed_in? %>
       <%= link_to t(".reply"), new_reply_comment_path(comment), remote: true, id:"comment-#{comment.id}" %>
     <% end %>
@@ -20,7 +22,6 @@
       <%= link_to t(".edit"), edit_comment_path(comment), remote: true %>
       <%= link_to t(".delete"), comment, method: :delete, data: {confirm: t(".confirm")}, remote: true %>
     <% end %>
-
     <hr>
     <%= render comment.replies if comment.replies.any? %>
   </div>

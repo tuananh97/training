@@ -1,5 +1,4 @@
-class TasksController < ApplicationController
-  before_action :authenticate_user!
+class TasksController < HomePagesController
   before_action :find_task
 
   def show

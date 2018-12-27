@@ -3,12 +3,12 @@
     <%= f.hidden_field :task_id %>
     <%= f.hidden_field :user_id %>
     <div class="field form-group">
-      <%= f.text_area :content, class: "form-control",
+      <%= f.text_area :content, class:"form-control", id:"content",
       rows: Settings.comment.rows %>
-      <div align="right" class="error-messages-devise" >
+      <div align="right" class="error-messages-devise">
         <%= @comment.errors.full_messages_for(:content).first %>
       </div>
     </div>
-    <%= f.submit t(".submit"), class: "btn btn-primary actions" %>
+    <%= f.submit t(".submit"), class:"btn btn-primary actions" %>
   <% end %>
 </div>

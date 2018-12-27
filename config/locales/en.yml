@@ -32,9 +32,10 @@ en:
       supervisors: "Supervisors"
       mycourse: "My courses"
       catalog: "All courses"
-      profile: "Profile"
+      profile: "My profile"
       avatar: "Avatar"
-      change_profile: "Edit profile"
+      change_password: "Change password"
+      change_profile: "Setting profile"
       all_accounts: "List accounts"
       all_members: "All members"
       notification: "Notifications"
@@ -71,6 +72,21 @@ en:
       subject_not_found: "Subject not found!"
       task_not_found: "Task not found!"
       learn: "Learn"
+  users:
+    edit:
+      edit_profile: "Change My Profile"
+      email: "email"
+      update: "Update"
+  reset_password:
+    edit:
+      change_password: "Change your password"
+      current_password: "Current Password"
+      new_password: "New Password"
+      confirm_new_password: "Confirmation New Password"
+      update: "Update"
+    update:
+      change_password_success: "Change your password success!"
+      change_password_failed: "Change your password failed!"
   learns:
     learn: "Learn"
     show:
@@ -105,6 +121,8 @@ en:
       submit: "Save"
     update:
       danger: "Update comment not success!"
+    destroy:
+      danger: "Delete this comment not success!"
     new_reply:
       submit: "Reply"
   trainee:

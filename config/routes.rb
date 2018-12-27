@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root "static_pages#welcome"
   get "/home", to: "home_pages#index"
-  devise_for :users, controllers: {sessions: "users/sessions"}
+  devise_for :users, controllers: {sessions: "users/sessions",
+    registrations: "registrations"}
 
   resources :learns, only: :show
   resources :tasks, only: %i(show update)
@@ -11,7 +12,8 @@ Rails.application.routes.draw do
       get :new_reply
     end
   end
-
+  resources :reset_password, only: %i(edit update)
+  resources :users, only: %i(edit show)
   namespace :trainee do
     resources :users, only: :show
     get "/members", to: "users#all_users"

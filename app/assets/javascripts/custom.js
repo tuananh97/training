@@ -1,5 +1,15 @@
 toastr.options.closeButton = true;
 
+$(document).on('change', '.previewIMG', function() {
+   if (this.files && this.files[0]) {
+     var reader = new FileReader();
+     reader.onload = function (e) {
+       $('.preview-img').attr('src', e.target.result);
+     };
+     reader.readAsDataURL(this.files[0]);
+   }
+ });
+
 $(document).ready(function(){
   $('.filterable .btn-filter').click(function(){
     var $panel = $(this).parents('.filterable'),

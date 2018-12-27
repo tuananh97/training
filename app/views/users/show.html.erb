@@ -1,0 +1,20 @@
+<%= provide :title, @user.name %>
+
+<div class="content-wrapper">
+  <div class="profile">
+    <div class="content-wrapper container-profile justify-content-center">
+      <div class="avt">
+        <%= image_tag get_avatar(@user), class:"avatar-profile" %>
+      </div>
+      <div class="detail-user">
+        <div class="username"><%= @user.name %></div>
+        <div class="email"><%= @user.email %></div>
+        <div class="address"><%= @user.address %></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="info-course">
+    <%= render partial: "course", collection: @my_courses, as: :course %>
+  </div>
+</div>

@@ -10,8 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require jquery3
 //= require popper
 //= require moment
@@ -23,4 +24,4 @@
 //= require sweetalert2/dist/sweetalert2.all.min
 //= require ckeditor/init
 //= require custom
-//= require confirm_popup
+//= require cloudinary

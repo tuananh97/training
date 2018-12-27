@@ -1,5 +1,4 @@
-class LearnsController < ApplicationController
-  before_action :authenticate_user!
+class LearnsController < HomePagesController
   before_action :find_course, only: :show
 
   def show

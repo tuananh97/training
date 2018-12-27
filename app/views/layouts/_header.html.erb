@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-default navbar-expand-xl navbar-light">
+  <nav class="navbar navbar-default navbar-expand-xl navbar-light" style="z-index: 2;">
     <div class="navbar-header d-flex col">
       <%= link_to home_path, class:"navbar-brand" do %>
         <i class="fa fa-cube"></i>&nbsp;<%= t ".logo" %>
@@ -76,17 +76,22 @@
             <ul class="dropdown-menu">
               <% if current_user.supervisor? %>
                 <li>
-                  <%= link_to supervisor_user_path(current_user.id), class: "dropdown-item" do %>
+                  <%= link_to supervisor_user_path(current_user), class: "dropdown-item" do %>
                     <i class="fa fa-user-o"></i>&nbsp;<%= t ".profile" %>
                   <% end %>
                 </li>
                 <% else %>
                 <li>
-                  <%= link_to trainee_user_path(current_user.id), class: "dropdown-item" do %>
+                  <%= link_to trainee_user_path(current_user), class: "dropdown-item" do %>
                     <i class="fa fa-user-o"></i>&nbsp;<%= t ".profile" %>
                   <% end %>
                 </li>
               <% end %>
+              <li>
+                <%= link_to edit_reset_password_path(current_user), class:"dropdown-item" do %>
+                  <i class="fa fa-key"></i>&nbsp;<%= t(".change_password") %>
+                <% end %>
+              </li>
               <li>
                 <%= link_to edit_user_registration_path, class:"dropdown-item" do %>
                   <i class="fa fa-sliders"></i>&nbsp;<%= t(".change_profile") %>

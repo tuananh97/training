@@ -6,13 +6,40 @@
   height: 80px;
   width: 80px;
   margin-right: 10px;
+  border-radius: 50%;
 }
 
 .avatar {
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
 }
+
+.pic-profile {
+   height: 170px;
+   position: relative;
+   width: 170px;
+
+  .fix-bot-pic {
+     bottom: 0;
+     padding: 10px;
+     position: absolute;
+     width: 100%;
+   }
+ }
+
+.upload-pic {
+   height: 35px;
+
+    .input-file {
+     left: 0;
+     opacity: 0;
+     padding: 0;
+     position: absolute;
+     top: 0;
+     width: 100%;
+   }
+ }
 
 .avatar-profile {
   height: 120px;

@@ -1,0 +1,16 @@
+<div class="col-md-3 card-size">
+  <div class="card">
+    <img class="card-img-top" src="/assets/course.png" tyle="width:100%">
+    <div class="card-body">
+      <h3 class="title-course"><%= course.name %></h3>
+      <span class="short-description"><%= course.description %></span>
+    </div>
+    <div class="card-footer">
+      <% if @user.trainee? %>
+        <%= link_to t(".learn"), learn_path(course.id), class:"btn btn-success" %>
+      <% else %>
+        <%= link_to t(".view"), supervisor_course_path(course.id), class:"btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

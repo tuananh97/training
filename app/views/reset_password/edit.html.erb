@@ -1,0 +1,34 @@
+<div class="content-wrapper">
+  <h3><%= t ".change_password" %></h3>
+  <div class="row">
+    <div class="login-form col-md-4 offset-md-4">
+      <%= form_for @user, url: reset_password_path(@user), method: :put do |f| %>
+        <div class="form-group">
+          <%= f.label :current_password, t(".current_password") %>
+          <%= f.password_field :current_password, autofocus: true, autocomplete: "new-password", class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= @user.errors.full_messages_for(:current_password).first %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, t(".new_password") %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= @user.errors.full_messages_for(:password).first %>
+          </div>
+        </div>
+        <div class="field form-group">
+          <%= f.label :password_confirmation, t(".confirm_new_password") %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= @user.errors.full_messages_for(:password_confirmation).first %>
+          </div>
+        </div>
+
+        <div class="actions form-group">
+          <%= f.submit t(".update"), class:"btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

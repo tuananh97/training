@@ -1,1 +1,1 @@
-$('#content-<%= j @comment.id.to_s %>').html('<%= @comment.content.gsub(/\n/, '<br/>').html_safe %>')
+$('#content-<%= j @comment.id.to_s %>').html('<p><%= @comment.content.gsub(/\n/, '<br/>').html_safe %></p>')
