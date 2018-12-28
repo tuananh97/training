@@ -14,12 +14,12 @@ pickle-email-*.html
 
 config/initializers/secret_token.rb
 config/master.key
+config/database.yml
 
 .env
 
 /.bundle
 /vendor/bundle
-config/database.yml
 .rvmrc
 
 /vendor/assets/bower_components
