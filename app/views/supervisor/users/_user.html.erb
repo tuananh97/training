@@ -4,8 +4,7 @@
     <td><%= user.name %></td>
     <td><p><%= user.email %></p></td>
     <td><p><%= user.address %></p></td>
-    <td><i class="fa fa-phone" ></i>&nbsp;<%= user.phone %></td>
-    <td><%= user.created_at.strftime("%d-%m-%Y") %></td>
+    <td><%= user.phone %></td>
     <% if current_user.supervisor? %>
       <td>
         <%= link_to edit_supervisor_user_path(user) do %>

@@ -1,5 +1,6 @@
 <% provide :title, t(".edit_profile") %>
-<h3 class="title"><%= t ".edit_profile", name: "aa" %></h3>
+<h3 class="title"><%= t ".edit_profile", name: resource_name.to_s.humanize %></h3>
+
 <div class="content-wrapper">
   <div class="row">
     <div class="login-form col-md-4 offset-md-4">
@@ -36,10 +37,16 @@
           <%= resource.errors.full_messages_for(:address).first %>
         </div>
       </div>
-
       <div class="field form-group">
-        <%= f.label :avatar %><br>
-        <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", autofocus: true %>
+        <div class="fix-bot-pic upload-pic pic-profile">
+          <%= f.hidden_field :avatar_cache %>
+          <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png",
+            autofocus: true, class: "input-file previewIMG" %>
+          <label tabindex="0" class="input-file-trigger"> <%= t ".avatar" %>
+            <i class="fa fa-camera"></i>
+          </label>
+        </div>
+        <%= image_tag get_avatar(resource), class: "image_cm preview-img" %>
         <div align="right" class="error-messages-devise" >
           <%= resource.errors.full_messages_for(:avatar).first %>
         </div>
