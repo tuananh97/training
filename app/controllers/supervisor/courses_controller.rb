@@ -1,8 +1,8 @@
 class Supervisor::CoursesController < Supervisor::BaseController
-  before_action :find_course, except: %i(index new finish)
+  before_action :find_course, except: %i(index create new finish)
 
   def index
-    @courses = Course.all_courses.page(params[:page]).per 2
+    @courses = Course.by_lastest.page(params[:page]).per Settings.per_page_index
   end
 
   def new

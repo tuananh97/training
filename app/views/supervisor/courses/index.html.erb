@@ -1,12 +1,18 @@
 <% provide :title, t(".title") %>
 
 <div class="content-wrapper">
-  <div class="text-right new-object">
-    <%= link_to new_supervisor_course_path, class: "btn btn-success" do %>
-      <i class="fa fa-plus pull-right"></i>&nbsp;<%= t ".add_course" %>
-    <% end %>
+  <h3 class="panel-title"> <%= t ".title" %></h3>
+  <div class="row">
+    <div class="col-md-6" id="paginator">
+      <%= paginate @courses, theme: "twitter-bootstrap-4" %>
+    </div>
+    <div class="col-md-6 text-right new-object">
+      <%= link_to new_supervisor_course_path, class:"btn btn-primary" do %>
+        <i class="fa fa-plus"></i>&nbsp;<%= t ".add_course" %>
+      <% end %>
+    </div>
   </div>
-  <%= paginate @courses, theme: "twitter-bootstrap-4" %>
+
   <table class="table table-hover" id="all-course" >
     <thead>
       <tr>
@@ -69,13 +75,15 @@
           </td>
           <td>
             <%= link_to edit_supervisor_course_path(course.id) do %>
-              <i class="fa fa-edit" ></i>
+              <i class="fa fa-edit" data-toogle="tooltip"
+                title="<%= t '.edit' %>"></i>
             <% end %>
           </td>
           <td>
             <%= link_to supervisor_course_path(course), method: :delete,
               data: {confirm: t(".confirm")} do %>
-              <i class="fa fa-trash"></i>
+              <i class="fa fa-trash" data-toogle="tooltip"
+                title="<%= t '.delete' %>"></i>
             <% end %>
           </td>
         </tr>

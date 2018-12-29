@@ -1,18 +1,20 @@
 <% provide :title, t(".manage_user") %>
+
 <div class="content-wrapper">
   <div class="panel panel-primary filterable">
     <div class="panel-heading">
       <h3 class="panel-title"> <%= t ".manage_user" %></h3>
     </div>
-      <div class="text-right new-object">
-        <%= link_to new_supervisor_user_path, class:"nav-link" do %>
-            <i class="fa fa-user-plus"></i>&nbsp;<%= t(".create_trainee") %>
-        <% end %>
-      </div>
+
     <div class="row">
       <div class="col-md-6" id="paginator">
         <%= paginate @users, remote: true, theme: "twitter-bootstrap-4" %>
         <%#= pagy_bootstrap_nav(@pagy) %>
+      </div>
+      <div class="col-md-6 text-right new-object">
+        <%= link_to new_supervisor_user_path, class: "btn btn-primary" do %>
+          <i class="fa fa-plus"></i>&nbsp;<%= t ".create_trainee" %>
+        <% end %>
       </div>
     </div>
 

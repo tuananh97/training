@@ -25,3 +25,4 @@
 //= require ckeditor/init
 //= require custom
 //= require cloudinary
+//= require timeline

@@ -38,6 +38,7 @@ gem "uglifier", ">= 1.3.0"
 gem "validates_timeliness", "~> 5.0.0.alpha3"
 gem "whenever", require: false
 gem "pagy"
+gem "gon"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

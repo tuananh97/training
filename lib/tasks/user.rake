@@ -8,7 +8,7 @@ namespace :create_supervisor do
           name: Faker::Name.name,
           email: "admin_#{i}@email.com",
           phone: "0976594#{i}30",
-          address: Faker::Address.street_address,
+          address: Faker::Address.city,
           role: 1,
           password: password,
           encrypted_password: BCrypt::Password.create(password)
@@ -28,7 +28,7 @@ namespace :create_trainee do
           name: Faker::Name.name,
           email: "user_#{j}@email.com",
           phone: "0976594#{j}23",
-          address: Faker::Address.street_address,
+          address: Faker::Address.city,
           role: 0,
           password: password,
           encrypted_password: BCrypt::Password.create(password)

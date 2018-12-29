@@ -7,7 +7,7 @@
       <div class="info-member">
         <h3><%= supervisor.name %></h3>
         <p><%= supervisor.email %></p>
-        <%= link_to t(".view"), supervisor_user_path(supervisor.id),
+        <%= link_to t(".view"), user_path(supervisor.id),
           class:"btn pull-left bt-view" %>
       </div>
     </div>

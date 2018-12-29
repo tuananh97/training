@@ -7,8 +7,7 @@
       <div class="info-member">
         <h3><%= member.name %></h3>
         <p><%= member.email %></p>
-        <%= link_to t(".view"), trainee_user_path(member.id),
-          class:"btn pull-left bt-view" %>
+        <%= link_to t(".view"), user_path(member.id), class:"btn pull-left bt-view" %>
       </div>
     </div>
   <% end %>

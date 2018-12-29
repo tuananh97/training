@@ -4,7 +4,7 @@
   </a>
   <div class="media-body" id="comment-<%= comment.id %>">
     <span class="media-heading">
-      <small>
+      <small data-toogle="tooltip" title="<%= l comment.created_at, format: :own %>">
         <%= t ".commented", user: comment.user.name, time: time_ago_in_words(comment.created_at) %>
       </small>
     </span>

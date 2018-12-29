@@ -1,6 +1,6 @@
-<% @users.each_with_index do |user| %>
+<% @users.each_with_index do |user, index| %>
   <tr>
-    <td>1</td>
+    <td><%= index + 1 %></td>
     <td><%= user.name %></td>
     <td><p><%= user.email %></p></td>
     <td><p><%= user.address %></p></td>
@@ -16,7 +16,7 @@
           <i class="fa fa-trash-o data-toogle="tooltip"
             title="<%= t '.delete' %>""></i>
         <% end %>&nbsp;
-        <%= link_to trainee_user_path(user) do %>
+        <%= link_to user_path(user) do %>
           <i class="fa fa-book" data-toogle="tooltip"
             title="<%= t '.view' %>"></i>
         <% end %>

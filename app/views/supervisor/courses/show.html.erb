@@ -40,7 +40,7 @@
         <div class="info-member">
           <h3><%= supervisor.name %></h3>
           <p><%= supervisor.email %></p>
-            <%= link_to t(".view"), supervisor_user_path(supervisor.id), class:"btn pull-left bt-view" %>
+            <%= link_to t(".view"), user_path(supervisor.id), class:"btn pull-left bt-view" %>
         </div>
       </div>
     <% end %>
@@ -58,7 +58,7 @@
         <div class="info-member">
           <h3><%= trainee.name %></h3>
           <p><%= trainee.email %></p>
-          <%= link_to t(".view"), trainee_user_path(trainee.id), class:"btn pull-left bt-view" %>
+          <%= link_to t(".view"), user_path(trainee.id), class:"btn pull-left bt-view" %>
         </div>
       </div>
     <% end %>

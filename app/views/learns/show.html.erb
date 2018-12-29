@@ -1,22 +1,49 @@
 <div class="content-wrapper">
-  <strong><%= @course.name %></strong> <%= training_time(@course) %>
-</div>
-
-<div class="content-wrapper">
+  <p style="margin-bottom: 20px">
+    <strong><%= @course.name %></strong> <%= training_time(@course) %>
+  </p>
   <div class="row">
-    <div class="col-md-3">
-      <% @course.subjects.each_with_index do |subject, index| %>
-        <strong><%= index + 1 %>:&nbsp;<%= subject.name %></strong>
-          <ol>
+    <div class="col-md-8">
+      <div class="sidebar">
+        <ul class="not-hide">
+        <% @course.subjects.each do |subject| %>
+        <div class="each-subject">
+          <div class="fill-slide" id="subject">
+            <li class="fill">
+              <div class="row subject">
+                <div class="col-md-8">
+                  <%= subject.name %>
+                </div>
+                <div class="col-md-4 d-flex justify-content-end">
+                  <i class="fa fa-angle-down slide-icon"></i>
+                </div>
+              </div>
+            </li>
+          </div>
+          <div class="slidetoggle" data-name="task">
             <% subject.tasks.each do |task| %>
-              <li>
-                <%= link_to task.name, task_path(task.id)%>
+              <li class="fill sub-menu">
+                <div class="row">
+                  <div class="col-md-8 data-toogle="tooltip" title="<%= task.name %>"">
+                    <%= link_to task_path(task.id) do %>
+                      <i class="fa fa-check" style="color: <%= 'green' if current_user.trainee? &&
+                        check_status_task(current_user, task.id).finish? %>">
+                      </i>&nbsp; <%= task.name %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-4">
+                    <p style="color:blue">
+                      <%= "100%" if current_user.trainee? && check_status_task(current_user, task.id).finish? %>
+                    </p>
+                  </div>
+                </div>
               </li>
             <% end %>
-          </ol>
+          </div>
+        </div>
         <% end %>
-    </div>
-    <div class="col-md-9">
+        </ul>
+      </div>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <%= provide :title, t(".title") %>
-
 <h2 class="text-center"><%= t ".title" %></h2>
+
 <div class="content-wrapper">
   <%= paginate @member, theme: "twitter-bootstrap-4" %>
   <div class="row all-member">
@@ -8,9 +8,16 @@
       <div class="col-md-4 each-member">
         <div class="avatar">
           <%= image_tag get_avatar(member), class:"avatar" %>
+          <p class="text-center">
+            <% if member.supervisor? %>
+              <%= "Supervisor" %>
+            <% else %>
+              <%= "Trainee" %>
+            <% end %>
+          </p>
         </div>
-        <div class="info-member">
-          <h3><%= member.name %></h3>
+        <div class="info-member-course">
+          <h4><%= member.name %></h4>
           <p><%= member.email %></p>
         </div>
       </div>

@@ -1,10 +1,10 @@
-<nav>
+<nav class="content-wrapper">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" id="nav-course-tab" data-toggle="tab"
       href="#nav-course" role="tab">
-      <%= t "course.courses" %></a>
+      <%= t ".courses" %></a>
     <a class="nav-item nav-link" id="nav-member-tab" data-toggle="tab"
-      href="#nav-member" role="tab"><%= t "user.member" %></a>
+      href="#nav-member" role="tab"><%= t ".member" %></a>
   </div>
 </nav>
 
@@ -37,29 +37,14 @@
   </div>
 
   <div class="tab-pane fade" id="nav-member">
-    <div class="row">
-      <div class="col-md-6">
-        <table class="table table-bordered">
-         <h3><%= t ".supervisors" %></h3>
-         <thead>
-           <tr>
-             <th><%= t".name" %></th>
-             <th><%= t".email" %></th>
-             <th><%= t".option" %></th>
-           </tr>
-         </thead>
-         <tbody id="supervisors">
-           <%= render partial: "manage_supervisor", collection: @supervisors, as: :supervisor %>
-         </tbody>
-        </table>
-        <div id="paginator">
-          <%= paginate @supervisors, remote: true, theme: "twitter-bootstrap-4" %>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <table class="table table-bordered">
-           <h3><%= t ".trainees" %></h3>
+    <div class="content-wrapper">
+      <div class="row justify-content-md-center">
+        <div class="col-md-4">
+          <h3 style="margin-top:10px"><%= t ".supervisors" %></h3>
+          <div id="paginator">
+            <%= paginate @supervisors, remote: true, theme: "twitter-bootstrap-4" %>
+          </div>
+          <table class="table">
            <thead>
              <tr>
                <th><%= t".name" %></th>
@@ -67,12 +52,29 @@
                <th><%= t".option" %></th>
              </tr>
            </thead>
-           <tbody id="trainees">
-             <%= render partial: "manage_trainee", collection: @trainees, as: :trainee %>
+           <tbody id="supervisors">
+             <%= render partial: "manage_supervisor", collection: @supervisors, as: :supervisor %>
            </tbody>
-        </table>
-        <div id="paginator1">
-          <%= paginate @trainees, remote: true, theme: "twitter-bootstrap-4" %>
+          </table>
+        </div>
+
+        <div class="col-md-4">
+          <h3 style="margin-top:10px"><%= t ".trainees" %></h3>
+          <div>
+            <%= paginate @trainees, remote: true, theme: "twitter-bootstrap-4" %>
+          </div>
+          <table class="table">
+             <thead>
+               <tr>
+                 <th><%= t".name" %></th>
+                 <th><%= t".email" %></th>
+                 <th><%= t".option" %></th>
+               </tr>
+             </thead>
+             <tbody id="trainees">
+               <%= render partial: "manage_trainee", collection: @trainees, as: :trainee %>
+             </tbody>
+          </table>
         </div>
       </div>
     </div>

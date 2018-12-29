@@ -3,7 +3,7 @@ var total_subject = <%= @course.subjects.length %>;
   var total_task = <%= subject.tasks.count %>;
   var finish_task = 0
   <% subject.tasks.each do |task| %>
-    <% if check_status_task(current_user.id, task.id).first.finish? %>
+    <% if check_status_task(current_user.id, task.id).finish? %>
       finish_task += 1;
     <% end %>
   <% end %>

@@ -14,7 +14,7 @@ class Course < ApplicationRecord
   accepts_nested_attributes_for :subjects, allow_destroy: true
 
   attr_select = %i(id name description status start_time end_time)
-  scope :all_courses, ->{select(attr_select).order(created_at: :desc)}
+  scope :by_lastest, ->{select(attr_select).order(created_at: :desc)}
 
   scope :trainee_courses, lambda{|id|
     joins(:user_courses).select(:id, :name, :description, :start_time,

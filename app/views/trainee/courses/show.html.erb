@@ -43,7 +43,7 @@
               <% subject.tasks.each do |task| %>
                 <li>
                   <strong><%= task.name %></strong>
-                  <% if check_status_task(current_user.id, task.id).first.finish? %>
+                  <% if check_status_task(current_user.id, task.id).finish? %>
                     <div class="pull-right status">
                       <i class="fa fa-check"></i>&nbsp;<%= t ".completed" %>
                     </div>
@@ -53,7 +53,7 @@
                         style="width:100%">
                       </div>
                     </div>
-                  <% elsif check_status_task(current_user.id, task.id).first.inprogress? %>
+                  <% elsif check_status_task(current_user.id, task.id).inprogress? %>
                     <div class="pull-right status">
                       <i class="fa fa-pause-circle"></i>&nbsp;<%= t ".inprogress" %>
                     </div>
