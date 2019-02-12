@@ -255,6 +255,7 @@ en:
         detail_subject: "Detail subject"
         finish_course: "Finish course"
         finish_subject: "Finish subject"
+        a: "aaa"
       new:
         label: "Name"
         create: "Create"
