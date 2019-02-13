@@ -1,47 +1,76 @@
-<div class="container">
-  <h2><%= t ".sign_up" %></h2>
+<% provide :title, t(".sign_up") %>
+<h3 class="title"><%= t ".sign_up", name: resource_name.to_s.humanize %></h3>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: t(".email") %>
+<div class="content-wrapper">
+  <div class="row">
+    <div class="login-form col-md-4 offset-md-4">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="field form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: t(".email"), class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= resource.errors.full_messages_for(:email).first %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: t(".new-password"), class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= resource.errors.full_messages_for(:password).first %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: t(".new-password"), class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= resource.errors.full_messages_for(:password_confirmation).first %>
+          </div>
+        </div>
+
+        <div class="field form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, autofocus: true, autocomplete: t(".name"), class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= resource.errors.full_messages_for(:name).first %>
+          </div>
+        </div>
+
+        <div class="field form-group">
+          <%= f.label :phone %>
+          <%= f.text_field :phone, autofocus: true, autocomplete: t(".phone"), class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= resource.errors.full_messages_for(:phone).first %>
+          </div>
+        </div>
+
+        <div class="field form-group">
+          <%= f.label :address %>
+          <%= f.text_field :address, autofocus: true, autocomplete: t(".address"), class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= resource.errors.full_messages_for(:address).first %>
+          </div>
+        </div>
+        <div class="field form-group">
+          <div class="fix-bot-pic upload-pic pic-profile">
+            <%= f.hidden_field :avatar_cache %>
+            <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png",
+              autofocus: true, class: "input-file previewIMG" %>
+            <label tabindex="0" class="input-file-trigger"> <%= t ".avatar" %>
+              <i class="fa fa-camera"></i>
+            </label>
+          </div>
+          <%= image_tag get_avatar(resource), class: "image_cm preview-img" %>
+          <div align="right" class="error-messages-devise" >
+            <%= resource.errors.full_messages_for(:avatar).first %>
+          </div>
+        </div>
+
+        <div class="actions form-group">
+          <%= f.submit t(".sign_up"), class:"btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
-
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em><%= t ".password_length", length: @minimum_password_length %></em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: t(".new-password") %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: t(".new-password") %>
-    </div>
-
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: t(".name") %>
-    </div>
-
-    <div class="field">
-      <%= f.label :phone %><br />
-      <%= f.text_field :phone, autofocus: true, autocomplete: t(".phone") %>
-    </div>
-
-    <div class="field">
-      <%= f.label :address %><br />
-      <%= f.text_field :address, autofocus: true, autocomplete: t(".address") %>
-    </div>
-
-    <div class="field">
-      <%= f.label :avatar %><br />
-      <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", autofocus: true, autocomplete: t(".avatar") %>
-    </div><br />
-
-    <div class="actions">
-      <%= f.submit t(".sign_up") %>
-    </div>
-  <% end %>
+  </div>
 </div>
