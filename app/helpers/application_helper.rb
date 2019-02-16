@@ -36,6 +36,10 @@ module ApplicationHelper
     start_time + " - " + end_time
   end
 
+  def get_image course
+    course.image.present? ? course.image.image_url.url : Settings.image_course
+  end
+
   def get_avatar user
     if user.avatar.present?
       user.avatar.url

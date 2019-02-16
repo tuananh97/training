@@ -1,4 +1,5 @@
 class Course < ApplicationRecord
+  has_one :image, as: :imageable, dependent: :destroy
   has_many :subjects, dependent: :destroy
   has_many :user_courses
   has_many :users, through: :user_courses
@@ -12,6 +13,9 @@ class Course < ApplicationRecord
     message: I18n.t(".validate_time")
 
   accepts_nested_attributes_for :subjects, allow_destroy: true
+
+  accepts_nested_attributes_for :image, reject_if: proc {|attributes|
+    attributes['image_url'].blank?}
 
   attr_select = %i(id name description status start_time end_time)
   scope :by_lastest, ->{select(attr_select).order(created_at: :desc)}

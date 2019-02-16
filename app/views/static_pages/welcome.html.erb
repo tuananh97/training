@@ -2,9 +2,9 @@
 
 <div class="row content-wrapper" id="info-course">
   <% @courses.each do |course| %>
-    <div class="col-md-3 card-size">
+    <div class="col-md-4 card-size">
       <div class="card">
-        <img class="card-img-top" src="/assets/course.png" tyle="width:100%">
+        <%= image_tag get_image(course), class:"card-img-top", tyle:"width:100%" %>
         <div class="card-body">
           <h3 class="title-course"><%= course.name %></h3>
           <span class="short-description"><%= course.description %></span>
@@ -15,4 +15,7 @@
       </div>
     </div>
   <% end %>
+</div>
+<div class="d-flex justify-content-center">
+  <%= paginate @courses, theme: "twitter-bootstrap-4" %>
 </div>

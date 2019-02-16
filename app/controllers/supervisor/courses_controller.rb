@@ -51,7 +51,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
   def update
     if @course.update_attributes course_params
       flash[:success] = t ".success"
-      redirect_to supervisor_course_path
+      redirect_to supervisor_courses_path
     else
       flash[:error] = t ".failure"
       render :edit
@@ -96,6 +96,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
     params.require(:course).permit :name, :description, :start_time,
       :end_time, :status, subjects_attributes: [:id, :name, :description,
       :start_time, :end_time, :destroy, tasks_attributes: [:id, :name,
-      :description, :content, :destroy]]
+      :description, :content, :destroy]], image_attributes: [:id, :image_url,
+        :imageable_id, :imageable_type, :_destroy]
   end
 end

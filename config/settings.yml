@@ -18,7 +18,7 @@ user:
     min_length: 1
 comment:
   rows: 4
-per_page: 10
+per_page: 6
 per_page_index: 4
 course:
   per_page: 5
@@ -26,7 +26,8 @@ pages:
   per: 10
 course_times: 2
 task_times: 2
-avatar_trainee: "/assets/trainee.png"
-avatar_teacher: "/assets/teacher.png"
+avatar_trainee: "https://res.cloudinary.com/tuan-anh-uet-vnu/image/asset/v1550286380/trainee-53980210f1499309f1169161d38fe78e.png"
+avatar_teacher: "https://res.cloudinary.com/tuan-anh-uet-vnu/image/asset/v1550286377/teacher-491ef244e7cc377cacd2d4d1a2bc552d.png"
+image_course: "https://res.cloudinary.com/tuan-anh-uet-vnu/image/asset/v1550286368/course-26ff8f39241b3a8a90817f04f86d2214.png"
 format_time: "%d/%m/%Y"
 mail_from: "tuananhk60uet@gmail.com"

@@ -25,3 +25,17 @@
     <%= course.date_field :end_time, required: true, class:"datepicker form-control" %>
   </div>
 </div>
+
+<div class="row">
+  <div class="fix-bot-pic upload-pic pic-profile col-md-6">
+      <%= course.fields_for :image_attributes do |image_f| %>
+      <%= image_f.file_field :image_url, accept: "image/jpeg,image/gif,image/png",
+      autofocus: true, class: "input-file previewIMG" %>
+      <%= image_f.hidden_field :imageable_id, value: course %>
+      <%= image_f.hidden_field :imageable_type, value: "image" %>
+    <% end %>
+    <label tabindex="0" class="input-file-trigger"> <%= t ".avatar" %>
+      <i class="fa fa-camera"></i>
+    </label>
+  </div>
+</div>
