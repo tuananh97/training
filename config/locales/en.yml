@@ -26,6 +26,7 @@ en:
     header:
       logo: "UET Learning Online"
       home: "Home"
+      signup: "Sign up"
       login: "Log in"
       logout: "Log out"
       manage_users: "Manage Trainees"
@@ -77,6 +78,8 @@ en:
       edit_profile: "Change My Profile"
       email: "email"
       update: "Update"
+    avatar:
+      langer_image: "should be less than 1MB"
   reset_password:
     edit:
       change_password: "Change your password"

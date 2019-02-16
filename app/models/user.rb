@@ -29,6 +29,8 @@ class User < ApplicationRecord
   validates :address,
     length: {maximum: Settings.user.address.max_length,
              minimum: Settings.user.address.min_length}
+  validates_size_of :avatar, maximum: 2.megabytes,
+    message: I18n.t("users.avatar.langer_image")
 
   scope :by_lastest, ->{order created_at: :desc}
   attr_select = %i(id name email address phone avatar role)

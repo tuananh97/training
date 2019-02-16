@@ -16,12 +16,12 @@
     </div>
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
       <ul class="nav navbar-nav navbar-left">
-        <li class="nav-item">
-          <%= link_to home_path, class:"nav-link" do %>
-            <i class="fa fa-home"></i>&nbsp;<%= t ".home" %>
-          <% end %>
-        </li>
         <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to home_path, class:"nav-link" do %>
+              <i class="fa fa-home"></i>&nbsp;<%= t ".home" %>
+            <% end %>
+          </li>
           <% if current_user.supervisor? %>
             <li class="nav-item">
               <%= link_to supervisor_all_supervisors_path, class:"nav-link" do %>
@@ -101,6 +101,11 @@
           <li class="nav-item">
             <%= link_to new_user_session_path, class:"nav-link" do %>
               <i class="fa fa-sign-in"></i>&nbsp;<%= t ".login" %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_user_registration_path, class:"nav-link" do %>
+              <i class="fa fa fa-user-plus"></i>&nbsp;<%= t ".signup" %>
             <% end %>
           </li>
         <% end %>

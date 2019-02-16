@@ -36,7 +36,7 @@
     </div>
     <div class="col-md-10">
     <%= f.hidden_field :video_cache %>
-    <%= f.file_field :video %>
+    <%= f.file_field :video, accept: "video/mp4,video/mkv,video/avi" %>
     </div>
   </div>
 </div>

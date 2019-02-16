@@ -1,28 +1,28 @@
 <% provide :title, t(".sign_up") %>
-<h3 class="title"><%= t ".sign_up", name: resource_name.to_s.humanize %></h3>
+<h3 class="title"><%= t ".sign_up" %></h3>
 
 <div class="content-wrapper">
   <div class="row">
     <div class="login-form col-md-4 offset-md-4">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <div class="field form-group">
-          <%= f.label :email %>
+          <%= f.label :email %><span class="validate-alert"> *</span>
           <%= f.email_field :email, autofocus: true, autocomplete: t(".email"), class:"form-control" %>
           <div align="right" class="error-messages-devise" >
             <%= resource.errors.full_messages_for(:email).first %>
           </div>
         </div>
 
-        <div class="field">
-          <%= f.label :password %>
+        <div class="field form-group">
+          <%= f.label :password %><span class="validate-alert"> *</span>
           <%= f.password_field :password, autocomplete: t(".new-password"), class:"form-control" %>
           <div align="right" class="error-messages-devise" >
             <%= resource.errors.full_messages_for(:password).first %>
           </div>
         </div>
 
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
+        <div class="field form-group">
+          <%= f.label :password_confirmation %><span class="validate-alert"> *</span><br />
           <%= f.password_field :password_confirmation, autocomplete: t(".new-password"), class:"form-control" %>
           <div align="right" class="error-messages-devise" >
             <%= resource.errors.full_messages_for(:password_confirmation).first %>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="field form-group">
-          <%= f.label :name %>
+          <%= f.label :name %><span class="validate-alert"> *</span>
           <%= f.text_field :name, autofocus: true, autocomplete: t(".name"), class:"form-control" %>
           <div align="right" class="error-messages-devise" >
             <%= resource.errors.full_messages_for(:name).first %>
@@ -38,20 +38,21 @@
         </div>
 
         <div class="field form-group">
-          <%= f.label :phone %>
+          <%= f.label :phone %><span class="validate-alert"> *</span>
           <%= f.text_field :phone, autofocus: true, autocomplete: t(".phone"), class:"form-control" %>
           <div align="right" class="error-messages-devise" >
             <%= resource.errors.full_messages_for(:phone).first %>
           </div>
         </div>
 
-        <div class="field form-group">
-          <%= f.label :address %>
+        <div class="form-group">
+          <%= f.label :address %><span class="validate-alert"> *</span>
           <%= f.text_field :address, autofocus: true, autocomplete: t(".address"), class:"form-control" %>
           <div align="right" class="error-messages-devise" >
             <%= resource.errors.full_messages_for(:address).first %>
           </div>
         </div>
+
         <div class="field form-group">
           <div class="fix-bot-pic upload-pic pic-profile">
             <%= f.hidden_field :avatar_cache %>
