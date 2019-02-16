@@ -9,8 +9,7 @@ class Course < ApplicationRecord
   has_many :be_admins, through: :passive_admin_courses, source: :be_admin
 
   enum status: {init: 0, start: 1, finish: 2}
-  validates_datetime :end_time, after: :start_time,
-    message: I18n.t(".validate_time")
+  validates_datetime :end_time, after: :start_time, message: I18n.t(".validate_time")
 
   accepts_nested_attributes_for :subjects, allow_destroy: true
 
