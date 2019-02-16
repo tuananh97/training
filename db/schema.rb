@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_02_16_022033) do
     t.string "name"
     t.text "description"
     t.string "content"
+    t.string "video"
     t.bigint "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

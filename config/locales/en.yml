@@ -335,7 +335,7 @@ en:
         del_title: "Delete title"
         failure: "Create subject failure!"
       edit:
-        edit: "Edit"
+        edit: "Save All Change of Subject"
       update:
         success: "Update subject successfully!"
         failure: "Update subject failure!"
@@ -349,6 +349,7 @@ en:
         confirm_delete: "Are you sure?"
         del_title: "Delete subject"
       task_fields:
+        video: "Video course"
         confirm_delete: "Are you sure?"
         del_title: "Delete task"
       show:

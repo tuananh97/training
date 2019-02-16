@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :description
       t.string :content
+      t.string :video
       t.references :subject, foreign_key: true
 
       t.timestamps

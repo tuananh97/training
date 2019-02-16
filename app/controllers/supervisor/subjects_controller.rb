@@ -27,10 +27,11 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     if @subject.update_attributes subject_params
       assign_task
       flash[:success] = t ".success"
+      redirect_to supervisor_course_subject_path
     else
       flash[:error] = t ".failure"
+      render :edit
     end
-    redirect_to supervisor_course_subject_path
   end
 
   def destroy
@@ -58,7 +59,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
   def subject_params
     params.require(:subject).permit :name, :description, :start_time,
       :end_time, :status, tasks_attributes: [:id, :name, :description,
-      :content, :destroy]
+      :content, :video, :destroy]
   end
 
   def assign_task

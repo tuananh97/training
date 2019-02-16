@@ -5,7 +5,6 @@ class Supervisor::UsersController < Supervisor::BaseController
   def index
     @users = User.trainee.by_lastest.page(params[:page])
                  .per Settings.user.per_page_index
-    # @pagy, @users = pagy User.trainee.by_lastest, items: Settings.user.per_page_index
   end
 
   def new

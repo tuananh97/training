@@ -24,5 +24,13 @@
     <div class="col-md-9">
       <%= f.text_area :description, class: "form-group form-control", required: true %>
     </div>
+
+    <div class="col-md-3">
+      <%= f.label :video, t(".video") %>
+    </div>
+    <div class="col-md-9">
+    <%= f.hidden_field :video_cache %>
+    <%= f.file_field :video %>
+  </div>
   </div>
 </div>

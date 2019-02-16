@@ -54,7 +54,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
       redirect_to supervisor_courses_path
     else
       flash[:error] = t ".failure"
-      render :edit
+      redirect_to supervisor_courses_path
     end
   end
 
@@ -96,7 +96,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
     params.require(:course).permit :name, :description, :start_time,
       :end_time, :status, subjects_attributes: [:id, :name, :description,
       :start_time, :end_time, :destroy, tasks_attributes: [:id, :name,
-      :description, :content, :destroy]], image_attributes: [:id, :image_url,
+      :description, :content, :video, :destroy]], image_attributes: [:id, :image_url,
         :imageable_id, :imageable_type, :_destroy]
   end
 end
