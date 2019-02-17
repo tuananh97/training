@@ -22,9 +22,9 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
     @user = @user_course.user
     @user_course_id = @user_course.id
     if @user.trainee?
-      @user2 = User.find_by_id @user.id
-      @user2.trainee_tasks.where(course_id: @course.id).delete_all
-      @user2.trainee_subjects.where(course_id: @course.id).delete_all
+      @trainee = User.find_by_id @user.id
+      @trainee.trainee_tasks.where(course_id: @course.id).delete_all
+      @trainee.trainee_subjects.where(course_id: @course.id).delete_all
     end
     if @course.remove_user @user
       remove_sucess

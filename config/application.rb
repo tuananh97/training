@@ -14,6 +14,7 @@ module Fts81
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w(ckeditor/*)
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.assets.precompile += %w( *.js *.css )
     config.assets.paths << Rails.root.join("node_modules")
     config.time_zone = "Bangkok"
     config.active_record.default_timezone = :local

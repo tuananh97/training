@@ -57,7 +57,7 @@ en:
         phone: "phone"
         address: "address"
         avatar: "avatar"
-        sign_up: "Sign Up"
+        sign_up: "Register New Account"
       edit:
         edit_profile: "Change My Profile"
         email: "email"
