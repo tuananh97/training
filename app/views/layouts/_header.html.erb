@@ -38,23 +38,10 @@
                 <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".manage_courses" %>
               <% end %>
             </li>
-            <li class="nav-item">
-              <%= link_to supervisor_reports_path, class:"nav-link" do %>
-              <i class="fa fa-list-alt"></i>&nbsp;<%= t ".trainee_report" %>
-              <% end %>
-            </li>
           <% else %>
             <li class="nav-item">
               <%= link_to trainee_courses_path, class:"nav-link" do %>
                 <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".mycourse" %>
-              <% end %>
-            </li>
-            <%= link_to trainee_members_path, class:"nav-link" do %>
-              <i class="fa fa-users"></i>&nbsp;<%= t ".all_members" %>
-            <% end %>
-            <li class="nav-item">
-              <%= link_to trainee_reports_path, class:"nav-link" do %>
-              <i class="fa fa-list-alt"></i>&nbsp;<%= t ".daily_report" %>
               <% end %>
             </li>
           <% end %>
@@ -63,11 +50,6 @@
 
       <ul class="nav navbar-nav navbar-right ml-auto">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <a href="#" class="nav-link notifications">
-              <i class="fa fa-bell-o"></i><span class="badge">1</span>
-            </a>
-          </li>
           <li class="nav-item dropdown">
             <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action">
               <%= image_tag get_avatar(current_user), class:"avatar", alt: t(".avatar") %>

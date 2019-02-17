@@ -93,6 +93,7 @@ en:
   learns:
     learn: "Learn"
     show:
+      title: "Course: %{course}"
       not_found: "This course doesn't exist!"
       not_permission: "You don't permission access this course!"
   tasks:
@@ -102,7 +103,7 @@ en:
     show:
       not_found: "This task doesn't exist!"
       not_permission: "You don't permission access this task!"
-      learn_task: "Learn %{name} "
+      learn_task: "Assignment"
       discussion: "Discussion"
     comment_form:
       submit: "Comment"
@@ -367,12 +368,3 @@ en:
         name: "Title"
         content: "Content report"
         send_time: "Send time"
-  mailer:
-    welcome: "Hi %{name}"
-    thanks: "Thanks for joining this course !"
-    horizontal: "---------------------------------------------"
-    sorry: "See you again"
-    assign_to_course: "You has been assigned to a course: %{name}"
-    remove_from_course: "You has been removed from a course: %{name}"
-    hi: "Hi %{name}, this is statistic of trainee"
-    mothly_report: "Monthly report"

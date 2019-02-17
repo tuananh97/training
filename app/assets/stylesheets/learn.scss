@@ -131,3 +131,25 @@
   overflow-y: scroll;
   padding: 5px;
 }
+
+.subject-card{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .subject-title {
+    font-size: 20px;
+    line-height: 1.5;
+    font-family: “Helvetica Neue”, Helvetica, Arial, sans-serif;
+    margin:10px;
+  }
+}
+
+.task-card {
+  margin: 10px 20px 10px 30px;
+  a.task-name{
+    color: black;
+  }
+
+  task-name a:hover{
+    color: blue;
+  }
+}

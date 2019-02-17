@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     registrations: "registrations"}
   resources :reset_password, only: %i(edit update)
   resources :users, only: %i(edit show)
+  resources :user_courses, only: %i(new create show destroy), controller: "courses", as: "courses"
+
   resources :learns, only: :show
   resources :tasks, only: %i(show update)
   resources :comments do

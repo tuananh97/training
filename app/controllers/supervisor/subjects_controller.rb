@@ -12,11 +12,13 @@ class Supervisor::SubjectsController < Supervisor::BaseController
   def create
     @subject = @course.subjects.build subject_params
     if @subject.save!
+      assign_subject
       flash[:success] = t ".success"
+      redirect_to supervisor_courses_path
     else
       flash[:error] = t ".failure"
+      render :new
     end
-    redirect_to supervisor_courses_path
   end
 
   def show; end
@@ -27,7 +29,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     if @subject.update_attributes subject_params
       assign_task
       flash[:success] = t ".success"
-      redirect_to supervisor_course_subject_path
+      redirect_to supervisor_courses_path
     else
       flash[:error] = t ".failure"
       render :edit
@@ -36,6 +38,8 @@ class Supervisor::SubjectsController < Supervisor::BaseController
 
   def destroy
     if @subject.destroy
+      TraineeTask.where(course_id: @course.id).delete_all
+      TraineeSubject.where(course_id: @course.id).delete_all
       flash[:success] = t ".success"
     else
       flash[:error] = t ".failure"
@@ -60,6 +64,23 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     params.require(:subject).permit :name, :description, :start_time,
       :end_time, :status, tasks_attributes: [:id, :name, :description,
       :content, :video, :destroy]
+  end
+
+  def assign_subject
+    UserCourse.trainees_on_course(@course.id).each do |user|
+      TraineeSubject.bulk_insert(ignore: true) do |worker_subject|
+        @course.subjects.each do |subject|
+          worker_subject.add(trainee_id: user.user_id, subject_id: subject.id,
+          course_id: @course.id)
+            TraineeTask.bulk_insert(ignore: true) do |work_task|
+              subject.tasks.each do |task|
+                work_task.add(trainee_id: user.user_id, task_id: task.id,
+                  course_id: @course.id)
+              end
+            end
+        end
+      end
+    end
   end
 
   def assign_task
