@@ -4,11 +4,11 @@ namespace :create_subject do
     Subject.bulk_insert do |subject|
       Course.all.each_with_index do |course, index|
         subject.add(
-          name: "subject #{index}",
-          description: "description subject #{index}",
+          name: "Subject demo #{index}",
+          description: "Description subject demo #{index}",
           course_id: course.id,
-          start_time: 20.days.ago,
-          end_time: 10.days.ago,
+          start_time: 5.days.ago,
+          end_time: 2.days.ago,
           status: 0
         )
       end
@@ -22,9 +22,9 @@ namespace :create_task do
     Task.bulk_insert do |task|
       Subject.all.each_with_index do |subject, index|
         task.add(
-          name: "task #{index}",
-          description: "description task #{index}",
-          content: "Content #{index}",
+          name: "Task demo #{index}",
+          description: "Description task demo #{index}",
+          content: "Content of task demo #{index}",
           subject_id: subject.id
         )
       end

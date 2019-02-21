@@ -11,9 +11,6 @@ module Fts81
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.active_job.queue_adapter = :sidekiq
-    config.assets.precompile += Ckeditor.assets
-    config.assets.precompile += %w(ckeditor/*)
-    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.paths << Rails.root.join("node_modules")
     config.time_zone = "Bangkok"
     config.active_record.default_timezone = :local

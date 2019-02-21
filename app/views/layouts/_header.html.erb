@@ -24,11 +24,6 @@
           </li>
           <% if current_user.supervisor? %>
             <li class="nav-item">
-              <%= link_to supervisor_all_supervisors_path, class:"nav-link" do %>
-                <i class="fa fa-users"></i>&nbsp;<%= t ".all_supervisors" %>
-              <% end %>
-            </li>
-            <li class="nav-item">
               <%= link_to supervisor_users_path, class:"nav-link" do %>
                 <i class="fa fa-user"></i>&nbsp;<%= t ".manage_users" %>
               <% end %>
