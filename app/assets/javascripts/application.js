@@ -22,7 +22,6 @@
 //= require activestorage
 //= require toastr/build/toastr.min
 //= require sweetalert2/dist/sweetalert2.all.min
-//= require ckeditor/init
 //= require custom
 //= require cloudinary
 //= require timeline

@@ -1,0 +1,22 @@
+<div class="content-wrapper">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card">
+        <%= image_tag get_image(@course), class:"card-img-top" %>
+        <div class="card-body">
+          <h3 class="title-course"><%= @course.name %></h3>
+          <span class="short-description"><%= @course.description %></span>
+        </div>
+        <% if user_signed_in? %>
+          <div class="card-footer text-center">
+            <%= form_for @user_course do |f| %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.hidden_field :course_id, value: @course.id %>
+              <%= f.submit "Enroll", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

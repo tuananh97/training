@@ -5,11 +5,6 @@ class Trainee::UsersController < Trainee::BaseController
     @my_courses = @user.courses.page(params[:page]).per Settings.user.per_page
   end
 
-  def all_users
-    @members = User.load_data.trainee.page(params[:page])
-                   .per Settings.user.per_page
-  end
-
   private
 
   def find_user

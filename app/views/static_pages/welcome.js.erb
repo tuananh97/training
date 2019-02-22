@@ -1,0 +1,2 @@
+$("#courses").html("<%= j render 'static_pages/course' %>");
+$("#paginator").html("<%= j paginate(@courses, theme: "twitter-bootstrap-4", remote: true) %>");

@@ -1,66 +1,58 @@
 <div class="content-wrapper">
   <div class="col-md-12">
-    <h3><strong><%= t ".course_detail" %> - <%= @course.name %></strong></h3>
+    <h3><strong><%= t ".course_detail" %>: <%= @course.name %></strong></h3>
   </div>
   <div class="row">
-    <div class="col-md-4">
-      <h4><strong><%= @course.name %></strong></h4>
-      <p><%= @course.description %></p>
-      <p><%= training_time @course %></p>
-    </div>
-    <div class="row col-md-8">
-      <% @course.subjects.each_with_index do |subject, index| %>
-        <div class="col-md-6">
-          <h4><strong><%= subject.name %></strong></h4>
-          <p><%= subject.description %></p>
-          <p><%= training_time subject %></p>
+    <div class="col-md-9">
+      <div class="col-md-4">
+        <p><%= training_time @course %></p>
+        <p><%= @course.description %></p>
+      </div>
+    <% @course.subjects.each do |subject| %>
+      <div class="card subject-card">
+        <div class="subject-title">
+          <%= subject.name %>
         </div>
-        <div class="col-md-6">
-          <% subject.tasks.each_with_index do |task, index| %>
-            <h4><strong><%= task.name %></strong></h4>
-            <p><%= task.description %></p>
-            <p><%= task.content %></p>
-          <% end %>
+        <% subject.tasks.each do |task| %>
+          <div class="task-card row">
+            <div class="col-md-11">
+              <i class="fa fa fa-leanpub" style="color: blue">
+              </i>&nbsp;
+              <%= link_to task.name, task_path(task.id), class: "task-name" %>
+            </div>
+            <div class="float-right">
+              <% if current_user.trainee? && check_status_task(current_user, task.id).finish? %>
+              Done
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    </div>
+
+    <div class="col-md-3">
+      <h5 class="panel-title">
+        <strong><%= t ".suppervisor_course" %></strong>
+        <span class="badge"><%= @supervisors.size %></span>
+      </h5>
+
+      <% @supervisors.each do |supervisor| %>
+        <div>
+          <%= link_to supervisor.name, user_path(supervisor) %>
+        </div>
+      <% end %>
+      <br>
+      <h5 class="panel-title">
+        <strong><%= t ".trainee_course" %></strong>
+        <span class="badge"><%= @trainees.size %></span>
+      </h5>
+
+      <% @trainees.each do |trainee| %>
+       <div>
+          <%= link_to trainee.name, user_path(trainee) %>
         </div>
       <% end %>
     </div>
-  </div>
-</div>
-<div class="content-wrapper">
-  <h4 class="panel-title">
-    <strong><%= t ".suppervisor_course" %></strong>
-    <span class="badge"><%= @supervisors.size %></span>
-  </h4>
-  <div class="row">
-    <% @supervisors.each do |supervisor| %>
-      <div class="col-md-4 each-member">
-        <div class="avatar">
-          <%= image_tag get_avatar(supervisor), class:"avatar" %>
-        </div>
-        <div class="info-member">
-          <h3><%= supervisor.name %></h3>
-          <p><%= supervisor.email %></p>
-            <%= link_to t(".view"), user_path(supervisor.id), class:"btn pull-left bt-view" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <h4 class="panel-title">
-    <strong><%= t ".trainee_course" %></strong>
-    <span class="badge"><%= @trainees.size %></span>
-  </h4>
-  <div class="row">
-    <% @trainees.each do |trainee| %>
-      <div class="col-md-4 each-member">
-        <div class="avatar">
-          <%= image_tag get_avatar(trainee), class:"avatar" %>
-        </div>
-        <div class="info-member">
-          <h3><%= trainee.name %></h3>
-          <p><%= trainee.email %></p>
-          <%= link_to t(".view"), user_path(trainee.id), class:"btn pull-left bt-view" %>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>

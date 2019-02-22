@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def welcome
-    @courses = Course.all.page(params[:page]).per Settings.per_page
+    @q = Course.ransack params[:q]
+    @courses = @q.result(distinct: true).page(params[:page]).per 4
   end
 end
