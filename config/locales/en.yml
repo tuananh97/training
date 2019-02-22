@@ -129,6 +129,9 @@ en:
       danger: "Delete this comment not success!"
     new_reply:
       submit: "Reply"
+  user_courses:
+    create:
+      success: "You enroll this course successfully !"
   trainee:
     users:
       users:

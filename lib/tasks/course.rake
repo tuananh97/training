@@ -4,21 +4,10 @@ namespace :create_course do
     Course.bulk_insert do |course|
       10.times do |i|
         course.add(
-          name: "Course #{i}",
-          description: "description #{i}",
-          start_time: 30.days.ago,
-          end_time: 10.days.ago
-        )
-      end
-    end
-
-    puts "Create supervisor course"
-    UserCourse.bulk_insert do |user_course|
-      Course.all.each do |course|
-        user_course.add(
-          user_id: rand(1..20),
-          course_id: course.id,
-          status: 0
+          name: "Course demo #{i}",
+          description: "Description course demo #{i}",
+          start_time: 10.days.ago,
+          end_time: 2.days.ago
         )
       end
     end

@@ -7,7 +7,7 @@ namespace :create_supervisor do
         user.add(
           name: Faker::Name.name,
           email: "admin_#{i}@email.com",
-          phone: "0976594#{i}30",
+          phone: "0372019#{i}30",
           address: Faker::Address.city,
           role: 1,
           password: password,
@@ -27,7 +27,7 @@ namespace :create_trainee do
         user.add(
           name: Faker::Name.name,
           email: "user_#{j}@email.com",
-          phone: "0976594#{j}23",
+          phone: "0372019#{j}23",
           address: Faker::Address.city,
           role: 0,
           password: password,
