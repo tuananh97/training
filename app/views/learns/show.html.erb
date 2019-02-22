@@ -3,7 +3,7 @@
 <div class="container-fluid">
   <div class="course-card col-lg-9">
     <strong><%= @course.name %></strong> <%= training_time(@course) %>
-    <% @course.subjects.each do |subject| %>
+    <% @subjects.each do |subject| %>
       <div class="card subject-card">
         <div class="subject-title">
           <%= subject.name %>

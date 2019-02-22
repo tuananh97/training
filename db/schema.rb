@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_16_022033) do
+ActiveRecord::Schema.define(version: 2019_02_21_081624) do
+
+  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "question_id"
+    t.string "content"
+    t.boolean "is_correct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.integer "width"
+    t.integer "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
@@ -33,6 +53,12 @@ ActiveRecord::Schema.define(version: 2019_02_16_022033) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "exams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image_url"
     t.integer "imageable_id"
@@ -41,10 +67,25 @@ ActiveRecord::Schema.define(version: 2019_02_16_022033) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.integer "exam_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.integer "sender_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "test_id"
+    t.integer "answer_id"
+    t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,6 +111,16 @@ ActiveRecord::Schema.define(version: 2019_02_16_022033) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_tasks_on_subject_id"
+  end
+
+  create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "exam_id"
+    t.date "date"
+    t.float "score"
+    t.integer "user_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "trainee_reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

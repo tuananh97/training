@@ -4,4 +4,5 @@
 <% else %>
   $('#reply-form-<%= j @comment.parent_id.to_s %>').before('<%= j render @comment %>');
   $('#content-<%= j @comment.parent_id.to_s %>').val('');
+  $('#reply-form-<%= j @comment.parent_id.to_s %>').hide();
 <% end %>
