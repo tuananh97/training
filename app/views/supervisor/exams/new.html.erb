@@ -1,0 +1,19 @@
+<div class="content-wrapper">
+  <%= form_for [:supervisor, @exam] do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+        <h4><%= t ".create_exam" %></h4>
+        <div class="form-group">
+          <%= f.label :title, t(".name"), class: "required" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div align="right" class="error-messages-devise" >
+          <%= @exam.errors.full_messages_for(:title).first %>
+        </div>
+        <div class="actions form-group">
+          <%= f.submit "create" , class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

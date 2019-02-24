@@ -1,4 +1,5 @@
 en:
+  submit: "Submit"
   confirm_popup:
     sure_delete: "Are you sure want to delete."
     delete_text: "Once you delete it, a data can not be restore"
@@ -90,6 +91,18 @@ en:
     update:
       change_password_success: "Change your password success!"
       change_password_failed: "Change your password failed!"
+  registrations:
+    create:
+      errors: "Register new account failed. Please, you recheck imformation!"
+  user_courses:
+    create:
+      success: "You enroll this course successfully!"
+      failed: "You enroll this course failed!"
+      info: "You has been enroll this course!"
+    destroy:
+      success: "Unroll this course successfully!"
+      failed: "Unroll this course failed!"
+    check_enroll_course:
   learns:
     learn: "Learn"
     show:
@@ -112,6 +125,29 @@ en:
       task: "Task"
       success: "Finish task successfully"
       failure: "Finish task failure"
+  tests:
+    waitting: "waitting"
+    do_test: "Do Test"
+    view: "View"
+    submit: "Submit"
+    create:
+      success: "Create test of exam successfully"
+      failed: "Create test of exam failure"
+    update:
+      submit: "Apply this test successfully!"
+    index:
+      title: "Title"
+      date: "Date"
+      score: "Score"
+      status: "Status"
+      action: "Action"
+    show:
+      title: "Do Exam %{title}"
+      date: "Date"
+      score: "Score"
+      back: "Back"
+    submit:
+      confirm: "Are you ready to take the exam?"
   comments:
     comment:
       commented: "%{user} commented %{time} ago."

@@ -23,10 +23,10 @@ class UserCoursesController < ApplicationController
       @trainee.trainee_subjects.where(course_id: @course.id).delete_all
     end
     if @course.remove_user @user
-      flash[:success] = "Unenroll success !!"
+      flash[:success] = t ".success"
       redirect_to home_path
     else
-      flash[:error] = t "supervisor.courses.button.remove_user.failed"
+      flash[:error] = t ".failed"
       redirect_to :back
     end
   end
@@ -41,7 +41,7 @@ class UserCoursesController < ApplicationController
     @user_course = current_user.user_courses.where(course_id:
       params[:user_course][:course_id])
     if @user_course.present?
-      flash[:info] = "You has been enroll this course!"
+      flash[:info] = t ".info"
       redirect_to home_path
     end
   end

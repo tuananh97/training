@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :trainee_reports
   has_many :user_courses
   has_many :courses, through: :user_courses
+  has_many :tests, dependent: :destroy
 
   VALID_PHONE_NUMBER_REGEX = Settings.regex.phone
   validates :name, presence: true,

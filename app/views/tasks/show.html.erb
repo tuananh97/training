@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-6">
       <% if @task.video.present? %>
-      <%= cl_video_tag("ihek1z5wc7hrvmsb3wsa.mp4", height: '700', width: '800', controls: true, crop: "fit") %>
+      <%= video_tag(@task.video.url, height: '500', width: '700', controls: true) %>
       <% else %>
       <div class="video">
         <iframe src="https://www.youtube.com/embed/gZtZnZy9QXg"></iframe>

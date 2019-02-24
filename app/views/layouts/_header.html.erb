@@ -33,6 +33,11 @@
                 <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".manage_courses" %>
               <% end %>
             </li>
+            <li class="nav-item">
+              <%= link_to supervisor_exams_path, class:"nav-link" do %>
+                <i class="fa fa-file-text"></i>&nbsp;<%= t ".manage_exams" %>
+              <% end %>
+            </li>
           <% else %>
             <li class="nav-item">
               <%= link_to trainee_courses_path, class:"nav-link" do %>

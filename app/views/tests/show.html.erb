@@ -1,0 +1,29 @@
+<% provide :title, t(".title", title: @test.exam.title) %>
+
+<div class="content-wrapper">
+  <% if @test.status == t("tests.waitting") %>
+  <p align="center">
+    <h1><br><%= @test.exam.title %></h1></br>
+  </p>
+
+  <p>
+    <%= render "test" %>
+  </p>
+
+  <% else %>
+    <p>
+      <strong><%= t ".date" %></strong>
+      <%= @test.updated_at.strftime(Settings.format_time_test) %>
+    </p>
+    <p>
+      <strong><%= t ".score" %></strong> <%= @test.score %> (<%= @test.correct_answer_of_user %>/<%= @test.correct_answer_of_test %>)
+    </p>
+
+    <div>
+      <ol type="1">
+        <%= render @test.questions, test: @test %>
+      </ol>
+    </div>
+    <%= link_to t(".back"), user_tests_path, class: "btn btn-info" %>
+  <% end %>
+</div>

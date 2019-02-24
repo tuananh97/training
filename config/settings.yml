@@ -31,3 +31,4 @@ avatar_trainee: "https://res.cloudinary.com/tuan-anh-uet-vnu/image/asset/v155028
 avatar_teacher: "https://res.cloudinary.com/tuan-anh-uet-vnu/image/asset/v1550286377/teacher-491ef244e7cc377cacd2d4d1a2bc552d.png"
 image_course: "https://res.cloudinary.com/tuan-anh-uet-vnu/image/asset/v1550286368/course-26ff8f39241b3a8a90817f04f86d2214.png"
 format_time: "%d/%m/%Y"
+format_time_test: "%H:%M %d/%m/%Y"

@@ -1,0 +1,17 @@
+<div class="nested-fields answer">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="form-group field">
+        <%= f.label :content, "Answer" %>
+        <%= f.text_field :content, id: :content, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group field">
+        <%= f.label :is_correct, t("admin.answers.answer_type") %>
+        <br/>
+        <%= f.select :is_correct, [["Incorrect", false],["Correct", true]], {}, class: "form-control"%>
+      </div>
+    </div>
+  </div>
+</div>

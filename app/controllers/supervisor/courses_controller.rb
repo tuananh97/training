@@ -2,7 +2,8 @@ class Supervisor::CoursesController < Supervisor::BaseController
   before_action :find_course, except: %i(index create new finish)
 
   def index
-    @courses = Course.by_lastest.page(params[:page]).per Settings.per_page_index
+    @courses = current_user.courses.by_lastest
+                           .page(params[:page]).per Settings.per_page_index
   end
 
   def new
@@ -17,7 +18,6 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
   def create
     @course = Course.new course_params
-
     if @course.save
       @course.passive_admin_courses.create user_id: current_user.id,
         status: :admin
@@ -54,7 +54,8 @@ class Supervisor::CoursesController < Supervisor::BaseController
       redirect_to supervisor_courses_path
     else
       flash[:error] = t ".failure"
-      redirect_to supervisor_courses_path
+      load_all_users
+      render :edit
     end
   end
 
@@ -93,10 +94,9 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def course_params
-    params.require(:course).permit :name, :description, :start_time,
+    params.require(:course).permit :name, :description, :avatar, :start_time,
       :end_time, :status, subjects_attributes: [:id, :name, :description,
       :start_time, :end_time, :destroy, tasks_attributes: [:id, :name,
-      :description, :content, :video, :destroy]], image_attributes: [:id, :image_url,
-        :imageable_id, :imageable_type, :_destroy]
+      :description, :content, :video, :destroy]]
   end
 end

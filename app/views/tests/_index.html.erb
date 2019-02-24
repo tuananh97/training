@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= t "admin.chapters.name" %></th>
+      <th><%= t "admin.tests.date" %></th>
+      <th><%= t "admin.tests.score" %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% user.tests.each do |test| %>
+      <tr>
+        <td><%= test.exam.name %></td>
+        <td><%= test.date %></td>
+        <td><%= test.score %></td>
+        <td><%= link_to t("view"), [@user, test],
+          class: "btn btn-info" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+

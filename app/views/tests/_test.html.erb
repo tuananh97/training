@@ -1,0 +1,13 @@
+<%= form_for @test, url: user_test_path(current_user) do |f| %>
+  <ol>
+    <%= f.fields_for :results, method: :put do |result_builder| %>
+			<li>
+			  <%= result_builder.object.question.content %>
+		  </li>
+			  <%= render "answer",
+			    result_builder: result_builder %>
+		<% end %>
+  </ol>
+  <%= f.hidden_field :status, value: :done %>
+  <%= f.submit t("submit") %>
+<% end %>

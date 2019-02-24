@@ -38,18 +38,24 @@
     <% @my_courses.each do |my_course| %>
       <div class="col-md-3 card-size">
         <div class="card">
-          <img class="card-img-top" src="/assets/course.png" tyle="width:100%">
+          <%= image_tag get_image(my_course),size: "405x220", tyle:"width:100%" %>
           <div class="card-body">
             <h3 class="title-course"><%= my_course.name %></h3>
             <span class="short-description"><%= my_course.description %></span>
           </div>
-          <div class="card-footer text-center">
-            <%= link_to t(".learn"), learn_path(my_course.id), class:"btn btn-success"%>
-            <%= form_for my_course.user_courses.find_by(user_id: current_user.id), html: {method: :delete} do |f| %>
-              <%= hidden_field_tag :user_id, current_user.id %>
-              <%= hidden_field_tag :course_id, my_course.id %>
-              <%= f.submit "Unenroll", class: "btn btn-info" %>
-            <% end %>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-md-6">
+                <%= link_to t(".learn"), learn_path(my_course.id), class:"btn btn-success"%>
+              </div>
+              <div class="col-md-6 text-right">
+                <%= form_for my_course.user_courses.find_by(user_id: current_user.id), html: {method: :delete} do |f| %>
+                  <%= hidden_field_tag :user_id, current_user.id %>
+                  <%= hidden_field_tag :course_id, my_course.id %>
+                  <%= f.submit "Unenroll", class: "btn btn-info" %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -60,13 +66,13 @@
     <% @supervisor_courses.each do |course| %>
       <div class="col-md-3 card-size">
         <div class="card">
-          <img class="card-img-top" src="/assets/course.png" tyle="width:100%">
+          <%= image_tag get_image(course),size: "405x220", tyle:"width:100%" %>
           <div class="card-body">
             <h3 class="title-course"><%= course.name %></h3>
             <span class="short-description"><%= course.description %></span>
           </div>
-          <div class="card-footer">
-            <%= link_to t(".view"), learn_path(course.id), class:"btn btn-success"%>
+          <div class="card-footer text-center">
+            <%= link_to t(".manage_course"), supervisor_course_path(course), class:"btn btn-info"%>
           </div>
         </div>
       </div>

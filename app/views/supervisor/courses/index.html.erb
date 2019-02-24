@@ -81,7 +81,14 @@
           </td>
           <td>
             <%= link_to supervisor_course_path(course), method: :delete,
-              data: {confirm: t(".confirm")} do %>
+              data: {
+    confirm: 'Is this what you want?',
+    swal: {
+      text: "I'm a subtitle",
+      type: 'question',
+      confirm_button_class: 'btn btn-default'
+    }
+  } do %>
               <i class="fa fa-trash" data-toogle="tooltip"
                 title="<%= t '.delete' %>"></i>
             <% end %>

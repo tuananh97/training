@@ -16,6 +16,8 @@ gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
 gem "faker"
+gem "figaro"
+gem "fog-aws"
 gem "font-awesome-rails"
 gem "i18n"
 gem "i18n-js"
@@ -27,8 +29,8 @@ gem "mini_racer"
 gem "momentjs-rails"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.0"
-gem "ransack"
 gem "rails-i18n"
+gem "ransack"
 gem "rolify"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
@@ -36,7 +38,6 @@ gem "sidekiq"
 gem "uglifier", ">= 1.3.0"
 gem "validates_timeliness", "~> 5.0.0.alpha3"
 gem "whenever", require: false
-gem 'cloudinary'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

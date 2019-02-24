@@ -1,7 +1,7 @@
 class VideoUploader < CarrierWave::Uploader::Base
-  include Cloudinary::CarrierWave
+  include CarrierWave::MiniMagick
 
-  process :tags => ['post_video']
+  storage :fog
 
   def extension_white_list
     %w(mp4 avi)

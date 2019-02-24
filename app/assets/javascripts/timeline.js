@@ -1,18 +1,27 @@
-$(document).ready(function() {
-  $('.slidetoggle').hide();
-  $('.fill-slide').on('click', function(){
-    var target = $(this).attr('id');
-    localStorage.setItem('target', target);
-    $(this).next('.slidetoggle').slideToggle();
-    $('.slide-icon').toggleClass('fa-angle-up');
-  });
-});
-
-window.onload = function() {
-  var target = localStorage.getItem('target');
-  if (target == 'user') {
-    $('div[data-name="sub-menu-user"]').show();
-  } else if(target == 'company') {
-    $('div[data-name="sub-menu-company"]').show();
+$.rails.allowAction = function(link){
+  if (link.data("confirm") == undefined){
+    return true;
   }
+  $.rails.showConfirmationDialog(link);
+  return false;
+}
+
+//User click confirm button
+$.rails.confirmed = function(link){
+  link.data("confirm", null);
+  link.trigger("click.rails");
+}
+
+//Display the confirmation dialog
+$.rails.showConfirmationDialog = function(link){
+  var message = link.data("confirm");
+  swal({
+    title: message,
+    type: 'warning',
+    confirmButtonText: 'Sure',
+    confirmButtonColor: '#2acbb3',
+    showCancelButton: true
+  }).then(function(e){
+    $.rails.confirmed(link);
+  });
 };

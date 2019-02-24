@@ -1,0 +1,5 @@
+<%= form_for @test, url: user_tests_path(current_user), method: :patch do |f| %>
+  <%= f.hidden_field :status, value: :done %>
+  <%= f.hidden_field :answer_id, value: :chosen_answer_id %>
+  <%= f.submit t("en.tests.submit"), data: { confirm: t(".confirm") } %>
+<% end %>

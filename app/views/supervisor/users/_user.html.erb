@@ -12,7 +12,7 @@
             title="<%= t '.edit' %>""></i>
         <% end %>&nbsp;
         <%= link_to supervisor_user_path(user), method: :delete,
-          data: {confirm: t(".confirm")} do %>
+          data: { confirm: "Are you sure?" } do %>
           <i class="fa fa-trash-o data-toogle="tooltip"
             title="<%= t '.delete' %>""></i>
         <% end %>&nbsp;

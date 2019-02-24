@@ -40,7 +40,7 @@ module ApplicationHelper
   end
 
   def get_image course
-    course.image.present? ? course.image.image_url.url : Settings.image_course
+    course.avatar.present? ? course.avatar.url : Settings.image_course
   end
 
   def get_avatar user

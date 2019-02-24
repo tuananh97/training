@@ -1,5 +1,5 @@
 class LearnsController < HomePagesController
-  before_action :find_course, only: :show
+  before_action :find_course
 
   def show
     @subjects = @course.subjects

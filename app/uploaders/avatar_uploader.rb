@@ -1,7 +1,7 @@
 class AvatarUploader < CarrierWave::Uploader::Base
-  include Cloudinary::CarrierWave
+  include CarrierWave::MiniMagick
 
-  process :tags => ['post_picture']
+  storage :fog
 
   version :standard do
     process :resize_to_fill => [100, 150, :north]

@@ -1,0 +1,11 @@
+<div class="nested-fields question">
+
+    <div class="col-md-6">
+    <%= f.text_area :content, class: "form-group form-control", required: true %>
+    </div>
+    <div class="col-md-6">
+        <%= f.fields_for :answers do |answer| %>
+          <%= render "form_answers", f: answer %>
+        <% end %>
+    </div>
+</div>

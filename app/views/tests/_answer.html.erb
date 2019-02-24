@@ -1,0 +1,6 @@
+<% result_builder.object.question.answers.each do |answer| %>
+  <p>
+    <%= result_builder.radio_button :answer_id, answer.id %>
+    <%= answer.content %>
+  </p>
+<%  end %>

@@ -1,0 +1,31 @@
+<% provide :title, @exam.title %>
+
+<div class="content-wrapper">
+  <h3 class="panel-title"> <%= t ".title", title: @exam.title %></h3>
+  <table class="table">
+    <thead>
+      <tr class="d-flex">
+        <th></th>
+        <th class="col-10 text-center"><%= t ".question" %></th>
+        <th class="col-2"><%= t ".action" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @questions.each_with_index do |question, index| %>
+        <tr class="d-flex">
+          <td><%= index + 1 %></td>
+          <td class="col-10"><%= question.content %>
+          </td>
+          <td class="col-2">
+            <%= link_to supervisor_exam_question_path(@exam, question),
+              method: :delete, data: {confirm: t(".confirm")} do %>
+             <i class="fa fa-trash" data-toogle="tooltip"
+                title="<%= t '.delete' %>"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= render "do_test" %>
