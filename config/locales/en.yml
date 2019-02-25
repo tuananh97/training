@@ -150,7 +150,7 @@ en:
       confirm: "Are you ready to take the exam?"
   comments:
     comment:
-      commented: "%{user} commented %{time} ago."
+      commented: "<b>%{user}</b> commented %{time} ago."
       edit: "Edit"
       delete: "Delete"
       confirm: "You sure delete?"
@@ -363,6 +363,7 @@ en:
         view: "Views"
         suppervisor_course: "Suppervisor"
         trainee_course: "Trainee"
+        add_exam: "Add exam"
         not_found: "This course not exist!"
     subjects:
       new:

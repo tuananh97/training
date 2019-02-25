@@ -8,27 +8,45 @@
         <p><%= training_time @course %></p>
         <p><%= @course.description %></p>
       </div>
-    <% @course.subjects.each do |subject| %>
-      <div class="card subject-card">
-        <div class="subject-title">
-          <%= subject.name %>
-        </div>
-        <% subject.tasks.each do |task| %>
-          <div class="task-card row">
-            <div class="col-md-11">
-              <i class="fa fa fa-leanpub" style="color: blue">
-              </i>&nbsp;
-              <%= link_to task.name, task_path(task.id), class: "task-name" %>
+      <% @course.subjects.each do |subject| %>
+        <div class="card subject-card">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="subject-title">
+                <%= subject.name %>
+              </div>
             </div>
-            <div class="float-right">
-              <% if current_user.trainee? && check_status_task(current_user, task.id).finish? %>
-              Done
+            <div class='col-md-6 subject-title'>
+              <%= link_to new_supervisor_exam_path(subject_id: subject.id), remote: true do %>
+                <i class="fa fa-plus"></i>&nbsp;<%= t ".add_exam" %>
               <% end %>
             </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
+          <% subject.tasks.each do |task| %>
+            <div class="task-card row">
+              <div class="col-md-11">
+                <i class="fa fa fa-leanpub" style="color: blue">
+                </i>&nbsp;
+                <%= link_to task.name, task_path(task.id), class: "task-name" %>
+              </div>
+              <div class="float-right">
+                <% if current_user.trainee? && check_status_task(current_user, task.id).finish? %>
+                Done
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <% subject.exams.each do |exam| %>
+            <div class="task-card row">
+              <div class="col-md-11">
+                <i class="fa fa-file-text" style="color: blue">
+                </i>&nbsp;
+                <%= exam.title %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
 
     <div class="col-md-3">
@@ -36,7 +54,6 @@
         <strong><%= t ".suppervisor_course" %></strong>
         <span class="badge"><%= @supervisors.size %></span>
       </h5>
-
       <% @supervisors.each do |supervisor| %>
         <div>
           <%= link_to supervisor.name, user_path(supervisor) %>
@@ -47,7 +64,6 @@
         <strong><%= t ".trainee_course" %></strong>
         <span class="badge"><%= @trainees.size %></span>
       </h5>
-
       <% @trainees.each do |trainee| %>
        <div>
           <%= link_to trainee.name, user_path(trainee) %>

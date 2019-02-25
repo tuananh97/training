@@ -11,7 +11,11 @@ class Supervisor::ExamsController < Supervisor::BaseController
   end
 
   def new
+    @subject = Subject.find_by_id params[:subject_id]
     @exam = Exam.new
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit; end
@@ -23,7 +27,9 @@ class Supervisor::ExamsController < Supervisor::BaseController
       redirect_to supervisor_exams_path
     else
       flash[:danger] = t ".failed"
-      render :new
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
@@ -49,7 +55,7 @@ class Supervisor::ExamsController < Supervisor::BaseController
   private
 
   def exam_params
-    params.require(:exam).permit :title
+    params.require(:exam).permit :title, :subject_id
   end
 
   def find_exam

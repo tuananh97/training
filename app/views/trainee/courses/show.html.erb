@@ -72,6 +72,22 @@
                     </div>
                   <% end %>
                 </li>
+                <% subject.exams.each do |exam| %>
+                <li>
+                <div class="row">
+                  <div class="col-md-2">
+                  <strong><%= exam.title %></strong>
+                  </div>
+                  <div class="col-md-4">
+                    <% exam.tests.each do |test| %>
+                     <% if test.user == current_user  %>
+                        <%= test.score %>
+                     <% end %>
+                    <% end %>
+                  </div>
+                </div>
+                </li>
+                <% end %>
               <% end %>
             </ol>
           <% end %>

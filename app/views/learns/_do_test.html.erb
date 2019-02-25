@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <%= form_for current_user.tests.new(exam_id: exam.id), url: user_tests_path(current_user), method: :post do |f| %>
+    <%= f.hidden_field :exam_id, autofocus: true, value: exam.id %>
+    <%= f.hidden_field :status, value: :waitting, autofocus: true %>
+    <%= f.submit "Create" %>
+  <% end %>
+<% end %>

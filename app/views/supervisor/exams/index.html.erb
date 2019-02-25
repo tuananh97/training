@@ -26,13 +26,9 @@
           <td><%= index + 1 %></td>
           <td><%= course.title %>
           </td>
-          <td>
+          <td><%= course.subject.name %>
           </td>
           <td>
-            <%= link_to new_supervisor_exam_question_path(course), {remote: true, 'data-toggle':"modal", 'data-target':'#modal-window'} do %>
-              <i class="fa fa-plus" data-toogle="tooltip"
-                title="<%= t '.add_question' %>"></i>
-            <% end %>&nbsp;&nbsp;
             <%= link_to supervisor_exam_path(course) do %>
              <i class="fa fa-leanpub" data-toogle="tooltip"
                 title="<%= t '.delete' %>"></i>
@@ -47,9 +43,4 @@
       <% end %>
     </tbody>
   </table>
-</div>
-<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content global-modal-content"></div>
-  </div>
 </div>

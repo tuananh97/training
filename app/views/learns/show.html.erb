@@ -13,11 +13,23 @@
             <div class="col-md-11">
               <i class="fa fa fa-leanpub" style="color: blue">
               </i>&nbsp;
-              <%= link_to task.name, task_path(task.id), class: "task-name" %>
+              <%= link_to task.name, task_path(task), class: "task-name" %>
             </div>
             <div class="float-right">
               <% if current_user.trainee? && check_status_task(current_user, task.id).finish? %>
               Done
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <% subject.exams.each do |exam| %>
+          <div class="task-card row">
+            <div class="col-md-11">
+              <%= form_for current_user.tests.new(exam_id: exam.id), url: user_tests_path(current_user), method: :post do |f| %>
+                <%= f.hidden_field :exam_id, autofocus: true, value: exam.id %>
+                <%= f.hidden_field :status, value: :waitting, autofocus: true %>
+                <i class="fa fa-file-text" style="color: red"></i>
+                &nbsp;<%= f.submit exam.title, :class => 'btn btn-primary' %>
               <% end %>
             </div>
           </div>

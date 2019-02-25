@@ -1,20 +1,25 @@
 en:
   supervisor:
     exams:
+      form_exam:
+        create_exam: "Create Exam"
+        title: "Title"
+        create: "Create"
       index:
         title: "Manage Exams"
         exam: "Title Exam"
         subject: "Subject"
         action: "Action"
         delete: "Delete"
-        confirm: "vv"
+        confirm: "Are you sure delete this exam?"
         add_question: "Add Question"
       show:
-        title: "Manage Questions of Exam %{title}"
+        title: "Manage Questions Of Exam %{title}"
         question: "Subject"
         action: "Action"
         delete: "Delete"
-        confirm: "vv"
+        confirm: "Are you sure delete this question?"
+        add_question: "Add Question"
       create:
         success: "You create new exam successfully!"
         failed: "You create new exam failed!"
@@ -24,3 +29,14 @@ en:
       destroy:
         success: "You delete this exam successfully!"
         failed: "You delete this exam failed!"
+    questions:
+      create:
+        success: "You create new question successfully!"
+        failed: "You create new exam failed!"
+      update:
+        success: "You update this exam successfully!"
+        failed: "You update this exam failed!"
+      destroy:
+        success: "You delete this exam successfully!"
+        failed: "You delete this exam failed!"
+
