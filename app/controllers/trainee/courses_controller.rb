@@ -1,5 +1,5 @@
 class Trainee::CoursesController < Trainee::BaseController
-  before_action :find_course, only: [:show, :show_member]
+  before_action :check_course, only: [:show, :show_member]
 
   def index
     @my_courses = Course.trainee_courses(current_user.id).page(params[:page])
@@ -14,6 +14,14 @@ class Trainee::CoursesController < Trainee::BaseController
   end
 
   private
+
+  def check_course
+    find_course
+    if UserCourse.find_by(user_id: current_user, course_id: @course.id).nil?
+      flash[:error] = t ".not_permission"
+      redirect_to root_path
+    end
+  end
 
   def find_course
     @course = Course.find_by_id params[:id]

@@ -37,7 +37,7 @@ class TestsController < HomePagesController
   end
 
   def question_create
-    @test_questions = @test.exam.questions.limit(5)
+    @test_questions = @test.exam.questions.order("RAND()").limit(2)
     @test_questions.each do |question|
       @test.results.create question_id: question.id
     end

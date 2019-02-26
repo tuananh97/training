@@ -16,7 +16,7 @@ class Supervisor::UsersController < Supervisor::BaseController
     @user = User.new user_params
     if @user.save
       flash[:success] = t ".add_success", name: @user.name
-      redirect_to supervisor_trainee_path
+      redirect_to supervisor_users_path
     else
       flash[:error] = t ".add_fail"
       render :new
@@ -54,8 +54,7 @@ class Supervisor::UsersController < Supervisor::BaseController
   private
 
   def user_params
-    params.require(:user).permit :name, :email, :password,
-      :password_confirmation
+    params.require(:user).permit :name, :email, :password, :password_confirmation, :address, :phone, :avatar
   end
 
   def load_user

@@ -30,6 +30,11 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def show
+    if UserCourse.find_by(user_id: current_user, course_id:
+      @course.id).nil?
+    flash[:error] = t ".not_permission"
+    redirect_to root_path
+    end
     if !@course.nil?
       @trainees = @course.users.trainee
       @supervisors = @course.users.supervisor
@@ -40,6 +45,11 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def edit
+    if UserCourse.find_by(user_id: current_user, course_id:
+      @course.id).nil?
+    flash[:error] = t ".not_permission"
+    redirect_to root_path
+    end
     if !@course.nil?
       load_all_users
     else
