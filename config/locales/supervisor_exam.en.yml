@@ -10,14 +10,18 @@ en:
         exam: "Title Exam"
         subject: "Subject"
         action: "Action"
-        delete: "Delete"
+        show: "Exam details"
+        edit: "Edit exam"
+        delete: "Delete exam"
         confirm: "Are you sure delete this exam?"
         add_question: "Add Question"
       show:
         title: "Manage Questions Of Exam %{title}"
         question: "Subject"
         action: "Action"
-        delete: "Delete"
+        show: "Question details"
+        edit: "Edit question"
+        delete: "Delete question"
         confirm: "Are you sure delete this question?"
         add_question: "Add Question"
       create:
@@ -30,6 +34,14 @@ en:
         success: "You delete this exam successfully!"
         failed: "You delete this exam failed!"
     questions:
+      form_question:
+        question: "Question"
+        add_question: "Create new question"
+        create: "Create question"
+      edit:
+        question: "Question"
+        edit_question: "Edit question"
+        update: "Update"
       create:
         success: "You create new question successfully!"
         failed: "You create new exam failed!"
@@ -39,4 +51,4 @@ en:
       destroy:
         success: "You delete this exam successfully!"
         failed: "You delete this exam failed!"
-
+      question: "Question"

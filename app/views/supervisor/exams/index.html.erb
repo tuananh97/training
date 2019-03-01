@@ -2,15 +2,6 @@
 
 <div class="content-wrapper">
   <h3 class="panel-title"> <%= t ".title" %></h3>
-  <div class="row">
-    <div class="col-md-6" id="paginator">
-    </div>
-    <div class="col-md-6 text-right new-object">
-      <%= link_to new_supervisor_exam_path, class:"btn btn-primary" do %>
-        <i class="fa fa-plus"></i>&nbsp;<%= t ".add_exam" %>
-      <% end %>
-    </div>
-  </div>
   <table class="table">
     <thead>
       <tr>
@@ -31,7 +22,7 @@
           <td>
             <%= link_to supervisor_exam_path(course) do %>
              <i class="fa fa-leanpub" data-toogle="tooltip"
-                title="<%= t '.delete' %>"></i>
+                title="<%= t '.show' %>"></i>
             <% end %>&nbsp;&nbsp;
             <%= link_to supervisor_exam_path(course), method: :delete,
               data: {confirm: t(".confirm")} do %>

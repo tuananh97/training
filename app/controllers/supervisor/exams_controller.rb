@@ -24,7 +24,7 @@ class Supervisor::ExamsController < Supervisor::BaseController
     @exam = Exam.new exam_params
     if @exam.save
       flash[:success] = t ".success"
-      redirect_to supervisor_exams_path
+      redirect_to supervisor_exam_path(@exam)
     else
       flash[:danger] = t ".failed"
       respond_to do |format|
