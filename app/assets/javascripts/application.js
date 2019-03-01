@@ -19,6 +19,7 @@
 //= require cocoon
 //= require activestorage
 //= require toastr/build/toastr.min
+//= require ckeditor/init
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require custom

@@ -25,6 +25,16 @@
           <td class="col-9"><%= question.content %>
           </td>
           <td class="col-2">
+            <%= link_to supervisor_exam_question_path(@exam), remote: true do %>
+             <i class="fa fa-leanpub" data-toogle="tooltip"
+                title="<%= t '.show' %>"></i>
+            <% end %>&nbsp;
+
+            <%= link_to edit_supervisor_exam_question_path(@exam, question), remote: true do %>
+             <i class="fa fa-edit" data-toogle="tooltip"
+                title="<%= t '.edit' %>"></i>
+            <% end %>&nbsp;
+
             <%= link_to supervisor_exam_question_path(@exam, question),
               method: :delete, data: {confirm: t("supervisor.exams.show.confirm")} do %>
              <i class="fa fa-trash" data-toogle="tooltip"

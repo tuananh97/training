@@ -17,16 +17,16 @@
       <%= f.label :description, class:"required" %>
     </div>
     <div class="col-md-10">
-      <%= f.text_field :content, class: "form-group form-control", required: true %>
+      <%= f.text_area :description, class: "form-group form-control", required: true %>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-2">
-      <%= f.label :description, t(".content_task"), class:"required" %>
+      <%= f.label :content, t(".content_task"), class:"required" %>
     </div>
     <div class="col-md-10">
-      <%= f.text_area :description, class: "form-group form-control", required: true %>
+      <%= f.cktext_area :content, class: "form-group form-control", required: true, rows: Settings.comment.rows %>
     </div>
   </div>
 

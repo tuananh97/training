@@ -1,6 +1,6 @@
 class Supervisor::QuestionsController < Supervisor::BaseController
   before_action :find_exam, expect: :destroy
-  before_action :find_question, only: %i(edit update destroy)
+  before_action :find_question, only: %i(edit update destroy show)
 
   def index
     @questions = @exam.questions
@@ -8,6 +8,9 @@ class Supervisor::QuestionsController < Supervisor::BaseController
 
   def show
     @answers = @question.answers
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
@@ -32,7 +35,11 @@ class Supervisor::QuestionsController < Supervisor::BaseController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def update
     if @question.update_attributes question_params

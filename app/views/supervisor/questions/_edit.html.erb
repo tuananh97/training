@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title" id="myModalLabel"><%= t ".add_question" %></h4>
+  <h4 class="modal-title" id="myModalLabel"><%= t ".edit_question" %></h4>
   <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
 </div>
 <%= form_for [:supervisor, @exam, @question] do |f| %>
@@ -17,13 +17,13 @@
       <div class="nested-fields answer">
         <div class="row">
           <div class="col-md-8">
-            <div class="form-group field">
+            <div class="form-group">
               <%= answer.label :content, "Answer" %>
               <%= answer.text_field :content, id: :content, class: "form-control" %>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="form-group field">
+            <div class="form-group">
               <%= answer.label :is_correct, t("admin.answers.answer_type") %>
               <br/>
               <%= answer.select :is_correct, [["Incorrect", false],["Correct", true]], {}, class: "form-control"%>
@@ -35,7 +35,7 @@
   </div>
   <div class="modal-footer">
     <div class="actions form-group">
-      <%= f.submit t(".create"), class: "btn btn-primary" %>
+      <%= f.submit t(".update") , class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>

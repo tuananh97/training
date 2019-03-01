@@ -2,6 +2,6 @@
   <%= form_for @test, url: user_tests_path(current_user), method: :post do |f| %>
     <%= f.hidden_field :exam_id, autofocus: true %>
     <%= f.hidden_field :status, value: :waitting, autofocus: true %>
-    <%= f.submit "Create" %>
+    <%= f.submit "Create test demo", class: "btn btn-primary ui-tooltip", title: "Teacher create sample test of exam"%>
   <% end %>
 <% end %>
