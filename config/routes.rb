@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   resources :user_courses, only: %i(new create show destroy)
   resources :learns, only: :show
   scope :learn do
+    get "/exam_details/:id", to: "learns#exam_details", as: "exam_details"
     resources :tasks, only: %i(show update)
   end
+
   resources :comments do
     member do
       get :new_reply
@@ -33,6 +35,7 @@ Rails.application.routes.draw do
     resources :user_courses, only: %i(create update destroy)
     resources :courses do
       resources :subjects do
+        resources :tasks
         patch "/finish", to: "subjects#finish"
       end
       patch "/finish", to: "courses#finish"

@@ -6,6 +6,7 @@
     <%= course.text_field :name, required: true, class: "form-control" %>
   </div>
 </div>
+
 <div class="row form-group">
   <div class="col-md-2">
     <%= course.label :description, t(".description"), class: "required" %>
@@ -40,7 +41,7 @@
       <i class="fa fa-camera"></i>
     </label>
   </div>
-  <%= image_tag get_image(@course), class: "image_course preview-img" %>
+  <%= image_tag get_image(@course), class: "preview-img course-image" %>
   <div align="right" class="error-messages-devise" >
     <%= @course.errors.full_messages_for(:avatar).first %>
   </div>

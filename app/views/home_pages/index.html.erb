@@ -37,7 +37,7 @@
     <% @my_courses.each do |my_course| %>
       <div class="col-md-3 card-size">
         <div class="card">
-          <%= image_tag get_image(my_course),size: "405x220", tyle:"width:100%" %>
+          <%= image_tag get_image(my_course), class:"card-img-top" %>
           <div class="card-body">
             <h3 class="title-course"><%= my_course.name %></h3>
             <span class="short-description"><%= my_course.description %></span>

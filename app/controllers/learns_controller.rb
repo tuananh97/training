@@ -11,7 +11,19 @@ class LearnsController < HomePagesController
     end
   end
 
+  def exam_details
+   find_exam
+   @tests = current_user.tests.where(exam_id: @exam.id)
+  end
+
   private
+
+  def find_exam
+    @exam = Exam.find_by_id params[:id]
+    return if @exam
+    flash[:error] = t ".not_found"
+    redirect_to root_path
+  end
 
   def find_course
     @course = Course.find_by_id params[:id]
@@ -20,3 +32,4 @@ class LearnsController < HomePagesController
     redirect_to root_path
   end
 end
+

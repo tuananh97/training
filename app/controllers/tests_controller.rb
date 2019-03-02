@@ -12,7 +12,7 @@ class TestsController < HomePagesController
     else
       flash[:danger] = t ".failed"
     end
-    redirect_to user_tests_path current_user
+    redirect_to user_test_path current_user, @test
   end
 
   def show
@@ -26,7 +26,7 @@ class TestsController < HomePagesController
       @test.update score: 10*@test.correct_answer_of_user/@test.correct_answer_of_test
     end
     flash[:success] = t ".submit"
-    redirect_to user_tests_path current_user
+    redirect_to user_test_path @test
   end
 
   private

@@ -4,14 +4,11 @@ class Supervisor::SubjectsController < Supervisor::BaseController
 
   def new
     @subject = @course.subjects.build
-    Settings.task_times.times do
-      @subject.tasks.build
-    end
   end
 
   def create
     @subject = @course.subjects.build subject_params
-    if @subject.save!
+    if @subject.save
       assign_subject
       flash[:success] = t ".success"
       redirect_to supervisor_courses_path
@@ -27,7 +24,6 @@ class Supervisor::SubjectsController < Supervisor::BaseController
 
   def update
     if @subject.update_attributes subject_params
-      assign_task
       flash[:success] = t ".success"
       redirect_to supervisor_courses_path
     else
@@ -62,8 +58,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
 
   def subject_params
     params.require(:subject).permit :name, :description, :start_time,
-      :end_time, :status, tasks_attributes: [:id, :name, :description,
-      :content, :video, :destroy]
+      :end_time, :status
   end
 
   def assign_subject
@@ -78,17 +73,6 @@ class Supervisor::SubjectsController < Supervisor::BaseController
                   course_id: @course.id)
               end
             end
-        end
-      end
-    end
-  end
-
-  def assign_task
-    TraineeSubject.trainees_on_subject(@course.id, @subject.id).each do |user|
-      TraineeTask.bulk_insert(ignore: true) do |work_task|
-        @subject.tasks.task_not_assign_trainee.each do |task|
-          work_task.add(task_id: task.task_id_new, trainee_id: user.trainee_id,
-          course_id: @course.id)
         end
       end
     end

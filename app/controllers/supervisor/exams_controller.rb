@@ -45,6 +45,7 @@ class Supervisor::ExamsController < Supervisor::BaseController
 
   def destroy
     if @exam.destroy
+      @exam.tests.delete_all
       flash[:success] = t ".success"
     else
       flash[:error] = t "..failed"

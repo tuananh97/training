@@ -1,4 +1,3 @@
-
 $(document).on('change', '.previewIMG', function() {
   if (this.files && this.files[0]) {
     var reader = new FileReader();

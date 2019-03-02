@@ -8,12 +8,6 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
   def new
     @course = Course.new
-    Settings.course_times.times do
-      subject = @course.subjects.build
-      Settings.task_times.times do
-        subject.tasks.build
-      end
-    end
   end
 
   def create
@@ -105,8 +99,6 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
   def course_params
     params.require(:course).permit :name, :description, :avatar, :start_time,
-      :end_time, :status, subjects_attributes: [:id, :name, :description,
-      :start_time, :end_time, :destroy, tasks_attributes: [:id, :name,
-      :description, :content, :video, :destroy]]
+      :end_time, :status
   end
 end

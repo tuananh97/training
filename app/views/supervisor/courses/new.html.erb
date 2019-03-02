@@ -5,15 +5,6 @@
         <h3><%= t ".create_course" %></h3>
         <%= render "form_course", course: f %>
       </div>
-      <div class="col-md-8 subjects">
-        <h4><%= t ".create_subject" %></h4>
-        <%= f.fields_for :subjects do |subject| %>
-          <%= render "subject_fields", f: subject %>
-        <% end %>
-        <p><%= link_to_add_association f, :subjects, class:"btn btn-info" do %>
-          <i class="fa fa-plus"></i>&nbsp;<%= t ".add_subject" %>
-        <% end %></p>
-      </div>
     </div>
     <div class="col-md-12 submit-course">
       <%= f.submit t(".create"), class: "btn btn-primary" %>

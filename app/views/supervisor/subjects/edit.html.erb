@@ -1,19 +1,13 @@
 <div class="content-wrapper">
   <%= form_for [:supervisor, @course, @subject] do |f| %>
-    <div class="col-md-8" id="form_subject">
-      <h4><%= t ".create_subject" %></h4>
-      <%= render "form_subject", f: f %>
-    </div>
-    <div class="col-md-8 tasks" id="form_task">
-      <%= f.fields_for :tasks do |task| %>
-        <p><%= render "task_fields", f: task %></p>
-      <% end %>
-      <p><%= link_to_add_association f, :tasks, class:"btn btn-info" do %>
-        <i class="fa fa-plus"></i>&nbsp;<%= t ".add_task" %>
-      <% end %></p>
-    </div>
-    <div class="col-md-12 submit-course">
-      <%= f.submit t(".edit"), class: "btn btn-primary" %>
+    <div class="row">
+      <div class="login-form col-md-4 offset-md-4">
+        <h4><%= t ".edit_subject" %></h4>
+        <%= render "form_subject", f: f %>
+        <div class="actions form-group">
+          <%= f.submit t(".edit"), class: "btn btn-primary" %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

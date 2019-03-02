@@ -3,23 +3,30 @@
     <h3><strong><%= t ".course_detail" %>: <%= @course.name %></strong></h3>
   </div>
   <div class="row">
-    <div class="col-md-9">
-      <div class="col-md-4">
-        <p><%= training_time @course %></p>
-        <p><%= @course.description %></p>
+    <div class="col-md-8">
+      <div class="col-md-12">
+        <p><%= training_time @course %> <%= @course.description %></p>
       </div>
       <% @course.subjects.each do |subject| %>
         <div class="card subject-card">
-          <div class="row">
+          <div class="row subject-title">
             <div class="col-md-3">
-              <div class="subject-title">
-                <%= subject.name %>
-              </div>
+              <%= subject.name %>
             </div>
-            <div class='col-md-6 subject-title'>
-              <%= link_to new_supervisor_exam_path(subject_id: subject.id), remote: true do %>
-                <i class="fa fa-plus"></i>&nbsp;<%= t ".add_exam" %>
-              <% end %>
+            <div class="col-md-9 text-right">
+                <%= link_to new_supervisor_course_subject_path(@course) do %>
+                  <i class="fa fa-plus" data-toogle="tooltip"
+                    title="add_subject"></i>
+                <% end %>&nbsp;&nbsp;
+                <%= link_to edit_supervisor_course_subject_path(@course, subject) do %>
+                  <i class="fa fa-edit" data-toogle="tooltip"
+                    title="edit_subject"></i>
+                <% end %>&nbsp;&nbsp;
+                <%= link_to supervisor_course_subject_path(@course, subject),
+                  data: {confirm: t(".confirm")}, method: :delete do %>
+                  <i class="fa fa-trash" data-toogle="tooltip"
+                    title="del_subject"></i>
+                <% end %>
             </div>
           </div>
           <% subject.tasks.each do |task| %>
@@ -45,6 +52,16 @@
               </div>
             </div>
           <% end %>
+          <div class="task-card row">
+            <div class="col-md-11">
+              <%= link_to new_supervisor_exam_path(subject_id: subject.id), remote: true do %>
+                <i class="fa fa-plus"></i>&nbsp;<%= t ".exam" %>
+              <% end %>&nbsp;&nbsp;
+              <%= link_to new_supervisor_course_subject_task_path(@course, subject) do %>
+                <i class="fa fa-plus"></i>&nbsp;<%= t ".task" %>
+              <% end %>
+          </div>
+          </div>
         </div>
       <% end %>
     </div>

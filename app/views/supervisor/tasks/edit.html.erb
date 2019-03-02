@@ -1,0 +1,13 @@
+<div class="content-wrapper">
+  <%= form_for [:supervisor, @course, @subject, @task] do |f| %>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h4><%= t ".edit_task" %></h4>
+        <%= render "form_task", f: f %>
+        <div class="actions form-group">
+          <%= f.submit t(".edit"), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
