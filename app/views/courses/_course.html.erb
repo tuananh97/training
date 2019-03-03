@@ -1,14 +1,16 @@
+<div class="our-webcoderskull tests">
+  <ul class="row">
     <% @courses.each do |course| %>
-      <div class="col-md-3 card-size">
-        <div class="card">
-          <%= image_tag get_image(course), class:"card-img-top", tyle:"width:100%" %>
-          <div class="card-body">
-            <h3 class="title-course"><%= course.name %></h3>
-            <span class="short-description"><%= course.description %></span>
-          </div>
+      <li class="col-12 col-md-6 col-lg-3">
+        <div class="cnt-block equal-hight">
+          <%= image_tag get_image(course), style:"width:100%" %>
+          <h3><%= course.name %></h3>
+          <p><%= course.description %></p>
+          <ul class="follow-us clearfix">
+            <li><%= link_to t(".view_details"), course_path(course), class:"btn btn-primary" %></li>
+          </ul>
         </div>
-        <div class="card-footer text-center">
-          <%= link_to t(".view_details"), course_path(course), class:"btn btn-primary" %>
-        </div>
-      </div>
+      </li>
     <% end %>
+  </ul>
+</div>
