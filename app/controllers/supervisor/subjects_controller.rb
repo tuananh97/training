@@ -1,6 +1,6 @@
 class Supervisor::SubjectsController < Supervisor::BaseController
   before_action :find_course
-  before_action :find_subject, except: [:new, :create, :finish]
+  before_action :find_subject, except: %i(new create finish)
 
   def new
     @subject = @course.subjects.build
@@ -11,7 +11,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     if @subject.save
       assign_subject
       flash[:success] = t ".success"
-      redirect_to supervisor_courses_path
+      redirect_to supervisor_course_path @course
     else
       flash[:error] = t ".failure"
       render :new
@@ -25,7 +25,7 @@ class Supervisor::SubjectsController < Supervisor::BaseController
   def update
     if @subject.update_attributes subject_params
       flash[:success] = t ".success"
-      redirect_to supervisor_courses_path
+      redirect_to supervisor_course_path @course
     else
       flash[:error] = t ".failure"
       render :edit
@@ -40,18 +40,17 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     else
       flash[:error] = t ".failure"
     end
-    redirect_to supervisor_courses_path
+    redirect_to supervisor_course_path @course
   end
 
   def finish
     @subject = Subject.find_by_id params[:subject_id]
-
     if @subject.update_attributes status: :finish
       flash[:success] = t ".success"
     else
       flash[:error] = t ".failure"
     end
-    redirect_to supervisor_courses_path
+    redirect_to supervisor_course_path @course
   end
 
   private
@@ -65,14 +64,8 @@ class Supervisor::SubjectsController < Supervisor::BaseController
     UserCourse.trainees_on_course(@course.id).each do |user|
       TraineeSubject.bulk_insert(ignore: true) do |worker_subject|
         @course.subjects.each do |subject|
-          worker_subject.add(trainee_id: user.user_id, subject_id: subject.id,
-          course_id: @course.id)
-            TraineeTask.bulk_insert(ignore: true) do |work_task|
-              subject.tasks.each do |task|
-                work_task.add(trainee_id: user.user_id, task_id: task.id,
-                  course_id: @course.id)
-              end
-            end
+          worker_subject.add(trainee_id: user.user_id,
+            subject_id: subject.id, course_id: @course.id)
         end
       end
     end
@@ -80,15 +73,13 @@ class Supervisor::SubjectsController < Supervisor::BaseController
 
   def find_subject
     @subject = Subject.find_by_id params[:id]
-
     return if @subject
     flash[:error] = t ".not_found"
-    redirect_to supervisor_courses_path
+    redirect_to supervisor_course_path @course
   end
 
   def find_course
     @course = Course.find_by_id params[:course_id]
-
     return if @course
     flash[:error] = t ".not_found"
     redirect_to supervisor_courses_path

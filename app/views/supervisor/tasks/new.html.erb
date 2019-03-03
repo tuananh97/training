@@ -1,3 +1,4 @@
+<% provide :title, t(".title") %>
 <div class="content-wrapper">
   <%= form_for [:supervisor, @course, @subject, @task] do |f| %>
     <div class="row justify-content-center">
@@ -5,7 +6,7 @@
         <h4><%= t ".create_task" %></h4>
         <%= render "form_task", f: f %>
         <div class="actions form-group">
-          <%= f.submit "Create", class: "btn btn-primary" %>
+          <%= f.submit t(".create"), class: "btn btn-primary" %>
         </div>
       </div>
     </div>

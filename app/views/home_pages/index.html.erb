@@ -1,81 +1,81 @@
 <%= provide :title, t(".home") %>
 <div class="content-wrapper"" id="info-course">
-<div class="member">
-  <div class="container-member">
-    <div class="left-info-member" style="margin-left:50px;">
-      <div>
-        <% if user_signed_in? %>
-          <div class="avt">
-            <%= image_tag get_avatar(current_user), class:"avatar" %>
+  <div class="member">
+    <div class="container-member">
+      <div class="left-info-member">
+        <div>
+          <% if user_signed_in? %>
+            <div class="avt">
+              <%= image_tag get_avatar(current_user), class:"avatar" %>
+            </div>
+          <% end %>
+          <div class="detail-user">
+            <div class="username"><%= current_user.name %></div>
+            <div class="email"><%= current_user.email %></div>
           </div>
-        <% end %>
-        <div class="detail-user">
-          <div class="username"><%= current_user.name %></div>
-          <div class="email"><%= current_user.email %></div>
         </div>
       </div>
+      <% if current_user.supervisor? %>
+        <div class="right-info-member">
+          <div class="count-course">
+            <div class="count"><%= @supervisor_courses.length %></div>
+            <div class="lable-course"><%= t ".label_course" %></div>
+          </div>
+        </div>
+      <% else %>
+        <div class="right-info-member">
+          <div class="count-course">
+            <div class="count"><%= @my_courses.length %></div>
+            <div class="lable-course"><%= t ".label_course" %></div>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <% if current_user.supervisor? %>
-      <div class="right-info-member">
-        <div class="count-course">
-          <div class="count"><%= @supervisor_courses.length %></div>
-          <div class="lable-course"><%= t ".label_course" %></div>
-        </div>
-      </div>
-    <% else %>
-      <div class="right-info-member">
-        <div class="count-course">
-          <div class="count"><%= @my_courses.length %></div>
-          <div class="lable-course"><%= t ".label_course" %></div>
-        </div>
-      </div>
-    <% end %>
   </div>
-</div>
-<% if current_user.trainee? %>
-  <div class="row" id="info-course">
-    <% @my_courses.each do |my_course| %>
-      <div class="col-md-3 card-size">
-        <div class="card">
-          <%= image_tag get_image(my_course), class:"card-img-top" %>
-          <div class="card-body">
-            <h3 class="title-course"><%= my_course.name %></h3>
-            <span class="short-description"><%= my_course.description %></span>
-          </div>
-          <div class="card-footer">
-            <div class="row">
-              <div class="col-md-6">
-                <%= link_to t(".learn"), learn_path(my_course.id), class:"btn btn-success"%>
-              </div>
-              <div class="col-md-6 text-right">
-                <%= form_for my_course.user_courses.find_by(user_id: current_user.id), html: {method: :delete} do |f| %>
-                  <%= hidden_field_tag :user_id, current_user.id %>
-                  <%= hidden_field_tag :course_id, my_course.id %>
-                  <%= f.submit "Unenroll", class: "btn btn-info", data: { confirm: 'Are you sure you want to unenroll this course?' } %>
-                <% end %>
+  <% if current_user.trainee? %>
+    <div class="row" id="info-course">
+      <% @my_courses.each do |my_course| %>
+        <div class="col-md-3 card-size">
+          <div class="card">
+            <%= image_tag get_image(my_course), class:"card-img-top" %>
+            <div class="card-body">
+              <h3 class="title-course"><%= my_course.name %></h3>
+              <span class="short-description"><%= my_course.description %></span>
+            </div>
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-md-6">
+                  <%= link_to t(".learn"), learn_path(my_course.id), class:"btn btn-success"%>
+                </div>
+                <div class="col-md-6 text-right">
+                  <%= form_for my_course.user_courses.find_by(user_id: current_user.id), html: {method: :delete} do |f| %>
+                    <%= hidden_field_tag :user_id, current_user.id %>
+                    <%= hidden_field_tag :course_id, my_course.id %>
+                    <%= f.submit "Unenroll", class: "btn btn-info", data: { confirm: 'Are you sure you want to unenroll this course?' } %>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-  <div class="row" id="info-course">
-    <% @supervisor_courses.each do |course| %>
-      <div class="col-md-3 card-size">
-        <div class="card">
-          <%= image_tag get_image(course),size: "405x220", tyle:"width:100%" %>
-          <div class="card-body">
-            <h3 class="title-course"><%= course.name %></h3>
-            <span class="short-description"><%= course.description %></span>
-          </div>
-          <div class="card-footer text-center">
-            <%= link_to t(".manage_course"), supervisor_course_path(course), class:"btn btn-info"%>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="row" id="info-course">
+      <% @supervisor_courses.each do |course| %>
+        <div class="col-sm-3 card-size">
+          <div class="card">
+            <%= image_tag get_image(course), class:"card-img-top", tyle:"width:100%" %>
+            <div class="card-body">
+              <h3 class="title-course"><%= course.name %></h3>
+              <span class="short-description"><%= course.description %></span>
+            </div>
+            <div class="card-footer text-center">
+              <%= link_to t(".manage_course"), supervisor_course_path(course), class:"btn btn-info" %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

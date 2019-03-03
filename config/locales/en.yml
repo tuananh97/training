@@ -109,6 +109,14 @@ en:
       title: "Course: %{course}"
       not_found: "This course doesn't exist!"
       not_permission: "You don't permission access this course!"
+    exam_details:
+      title: "Exam %{title}"
+      do_exam: "Do Exam"
+      open_exam: "Bài thi được mở lúc"
+      time_exam: "Thời gian làm bài: 40 phút"
+      grading: "Grading method: Lần cao nhất"
+      history_test: "Tóm tắt các lần làm bài trước đó"
+      start: "Start do exam"
   tasks:
     find_task:
       not_found: "This task doesn't exist!"
@@ -131,10 +139,10 @@ en:
     view: "View"
     submit: "Submit"
     create:
-      success: "Create test of exam successfully"
+      success: "You start do exam !!!"
       failed: "Create test of exam failure"
     update:
-      submit: "Apply this test successfully!"
+      submit: "Submit this test success"
     index:
       title: "Title"
       date: "Date"
@@ -220,188 +228,3 @@ en:
         other: "The form contains %{count} errors"
     error:
       title: "Errors"
-  supervisor:
-    users:
-      create:
-        add_success: "Add trainee %{name} success"
-        add_fail: "Add new trainee error. Please recheck information!"
-      update:
-        success: "Update trainee information success"
-        fail: "Add new trainee error. Please recheck information!"
-      destroy:
-        success: "Delete this trainee success"
-        warning: "Don't delete this trainee. Please recheck information!"
-      check_supervisor:
-        not_permission: "You not permission access page"
-      load_user:
-        not_found: "Not found user"
-      index:
-        manage_user: "Manage Trainees"
-        email: "Email"
-        name: "Name"
-        phone: "Phone"
-        address: "Address"
-        avatar: "Avatar"
-        joined: "Joined Time"
-        action: "Action"
-        users: "Trainees"
-        create_trainee: "New Trainee"
-        not_permission: "You not permission access page"
-      new:
-        email: "email"
-        password: "New Password"
-        password_length: "(%{length} characters minimum)"
-        name: "name"
-        phone: "phone"
-        address: "address"
-        avatar: "avatar"
-        create_trainee: "Create Trainee"
-      user:
-        delete: "Delete"
-        confirm: "You are sure to delete this trainee?"
-        edit: "Edit"
-        view: "View"
-      edit:
-        edit_trainee: "Edit Trainee"
-      show:
-        not_found_supervisor: "Not found this supervisor!"
-        trainee: "Trainee"
-        supervisor: "Supervisor"
-      all_supervisors:
-        not_permission: "You not permission access page"
-        title: "All supervisors"
-      supervisors:
-        view: "View"
-    courses:
-      not_found_course: "Course not found!"
-      index:
-        title: "Manage Courses"
-        add_course: "New course"
-        course: "Course"
-        subject: "Subject"
-        edit: "Edit"
-        delete: "Delete"
-        detail: "Detail"
-        confirm: "Are you sure?"
-        add_a_subject: "A new subject"
-        detail: "Detail"
-        confirm: "Are you sure?"
-        add_a_subject: "A new subject"
-        edit_subject: "Edit subject"
-        del_subject: "Delete subject"
-        detail_subject: "Detail subject"
-        edit_subject: "Edit subject"
-        del_subject: "Delete subject"
-        detail_subject: "Detail subject"
-        finish_course: "Finish course"
-        finish_subject: "Finish subject"
-        a: "aaa"
-      new:
-        label: "Name"
-        create: "Create"
-        description: "Description"
-        create_subject: "Create Subject"
-        create_course: "Create Course"
-        create_task: "Create Task"
-        add_subject: "Add subject"
-        add_task: "Add task"
-        subject: "Subject"
-        task: "Task"
-        content_task: "Content task"
-        validate_time: "must be greater than the start time"
-      create:
-        success: "Create successfully!"
-        failure: "Create failure"
-      subject_fields:
-        confirm_delete: "Are you sure?"
-        del_title: "Delete subject"
-      task_fields:
-        confirm_delete: "Are you sure?"
-        del_title: "Delete task"
-      edit:
-        edit: "Save All Change Of Course"
-        success: "Successfully updated course!"
-        failure: "Update course failure!"
-        supervisors: "Supervisors"
-        trainees: "Trainees"
-        name: "Name"
-        email: "Email"
-        option: "Action"
-        not_found: "Not found this course"
-        create_course: "Edit Course"
-        create_subject: "Edit Subject"
-        add_subject: "Add Subject"
-        member: "Members"
-        courses: "Course Details"
-      subject_fields:
-        add_task: "Add Task"
-        del_title: "Delete subject"
-      update:
-        success: "Successfully updated course!"
-        failure: "Update course failure!"
-      destroy:
-        success: "Delete successfully"
-        failure: "Delete course fail"
-      add_user:
-        btn_submit: "Assign"
-      button:
-        remove_user:
-          btn_submit: "Remove"
-          confirm_delete: "Are you sure remove this user from course?"
-        add_user:
-          failed: "Add User Fail"
-      find_course:
-        not_found: "This course not exist!"
-      destroy:
-        success: "Delete successfully!"
-        failure: "Delete course failure"
-      finish:
-        success: "Finish course successfully!"
-        failure: "Finish course failure!"
-      show:
-        course_detail: "Course detail"
-        view: "Views"
-        suppervisor_course: "Suppervisor"
-        trainee_course: "Trainee"
-        add_exam: "Add exam"
-        not_found: "This course not exist!"
-    subjects:
-      new:
-        create: "Create"
-        not_found: "Course not found"
-      create:
-        success: "Create subject successfully!"
-        failure: "Create subject failure!"
-      task_fields:
-        del_title: "Delete title"
-        failure: "Create subject failure!"
-      edit:
-        edit: "Save All Change of Subject"
-      update:
-        success: "Update subject successfully!"
-        failure: "Update subject failure!"
-      destroy:
-        success: "Delete subject successfully!"
-        failure: "Delete subject failure!"
-      finish:
-        success: "Finish subject successfully!"
-        failure: "Finish subject failure!"
-      subject_fields:
-        confirm_delete: "Are you sure?"
-        del_title: "Delete subject"
-      task_fields:
-        video: "Video course"
-        confirm_delete: "Are you sure?"
-        del_title: "Delete task"
-      show:
-        subject_detail: "Subject detail"
-        subject: "Subject"
-        task: "Task"
-    reports:
-      index:
-        title: "Manage Daily Report"
-        daily_report: "Daily report"
-        sender: "Name of sender"
-        name: "Title"
-        content: "Content report"
-        send_time: "Send time"

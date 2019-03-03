@@ -5,7 +5,7 @@ class Supervisor::UsersController < Supervisor::BaseController
   def index
     @q = User.ransack params[:q]
     @users = @q.result(distinct: true).trainee.by_lastest.page(params[:page])
-                 .per Settings.user.per_page_index
+                                      .per Settings.user.per_page_index
   end
 
   def new
@@ -54,7 +54,8 @@ class Supervisor::UsersController < Supervisor::BaseController
   private
 
   def user_params
-    params.require(:user).permit :name, :email, :password, :password_confirmation, :address, :phone, :avatar
+    params.require(:user).permit :name, :email, :password,
+      :password_confirmation, :address, :phone, :avatar
   end
 
   def load_user

@@ -32,6 +32,7 @@
     </div>
   </div>
 </div><br>
+
 <div class="field form-group">
   <div class="fix-bot-pic upload-pic pic-profile">
     <%= course.hidden_field :avatar_cache %>
@@ -41,7 +42,7 @@
       <i class="fa fa-camera"></i>
     </label>
   </div>
-  <%= image_tag get_image(@course), class: "preview-img course-image" %>
+  <%= image_tag get_image(@course), class: "preview-img", size: "400x380" %>
   <div align="right" class="error-messages-devise" >
     <%= @course.errors.full_messages_for(:avatar).first %>
   </div>

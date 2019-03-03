@@ -22,7 +22,11 @@
 .fa-trash {
   color: $red;
 }
-
+.badge-danger{
+  .fa-trash {
+    color: $white;
+  }
+}
 .inc, .made_in, .located {
   display: inline-block;
   font-size: 0.875rem;

@@ -8,7 +8,7 @@ class TestsController < HomePagesController
     @test = current_user.tests.build test_params
     if @test.save
       question_create
-      flash[:success] = t ".success"
+      flash[:info] = t ".success"
     else
       flash[:danger] = t ".failed"
     end

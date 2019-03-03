@@ -1,0 +1,53 @@
+en:
+  supervisor:
+    users:
+      create:
+        add_success: "Add trainee %{name} success"
+        add_fail: "Add new trainee error. Please recheck information!"
+      update:
+        success: "Update trainee information success"
+        fail: "Add new trainee error. Please recheck information!"
+      destroy:
+        success: "Delete this trainee success"
+        warning: "Don't delete this trainee. Please recheck information!"
+      check_supervisor:
+        not_permission: "You not permission access page"
+      load_user:
+        not_found: "Not found user"
+      index:
+        manage_user: "Manage Trainees"
+        email: "Email"
+        name: "Name"
+        phone: "Phone"
+        address: "Address"
+        avatar: "Avatar"
+        joined: "Joined Time"
+        action: "Action"
+        users: "Trainees"
+        create_trainee: "New Trainee"
+        not_permission: "You not permission access page"
+      new:
+        email: "email"
+        password: "New Password"
+        password_length: "(%{length} characters minimum)"
+        name: "name"
+        phone: "phone"
+        address: "address"
+        avatar: "avatar"
+        create_trainee: "Create Trainee"
+      user:
+        delete: "Delete"
+        confirm: "You are sure to delete this trainee?"
+        edit: "Edit"
+        view: "View"
+      edit:
+        edit_trainee: "Edit Trainee"
+      show:
+        not_found_supervisor: "Not found this supervisor!"
+        trainee: "Trainee"
+        supervisor: "Supervisor"
+      all_supervisors:
+        not_permission: "You not permission access page"
+        title: "All supervisors"
+      supervisors:
+        view: "View"

@@ -1,18 +1,17 @@
 class LearnsController < HomePagesController
   before_action :find_course
+  before_action :find_exam, only: :exam_details
 
   def show
-    if UserCourse.find_by(user_id: current_user, course_id:
-      @course.id).nil?
-    flash[:error] = t ".not_permission"
-    redirect_to root_path
+    if UserCourse.find_by(user_id: current_user, course_id: @course.id).nil?
+      flash[:error] = t ".not_permission"
+      redirect_to root_path
     else
       @subjects = @course.subjects
     end
   end
 
   def exam_details
-   find_exam
    @tests = current_user.tests.where(exam_id: @exam.id)
   end
 

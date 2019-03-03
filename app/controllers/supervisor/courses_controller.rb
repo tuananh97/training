@@ -24,10 +24,9 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def show
-    if UserCourse.find_by(user_id: current_user, course_id:
-      @course.id).nil?
-    flash[:error] = t ".not_permission"
-    redirect_to root_path
+    if UserCourse.find_by(user_id: current_user, course_id: @course.id).nil?
+      flash[:error] = t ".not_permission"
+      redirect_to root_path
     end
     if !@course.nil?
       @trainees = @course.users.trainee
@@ -39,10 +38,9 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def edit
-    if UserCourse.find_by(user_id: current_user, course_id:
-      @course.id).nil?
-    flash[:error] = t ".not_permission"
-    redirect_to root_path
+    if UserCourse.find_by(user_id: current_user, course_id: @course.id).nil?
+      flash[:error] = t ".not_permission"
+      redirect_to root_path
     end
     if !@course.nil?
       load_all_users
@@ -74,7 +72,6 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
   def finish
     @course = Course.find_by_id params[:course_id]
-
     if @course.update_attributes status: :finish
       flash[:success] = t ".success"
     else

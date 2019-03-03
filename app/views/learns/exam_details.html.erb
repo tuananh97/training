@@ -1,16 +1,17 @@
+<% provide :title, t(".title", title: @exam.title) %>
 <div class="content-wrapper">
   <div class="col-md-12">
     <h3><strong><%= t ".do_exam" %>: <%= @exam.title %></strong></h3>
     <br>
     <center>
-    <%= "Bài thi được mở lúc"%> <%= @exam.created_at.strftime(Settings.format_time_test) %><br>
-    <%= "Thời gian làm bài: 40 phút"%><br>
-    <%= "Grading method: Lần cao nhất"%><br>
+    <%= t ".open_exam" %> <%= @exam.created_at.strftime(Settings.format_time_test) %><br>
+    <%= t ".time_exam" %><br>
+    <%= t ".grading" %><br>
     </center>
   </div>
 
   <div class="col-md-8">
-    <strong><%= "Tóm tắt các lần làm bài trước đó" %></strong><br><br>
+    <strong><%= t ".history_test" %></strong><br><br>
     <table class="table tests-table">
       <thead>
         <tr class="d-flex">
@@ -24,7 +25,7 @@
       <tbody>
         <% @tests.each_with_index do |test, index| %>
           <tr class="d-flex">
-            <td class="col-1"><%= index %></td>
+            <td class="col-1"><%= index + 1 %></td>
             <td class="col-3"><%= test.updated_at.strftime(Settings.format_time_test) %></td>
             <td class="col-3"><%= test.score %> (<%= test.correct_answer_of_user %>/<%= test.correct_answer_of_test %>)
             </td>
@@ -43,6 +44,6 @@
   <%= form_for current_user.tests.new(exam_id: @exam.id), url: user_tests_path(current_user), method: :post do |f| %>
     <%= f.hidden_field :exam_id, autofocus: true, value: @exam.id %>
     <%= f.hidden_field :status, value: :waitting, autofocus: true %>
-    <%= f.submit class: "btn btn-primary", data:{confirm: "Are you ready to take the exam?"} %>
+    <%= f.submit t(".start"), class: "btn btn-primary", data:{confirm: "Are you ready to take the exam?"} %>
   <% end %>
 </div>

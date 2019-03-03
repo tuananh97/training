@@ -1,6 +1,6 @@
 class Supervisor::TasksController < Supervisor::BaseController
   before_action :find_subject, :find_course
-  before_action :find_task, only: :edit
+  before_action :find_task, except: [:new, :create]
 
   def new
     @task = @subject.tasks.build
@@ -11,7 +11,7 @@ class Supervisor::TasksController < Supervisor::BaseController
     if @task.save!
       assign_task
       flash[:success] = t ".success"
-      redirect_to supervisor_courses_path
+      redirect_to supervisor_course_path @course
     else
       flash[:error] = t ".failure"
       render :new
@@ -26,7 +26,7 @@ class Supervisor::TasksController < Supervisor::BaseController
     if @task.update_attributes task_params
       assign_task
       flash[:success] = t ".success"
-      redirect_to supervisor_courses_path
+      redirect_to supervisor_course_path @course
     else
       flash[:error] = t ".failure"
       render :edit
@@ -36,12 +36,11 @@ class Supervisor::TasksController < Supervisor::BaseController
   def destroy
     if @task.destroy
       TraineeTask.where(task_id: @task.id).delete_all
-      Traineetask.where(task_id: @task.id).delete_all
       flash[:success] = t ".success"
     else
       flash[:error] = t ".failure"
     end
-    redirect_to supervisor_courses_path
+    redirect_to supervisor_course_path @course
   end
 
   private
