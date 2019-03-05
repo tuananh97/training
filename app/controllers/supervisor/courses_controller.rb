@@ -29,6 +29,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
       redirect_to root_path
     end
     if !@course.nil?
+      @subjects = @course.subjects.includes :exams, :tasks
       @trainees = @course.users.trainee
       @supervisors = @course.users.supervisor
     else

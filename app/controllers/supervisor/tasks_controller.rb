@@ -8,14 +8,15 @@ class Supervisor::TasksController < Supervisor::BaseController
 
   def create
     @task = @subject.tasks.build task_params
-    if @task.save!
+    ActiveRecord::Base.transaction do
+      @task.save!
       assign_task
       flash[:success] = t ".success"
       redirect_to supervisor_course_path @course
-    else
-      flash[:error] = t ".failure"
-      render :new
     end
+  rescue StandardError
+    flash[:error] = t ".failure"
+    render :new
   end
 
   def show; end
@@ -24,7 +25,6 @@ class Supervisor::TasksController < Supervisor::BaseController
 
   def update
     if @task.update_attributes task_params
-      assign_task
       flash[:success] = t ".success"
       redirect_to supervisor_course_path @course
     else
@@ -50,9 +50,9 @@ class Supervisor::TasksController < Supervisor::BaseController
   end
 
   def assign_task
-    UserCourse.where(course_id: @course.id).each do |user|
+    TraineeSubject.where(subject_id: @subject.id).each do |user|
       TraineeTask.bulk_insert(ignore: true) do |work_task|
-        work_task.add(task_id: @task.id, trainee_id: user.id,
+        work_task.add(task_id: @task.id, trainee_id: user.trainee_id,
         course_id: @course.id)
       end
     end

@@ -33,6 +33,16 @@ en:
       destroy:
         success: "You delete this exam successfully!"
         failed: "You delete this exam failed!"
+      results:
+        title: "Results of Exam %{title}"
+        do_exam: "Results of Exam %{title}"
+        open_exam: "Bài thi được mở lúc"
+        time_exam: "Thời gian làm bài: 40 phút"
+        grading: "Grading method: Lần cao nhất"
+        user_name: "Name trainee"
+        score: "Score"
+        date: "Date"
+        view: "View Details"
     questions:
       form_question:
         question: "Question"
@@ -52,3 +62,10 @@ en:
         success: "You delete this exam successfully!"
         failed: "You delete this exam failed!"
       question: "Question"
+    tests:
+      show:
+        title: "Results Test of Exam %{title}"
+        date: "Date"
+        score: "Score"
+        back: "Back"
+

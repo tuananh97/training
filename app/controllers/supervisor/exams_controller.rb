@@ -2,12 +2,17 @@ class Supervisor::ExamsController < Supervisor::BaseController
   before_action :find_exam, only: [:edit, :update, :destroy, :show]
 
   def index
-    @exams = Exam.all
+    @exams = Exam.by_lastest.page(params[:page]).per Settings.per_page_index
   end
 
   def show
     @questions = @exam.questions
     @test = current_user.tests.new(exam_id: params[:id])
+  end
+
+  def results
+    @exam = Exam.find_by_id params[:exam_id]
+    @tests = @exam.tests.includes :user
   end
 
   def new

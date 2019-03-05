@@ -1,0 +1,36 @@
+<% provide :title, t(".title", title: @test.exam.title) %>
+
+<div class="content-wrapper">
+    <p>
+      <strong><%= t ".date" %></strong>
+      <%= @test.updated_at.strftime(Settings.format_time_test) %>
+    </p>
+    <p>
+      <strong><%= t ".score" %></strong> <%= @test.score %> (<%= @test.correct_answer_of_user %>/<%= @test.correct_answer_of_test %>)
+    </p>
+
+    <div>
+      <ol type="1">
+        <% @questions.each do |question| %>
+          <h5><li><%= question.content %></li></h5>
+          <ol type="A" style="margin-left: 50px;">
+            <% chosen_answer_ids = @test.answer_ids_of_question question.id %>
+            <% question.answers.each do |answer| %>
+              <% if chosen_answer_ids.include? answer.id %>
+                <% if answer.is_correct == true %>
+                  <b style="color: green"><li><%= answer.content %></li></b>
+                <% else %>
+                  <b style="color: red"><li><%= answer.content %></li></b>
+                <% end %>
+              <% else %>
+                <li><%= answer.content %></li>
+              <% end %>
+            <% end %>
+          </ol>
+          <br/>
+        <% end %>
+      </ol>
+    </div>
+    <%= link_to t(".back"), supervisor_exam_results_path(@test.exam),
+      class: "btn btn-info" %>
+</div>

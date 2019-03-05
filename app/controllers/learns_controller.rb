@@ -7,7 +7,7 @@ class LearnsController < HomePagesController
       flash[:error] = t ".not_permission"
       redirect_to root_path
     else
-      @subjects = @course.subjects
+      @subjects = @course.subjects.includes :exams, :tasks
     end
   end
 

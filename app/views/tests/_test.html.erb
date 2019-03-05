@@ -4,8 +4,7 @@
 			<li>
 			  <%= result_builder.object.question.content %>
 		  </li>
-			  <%= render "answer",
-			    result_builder: result_builder %>
+		  <%= render "answer", result_builder: result_builder %>
 		<% end %>
   </ol>
   <%= f.hidden_field :status, value: :done %>

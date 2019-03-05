@@ -1,0 +1,35 @@
+<% provide :title, t(".title", title: @exam.title) %>
+<div class="content-wrapper">
+  <div class="col-md-12">
+    <h3><strong><%= t ".do_exam", title: @exam.title %></strong></h3>
+    <br>
+    <center>
+    <%= t ".open_exam" %> <%= @exam.created_at.strftime(Settings.format_time_test) %><br>
+    <%= t ".time_exam" %><br>
+    <%= t ".grading" %><br>
+    </center>
+  </div>
+<br>
+  <table class="table">
+    <thead>
+      <tr class="d-flex">
+        <th class="col-3"><%= t ".user_name" %></th>
+        <th class="col-3"><%= t ".date" %></th>
+        <th class="col-3"><%= t ".score" %></th>
+        <th class="col-2"><%= t ".view" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tests.each_with_index do |test, index| %>
+        <% if test.user.trainee? %>
+          <tr class="d-flex">
+            <td class="col-3"><%= test.user.name %></td>
+            <td class="col-3"><%= test.created_at.strftime(Settings.format_time_test) %></td>
+            <td class="col-3"><%= test.score %></td>
+            <td class="col-2"><%= link_to "View", supervisor_exam_test_path(@exam, test) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

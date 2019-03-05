@@ -1,7 +1,7 @@
 <% provide :title, t(".title", title: @exam.title) %>
 <div class="content-wrapper">
   <div class="col-md-12">
-    <h3><strong><%= t ".do_exam" %>: <%= @exam.title %></strong></h3>
+    <h3><strong><%= t ".results_exam" %>: <%= @exam.title %></strong></h3>
     <br>
     <center>
     <%= t ".open_exam" %> <%= @exam.created_at.strftime(Settings.format_time_test) %><br>

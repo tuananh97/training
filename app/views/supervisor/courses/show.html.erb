@@ -1,4 +1,5 @@
 <% provide :title, t(".title", name: @course.name) %>
+
 <div class="content-wrapper">
   <div class="col-md-12">
     <h3><strong><%= t ".course_detail" %>: <%= @course.name %></strong></h3>
@@ -8,7 +9,7 @@
       <div class="col-md-12">
         <p><%= training_time @course %> <%= @course.description %></p>
       </div>
-      <% @course.subjects.each do |subject| %>
+      <% @subjects.each do |subject| %>
         <div class="card subject-card">
           <div class="row subject-title">
             <div class="col-md-3">
@@ -55,7 +56,7 @@
               <div class="col-md-11">
                 <i class="fa fa-file-text" style="color: blue">
                 </i>&nbsp;
-                <%= exam.title %>
+                <%= link_to exam.title, supervisor_exam_results_path(exam.id), class: "task-name" %>
               </div>
             </div>
           <% end %>

@@ -21,7 +21,7 @@
 
     <div>
       <ol type="1">
-        <%= render @test.questions, test: @test %>
+        <%= render @questions, test: @test %>
       </ol>
     </div>
     <%= link_to t(".back"), exam_details_path(@test.exam), class: "btn btn-info" %>
