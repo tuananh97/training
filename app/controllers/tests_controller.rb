@@ -1,7 +1,7 @@
 class TestsController < HomePagesController
 
   def index
-    @tests = current_user.tests
+    @tests = current_user.tests.page(params[:page]).per Settings.per_page_index
   end
 
   def create
@@ -17,6 +17,7 @@ class TestsController < HomePagesController
 
   def show
     @test = Test.find_by_id params[:id]
+    @questions = @test.questions.includes :answers
   end
 
   def update

@@ -3,7 +3,7 @@
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" id="nav-course-tab" data-toggle="tab"
       href="#nav-course" role="tab">
-      <%= t ".courses" %></a>
+      <%= t ".create_course" %></a>
     <a class="nav-item nav-link" id="nav-member-tab" data-toggle="tab"
       href="#nav-member" role="tab"><%= t ".member" %></a>
   </div>
@@ -13,14 +13,13 @@
   <div class="tab-pane fade show active" id="nav-course">
     <div class="content-wrapper">
       <%= form_for [:supervisor, @course] do |f| %>
-        <div class="row">
-          <div class="col-md-8 course">
-            <h3><%= t ".create_course" %></h3>
-            <%= render "form_course", course: f %>
+        <div class="row justify-content-center">
+          <div class="login-form col-md-6">
+            <%= render "form_course", f: f %>
+            <div class="actions form-group">
+              <%= f.submit t(".edit"), class: "btn btn-primary" %>
+            </div>
           </div>
-        </div>
-        <div class="col-md-12 submit-course">
-          <%= f.submit t(".edit"), class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
@@ -29,7 +28,7 @@
   <div class="tab-pane fade" id="nav-member">
     <div class="content-wrapper">
       <div class="row justify-content-md-center">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <h3 style="margin-top:10px"><%= t ".supervisors" %></h3>
           <div id="paginator">
             <%= paginate @supervisors, remote: true, theme: "twitter-bootstrap-4" %>
@@ -48,7 +47,7 @@
           </table>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
           <h3 style="margin-top:10px"><%= t ".trainees" %></h3>
           <div>
             <%= paginate @trainees, remote: true, theme: "twitter-bootstrap-4" %>

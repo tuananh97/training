@@ -8,14 +8,15 @@ class Supervisor::SubjectsController < Supervisor::BaseController
 
   def create
     @subject = @course.subjects.build subject_params
-    if @subject.save
+    ActiveRecord::Base.transaction do
+      @subject.save!
       assign_subject
       flash[:success] = t ".success"
       redirect_to supervisor_course_path @course
-    else
-      flash[:error] = t ".failure"
-      render :new
     end
+  rescue StandardError
+    flash[:error] = t ".failure"
+    render :new
   end
 
   def show; end
@@ -63,10 +64,8 @@ class Supervisor::SubjectsController < Supervisor::BaseController
   def assign_subject
     UserCourse.trainees_on_course(@course.id).each do |user|
       TraineeSubject.bulk_insert(ignore: true) do |worker_subject|
-        @course.subjects.each do |subject|
-          worker_subject.add(trainee_id: user.user_id,
-            subject_id: subject.id, course_id: @course.id)
-        end
+        worker_subject.add(trainee_id: user.user_id,
+        subject_id: @subject.id, course_id: @course.id)
       end
     end
   end

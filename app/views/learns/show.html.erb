@@ -1,6 +1,6 @@
 <% provide :title, t(".title", course: @course.name)%>
 
-<div class="container-fluid">
+<div class="content-wrapper">
   <div class="course-card col-lg-9">
     <strong><%= @course.name %></strong> <%= training_time(@course) %>
     <% @subjects.each do |subject| %>
@@ -14,11 +14,6 @@
               <i class="fa fa fa-leanpub" style="color: blue">
               </i>&nbsp;
               <%= link_to task.name, task_path(task), class: "task-name" %>
-            </div>
-            <div class="float-right">
-              <% if current_user.trainee? && check_status_task(current_user, task.id).finish? %>
-              Done
-              <% end %>
             </div>
           </div>
         <% end %>

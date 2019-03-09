@@ -24,8 +24,9 @@ Rails.application.routes.draw do
   end
 
   namespace :supervisor do
-    resources :tests
     resources :exams do
+      get "/results", to: "exams#results", as: "results"
+      resources :tests, only: :show
       resources :questions do
         resources :answers
       end
