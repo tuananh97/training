@@ -12,6 +12,7 @@ namespace :create_question do
     end
   end
 end
+
 namespace :create_answers do
   task answers_data: :environment do
     puts "Create answers"
