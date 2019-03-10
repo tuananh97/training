@@ -18,9 +18,6 @@
           <div>
             <label><%= t ".description" %>: <%= subject.description %></label>
           </div>
-          <div>
-            <label><%= t ".time" %>: <%= training_time(subject) %></label>
-          </div>
         </div>
         <div class="col-md-6">
           <% if subject.status == 2 %>
@@ -76,7 +73,7 @@
                 <% subject.exams.each do |exam| %>
                   <li>
                     <strong><%= exam.title %></strong>
-                    <% if current_user.tests.where(exam_id: exam.id).present? %>
+                    <% if current_user.tests.where(exam_id: exam.id).exists? %>
                       <div class="pull-right status">
                       SCORE: <%= current_user.tests.where(exam_id: exam.id).order(score: :desc).first.score %>
                       </div>

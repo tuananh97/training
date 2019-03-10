@@ -4,7 +4,6 @@
     <thead>
       <tr>
         <th><%= t ".course" %></th>
-        <th><%= t ".subjects" %></th>
         <th><%= t ".members" %></th>
         <th><%= t ".view_progress" %></th>
       </tr>
@@ -13,11 +12,6 @@
       <% @my_courses.each do |mycourse| %>
         <tr>
           <td><%= mycourse.name %></td>
-          <td>
-            <% mycourse.subjects.each_with_index do |subject, index| %>
-              <%= index + 1 %>:&nbsp;<%= subject.name %><br>
-            <% end %>
-          </td>
           <td>
             <%= link_to t(".course_members"), trainee_path(mycourse.id) %>
           </td>

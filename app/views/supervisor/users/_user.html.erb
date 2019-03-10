@@ -1,6 +1,6 @@
 <% @users.each_with_index do |user, index| %>
   <tr>
-    <td><%= index + 1 %></td>
+    <td><%= page_index params[:page], index, 10 %></td>
     <td><%= user.name %></td>
     <td><p><%= user.email %></p></td>
     <td><p><%= user.address %></p></td>

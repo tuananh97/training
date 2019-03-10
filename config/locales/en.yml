@@ -23,6 +23,7 @@ en:
     formats:
       own: "%H:%M:%S, %d-%m-%Y"
       short: "%d/%m/%Y"
+      time_test: "%H:%M %d/%m/%Y"
   layouts:
     header:
       logo: "UET Learning Online"
@@ -62,7 +63,8 @@ en:
       not_found: "User not found"
       subject_not_found: "Subject not found!"
       task_not_found: "Task not found!"
-      view_details: "View Details"
+    course:
+      view_details: "See More"
   home_pages:
     index:
       home: "Home"

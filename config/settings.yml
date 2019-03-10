@@ -20,7 +20,7 @@ user:
 comment:
   rows: 4
 per_page: 6
-per_page_index: 4
+per_page_index: 5
 course:
   per_page: 5
 pages:

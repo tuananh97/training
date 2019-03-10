@@ -7,7 +7,8 @@
   <div class="row">
     <div class="col-md-8">
       <div class="col-md-12">
-        <p><%= training_time @course %> <%= @course.description %></p>
+        <p><%= training_time @course %></p>
+        <p><%= @course.description.gsub(/\n/, '<br/>').html_safe %></p>
       </div>
       <% @subjects.each do |subject| %>
         <div class="card subject-card">

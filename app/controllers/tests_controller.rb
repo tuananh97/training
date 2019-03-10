@@ -1,5 +1,4 @@
 class TestsController < HomePagesController
-
   def index
     @tests = current_user.tests.page(params[:page]).per Settings.per_page_index
   end
@@ -17,7 +16,7 @@ class TestsController < HomePagesController
 
   def show
     @test = Test.find_by_id params[:id]
-    @questions = @test.questions.includes :answers
+    @questions = @test.questions.includes(:answers).page(params[:page]).per 3
   end
 
   def update
@@ -38,7 +37,7 @@ class TestsController < HomePagesController
   end
 
   def question_create
-    @test_questions = @test.exam.questions.order("RAND()").limit(2)
+    @test_questions = @test.exam.questions.order("RAND()").limit(@test.exam.number_question)
     @test_questions.each do |question|
       @test.results.create question_id: question.id
     end

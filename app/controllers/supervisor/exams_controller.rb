@@ -12,7 +12,7 @@ class Supervisor::ExamsController < Supervisor::BaseController
 
   def results
     @exam = Exam.find_by_id params[:exam_id]
-    @tests = @exam.tests.includes :user
+    @trainee_on_tests = TraineeSubject.includes(:user).where(subject_id: @exam.subject_id)
   end
 
   def new
@@ -61,7 +61,7 @@ class Supervisor::ExamsController < Supervisor::BaseController
   private
 
   def exam_params
-    params.require(:exam).permit :title, :subject_id
+    params.require(:exam).permit :title, :subject_id, :number_question
   end
 
   def find_exam

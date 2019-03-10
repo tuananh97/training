@@ -39,8 +39,8 @@
           <li class="col-12 col-md-6 col-lg-3">
             <div class="cnt-block equal-hight">
               <%= image_tag get_image(my_course), style:"width:100%" %>
-              <h3><%= my_course.name %></h3>
-              <p><%= my_course.description %></p>
+              <h3><%= truncate my_course.name, length: 24 %></h3>
+              <p><%= truncate my_course.description, length: 54 %></p>
               <ul class="follow-us clearfix">
                 <li><%= link_to t(".learn"), learn_path(my_course.id), class:"btn btn-success"%></li>
                 <li>
@@ -57,15 +57,14 @@
       </ul>
     </div>
   <% else %>
-    <div class="row" id="info-course">
-      <div class="our-webcoderskull tests">
+      <div class="our-webcoderskull tests" id="info-course">
         <ul class="row">
           <% @supervisor_courses.each do |course| %>
             <li class="col-12 col-md-6 col-lg-3">
               <div class="cnt-block equal-hight">
                 <%= image_tag get_image(course), style:"width:100%" %>
-                <h3><%= course.name %></h3>
-                <p><%= course.description %></p>
+                <h3><%= truncate course.name, length: 24 %></h3>
+                <p><%= truncate course.description, length: 54 %></p>
                 <ul class="follow-us clearfix">
                   <li><%= link_to t(".manage_course"), supervisor_course_path(course), class:"btn btn-info" %></li>
                 </ul>
@@ -74,6 +73,5 @@
           <% end %>
         </ul>
       </div>
-    </div>
   <% end %>
 </div>

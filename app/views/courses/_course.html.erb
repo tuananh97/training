@@ -4,8 +4,8 @@
       <li class="col-12 col-md-6 col-lg-3">
         <div class="cnt-block equal-hight">
           <%= image_tag get_image(course), style:"width:100%" %>
-          <h3><%= course.name %></h3>
-          <p><%= course.description %></p>
+          <h3 title="<%= course.name %>"><%= truncate course.name, length: 24 %></h3>
+          <p title="<%= course.description %>"><%= truncate course.description, length: 54 %></p>
           <ul class="follow-us clearfix">
             <li><%= link_to t(".view_details"), course_path(course), class:"btn btn-primary" %></li>
           </ul>

@@ -1,4 +1,4 @@
-<h5><li><%= question.content %></li></h5>
+<li><b><%= question.content %></b></li>
 <ol type="A" style="margin-left: 50px;">
   <% chosen_answer_ids = test.answer_ids_of_question question.id %>
   <% question.answers.each do |answer| %>

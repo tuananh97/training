@@ -9,7 +9,7 @@
       </small>
     </span>
     <div id="content-<%= comment.id %>">
-      <p><%= comment.content.gsub(/\n/, '<br/>').html_safe %></p>
+      <p><%= comment.content.gsub(/\n/, '<br/>') %></p>
       <% if !comment.parent? and comment.content.lines.count == 1 and comment.user != current_user %>
       <br>
       <% end %>
