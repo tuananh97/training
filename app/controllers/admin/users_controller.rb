@@ -1,10 +1,9 @@
-class Supervisor::UsersController < Supervisor::BaseController
+class Admin::UsersController < Admin::BaseController
   before_action :load_user, only: %i(edit update destroy)
-  before_action :find_supervisor, only: :show
 
   def index
     @q = User.ransack params[:q]
-    @users = @q.result(distinct: true).trainee.by_lastest.page(params[:page])
+    @users = @q.result(distinct: true).by_role.page(params[:page])
                                       .per Settings.user.per_page_index
   end
 
@@ -13,24 +12,23 @@ class Supervisor::UsersController < Supervisor::BaseController
   end
 
   def create
-    @user = User.new user_params
+    password_random = SecureRandom.hex 3
+    @user = User.new user_params.merge password: password_random,
+      password_confirmation: password_random
     if @user.save
+      @user.send_invite_user_email
       flash[:success] = t ".add_success", name: @user.name
-      redirect_to supervisor_users_path
+      redirect_to admin_users_path
     else
       flash[:error] = t ".add_fail"
       render :new
     end
   end
 
-  def show
-    @courses = @user.courses.page(params[:page]).per Settings.per_page
-  end
-
   def update
     if @user.update_attributes user_params
       flash[:success] = t ".success"
-      redirect_to supervisor_users_path
+      redirect_to admin_users_path
     else
       flash[:error] = t ".fail"
       render :edit
@@ -43,32 +41,20 @@ class Supervisor::UsersController < Supervisor::BaseController
     else
       flash[:error] = t ".warning"
     end
-    redirect_to supervisor_users_path
-  end
-
-  def all_supervisors
-    @supervisors = User.load_data.supervisor.page(params[:page])
-                       .per Settings.user.per_page
+    redirect_to admin_users_path
   end
 
   private
 
   def user_params
     params.require(:user).permit :name, :email, :password,
-      :password_confirmation, :address, :phone, :avatar
+      :password_confirmation, :address, :phone, :avatar, :role
   end
 
   def load_user
     @user = User.find_by id: params[:id]
     return if @user
     flash[:error] = t ".not_found"
-    redirect_to supervisor_users_path
-  end
-
-  def find_supervisor
-    @user = User.find_by_id params[:id]
-    return if @user&.supervisor?
-    flash[:error] = t ".not_found_supervisor"
-    redirect_to root_path
+    redirect_to admin_users_path
   end
 end

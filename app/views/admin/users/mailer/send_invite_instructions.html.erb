@@ -1,0 +1,5 @@
+<p><%= t "mailer.dear" %> <%= @user.name %></p>
+<p><%= t "mailer.account_create_by_admin" %></p>
+<p><b><%= t "mailer.email" %></b> <%= @user.email %></p>
+<p><b><%= t "mailer.password" %></b> <%= @user.password %></p>
+<p><%= t "mailer.link_to" %> <%= link_to "Website", new_user_session_url %></p>

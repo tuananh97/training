@@ -54,11 +54,16 @@
           <% end %>
           <% subject.exams.each do |exam| %>
             <div class="task-card row">
-              <div class="col-md-11">
+              <div class="col-md-10">
                 <i class="fa fa-file-text" style="color: blue">
                 </i>&nbsp;
                 <%= link_to exam.title, supervisor_exam_results_path(exam.id), class: "task-name" %>
               </div>
+                <div class="col-md-2">
+                  <%= link_to edit_supervisor_exam_path(subject_id: subject.id), remote: true do %>
+                    <i class="fa fa-edit"></i>
+                  <% end %>
+                </div>
             </div>
           <% end %>
           <div class="task-card row">

@@ -1,11 +1,13 @@
-<% provide :title, t(".create_trainee") %>
-<h3><%= t(".create_trainee") %></h3>
+<% provide :title, t(".create_user") %>
+<h3><%= t(".create_user") %></h3>
 <div class="content-wrapper">
   <div class="row">
     <div class="login-form col-md-4 offset-md-4">
-      <%= form_for [:supervisor, @user] do |f| %>
+      <%= form_for [:admin, @user] do |f| %>
         <div class="form-group">
-          <%= f.label :email %>
+          <label><%= t(".email") %>
+            <span class="validate-alert"> *</span>
+          </label>
           <%= f.email_field :email, autofocus: true, autocomplete: t(".email"),
             class:"form-control" %>
           <div align="right" class="error-messages-devise" >
@@ -14,7 +16,9 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :name %>
+          <label><%= t(".name") %>
+            <span class="validate-alert"> *</span>
+          </label>
           <%= f.text_field :name, autofocus: true, autocomplete: t(".name"),
             class:"form-control"  %>
           <div align="right" class="error-messages-devise" >
@@ -23,34 +27,10 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :password %>
-          <%= f.password_field :password, class: "form-control" %>
+          <%= f.label :role %><span class="validate-alert"> *</span>
+          <%= f.select :role, role_collection, {}, class:"form-control" %>
           <div align="right" class="error-messages-devise" >
-            <%= @user.errors.full_messages_for(:password).first %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: "form-control" %>
-          <div align="right" class="error-messages-devise" >
-            <%= @user.errors.full_messages_for(:password_confirmation).first %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :phone %><span class="validate-alert"> *</span>
-          <%= f.text_field :phone, autofocus: true, autocomplete: t(".phone"), class:"form-control" %>
-          <div align="right" class="error-messages-devise" >
-            <%= @user.errors.full_messages_for(:phone).first %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :address %><span class="validate-alert"> *</span>
-          <%= f.text_field :address, autofocus: true, autocomplete: t(".address"), class:"form-control" %>
-          <div align="right" class="error-messages-devise" >
-            <%= @user.errors.full_messages_for(:address).first %>
+            <%= @user.errors.full_messages_for(:role).first %>
           </div>
         </div>
 
@@ -68,9 +48,28 @@
             <%= @user.errors.full_messages_for(:avatar).first %>
           </div>
         </div>
+        <div class="form-group">
+          <label><%= t(".phone") %>
+            <span class="validate-alert"> *</span>
+          </label>
+          <%= f.text_field :phone, autofocus: true, autocomplete: t(".phone"), class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= @user.errors.full_messages_for(:phone).first %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label><%= t(".address") %>
+            <span class="validate-alert"> *</span>
+          </label>
+          <%= f.text_field :address, autofocus: true, autocomplete: t(".address"), class:"form-control" %>
+          <div align="right" class="error-messages-devise" >
+            <%= @user.errors.full_messages_for(:address).first %>
+          </div>
+        </div>
 
         <div class="actions form-group">
-          <%= f.submit t(".create_trainee"), class:"btn btn-primary" %>
+          <%= f.submit t(".create_user"), class:"btn btn-primary" %>
         </div>
       <% end %>
     </div>

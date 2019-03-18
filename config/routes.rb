@@ -3,15 +3,17 @@ Rails.application.routes.draw do
   root "static_pages#welcome"
   get "/home", to: "home_pages#index"
 
-  devise_for :users, controllers: {sessions: "users/sessions", registrations: "registrations"}
+  devise_for :users, controllers: {sessions: "users/sessions",
+    registrations: "registrations"}
   resources :reset_password, only: %i(edit update)
+
   resources :users, only: %i(edit show) do
     resources :tests, only: %i(index show create update)
   end
-
   resources :courses
   resources :user_courses, only: %i(new create show destroy)
   resources :learns, only: :show
+
   scope :learn do
     get "/exam_details/:id", to: "learns#exam_details", as: "exam_details"
     resources :tasks, only: %i(show update)
@@ -23,17 +25,11 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :supervisor do
-    resources :exams do
-      get "/results", to: "exams#results", as: "results"
-      resources :tests, only: :show
-      resources :questions do
-        resources :answers
-      end
-    end
+  namespace :admin do
     resources :users, except: :show
-    resources :reports, only: :index
-    resources :user_courses, only: %i(create update destroy)
+  end
+
+  namespace :supervisor do
     resources :courses do
       resources :subjects do
         resources :tasks
@@ -41,6 +37,15 @@ Rails.application.routes.draw do
       end
       patch "/finish", to: "courses#finish"
     end
+    resources :exams do
+      get "/results", to: "exams#results", as: "results"
+      resources :tests, only: :show
+      resources :questions do
+        resources :answers
+      end
+    end
+    resources :user_courses, only: %i(create update destroy)
+    resources :reports, only: :index
   end
 
   namespace :trainee do

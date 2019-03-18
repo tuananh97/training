@@ -26,7 +26,7 @@
             <% @test = user.user.tests.where(exam_id: @exam.id).last %>
             <% if @test.present? %>
               <td class="col-3"><%= l @test.created_at, format: :time_test %></td>
-              <td class="col-3"><%= Test.where(user_id: user.trainee_id, exam_id: @exam.id).average(:score) %></td>
+              <td class="col-3"><%= Test.where(user_id: user.trainee_id, exam_id: @exam.id).average(:score).round(2) %></td>
               <td class="col-3"><%= link_to t("tests.view"), supervisor_exam_test_path(@exam, @test) %></td>
             <% else %>
               <td class="col-3"><%= "Not yet tested" %></td>

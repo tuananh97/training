@@ -23,13 +23,11 @@ class Supervisor::ExamsController < Supervisor::BaseController
     end
   end
 
-  def edit; end
-
   def create
     @exam = Exam.new exam_params
     if @exam.save
       flash[:success] = t ".success"
-      redirect_to supervisor_exam_path(@exam)
+      redirect_to supervisor_exam_path @exam
     else
       flash[:danger] = t ".failed"
       respond_to do |format|
@@ -38,13 +36,22 @@ class Supervisor::ExamsController < Supervisor::BaseController
     end
   end
 
+  def edit
+    @subject = Subject.find_by_id params[:subject_id]
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def update
     if @exam.update_attributes exam_params
       flash[:success] = t ".success"
-      redirect_to supervisor_exams_path
+      redirect_to supervisor_exam_path @exam
     else
       flash[:danger] = t ".failed"
-      render :edit
+      respond_to do |format|
+        format.js
+      end
     end
   end
 

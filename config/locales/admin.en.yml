@@ -1,0 +1,43 @@
+en:
+  admin:
+    users:
+      create:
+        add_success: "Add user %{name} success"
+        add_fail: "Add new user error. Please recheck information!"
+      update:
+        success: "Update user information success"
+        fail: "Add new user error. Please recheck information!"
+      destroy:
+        success: "Delete this user success"
+        warning: "Don't delete this user. Please recheck information!"
+      check_supervisor:
+        not_permission: "You not permission access page"
+      load_user:
+        not_found: "Not found user"
+      index:
+        manage_user: "Manage Users"
+        create_user: "New User"
+        not_permission: "You not permission access page"
+        email: "Email"
+        name: "Name"
+        phone: "Phone"
+        address: "Address"
+        avatar: "Avatar"
+        role: "Role"
+        action: "Action"
+      new:
+        email: "email"
+        password: "New Password"
+        password_length: "(%{length} characters minimum)"
+        name: "name"
+        phone: "phone"
+        address: "address"
+        avatar: "avatar"
+        create_user: "Create user"
+      user:
+        delete: "Delete"
+        confirm: "You are sure to delete this user?"
+        edit: "Edit"
+        view: "View"
+      edit:
+        edit_user: "Edit user"

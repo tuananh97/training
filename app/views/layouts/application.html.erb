@@ -9,13 +9,13 @@
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
   <body class="global-flash">
-    <div class="content-wrapper">
     <%= render "layouts/header" %>
+    <div class="global-flash">
+      <%= render "layouts/flash" %>
     </div>
-    <%= render "layouts/flash" %>
     <%= yield %>
     <%= render "layouts/footer" %>
-    <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-window" class="modal hide fade">
       <div class="modal-dialog" role="document">
         <div class="modal-content global-modal-content"></div>
       </div>

@@ -22,12 +22,13 @@
               <i class="fa fa-home"></i>&nbsp;<%= t ".home" %>
             <% end %>
           </li>
-          <% if current_user.supervisor? %>
+          <% if current_user.admin? %>
             <li class="nav-item">
-              <%= link_to supervisor_users_path, class:"nav-link" do %>
+              <%= link_to admin_users_path, class:"nav-link" do %>
                 <i class="fa fa-user"></i>&nbsp;<%= t ".manage_users" %>
               <% end %>
             </li>
+          <% elsif current_user.supervisor? %>
             <li class="nav-item">
               <%= link_to supervisor_courses_path, class:"nav-link" do %>
                 <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".manage_courses" %>

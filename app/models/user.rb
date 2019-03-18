@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  enum role: {trainee: 0, supervisor: 1}
+  enum role: {trainee: 0, supervisor: 1, admin: 2}
   mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :validatable
@@ -30,11 +30,14 @@ class User < ApplicationRecord
   validates :address,
     length: {maximum: Settings.user.address.max_length,
              minimum: Settings.user.address.min_length}
-  validates_size_of :avatar, maximum: 2.megabytes,
+  validates_size_of :avatar, maximum: 5.megabytes,
     message: I18n.t("users.avatar.langer_image")
 
-  scope :by_lastest, ->{order created_at: :desc}
   attr_select = %i(id name email address phone avatar role)
   scope :load_data, ->{select attr_select}
-  scope :accounts, ->{select :id, :name, :email, :address, :phone}
+  scope :by_role, ->{order role: :desc}
+
+  def send_invite_user_email
+    UserMailer.send_invite_instructions(self).deliver
+  end
 end

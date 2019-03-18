@@ -18,11 +18,13 @@ module ApplicationHelper
 
   def custom_bootstrap_flash
     flash_messages = []
+    option = "{'closeButton': true}"
     flash.each do |type, message|
       type = "success" if type == "notice"
       type = "error" if type == "alert"
       type = "warning" if type == "warning"
-      text = "toastr.#{type}('#{message}');"
+      option = "{'timeOut': #{5}, 'closeButton': true}" if type == "error"
+      text = "toastr.#{type}('#{message}', '', #{option});"
       flash_messages << text if message
     end
     flash_messages.join("\n")

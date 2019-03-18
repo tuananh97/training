@@ -1,0 +1,40 @@
+<% provide :title, t(".manage_user") %>
+<div class="content-wrapper">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title"> <%= t ".manage_user" %></h3>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="col-md-6" id="paginator">
+        <%= paginate @users, remote: true, theme: "twitter-bootstrap-4" %>
+      </div>
+      <div class="col-md-4 text-right">
+        <%= search_form_for [:admin, @q], class:"form-inline" do |f| %>
+          <%= f.search_field :name_cont, id:"search", class:"form-control mr-sm-2" %>
+          <%= f.submit "Search", class:"btn btn-outline-info my-2 my-sm-0" %>
+        <% end %>
+      </div>
+      <div class="col-md-2 text-right new-object">
+        <%= link_to new_admin_user_path, class: "btn btn-primary" do %>
+          <i class="fa fa-plus"></i>&nbsp;<%= t ".create_user" %>
+        <% end %>
+      </div>
+    </div>
+    <table class="table table-responsive-xl table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th><%= t ".name" %></th>
+          <th><%= t ".email" %></th>
+          <th><%= t ".address" %></th>
+          <th><%= t ".role" %></th>
+          <th colspan="3" class="text-center"><%= t ".action" %></th>
+        </tr>
+      </thead>
+      <tbody id="users">
+        <%= render "user" %>
+      </tbody>
+    </table>
+  </div>
+</div>

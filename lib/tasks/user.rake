@@ -1,3 +1,15 @@
+namespace :create_admin do
+  task admin_data: :environment do
+    puts "Create Supervisors"
+    User.create name: "admin",
+      email: "admin@email.com",
+      phone: "0372019030",
+      address: Faker::Address.city,
+      role: 2,
+      password: "admin123"
+  end
+end
+
 namespace :create_supervisor do
   task supervisor_data: :environment do
     puts "Create Supervisors"

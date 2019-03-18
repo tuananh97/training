@@ -5,6 +5,11 @@ en:
         create_exam: "Create Exam"
         title: "Title"
         create: "Create"
+      edit:
+        edit_exam: "Edit Exam"
+        title: "Title"
+        number_question: "Number Question"
+        save: "Save"
       index:
         title: "Manage Exams"
         exam: "Title Exam"
