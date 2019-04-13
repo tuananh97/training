@@ -1,0 +1,57 @@
+<% provide :title, t(".title", name: @course.name) %>
+
+<div class="content-wrapper">
+  <div class="col-md-12">
+    <h3><strong><%= t ".course_detail" %>: <%= @course.name %></strong></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="col-md-12">
+        <p><%= training_time @course %></p>
+        <p><%= @course.description.gsub(/\n/, '<br/>').html_safe %></p>
+      </div>
+      <% @subjects.each do |subject| %>
+        <div class="card subject-card">
+          <div class="row subject-title">
+            <div class="col-md-3">
+              <%= subject.name %>
+            </div>
+          </div>
+          <% subject.tasks.each do |task| %>
+            <div class="task-card row">
+              <div class="col-md-10">
+                <i class="fa fa fa-leanpub" style="color: blue">
+                </i>&nbsp;
+                <%= link_to task.name, task_path(task.id), class: "task-name" %>
+              </div>
+            </div>
+          <% end %>
+          <% subject.exams.each do |exam| %>
+            <div class="task-card row">
+              <div class="col-md-10">
+                <i class="fa fa-file-text" style="color: blue">
+                </i>&nbsp;
+                <%= link_to exam.title, supervisor_exam_results_path(exam.id), class: "task-name" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <h5 class="panel-title">
+        <strong><%= t ".suppervisor_course" %></strong>
+      </h5>
+      <% @supervisors.each do |supervisor| %>
+        <div><%= link_to supervisor.name, user_path(supervisor) %></div>
+      <% end %>
+      <br>
+      <h5 class="panel-title">
+        <strong><%= t ".trainee_course" %></strong>
+      </h5>
+      <% @trainees.each do |trainee| %>
+       <div><%= link_to trainee.name, user_path(trainee) %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

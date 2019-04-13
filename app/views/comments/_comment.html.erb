@@ -15,12 +15,20 @@
       <% end %>
     </div>
     <% if comment.parent? and user_signed_in? %>
-      <%= link_to t(".reply"), new_reply_comment_path(comment), remote: true, id:"comment-#{comment.id}" %>
+      <%= link_to new_reply_comment_path(comment), remote: true, id:"comment-#{comment.id}", class: "btn btn-success btn-xs"  do %>
+              <i class="fa fa-reply data-toogle="tooltip"
+            title="<%= t '.reply' %>""></i>
+      <% end %>
     <% end %>
 
     <% if comment.user == current_user %>
-      <%= link_to t(".edit"), edit_comment_path(comment), remote: true %>
-      <%= link_to t(".delete"), comment, method: :delete, data: {confirm: t(".confirm")}, remote: true %>
+      <%= link_to edit_comment_path(comment), remote: true, class: "btn btn-primary btn-xs" do %>
+       <i class="fa fa-pencil data-toogle="tooltip"
+            title="<%= t '.edit' %>""></i>
+      <% end %>
+      <%= link_to comment, method: :delete, data: {confirm: t(".confirm")}, remote: true, class: "btn btn-danger btn-xs"  do %>
+        <i class="fa fa-trash-o data-toogle="tooltip" title="<%= t '.delete' %>""></i>
+        <% end %>
     <% end %>
     <hr>
     <%= render comment.replies if comment.replies.any? %>

@@ -23,3 +23,5 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require custom
+//= require notificationscenter
+//= require cable

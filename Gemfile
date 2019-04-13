@@ -41,7 +41,9 @@ gem "validates_timeliness", "~> 5.0.0.alpha3"
 gem "whenever", require: false
 
 group :development, :test do
+  gem "factory_bot_rails", require: false
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec-rails", "~> 3.6"
 end
 
 group :development do
@@ -57,9 +59,12 @@ group :production do
 end
 
 group :test do
-  gem "capybara", ">= 2.15", "< 4.0"
+  gem "faker"
+  gem "capybara"
   gem "chromedriver-helper"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 3.1"
+  gem 'database_cleaner', '~> 1.5'
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

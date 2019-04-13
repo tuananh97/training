@@ -4,9 +4,15 @@
     <%= f.hidden_field :parent_id %>
 
     <div class="form-group">
-      <%= f.text_area :content, class: "form-control",
-      rows: Settings.comment.rows, id:"content-#{@comment.new_reply.parent_id}" %>
+      <div class="row">
+        <div class="col-md-10">
+         <%= f.text_area :content, class: "form-control", rows: 4,
+            id:"content-#{@comment.new_reply.parent_id}" %>
+        </div>
+        <div class="col-md-2" style="padding: 15px">
+          <%= f.submit t(".submit"), class:"btn btn-primary" %>
+        </div>
+      </div>
     </div>
-    <%= f.submit t(".submit"), class:"btn btn-primary" %>
   <% end %>
 </div>

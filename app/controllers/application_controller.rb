@@ -2,8 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper :all
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :load_notifications, if: :user_signed_in?
 
   protected
+
+  def load_notifications
+    @notifications = current_user.notifications.order(:created_at).reverse
+  end
 
   def configure_permitted_parameters
     added_attrs = [:name, :phone, :email, :password, :password_confirmation,

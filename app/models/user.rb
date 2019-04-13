@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :trainee_subjects, foreign_key: :trainee_id, dependent: :destroy
   has_many :trainee_tasks, foreign_key: :trainee_id, dependent: :destroy
   has_many :reports
+  has_many :notifications
   has_many :active_admin_courses, class_name: UserCourse.name,
            foreign_key: :user_id, dependent: :destroy
   has_many :monitoring_courses, through: :active_admin_courses,

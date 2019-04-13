@@ -1,0 +1,6 @@
+<p class="content" href="#">
+  <div class="notification-item">
+    <%= notification.content.html_safe %><br>
+    <%= notification.created_at.strftime(Settings.format_time_test) %>
+  </div>
+</p>

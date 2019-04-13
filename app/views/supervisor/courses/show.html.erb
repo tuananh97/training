@@ -13,10 +13,10 @@
       <% @subjects.each do |subject| %>
         <div class="card subject-card">
           <div class="row subject-title">
-            <div class="col-md-3">
+            <div class="col-md-6">
               <%= subject.name %>
             </div>
-            <div class="col-md-9 text-right">
+            <div class="col-md-6 text-right">
               <%= link_to new_supervisor_course_subject_path(@course) do %>
                 <i class="fa fa-plus" data-toogle="tooltip"
                   title="<%= t ".add_subject" %>"></i>
@@ -26,7 +26,7 @@
                   title="<%= t ".edit_subject" %>"></i>
               <% end %>&nbsp;&nbsp;
               <%= link_to supervisor_course_subject_path(@course, subject),
-                data: {confirm: t(".confirm")}, method: :delete do %>
+                data: {confirm: t(".confirm_delete_subject")}, method: :delete do %>
                 <i class="fa fa-trash" data-toogle="tooltip"
                   title="<%= t ".del_subject" %>"></i>
               <% end %>
@@ -45,7 +45,7 @@
                     title="<%= t ".edit_task" %>"></i>
                 <% end %>&nbsp;&nbsp;
                 <%= link_to supervisor_course_subject_task_path(@course, subject, task),
-                  data: {confirm: t(".confirm")}, method: :delete do %>
+                  data: {confirm: t(".confirm_delete_task")}, method: :delete do %>
                   <i class="fa fa-trash" data-toogle="tooltip"
                     title="<%= t ".del_task" %>"></i>
                 <% end %>
@@ -60,7 +60,7 @@
                 <%= link_to exam.title, supervisor_exam_results_path(exam.id), class: "task-name" %>
               </div>
                 <div class="col-md-2">
-                  <%= link_to edit_supervisor_exam_path(subject_id: subject.id), remote: true do %>
+                  <%= link_to edit_supervisor_exam_path(exam.id, subject_id: subject.id), remote: true do %>
                     <i class="fa fa-edit"></i>
                   <% end %>
                 </div>

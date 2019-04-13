@@ -5,7 +5,7 @@ class Supervisor::BaseController < ApplicationController
   private
 
   def check_supervisor
-    return if current_user.supervisor?
+    return if current_user.supervisor? || current_user.admin?
     flash[:error] = t ".not_permission"
     redirect_to home_path
   end

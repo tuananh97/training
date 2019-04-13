@@ -1,0 +1,14 @@
+<ul class="notificator">
+  <a href="#" id="open_notification">
+    <i class="fa fa-bell-o"></i>
+    <span id="notification-counter"><%= notifications.count %></span>
+  </a>
+  <div id="notificationContainer" style="display: none;">
+    <div id="notificationsBody" class="notifications">
+      <ul id="notificationList">
+        <%= render notifications %>
+      </ul>
+    </div>
+    <div id="notificationFooter"></div>
+  </div>
+</ul>

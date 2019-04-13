@@ -11,6 +11,7 @@ class Supervisor::TasksController < Supervisor::BaseController
     ActiveRecord::Base.transaction do
       @task.save!
       assign_task
+      send_notice if TraineeSubject.where(subject_id: @subject.id).exists?
       flash[:success] = t ".success"
       redirect_to supervisor_course_path @course
     end
@@ -55,6 +56,12 @@ class Supervisor::TasksController < Supervisor::BaseController
         work_task.add(task_id: @task.id, trainee_id: user.trainee_id,
         course_id: @course.id)
       end
+    end
+  end
+
+  def send_notice
+    TraineeSubject.where(subject_id: @subject.id).each do |user|
+      Notification.create content: raw t(".assign", task: @task.name), user_id: user.trainee_id, is_read: false
     end
   end
 

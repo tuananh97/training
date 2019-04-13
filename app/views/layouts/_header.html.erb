@@ -28,6 +28,11 @@
                 <i class="fa fa-user"></i>&nbsp;<%= t ".manage_users" %>
               <% end %>
             </li>
+            <li class="nav-item">
+              <%= link_to admin_courses_path, class:"nav-link" do %>
+                <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".manage_courses" %>
+              <% end %>
+            </li>
           <% elsif current_user.supervisor? %>
             <li class="nav-item">
               <%= link_to supervisor_courses_path, class:"nav-link" do %>
@@ -48,7 +53,29 @@
           <% end %>
         <% end %>
       </ul>
-
+      <% if user_signed_in? %>
+        <% if current_user.notifications.exists? %>
+          <ul class="nav navbar-nav navbar-left notifications-menu">
+            <div class="dropdown">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="fa fa-bell-o"></i>
+                <span id="notification-counter"><%= @notifications.count %></span>
+              </a>
+              <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
+                <div class="notifications-wrapper">
+                  <% @notifications.each do |notification| %>
+                   <%= render 'notifications/notification', notification: notification %>
+                  <% end %>
+                </div>
+                <div class="dropdown-divider"></div>
+                <div class="notification-footer">
+                  <p class="menu-title">View all</p>
+                </div>
+              </ul>
+            </div>
+          </ul>
+        <% end %>
+      <% end %>
       <ul class="nav navbar-nav navbar-right ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">

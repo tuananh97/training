@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
-  <body class="global-flash">
+  <body>
     <%= render "layouts/header" %>
     <div class="global-flash">
       <%= render "layouts/flash" %>
@@ -17,8 +17,14 @@
     <%= render "layouts/footer" %>
     <div id="modal-window" class="modal hide fade">
       <div class="modal-dialog" role="document">
-        <div class="modal-content global-modal-content"></div>
+        <div class="modal-content"></div>
       </div>
+    </div><div class="modal" id="global-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content global-modal-content">
     </div>
+  </div>
+</div>
+
   </body>
 </html>

@@ -1,0 +1,52 @@
+<% provide :title, t(".title") %>
+
+<div class="content-wrapper">
+  <h3 class="panel-title"> <%= t ".title" %></h3>
+  <div class="row">
+    <div class="col-md-6" id="paginator">
+      <%= paginate @courses, theme: "twitter-bootstrap-4" %>
+    </div>
+    <div class="col-md-6 text-right new-object">
+      <%= link_to new_supervisor_course_path, class:"btn btn-primary" do %>
+        <i class="fa fa-plus"></i>&nbsp;<%= t ".add_course" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+      <table class="table" id="all-course" >
+        <thead>
+          <tr class="d-flex">
+            <th class="col-1">#</th>
+            <th class="col-7"><%= t ".course" %></th>
+            <th colspan="3" class="col-4"><%= t ".action" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @courses.each_with_index do |course, index| %>
+            <tr class="d-flex">
+              <td class="col-1"><%= index + 1 %></td>
+              <td class="col-7">
+                <p><%= course.name %><p>
+                <p><%= training_time(course) %></p>
+              </td>
+              <td class="col-4">
+                <%= link_to admin_course_path(course.id),
+                  class: "badge badge-pill badge-info" do %>
+                  <i class="fa fa-book" data-toogle="tooltip"
+                    title="<%= t '.detail' %>"></i>&nbsp;<%= t '.detail' %>
+                <% end %>
+                <%= link_to admin_course_path(course), method: :delete,
+                  data: {confirm: t(".confirm")},
+                  class: "badge badge-pill badge-danger" do %>
+                  <i class="fa fa-trash" data-toogle="tooltip"
+                    title="<%= t '.delete' %>"></i>&nbsp;<%= t '.delete' %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+  mount ActionCable.server => '/cable'
   root "static_pages#welcome"
   get "/home", to: "home_pages#index"
 
+  resources :notifications
   devise_for :users, controllers: {sessions: "users/sessions",
     registrations: "registrations"}
   resources :reset_password, only: %i(edit update)
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, except: :show
+    resources :courses, only: %i(index show)
   end
 
   namespace :supervisor do

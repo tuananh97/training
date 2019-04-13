@@ -56,3 +56,15 @@ label.required:after{
   content: " *";
   color: $red;
 }
+.reply-form{
+  .avatar{
+    width: 15%;
+  }
+  .content{
+    width: 70%;
+
+  }
+  .submit{
+    width: 15%;
+  }
+}
