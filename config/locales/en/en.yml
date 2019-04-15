@@ -1,4 +1,12 @@
 en:
+  ckeditor:
+    page_title: 'CKEditor Files Manager'
+    confirm_delete: 'Delete file?'
+    buttons:
+      cancel: 'Cancel'
+      upload: 'Upload'
+      delete: 'Delete'
+      next: 'Next'
   enum:
     user:
       role:
@@ -49,6 +57,7 @@ en:
       all_supervisors: "All Supervisors"
       mycourse: "My courses"
       manage_courses: "Manage Courses"
+      manage_exams: "Manage Exams"
       profile: "My Profile"
       avatar: "Avatar"
       reset_password: "Reset Password"

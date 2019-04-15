@@ -6,7 +6,7 @@
   <div class="modal-body">
     <div>
       <div class="form-group">
-        <%= f.label :content, t(".question"), class: "required" %>
+        <%= f.label :content, t(".content"), class: "required" %>
         <%= f.text_area :content, class: "form-control" %>
       </div>
       <div align="right" class="error-messages-devise" >
@@ -18,15 +18,15 @@
         <div class="row">
           <div class="col-md-8">
             <div class="form-group">
-              <%= answer.label :content, "Answer" %>
+              <%= answer.label :content, t(".answer") %>
               <%= answer.text_field :content, id: :content, class: "form-control" %>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <%= answer.label :is_correct, t("admin.answers.answer_type") %>
+              <%= answer.label :is_correct, t(".answer_type") %>
               <br/>
-              <%= answer.select :is_correct, [["Incorrect", false],["Correct", true]], {}, class: "form-control"%>
+              <%= answer.select :is_correct, [[t(".incorrect"), false],[t(".correct"), true]], {}, class: "form-control"%>
             </div>
           </div>
         </div>

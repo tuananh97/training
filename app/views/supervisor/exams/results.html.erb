@@ -16,7 +16,7 @@
         <th class="col-3"><%= t ".user_name" %></th>
         <th class="col-3"><%= t ".last_time" %></th>
         <th class="col-3"><%= t ".score" %></th>
-        <th class="col-2"><%= t ".view" %></th>
+        <th class="col-2"><%= t ".views" %></th>
       </tr>
     </thead>
     <tbody>
@@ -27,11 +27,11 @@
             <% if @test.present? %>
               <td class="col-3"><%= l @test.created_at, format: :time_test %></td>
               <td class="col-3"><%= Test.where(user_id: user.trainee_id, exam_id: @exam.id).average(:score).round(2) %></td>
-              <td class="col-3"><%= link_to t("tests.view"), supervisor_exam_test_path(@exam, @test) %></td>
+              <td class="col-3"><%= link_to t(".view"), supervisor_exam_test_path(@exam, @test) %></td>
             <% else %>
-              <td class="col-3"><%= "Not yet tested" %></td>
+              <td class="col-3"><%= t(".not_test") %></td>
               <td class="col-3">0.0</td>
-              <td class="col-3"><%= "Not yet tested" %></td>
+              <td class="col-3"><%= t(".not_test") %></td>
             <% end %>
           </tr>
       <% end %>

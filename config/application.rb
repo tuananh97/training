@@ -9,12 +9,15 @@ Bundler.require(*Rails.groups)
 module Training
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     config.load_defaults 5.2
     config.active_job.queue_adapter = :async
     config.assets.paths << Rails.root.join("node_modules")
     config.time_zone = "Bangkok"
     config.active_record.default_timezone = :local
     Faker::Config.locale = :vi
+    config.i18n.available_locales = [:en, :vi]
+    config.i18n.default_locale = :vi
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

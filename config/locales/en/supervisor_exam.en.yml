@@ -4,6 +4,7 @@ en:
       form_exam:
         create_exam: "Create Exam"
         title: "Title"
+        number_question: "Number Question"
         create: "Create"
       edit:
         edit_exam: "Edit Exam"
@@ -22,7 +23,7 @@ en:
         add_question: "Add Question"
       show:
         title: "Manage Questions Of Exam %{title}"
-        question: "Subject"
+        content: "Content"
         action: "Action"
         show: "Question details"
         edit: "Edit question"
@@ -47,7 +48,8 @@ en:
         user_name: "Name trainee"
         score: "Score"
         date: "Date"
-        view: "View Details"
+        views: "View Details"
+        view: "View"
     questions:
       form_question:
         question: "Question"
@@ -69,8 +71,9 @@ en:
       question: "Question"
     tests:
       show:
+        view: "View details"
+        not_test: "Not yet tested"
         title: "Results Test of Exam %{title}"
         date: "Date"
         score: "Score"
         back: "Back"
-

@@ -27,27 +27,13 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :role %><span class="validate-alert"> *</span>
+          <%= f.label :role, t(".role") %><span class="validate-alert"> *</span>
           <%= f.select :role, role_collection, {}, class:"form-control" %>
           <div align="right" class="error-messages-devise" >
             <%= @user.errors.full_messages_for(:role).first %>
           </div>
         </div>
 
-        <div class="form-group">
-          <div class="fix-bot-pic upload-pic pic-profile">
-            <%= f.hidden_field :avatar_cache %>
-            <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png",
-              autofocus: true, class: "input-file previewIMG" %>
-            <label tabindex="0" class="input-file-trigger"> <%= t ".avatar" %>
-              <i class="fa fa-camera"></i>
-            </label>
-          </div>
-          <%= image_tag get_avatar(@user), class: "image_cm preview-img" %>
-          <div align="right" class="error-messages-devise" >
-            <%= @user.errors.full_messages_for(:avatar).first %>
-          </div>
-        </div>
         <div class="form-group">
           <label><%= t(".phone") %>
             <span class="validate-alert"> *</span>
@@ -65,6 +51,21 @@
           <%= f.text_field :address, autofocus: true, autocomplete: t(".address"), class:"form-control" %>
           <div align="right" class="error-messages-devise" >
             <%= @user.errors.full_messages_for(:address).first %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="fix-bot-pic upload-pic pic-profile">
+            <%= f.hidden_field :avatar_cache %>
+            <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png",
+              autofocus: true, class: "input-file previewIMG" %>
+            <label tabindex="0" class="input-file-trigger"> <%= t ".avatar" %>
+              <i class="fa fa-camera"></i>
+            </label>
+          </div>
+          <%= image_tag get_avatar(@user), class: "image_cm preview-img" %>
+          <div align="right" class="error-messages-devise" >
+            <%= @user.errors.full_messages_for(:avatar).first %>
           </div>
         </div>
 

@@ -1,0 +1,233 @@
+vi:
+  ckeditor:
+    page_title: 'CKEditor Files Manager'
+    confirm_delete: 'Delete file?'
+    buttons:
+      cancel: 'Cancel'
+      upload: 'Upload'
+      delete: 'Delete'
+      next: 'Next'
+  views:
+    pagination:
+      first: "&laquo; Trang 1"
+      last: "Trang cuối  &raquo;"
+      previous: "&lsaquo; Trang trước"
+      next: "Trang tiếp &rsaquo;"
+      truncate: "&hellip;"
+  enum:
+    user:
+      role:
+        admin: "Quản trị viên"
+        supervisor: "Giáo viên"
+        trainee: "Học viên"
+  user:
+    mailer:
+      invite_user: "Invitation Mail"
+      send: "Gửi"
+      create_by_admin: "Tài khoản của bạn được tạo bới quản trị viên:"
+      email: "Địa chỉ email:"
+      password: "Mật khẩu:"
+      link: "Website"
+  submit: "Submit"
+  base_title: "UET Learning Online"
+  time:
+    formats:
+      own: "%H:%M:%S, %d-%m-%Y"
+      short: "%d/%m/%Y"
+      time_test: "%H:%M %d/%m/%Y"
+  layouts:
+    header:
+      logo: "UET Learning Online"
+      home: "Trang chủ"
+      signup: "Đăng ký tài khoản"
+      login: "Đăng nhập"
+      logout: "Đăng xuất"
+      manage_users: "Quản lý người dùng"
+      all_supervisors: "Danh sách giáo viên"
+      mycourse: "Khóa học của tôi"
+      manage_courses: "Quản lý khóa học"
+      manage_exams: "Quản lý đề kiểm tra"
+      profile: "Trang cá nhân"
+      avatar: "Hình đại diện"
+      reset_password: "Đổi mật khẩu"
+      settings: "Cài đặt"
+      all_members: "Danh sách học viên"
+      notification: "Thông báo"
+    footer:
+      products: "Sản phẩm"
+      useful_link: "Liên kết hữu ích"
+      contact: "Liên hệ"
+      link: "Liên kết hữu ích"
+      address: "144 Xuân Thủy, Cầu Giấy, Hà Nội"
+      email: "uet@vnu.edu.vn"
+      tel: "024.37547.461"
+      fax: "024.37547.460"
+      copyright: "© 2019 Copyright"
+  static_pages:
+    welcome:
+      home: "Trang chủ"
+      search: "Tìm kiếm"
+      continue_learn: "Tiếp tục học"
+      label_course: "Khóa học"
+      name_course: "Course example"
+      short_description: "Khóa học có nội dung chính...."
+      not_found: "Không tìm thấy người dùng"
+      subject_not_found: "Không tìm thấy chủ đề!"
+      task_not_found: "Không tìm thấy bài học!"
+    course:
+      view_details: "Xem thêm"
+  home_pages:
+    index:
+      home: "Trang chủ"
+      continue_learn: "Tiếp tục học"
+      label_course: "Khóa học"
+      search: "Tìm kiếm"
+      name_course: "Khóa học mẫu"
+      manage_course: "Quản lý khóa học"
+      short_description: "Khóa học có nội dung chính...."
+      not_found: "Không tìm thấy người dùng"
+      subject_not_found: "Không tìm thấy chủ đề!"
+      task_not_found: "Không tìm thấy bài học!"
+      learn: "Học"
+      unenroll: "Hủy đăng ký"
+  users:
+    edit:
+      edit_profile: "Thay đổi thông tin cá nhân"
+      email: "Địa chỉ mail"
+      update: "Lưu lại"
+    course:
+      view: "Xem chi tiết"
+    avatar:
+      langer_image: "cần có dung lượng nhỏ hơn 5MB"
+  reset_password:
+    edit:
+      change_password: "Đổi mật khẩu"
+      current_password: "Mật khẩu hiện tại"
+      new_password: "Mật khẩu mới"
+      confirm_new_password: "Xác nhận mật khẩu mới"
+      update: "Cập nhật"
+    update:
+      change_password_success: "Đổi mật khẩu thành công!"
+      change_password_failed: "Đổi mật khẩu thất bại, đã xảy ra lỗi!"
+  registrations:
+    create:
+      errors: "Đăng kí tài khoản mới xảy ra lỗi. Bạn hãy kkieemrtra lại thông tin!"
+  user_courses:
+    create:
+      success: "Ghi danh vào khóa học thành công!"
+      failed: "Ghi danh vào khóa học xảy ra lỗi!"
+      info: "Bạn đã tham gia khóa học này!"
+    destroy:
+      success: "Rút đăng kí khóa học thành công!"
+      failed: "Rút đăng kí khóa học thất bại, đã xảy ra lỗi!"
+    check_enroll_course:
+  learns:
+    learn: "Học khóa học"
+    show:
+      title: "Khóa học: %{course}"
+      not_found: "Khóa học không tồn tại!"
+      not_permission: "Bạn không có quyền truy cập vào khóa học này!"
+    exam_details:
+      title: "Bài kiểm tra %{title}"
+      do_exam: "Làm bài kiểm tra"
+      open_exam: "Bài thi được mở lúc"
+      time_exam: "Thời gian làm bài: 40 phút"
+      grading: "Phương thức tính điểm: Lần cao nhất"
+      history_test: "Tóm tắt các lần làm bài trước đó"
+      start: "Bắt đầu làm bài thi"
+  tasks:
+    find_task:
+      not_found: "Bài học không tồn tại!"
+      not_permission: "Bạn không có quyền truy cập vào bài học này"
+    show:
+      not_found: "Bài học không tồn tại!"
+      not_permission: "Bạn không có quyền truy cập vào bài học này!"
+      learn_task: "Học bài giảng"
+      finish: "Hoàn thành"
+      discussion: "Thảo luận"
+    comment_form:
+      submit: "Đăng bình luận"
+    update:
+      finish: "Hoàn thành bài học"
+      task: "Bài học"
+      success: "Bạn đã hoàn thành bài học"
+      failure: "Bạn đã hoàn thành bài học"
+  tests:
+    waitting: "waitting"
+    do_test: "Làm bài kiểm tra"
+    view: "Xem kết quả"
+    submit: "Nộp bài"
+    create:
+      success: "Bạn đã bắt đầu làm bài kiểm tra !"
+      failed: "Tạo bài kiểm tra xảy ra lỗi"
+    update:
+      submit: "Nộp bài kiểm tra thành công"
+    index:
+      title: "Đề kiểm tra"
+      date: "Thời gian làm bài"
+      score: "Điểm"
+      status: "Trạng thái"
+      action: "Hành động"
+    show:
+      title: "Làm bài kiểm tra %{title}"
+      date: "Thời gian nộp bài:"
+      score: "Điểm"
+      back: "Quay lại"
+    submit:
+      confirm: "Bạn có chắc chắn muốn nộp bài ?"
+  comments:
+    comment:
+      commented: "<b>%{user}</b> bình luận khoảng %{time} trước."
+      edit: "Chỉnh sửa"
+      delete: "Xóa"
+      confirm: "Bạn có chắc chắn muốn xóa ?"
+      reply: "Trả lời"
+    load_comment:
+       danger: "Không tìm thấy bình luận!"
+    edit:
+      submit: "Cập nhật"
+    update:
+      danger: "Cập nhật nội dung bình luận xảy ra lỗi!"
+    destroy:
+      danger: "Xóa bình luận xảy ra lỗi!"
+    new_reply:
+      submit: "Đăng bình luận"
+  trainee:
+    users:
+      users:
+        view: "Xem trang cá nhân"
+      show:
+        profile: "Thông tin cá nhân"
+        count: "5"
+        completed_course: "Khóa học đã hoàn thành"
+        quantity_subject: "Chủ đề"
+      all_users:
+        title: "Danh sách thành viên"
+        all_users: "Danh sách thành viên"
+        view: "Xem trang cá nhân"
+      message:
+        not_found_member: "Không tìm thấy thành viên nào"
+        not_found: "Không tìm thấy người dùng!"
+    courses:
+      index:
+        my_courses: "Khóa học của tối"
+        course: "Khóa học"
+        subject: "Chủ đề"
+        members: "Danh sách thành viên"
+        my_progress: "Tiến dộ học tập của tôi"
+        course_members: "Danh sách thành viên"
+      show_member:
+        title: "Danh sách thành viên trong khóa học"
+      show:
+        course: "Course Khóa học"
+        description: "Mô tả"
+        time: "Thời gian"
+        completed: "Hoàn thành"
+  shared:
+    error_messages:
+      form_error_warning:
+        zero: "none"
+        one: "The form contains 1 error"
+        other: "The form contains %{count} errors"
+    error:
+      title: "Errors"

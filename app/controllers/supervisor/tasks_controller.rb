@@ -61,7 +61,7 @@ class Supervisor::TasksController < Supervisor::BaseController
 
   def send_notice
     TraineeSubject.where(subject_id: @subject.id).each do |user|
-      Notification.create content: raw t(".assign", task: @task.name), user_id: user.trainee_id, is_read: false
+      Notification.create content: t(".assign", task: @task.name), user_id: user.trainee_id, is_read: false
     end
   end
 

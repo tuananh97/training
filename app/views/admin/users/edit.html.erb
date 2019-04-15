@@ -21,8 +21,8 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :role %><span class="validate-alert"> *</span>
-          <%= f.select :role, role_collection, {} %>
+          <%= f.label :role, t(".role") %><span class="validate-alert"> *</span>
+          <%= f.select :role, role_collection, {}, class:"form-control" %>
           <div align="right" class="error-messages-devise" >
             <%= @user.errors.full_messages_for(:role).first %>
           </div>

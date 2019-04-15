@@ -1,0 +1,51 @@
+vi:
+  admin:
+    users:
+      create:
+        add_success: "Tạo người dùng %{name} thành công"
+        add_fail: "Tạo người dùng mới xảy ra lỗi. Bạn vui lòng kiểm tra lại thông tin!"
+      update:
+        success: "Cập nhật thông tin người dùng thành công"
+        fail: "Cập nhật thông tin người dùng xảy ra lỗi. Bạn vui lòng kiểm tra lại thông tin!"
+      destroy:
+        success: "Xóa người dùng thành công"
+        warning: "Không thể xóa người dùng này. Bạn vui lòng kiểm tra lại!"
+      check_supervisor:
+        not_permission: "Bạn không có quyền truy cập trang này"
+      load_user:
+        not_found: "Không tìm thấy người dùng"
+      index:
+        manage_user: "Quản lý người dùng"
+        create_user: "Người dùng mới"
+        not_permission: "Bạn không có quyền truy cập trang này"
+        search: "Tìm kiếm"
+        email: "Địa chỉ mail"
+        name: "Họ và tên"
+        phone: "Điện thoại"
+        address: "Địa chỉ"
+        avatar: "Hình đại diện"
+        role: "Quyền"
+        action: "Hành động"
+      new:
+        email: "Địa chỉ email"
+        password: "Mật khẩu"
+        password_length: "( tối thiểu %{length} kí tự)"
+        name: "Họ và tên"
+        phone: "Điện thoại"
+        address: "Địa chỉ"
+        avatar: "Hình đại diện"
+        role: "Quyền"
+        create_user: "Tạo người dùng"
+      user:
+        delete: "Xóa"
+        confirm: "Bạn có chắc chắn muốn xóa người dùng này?"
+        edit: "Cập nhật"
+        view: "Xem chi tiết"
+      edit:
+        edit_user: "Cập nhật thông tin người dùng"
+        email: "Địa chỉ email"
+        name: "Họ và tên"
+        phone: "Điện thoại"
+        address: "Địa chỉ"
+        avatar: "Hình đại diện"
+        role: "Quyền"

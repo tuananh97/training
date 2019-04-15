@@ -1,0 +1,108 @@
+vi:
+  devise:
+    confirmations:
+      confirmed: "Địa chỉ mail của bạn đã được xác thực thành công"
+      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+    failure:
+      already_authenticated: "You are signed in success."
+      inactive: "Your account is not activated yet."
+      invalid: "Invalid %{authentication_keys} or password."
+      locked: "Your account is locked."
+      last_attempt: "You have one more attempt before your account is locked."
+      not_found_in_database: "Invalid %{authentication_keys} or password."
+      timeout: "Your session expired. Please log in again to continue."
+      unauthenticated: "You need to log in before continuing."
+      unconfirmed: "You have to confirm your email address before continuing."
+    mailer:
+      reset_password_instructions:
+        subject: "Reset password instructions"
+        hello: "Welcome %{email} !"
+        p1: "Someone has requested a link to change your password. You can do this through the link below."
+        change_password: "Change my password"
+        p2: "If you didn't request this, please ignore this email."
+        p3: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        subject: "Unlock instructions"
+        hello: "Hello %{email} !"
+        p: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        p1: "Click the link below to unlock your account:"
+        unlock: "Unlock my account"
+      password_change:
+        subject: "Password Changed"
+        hello: "Hello %{email} !"
+        p: "We're contacting you to notify you that your password has been changed."
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Successfully authenticated from %{kind} account."
+    registrations:
+      destroyed: "Tạm biệt! Tài khoản của bạn đã bị hủy thành công. Mong rằng chúng tôi sẽ sớm gặp lại bạn."
+      signed_up: "Chào mừng bạn Bạn đã đăng ký thành công."
+      signed_up_but_inactive: "Bạn đã đăng ký thành công. Tuy nhiên, tài khoản của bạn cần được kích hoạt."
+      signed_up_but_locked: "Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể đăng nhập cho bạn vì tài khoản của bạn bị khóa."
+      signed_up_but_unconfirmed: "Một tin nhắn với một liên kết xác nhận đã được gửi đến địa chỉ email của bạn. Vui lòng theo liên kết để kích hoạt tài khoản của bạn."
+      update_needs_confirmation: "Bạn đã cập nhật tài khoản thành công, nhưng chúng tôi cần xác minh địa chỉ email mới của bạn. Vui lòng kiểm tra email của bạn và theo liên kết xác nhận để xác nhận địa chỉ email mới của bạn."
+      updated: "Tài khoản của bạn đã được cập nhật thành công"
+      new:
+        email: "Địa chỉ email"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
+        password_length: "( tối thiểu %{length} kí tự)"
+        name: "Họ và tên"
+        phone: "Điện thoại"
+        address: "Địa chỉ"
+        avatar: "Hình đại diện"
+        sign_up: "Đăng ký tài khoản"
+      edit:
+        edit_profile: "Thay đổi thông tin cá nhân"
+        email: "Địa chỉ email"
+        current-password: "Mật khẩu hiện tại"
+        new-password: "Mật khẩu mới"
+        name: "Họ và tên"
+        phone: "Điện thoại"
+        address: "Địa chỉ"
+        avatar: "Hình đại diện"
+        waiting: "Đang chờ bạn xác nhận được gửi về địa chỉ email: %{email}"
+        password_warning: "(leave blank nếu bạn không muốn thay đổi nó)"
+        password_length: "dài ít nhất %{length} kí tự"
+        confirm_current_password: "(bạn cần nhập mật khẩu hiện tại để xác nhận thay đổi)"
+        update: "Cập nhật"
+        back: "Quay lại"
+    sessions:
+      signed_in: "Đăng nhập thành công"
+      signed_out: "Đăng xuất thành công"
+      already_signed_out: "Đã đăng xuất thành công"
+      new:
+        log_in: "Đăng nhập"
+        mail: "Địa chỉ email"
+        new-password: "Mật khẩu"
+    passwords:
+      no_token: "Bạn không thể truy cập trang này mà không đến từ email đặt lại mật khẩu. Nếu bạn đến từ một email đặt lại mật khẩu, vui lòng đảm bảo rằng bạn đã sử dụng URL đầy đủ được cung cấp."
+      send_instructions: "Bạn sẽ nhận được email có hướng dẫn về cách đặt lại mật khẩu trong vài phút."
+      send_paranoid_instructions: "Nếu địa chỉ email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được liên kết khôi phục mật khẩu tại địa chỉ email của bạn sau vài phút."
+      updated: "Mật khẩu của bạn đã được thay đổi thành công. Bây giờ bạn đã đăng nhập."
+      updated_not_active: "Mật khẩu của bạn đã được thay đổi thành công."
+      new:
+        forgot_password: "Quên mật khẩu?"
+        email: "Địa chỉ mail"
+        instructions: "Hãy nhập vào địa chỉ mail mà bạn sử dụng khi đăng nhập"
+        send: "Lấy lại mật khẩu"
+      edit:
+        change_password: "Đặt lại mật khẩu"
+        new_password: "Mật khẩu mới"
+        confirm_new_password: "Xác nhận mật khẩu mới"
+        password_length: "dài ít nhất %{length} kí tự"
+    unlocks:
+      send_instructions: "Bạn sẽ nhận được email có hướng dẫn cách mở khóa tài khoản của bạn sau vài phút"
+      send_paranoid_instructions: "Nếu tài khoản của bạn tồn tại, bạn sẽ nhận được email hướng dẫn cách mở khóa trong vài phút"
+      unlocked: "Tài khoản của bạn đã được mở khóa. Hãy đăng nhập để tiếp tục"
+  errors:
+    messages:
+      already_confirmed: "vừa mới được xác nhận, vui lòng thử đăng nhập lại"
+      confirmation_period_expired: "cần được xác nhận trong vòng {period}, vui lòng request một cái mới"
+      expired: "đã hết hạn, vui lòng request một cái mới"
+      not_found: "không tìm thấy"
+      not_locked: "đã bị khóa"
+      not_saved:
+        one: "1 lỗi đã ngăn %{resource} này được lưu:"
+        other: "%{count} lỗi đã ngăn %{resource} này được lưu:"

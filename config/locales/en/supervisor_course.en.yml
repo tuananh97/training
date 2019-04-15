@@ -2,6 +2,11 @@ en:
   supervisor:
     courses:
       not_found_course: "Course not found!"
+      form_course:
+        name: "name"
+        description: "description"
+        start_time: "end time"
+        end_time: "end time"
       index:
         title: "Manage Courses"
         add_course: "New course"

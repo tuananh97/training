@@ -1,0 +1,89 @@
+vi:
+  supervisor:
+    exams:
+      form_exam:
+        create_exam: "Tạo đề kiểm tra"
+        title: "Tên đề kiểm tra"
+        number_question: "Số câu hỏi"
+        create: "Tạo mới"
+      edit:
+        edit_exam: "Cập nhật thông tin đề kiểm tra"
+        title: "Tên đề kiểm tra"
+        number_question: "Số câu hỏi trong đề"
+        save: "Lưu lại"
+      index:
+        title: "Quản lý đề kiểm tra"
+        exam: "Tên đề kiểm tra"
+        subject: "Chủ đề"
+        action: "Hành động"
+        show: "Xem chi tiết"
+        edit: "Cập nhật"
+        delete: "Xóa"
+        confirm: "Bạn có chắc chắn muốn xóa đề kiểm tra này?"
+        add_question: "Tạo câu hỏi"
+      show:
+        title: "Thư viện câu hỏi của đề kiểm tra: %{title}"
+        content: "Nội dung"
+        action: "Hành động"
+        show: "Xem chi tiết câu hỏi"
+        edit: "Chỉnh sửa câu hỏi"
+        delete: "Xóa câu hỏi"
+        confirm: "Bạn có chắc chắn muốn xóa câu hỏi này?"
+        add_question: "Thêm câu hỏi"
+      create:
+        success: "Bạn đã tạo đề kiểm tra thành công"
+        failure: "Tạo đề kiểm tra xảy ra lỗi."
+      update:
+        success: "Cập nhật đề kiểm tra thành công!"
+        failure: "Cập nhật đề kiểm tra xảy ra lỗi!"
+      destroy:
+        success: "Xóa đề kiểm tra thành công"
+        failure: "Xóa đề kiểm tra xảy ra lỗi"
+      results:
+        title: "Kết quả bài thi %{title}"
+        do_exam: "Kết của bài thi %{title}"
+        open_exam: "Bài thi được mở lúc"
+        time_exam: "Thời gian làm bài"
+        last_time: "Lần làm bài cuối"
+        grading: "Phương thức tình điểm"
+        user_name: "Tên học viên"
+        score: "Điểm"
+        date: "Thời gian nộp bài"
+        views: "Xem chi tiết bài làm"
+        view: "Xem"
+        not_test: "Chưa làm bài"
+    questions:
+      form_question:
+        answer_type: "Đáp án"
+        answer: "Câu trả lời"
+        incorrect: "Sai"
+        correct: "Đúng"
+        content: "Nội dung"
+        add_question: "Tạo câu hỏi mới"
+        create: "Tạo câu hỏi"
+      edit:
+        answer_type: "Đáp án"
+        answer: "Câu trả lời"
+        incorrect: "Sai"
+        correct: "Đúng"
+        content: "Nội dung"
+        edit_question: "Chỉnh sửa câu hỏi"
+        update: "Lưu lại"
+      create:
+        success: "Bạn đã tạo câu hỏi thành công"
+        failure: "Tạo câu hỏi xảy ra lỗi."
+      update:
+        success: "Cập nhật câu hỏi thành công!"
+        failure: "Cập nhật câu hỏi xảy ra lỗi!"
+      destroy:
+        success: "Xóa câu hỏi thành công"
+        failure: "Xóa câu hỏi xảy ra lỗi"
+      question: "Câu hỏi"
+    tests:
+      show:
+        view: "Xem chi tiết bài làm"
+        not_test: "Chua làm bài"
+        title: "Kết quả bài kiểm tra %{title}"
+        date: "Thời gian nộp bài"
+        score: "Điểm"
+        back: "Quay lại"

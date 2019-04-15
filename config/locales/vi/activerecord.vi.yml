@@ -1,0 +1,39 @@
+vi:
+  activerecord:
+    attributes:
+      user:
+        email: "Địa chỉ email"
+        password: "Mật khẩu"
+        password_confirmation: "Xác nhận mật khẩu"
+        current_password: "Mật khẩu hiện tại"
+        name: "Họ và tên"
+        phone: "Điện thoại"
+        address: "Địa chỉ"
+        avatar: "Hình đại diện"
+      course:
+        name: "Tên khóa học"
+        description: "Mô tả chính"
+        start_time: "Ngày bắt đầu"
+        end_time: "Ngày kết thúc"
+        avatar: "Hình đại diện"
+      subject:
+        name: "Chủ đề"
+        description: "Mô tả chính"
+        start_time: "Ngày bắt đầu"
+        end_time: "Ngày kết thúc"
+        status: "Trạng thái"
+      task:
+        name: "Tên bài giảng"
+        description: "Mô tả chính"
+        content: "Nội dung bài giảng"
+        video: "Video bài giảng"
+      exam:
+        title: "Nội dung bài giảng"
+        number_question: "Số câu hỏi"
+      question:
+        content: "Nội dung"
+        question_type: "Kiểu câu hỏi"
+      answer:
+        content: "Nội dung"
+      comment:
+        content: "Nội dung"

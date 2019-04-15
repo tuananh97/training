@@ -1,0 +1,40 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        email: "email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        current_password: "Current password"
+        name: "name"
+        phone: "phone"
+        address: "address"
+        avatar: "avatar"
+        role: "quyền"
+      course:
+        name: "name"
+        description: "description"
+        start_time: "end time"
+        end_time: "end time"
+        avatar: "avatar"
+      subject:
+        name: "name"
+        description: "description"
+        start_time: "start_time"
+        end_time: "end_time"
+        status: "status"
+      task:
+        name: "name"
+        description: "description"
+        content: "content"
+        video: "video"
+      exam:
+        title: "title"
+        number_question: "number question"
+      question:
+        content: "content"
+        question_type: "question type"
+      answer:
+        content: "content"
+      comment:
+        content: "content"

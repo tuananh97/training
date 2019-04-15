@@ -47,7 +47,7 @@
                 <%= form_for my_course.user_courses.find_by(user_id: current_user.id), html: {method: :delete} do |f| %>
                   <%= hidden_field_tag :user_id, current_user.id %>
                   <%= hidden_field_tag :course_id, my_course.id %>
-                  <%= f.submit "Unenroll", class: "btn btn-info", data: { confirm: 'Are you sure you want to unenroll this course?' } %>
+                  <%= f.submit t(".unenroll"), class: "btn btn-info", data: { confirm: 'Are you sure you want to unenroll this course?' } %>
                 <% end %>
               </li>
               </ul>

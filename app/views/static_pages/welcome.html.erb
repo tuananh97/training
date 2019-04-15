@@ -3,10 +3,10 @@
     <%= search_form_for @q do |f| %>
       <div class="inner-form">
         <div class="input-field first-wrap">
-          <%= f.search_field :name_cont, id:"search", placeholder:"What are you looking for?" %>
+          <%= f.search_field :name_cont, id:"search" %>
         </div>
         <div class="input-field third-wrap">
-          <%= f.submit "Search", class:"btn-search" %>
+          <%= f.submit t(".search"), class:"btn-search" %>
         </div>
       </div>
     <% end %>

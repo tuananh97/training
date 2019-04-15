@@ -17,6 +17,7 @@ en:
       index:
         manage_user: "Manage Users"
         create_user: "New User"
+        search: "Search"
         not_permission: "You not permission access page"
         email: "Email"
         name: "Name"

@@ -1,0 +1,166 @@
+vi:
+  supervisor:
+    courses:
+      not_found_course: "Không tìm thấy khóa học!"
+      form_course:
+        name: "Tên khóa học"
+        description: "Mô tả chính"
+        start_time: "Ngày bắt đầu"
+        end_time: "Ngày kết thúc"
+        avatar: "Hình đại diện"
+      index:
+        title: "Quản lý khóa học"
+        add_course: "Tạo khóa học mới"
+        course: "Khóa học"
+        subject: "Chủ đề"
+        edit: "Cập nhật"
+        delete: "Xóa"
+        detail: "Xem chi tiết"
+        action: "Hành động"
+        confirm: "Bạn có chắc chắn muốn xóa khóa học này?"
+        add_a_subject: "Thêm chủ đề"
+        edit_subject: "Chỉnh sửa chủ đê"
+        del_subject: "Xóa chủ đề"
+        detail_subject: "Xem chi tiết chủ đề"
+        finish_course: "Kết thúc khóa học"
+        finish_subject: "Kết thúc chủ đề"
+      new:
+        title: "Tạo khóa học mới"
+        label: "Tên khóa học"
+        create: "Tạo mới"
+        description: "Mô tả về khóa học"
+        create_subject: "Tạo chủ đề"
+        create_course: "Tạo khóa học"
+        create_task: "Tạo bài giảng"
+        add_subject: "Thêm chủ đề"
+        add_task: "Thêm bài giảng"
+        subject: "Chủ đề"
+        task: "Bài giảng"
+        content_task: "Nội dung bài giảng"
+        validate_time: "cần phải sau ngày bắt đầu"
+      create:
+        success: "Bạn đã tạo khóa học thành công!"
+        failure: "Tạo khóa học xảy ra lỗi"
+      subject_fields:
+        confirm_delete: "Bạn có chắc chắn muốn xóa không?"
+        del_title: "Xóa chủ đề"
+      task_fields:
+        confirm_delete: "Bạn có chắc chắn muốn xóa không?"
+        del_title: "Xóa bài học"
+      show:
+        title: "Quản lý khóa học %{name}"
+        course_detail: "Khóa học"
+        view: "Xem chi tiết"
+        suppervisor_course: "Giáo viên"
+        trainee_course: "Học viên"
+        add_subject: "Thêm chủ đề"
+        edit_subject: "Chỉnh sửa chủ đề"
+        del_subject: "Xóa chủ đề"
+        edit_task: "Cập nhật bài giảng"
+        del_task: "Xóa bài giảng"
+        exam: "Đề kiểm tra"
+        task: "Bài giảng"
+        not_found: "Khóa học không tồn tại!"
+        confirm_delete_task: "Bạn có chắc chắn muốn xóa bài giảng không?"
+        confirm_delete_subject: "Bạn có chắc chắn muốn xóa chủ đề không?"
+      edit:
+        title: "Cập nhật thông tin khóa học"
+        edit: "Lưu thay đổi"
+        success: "Cập nhật thông tin khóa học thành công!"
+        failure: "Cập nhật thông tin khóa học xảy ra lỗi!"
+        supervisors: "Danh sách giáo viên"
+        trainees: "Danh sách học viên"
+        name: "Họ và tên"
+        email: "Địa chỉ email"
+        option: "Hành động"
+        not_found: "Không tìm thấy khóa học"
+        create_course: "Chỉnh sửa khóa học"
+        create_subject: "Chỉnh sửa chủ đề"
+        add_subject: "Thêm chủ đề"
+        member: "Danh sách thành viên"
+        courses: "Xem chi tiết khóa học"
+      subject_fields:
+        add_task: "Thêm bài giảng"
+        del_title: "Xóa chủ đề"
+      update:
+        success: "Cập nhật thông tin khóa học thành công!"
+        failure: "Cập nhật thông tin xảy ra lỗi!"
+      destroy:
+        success: "Xóa khóa học thành công"
+        failure: "Xóa khóa học xảy ra lỗi"
+      add_user:
+        btn_submit: "Ghi danh"
+      button:
+        remove_user:
+          btn_submit: "Hủy đăng ký"
+          confirm_delete: "Bạn có chắc muốn xóa học viên khỏi khóa học?"
+        add_user:
+          failed: "Thêm học viên vào khóa học xảy ra lỗi."
+      find_course:
+        not_found: "Khóa học không tồn tại!"
+      finish:
+        success: "Cập nhật thông tin khóa học thành công!"
+        failure: "Cập nhật thông tin xảy ra lỗi!"
+    subjects:
+      form_subject:
+        subject: "Chủ đề"
+        description: "Mô tả chính"
+      new:
+        title: "Tạo chủ đề"
+        create_subject: "Tạo chủ đề"
+        create: "Tạo mới"
+        not_found: "Khóa học không tồn tại"
+      create:
+        success: "Bạn đã tạo chủ đề thành công"
+        failure: "Tạo chủ đề xảy ra lỗi."
+      task_fields:
+        del_title: "Delete title"
+        failure: "Tạo chủ đề xảy ra lỗi!"
+      edit:
+        title: "Edit Subject"
+        edit_subject: "Edit Subject"
+        edit: "Save"
+      update:
+        success: "Cập nhật thông tin chủ đề thành công!"
+        failure: "Cập nhật thông tin chủ đề xảy ra lỗi!"
+      destroy:
+        success: "Xóa chủ đề thành công"
+        failure: "Xóa chủ đề xảy ra lỗi"
+      finish:
+        success: "Finish subject successfully!"
+        failure: "Finish subject failure!"
+      subject_fields:
+        confirm_delete: "Are you sure?"
+        del_title: "Delete subject"
+      task_fields:
+        video: "Video bài giảng"
+        confirm_delete: "Are you sure?"
+        del_title: "Xóa bài giảng"
+      show:
+        subject_detail: "Xem chi tiết chủ đề"
+        subject: "Chủ đề"
+        task: "Bài giảng"
+    tasks:
+      form_task:
+        name_task: "Tên bài giảng"
+        content_task: "Nội dung bài giảng"
+        video: "Video bài giảng"
+      new:
+        title: "Tạo bài giảng mới"
+        create: "Tạo bài giảng"
+        create_task: "Tạo mới bài giảng"
+        not_found: "Bài giảng không tồn tại"
+      create:
+        assign: "You recently assgined to lecture %{task}"
+        success: "Bạn đã tạo bài giảng thành công"
+        failure: "Tạo bài giảng xảy ra lỗi."
+      edit:
+        title: "Cập nhật bài giảng"
+        edit: "Lưu lại"
+        edit_task: "Cập nhật bài giảng"
+      update:
+        success: "Cập nhật bài giảng thành công!"
+        failure: "Cập nhật bài giảng xảy ra lỗi!"
+      destroy:
+        success: "Xóa bài giảng thành công"
+        failure: "Xóa bài giảng xảy ra lỗi"
