@@ -23,7 +23,6 @@ module ApplicationHelper
       type = "success" if type == "notice"
       type = "error" if type == "alert"
       type = "warning" if type == "warning"
-      option = "{'timeOut': #{5}, 'closeButton': true}" if type == "error"
       text = "toastr.#{type}('#{message}', '', #{option});"
       flash_messages << text if message
     end

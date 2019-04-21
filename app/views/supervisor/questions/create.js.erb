@@ -2,4 +2,8 @@
   $('.global-flash').html('<%= j render "layouts/flash", notice: flash[:error] %>');
   $('.global-modal-content').html('<%= j render "form_question" %>');
   <% flash.discard %>
+<% else %>
+  $('.global-flash').html('<%= j render "layouts/flash", notice: flash[:success] %>');
+  $("#modal-window").hide();
+  window.location.reload();
 <% end %>

@@ -158,11 +158,11 @@ en:
         create_task: "Create new task"
         not_found: "Task not found"
       send_notice:
-        assign: "You recently assgined to lecture <b><i>%{task}<i></b>"
+        assign: "Course %{course} has a new lecture <b><i>%{task}</i></b>"
       create:
         success: "Create task successfully!"
         failure: "Create task failure!"
-        assign: "You recently assgined to lecture %{task}"
+        assign: "Course %{course} has a new lecture <b><i>%{task}</i></b>"
       edit:
         title: "Edit Task"
         edit: "Save"

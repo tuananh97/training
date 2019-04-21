@@ -26,11 +26,13 @@ class Supervisor::QuestionsController < Supervisor::BaseController
   def create
     @question = @exam.questions.build question_params
     if @question.save
-      flash[:success] = t ".success"
-      redirect_to supervisor_exam_path(@exam)
+      respond_to do |format|
+        format.js { flash[:success] = t ".success" }
+        format.html {redirect_to supervisor_exam_path @exam}
+      end
     else
       respond_to do |format|
-        format.js
+        format.js { flash[:error] = t ".failed" }
       end
     end
   end

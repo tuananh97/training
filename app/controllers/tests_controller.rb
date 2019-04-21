@@ -23,7 +23,7 @@ class TestsController < HomePagesController
     @test = Test.find_by_id params[:id]
     @test.update_attributes test_params
     if @test.correct_answer_of_test != 0
-      @test.update score: (10*@test.correct_answer_of_user.to_f/@test.correct_answer_of_test).round(2)
+      @test.update score: (10*@test.correct_answer_of_user.to_f/@test.exam.number_question).round(2)
     end
     flash[:success] = t ".submit"
     redirect_to user_test_path @test

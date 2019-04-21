@@ -2,7 +2,7 @@
   <h4 class="modal-title" id="myModalLabel"><%= t ".edit_exam" %></h4>
   <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
 </div>
-<%= form_for [:supervisor, @exam] do |f| %>
+<%= form_for [:supervisor, @exam], remote: true do |f| %>
   <div class="modal-body">
     <%= f.hidden_field :subject_id, value: @subject.id %>
     <div class="form-group">

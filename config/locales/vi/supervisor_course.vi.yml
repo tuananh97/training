@@ -154,6 +154,9 @@ vi:
         assign: "You recently assgined to lecture %{task}"
         success: "Bạn đã tạo bài giảng thành công"
         failure: "Tạo bài giảng xảy ra lỗi."
+        assign: "Khóa học %{course} có bài giảng mới <b><i>%{task}</i></b>"
+      send_notice:
+        assign: "Khóa học %{course} có bài giảng mới <b><i>%{task}</i></b>"
       edit:
         title: "Cập nhật bài giảng"
         edit: "Lưu lại"

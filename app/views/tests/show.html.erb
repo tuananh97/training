@@ -2,13 +2,13 @@
 
 <div class="content-wrapper">
   <% if @test.status == t("tests.waitting") %>
-  <p align="center">
-    <h1><br><%= @test.exam.title %></h1></br>
-  </p>
+    <p align="center">
+      <h2><%= t ".title", title: @test.exam.title %></h2>
+    </p>
 
-  <p>
-    <%= render "test" %>
-  </p>
+    <p>
+      <%= render "test" %>
+    </p>
 
   <% else %>
     <p>

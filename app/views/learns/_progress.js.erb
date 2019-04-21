@@ -1,0 +1,14 @@
+var total_subject = <%= @course.subjects.length %>;
+<% @course.subjects.each_with_index do |subject, index| %>
+  var total_task = <%= subject.tasks.count %>;
+  var finish_task = 0
+  <% subject.tasks.each do |task| %>
+    <% if check_status_task(current_user.id, task.id).finish? %>
+      finish_task += 1;
+    <% end %>
+  <% end %>
+  var progress = 100*finish_task/total_task + "%";
+  var a = <%= index %>;
+  var id = "#progress_subject_" + a;
+  $(id).css({ "width": progress });
+<% end %>

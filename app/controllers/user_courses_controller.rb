@@ -1,4 +1,5 @@
 class UserCoursesController < ApplicationController
+  before_action :authenticate_user!
   before_action :check_enroll_course, only: :create
 
   def create

@@ -1,12 +1,12 @@
 vi:
   ckeditor:
-    page_title: 'CKEditor Files Manager'
-    confirm_delete: 'Delete file?'
+    page_title: "Manager CKEditor Files"
+    confirm_delete: "Xóa file?"
     buttons:
-      cancel: 'Cancel'
-      upload: 'Upload'
-      delete: 'Delete'
-      next: 'Next'
+      cancel: "Hủy bỏ"
+      upload: "Tải lên"
+      delete: "Xóa"
+      next: "Tiếp theo"
   views:
     pagination:
       first: "&laquo; Trang 1"
@@ -22,12 +22,13 @@ vi:
         trainee: "Học viên"
   user:
     mailer:
-      invite_user: "Invitation Mail"
-      send: "Gửi"
-      create_by_admin: "Tài khoản của bạn được tạo bới quản trị viên:"
+      invite_user: "Mời tham gia hệ thống"
+      send: "Xin chào"
+      create_by_admin: "Tài khoản của bạn đã được tạo bới quản trị viên với thông tin đăng nhập sau: "
       email: "Địa chỉ email:"
       password: "Mật khẩu:"
-      link: "Website"
+      link: "Để đăng nhập vào hệ thống bạn truy cập vào địa chỉ sau: "
+      p: "Sau khi đăng nhập bạn hãy đổi mật khẩu ngay"
   submit: "Submit"
   base_title: "UET Learning Online"
   time:
@@ -111,7 +112,14 @@ vi:
       change_password_failed: "Đổi mật khẩu thất bại, đã xảy ra lỗi!"
   registrations:
     create:
-      errors: "Đăng kí tài khoản mới xảy ra lỗi. Bạn hãy kkieemrtra lại thông tin!"
+      errors: "Đăng kí tài khoản mới xảy ra lỗi. Bạn hãy kiểm tra lại thông tin!"
+  courses:
+    course:
+      view_details: "Xem thêm"
+    index:
+      search: "Tìm kiếm"
+    show:
+      enroll: "Ghi danh"
   user_courses:
     create:
       success: "Ghi danh vào khóa học thành công!"
@@ -125,6 +133,7 @@ vi:
     learn: "Học khóa học"
     show:
       title: "Khóa học: %{course}"
+      members: "Danh sách thành viên"
       not_found: "Khóa học không tồn tại!"
       not_permission: "Bạn không có quyền truy cập vào khóa học này!"
     exam_details:
@@ -135,6 +144,12 @@ vi:
       grading: "Phương thức tính điểm: Lần cao nhất"
       history_test: "Tóm tắt các lần làm bài trước đó"
       start: "Bắt đầu làm bài thi"
+    progress_details:
+      course: "Khóa học"
+      description: "Mô tả"
+      score: "Điểm: "
+      time: "Thời gian"
+      completed: "Hoàn thành"
   tasks:
     find_task:
       not_found: "Bài học không tồn tại!"
@@ -158,7 +173,7 @@ vi:
     view: "Xem kết quả"
     submit: "Nộp bài"
     create:
-      success: "Bạn đã bắt đầu làm bài kiểm tra !"
+      success: "Bạn đang bắt đầu làm bài kiểm tra !"
       failed: "Tạo bài kiểm tra xảy ra lỗi"
     update:
       submit: "Nộp bài kiểm tra thành công"
@@ -177,7 +192,7 @@ vi:
       confirm: "Bạn có chắc chắn muốn nộp bài ?"
   comments:
     comment:
-      commented: "<b>%{user}</b> bình luận khoảng %{time} trước."
+      commented: "<b>%{user}</b> đã bình luận %{time} trước."
       edit: "Chỉnh sửa"
       delete: "Xóa"
       confirm: "Bạn có chắc chắn muốn xóa ?"
@@ -214,13 +229,15 @@ vi:
         course: "Khóa học"
         subject: "Chủ đề"
         members: "Danh sách thành viên"
-        my_progress: "Tiến dộ học tập của tôi"
-        course_members: "Danh sách thành viên"
+        my_progress: "Xem"
+        view_progress: "Tiến dộ học tập"
+        course_members: "Xem"
       show_member:
         title: "Danh sách thành viên trong khóa học"
       show:
-        course: "Course Khóa học"
+        course: "Khóa học"
         description: "Mô tả"
+        score: "Điểm: "
         time: "Thời gian"
         completed: "Hoàn thành"
   shared:

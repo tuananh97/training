@@ -1,5 +1,5 @@
 class LearnsController < HomePagesController
-  before_action :find_course
+  before_action :find_course, except: :progress_details
   before_action :find_exam, only: :exam_details
 
   def show
@@ -13,6 +13,13 @@ class LearnsController < HomePagesController
 
   def exam_details
    @tests = current_user.tests.where(exam_id: @exam.id)
+  end
+
+  def progress_details
+    @course = current_user.courses.find_by id: params[:id]
+    return if @course
+    flash[:error] = t ".not_found"
+    redirect_to root_path
   end
 
   private

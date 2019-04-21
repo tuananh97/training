@@ -63,7 +63,12 @@
                   <div class="col-md-2">
                     <%= link_to edit_supervisor_exam_path(exam.id, subject_id: subject.id), remote: true do %>
                       <i class="fa fa-edit"></i>
-                    <% end %>
+                    <% end %>&nbsp;
+                <%= link_to supervisor_exam_path(exam.id),
+                  data: {confirm: t(".confirm_delete_subject")}, method: :delete do %>
+                  <i class="fa fa-trash" data-toogle="tooltip"
+                    title="<%= t ".del_subject" %>"></i>
+                <% end %>
                   </div>
               </div>
             <% end %>

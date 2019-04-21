@@ -31,9 +31,28 @@ vi:
         title: "Nội dung bài giảng"
         number_question: "Số câu hỏi"
       question:
-        content: "Nội dung"
+        content: "Nội dung câu hỏi"
         question_type: "Kiểu câu hỏi"
       answer:
-        content: "Nội dung"
+        content: "Nội dung câu hỏi"
       comment:
         content: "Nội dung"
+
+    errors:
+      models:
+        user:
+          blank: "không thể để trống"
+        course:
+          blank: "không thể để trống"
+        answer:
+          blank: "không thể để trống"
+        subject:
+          blank: "không thể để trống"
+        task:
+          blank: "không thể để trống"
+        exam:
+          blank: "không thể để trống"
+        comment:
+          blank: "không thể để trống"
+        question:
+          blank: "không thể để trống"

@@ -119,6 +119,13 @@ en:
   registrations:
     create:
       errors: "Register new account failed. Please, you recheck imformation!"
+  courses:
+    course:
+      view_details: "View Details"
+    index:
+      search: "Search"
+    show:
+      enroll: "Enroll"
   user_courses:
     create:
       success: "You enroll this course successfully!"
@@ -142,6 +149,11 @@ en:
       grading: "Grading method: Lần cao nhất"
       history_test: "Tóm tắt các lần làm bài trước đó"
       start: "Start do exam"
+    progress_details:
+      course: "Course"
+      description: "Description"
+      time: "Time"
+      completed: "Completed"
   tasks:
     find_task:
       not_found: "This task doesn't exist!"

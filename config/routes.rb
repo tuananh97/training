@@ -13,12 +13,13 @@ Rails.application.routes.draw do
     resources :users, only: %i(edit show) do
       resources :tests, only: %i(index show create update)
     end
-    resources :courses
+    resources :courses, only: %i(index edit show)
     resources :user_courses, only: %i(new create show destroy)
     resources :learns, only: :show
 
     scope :learn do
       get "/exam_details/:id", to: "learns#exam_details", as: "exam_details"
+      get "/:id/my_progress", to: "learns#progress_details", as: "my_progress"
       resources :tasks, only: %i(show update)
     end
 

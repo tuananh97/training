@@ -32,13 +32,13 @@ vi:
         add_question: "Thêm câu hỏi"
       create:
         success: "Bạn đã tạo đề kiểm tra thành công"
-        failure: "Tạo đề kiểm tra xảy ra lỗi."
+        failed: "Tạo đề kiểm tra xảy ra lỗi."
       update:
         success: "Cập nhật đề kiểm tra thành công!"
-        failure: "Cập nhật đề kiểm tra xảy ra lỗi!"
+        failed: "Cập nhật đề kiểm tra xảy ra lỗi!"
       destroy:
         success: "Xóa đề kiểm tra thành công"
-        failure: "Xóa đề kiểm tra xảy ra lỗi"
+        failed: "Xóa đề kiểm tra xảy ra lỗi"
       results:
         title: "Kết quả bài thi %{title}"
         do_exam: "Kết của bài thi %{title}"
@@ -71,13 +71,13 @@ vi:
         update: "Lưu lại"
       create:
         success: "Bạn đã tạo câu hỏi thành công"
-        failure: "Tạo câu hỏi xảy ra lỗi."
+        failed: "Tạo câu hỏi xảy ra lỗi."
       update:
         success: "Cập nhật câu hỏi thành công!"
-        failure: "Cập nhật câu hỏi xảy ra lỗi!"
+        failed: "Cập nhật câu hỏi xảy ra lỗi!"
       destroy:
         success: "Xóa câu hỏi thành công"
-        failure: "Xóa câu hỏi xảy ra lỗi"
+        failed: "Xóa câu hỏi xảy ra lỗi"
       question: "Câu hỏi"
     tests:
       show:

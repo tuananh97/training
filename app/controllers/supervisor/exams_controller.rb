@@ -26,12 +26,13 @@ class Supervisor::ExamsController < Supervisor::BaseController
   def create
     @exam = Exam.new exam_params
     if @exam.save
-      flash[:success] = t ".success"
-      redirect_to supervisor_exam_path @exam
-    else
-      flash[:danger] = t ".failed"
       respond_to do |format|
-        format.js
+        format.js { flash[:success] = t ".success" }
+        format.html {redirect_to supervisor_exam_path @exam}
+      end
+    else
+      respond_to do |format|
+        format.js { flash[:error] = t ".failed" }
       end
     end
   end
@@ -45,12 +46,12 @@ class Supervisor::ExamsController < Supervisor::BaseController
 
   def update
     if @exam.update_attributes exam_params
-      flash[:success] = t ".success"
-      redirect_to supervisor_exam_path @exam
-    else
-      flash[:danger] = t ".failed"
       respond_to do |format|
-        format.js
+        format.js { flash[:success] = t ".success" }
+      end
+    else
+      respond_to do |format|
+        format.js { flash[:error] = t ".failed" }
       end
     end
   end

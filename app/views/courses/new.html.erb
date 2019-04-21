@@ -9,7 +9,7 @@
       <%= form_for :user_course do |f| %>
         <%= hidden_field_tag :user_id, current_user.id %>
         <%= hidden_field_tag :course_id, @course.id %>
-        <%= f.submit "Enroll", class: "btn btn-primary" %>
+        <%= f.submit t(".enroll"), class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

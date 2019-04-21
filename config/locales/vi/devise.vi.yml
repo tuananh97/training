@@ -5,23 +5,23 @@ vi:
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
-      already_authenticated: "You are signed in success."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please log in again to continue."
-      unauthenticated: "You need to log in before continuing."
-      unconfirmed: "You have to confirm your email address before continuing."
+      already_authenticated: "Bạn đã đăng nhập thành công"
+      inactive: "Tài khoản của bạn chưa được xác thực."
+      invalid: "%{authentication_keys} hoặc mật khẩu không hợp lệ."
+      locked: "Tài khoản của bạn bị khóa"
+      last_attempt: "Bạn có thêm một lần thử trước khi tài khoản của bạn bị khóa."
+      not_found_in_database: "%{authentication_keys} hoặc mật khẩu không hợp lệ."
+      timeout: "Phiên của bạn đã hết hạn. Vui lòng đăng nhập lại để tiếp tục."
+      unauthenticated: "Bạn cần đăng nhập để tiếp tục."
+      unconfirmed: "Bạn phải xác nhận tài khoản của mình trước khi tiếp tục."
     mailer:
       reset_password_instructions:
-        subject: "Reset password instructions"
-        hello: "Welcome %{email} !"
-        p1: "Someone has requested a link to change your password. You can do this through the link below."
-        change_password: "Change my password"
-        p2: "If you didn't request this, please ignore this email."
-        p3: "Your password won't change until you access the link above and create a new one."
+        subject: "Thông báo yêu cầu thiết lập lại mật khẩu"
+        hello: "Xin chào %{email}, "
+        p1: "Chúng tôi đã nhận được một yêu cầu thay đổi mật khẩu của bạn. Bạn có thể đặt lai mật khẩu của mình bằng cách clock vào liên kết dưới đây:"
+        change_password: "Cài đặt lại mật khẩu"
+        p2: "Nếu bạn không yêu cầu email này, bạn có thể thoải mái bỏ qua nó."
+        p3: "Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo một mật khẩu mới."
       unlock_instructions:
         subject: "Unlock instructions"
         hello: "Hello %{email} !"
@@ -33,8 +33,8 @@ vi:
         hello: "Hello %{email} !"
         p: "We're contacting you to notify you that your password has been changed."
     omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Successfully authenticated from %{kind} account."
+      failure: "Không thể xác thực bạn từ %{kind} vì \"%{reason}\"."
+      success: "Xác thực thành công từ tài khoản %{kind}."
     registrations:
       destroyed: "Tạm biệt! Tài khoản của bạn đã bị hủy thành công. Mong rằng chúng tôi sẽ sớm gặp lại bạn."
       signed_up: "Chào mừng bạn Bạn đã đăng ký thành công."
@@ -96,12 +96,18 @@ vi:
       send_instructions: "Bạn sẽ nhận được email có hướng dẫn cách mở khóa tài khoản của bạn sau vài phút"
       send_paranoid_instructions: "Nếu tài khoản của bạn tồn tại, bạn sẽ nhận được email hướng dẫn cách mở khóa trong vài phút"
       unlocked: "Tài khoản của bạn đã được mở khóa. Hãy đăng nhập để tiếp tục"
+    shared:
+      links:
+        login: "Đăng nhập"
+        forgot_password: "Quên mật khẩu ?"
+        not_receive_confirm: "Không nhận được hướng dẫn xác nhận?"
+        not_receive_unlock: "Không nhận được hướng dẫn mở khóa?"
   errors:
     messages:
       already_confirmed: "vừa mới được xác nhận, vui lòng thử đăng nhập lại"
       confirmation_period_expired: "cần được xác nhận trong vòng {period}, vui lòng request một cái mới"
       expired: "đã hết hạn, vui lòng request một cái mới"
-      not_found: "không tìm thấy"
+      not_found: "không tồn tại trong hệ thống"
       not_locked: "đã bị khóa"
       not_saved:
         one: "1 lỗi đã ngăn %{resource} này được lưu:"
