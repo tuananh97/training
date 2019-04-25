@@ -11,8 +11,7 @@ class Supervisor::TasksController < Supervisor::BaseController
     ActiveRecord::Base.transaction do
       @task.save!
       assign_task
-
-      Notification.create! content: t(".assign", course: @course.name, task: @task.name), course_id: @course.id
+      send_notice
       flash[:success] = t ".success"
       redirect_to supervisor_course_path @course
     end
@@ -61,7 +60,7 @@ class Supervisor::TasksController < Supervisor::BaseController
   end
 
   def send_notice
-    Notification.create! content: t(".assign", course: @course.name, task: @task.name), course_id: @course.id, is_cancel: false
+      Notification.create! course_id: @course.id, content: t(".assign", course: @course.name, task: @task.name)
   end
 
   def find_task
