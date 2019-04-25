@@ -1,6 +1,6 @@
 <div class="form-group">
   <%= f.label :name, t(".name_task"), class:"required" %>
-  <%= f.text_field :name, class: "form-group form-control", required: true %>
+  <%= f.text_field :name, class: "form-control" %>
   <div align="right" class="error-messages-devise" >
     <%= @task.errors.full_messages_for(:name).first %>
   </div>
@@ -8,7 +8,7 @@
 
 <div class="form-group">
   <%= f.label :content, t(".content_task"), class:"required" %>
-  <%= f.cktext_area :content, class: "form-group form-control", required: true %>
+  <%= f.cktext_area :content, class: "form-group form-control" %>
   <div align="right" class="error-messages-devise" >
     <%= @task.errors.full_messages_for(:content).first %>
   </div>

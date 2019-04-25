@@ -3,13 +3,12 @@ class TasksController < HomePagesController
 
   def show
     check_permission
-    @comments = @task.comments.where(parent_id: nil).order(created_at: :desc)
+    @comments = @task.comments.not_has_parents
     @comment = @task.comments.build
   end
 
   def update
-    @trainee_task = TraineeTask.find_by(task_id: @task.id,
-      trainee_id: current_user.id)
+    @trainee_task = TraineeTask.find_by(task_id: @task.id, trainee_id: current_user.id)
     if @trainee_task.update status: :finish
       flash[:success] = t ".success"
     else
@@ -27,8 +26,7 @@ class TasksController < HomePagesController
         redirect_to root_path
       end
     elsif current_user.supervisor?
-      if UserCourse.find_by(user_id: current_user, course_id:
-        @task.subject.course.id).nil?
+      if UserCourse.find_by(user_id: current_user, course_id: @task.subject.course.id).nil?
         flash[:error] = t ".not_permission"
         redirect_to root_path
       end

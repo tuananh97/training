@@ -1,5 +1,5 @@
 class Supervisor::CoursesController < Supervisor::BaseController
-  before_action :find_course, except: %i(index create new finish)
+  before_action :find_course, except: %i(index create new trainee_progress finish)
 
   def index
     @courses = current_user.courses.by_lastest
@@ -79,6 +79,15 @@ class Supervisor::CoursesController < Supervisor::BaseController
       flash[:error] = t ".failure"
     end
     redirect_to supervisor_courses_path
+  end
+
+  def trainee_progress
+    @user = User.find_by_id params[:id]
+    @course = Course.find_by_id params[:course_id]
+    if !@user.trainee? && UserCourse.find_by(user_id: @user, course_id: @course).nil?
+      flash[:error] = t ".failure"
+      redirect_to root_path
+    end
   end
 
   private

@@ -5,6 +5,9 @@
     <div class="course-card col-md-9">
       <strong><h3><%= @course.name %></h3></strong>
       <%= training_time(@course) %>
+      <% if current_user.trainee? %>
+        <%= link_to t(".my_progress"), my_progress_path(course_id: @course.id) %>
+      <% end %>
       <% @subjects.each do |subject| %>
         <div class="card subject-card">
           <div class="subject-title"><%= subject.name %></div>
@@ -30,10 +33,17 @@
     </div>
     <div class="col-md-3">
       <h5 class="panel-title">
-        <strong><%= t ".memberss" %></strong>
+        <strong><%= t ".members" %></strong>
       </h5>
-      <% @course.users.where.not(role: 2).order(role: :desc).each do |supervisor| %>
-        <div><%= link_to supervisor.name, user_path(supervisor) %><br></div>
+      <% @members.each do |member| %>
+        <div>
+         <% if member.supervisor? %>
+            <%= t "enum.user.role.supervisor" %>
+          <% else %>
+            <%= t "enum.user.role.trainee" %>
+          <% end %>
+          <%= link_to member.name, user_path(member) %><br>
+        </div>
       <% end %>
     </div>
   </div>

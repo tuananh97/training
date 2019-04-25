@@ -99,6 +99,8 @@ en:
       subject_not_found: "Subject not found!"
       task_not_found: "Task not found!"
       learn: "Learn"
+      unenroll: "Unroll"
+      confirm_unenroll: "Are you sure you want to withdraw from this course?"
   users:
     edit:
       edit_profile: "Change My Profile"
@@ -141,6 +143,7 @@ en:
       title: "Course: %{course}"
       not_found: "This course doesn't exist!"
       not_permission: "You don't permission access this course!"
+      members: "Members"
     exam_details:
       title: "Exam %{title}"
       do_exam: "Do Exam"
@@ -149,11 +152,15 @@ en:
       grading: "Grading method: Lần cao nhất"
       history_test: "Tóm tắt các lần làm bài trước đó"
       start: "Start do exam"
+      not_permission: "You don't permission access this course!"
     progress_details:
+      not_permission: "You don't permission access this course!"
       course: "Course"
       description: "Description"
       time: "Time"
       completed: "Completed"
+    check_permission:
+      not_permission: "You don't permission access this course!"
   tasks:
     find_task:
       not_found: "This task doesn't exist!"

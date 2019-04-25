@@ -17,9 +17,9 @@
             <label><%= t ".description" %>: <%= subject.description %></label>
           </div>
         </div>
-        <%= render partial: "learns/task_exam_progress", locals:{trainee: current_user, subject: subject} %>
+        <%= render partial: "supervisor/courses/task_exam_progress", locals:{trainee: @user, subject: subject} %>
       <% end %>
     </div>
   </div>
 </div>
-<%= javascript_tag render partial: "learns/progress", locals:{trainee: current_user} , formats: :js %>
+<%= javascript_tag render partial: "supervisor/courses/progress", locals:{trainee: @user} , formats: :js %>

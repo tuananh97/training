@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title yield(:title) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path("favicon.png"), rel: "icon", type: "image/png" %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
+  <body>
+    <%= render "layouts/header" %>
+    <div class="global-flash">
+      <%= render "layouts/flash" %>
+    </div>
+    <%= yield %>
+    <%= render "layouts/footer" %>
+    <div id="modal-window" class="modal hide fade">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content"></div>
+      </div>
+    </div>
+    <div class="modal" id="global-modal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content global-modal-content">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

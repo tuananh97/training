@@ -10,6 +10,7 @@ class Course < ApplicationRecord
            foreign_key: :course_id, dependent: :destroy
   has_many :be_admins, through: :passive_admin_courses, source: :be_admin
 
+  has_many :notifications, dependent: :destroy
   validates :name, presence: true
   validates :description, presence: true
   validates_datetime :end_time, after: :start_time, message: I18n.t(".errors.messages.after")

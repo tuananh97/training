@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
     scope :learn do
       get "/exam_details/:id", to: "learns#exam_details", as: "exam_details"
-      get "/:id/my_progress", to: "learns#progress_details", as: "my_progress"
+      get "/courses/:course_id/my_progress", to: "learns#progress_details", as: "my_progress"
       resources :tasks, only: %i(show update)
     end
 
@@ -41,6 +41,7 @@ Rails.application.routes.draw do
           patch "/finish", to: "subjects#finish"
         end
         patch "/finish", to: "courses#finish"
+        get "/progress/:id", to: "courses#trainee_progress", as: "progress"
       end
       resources :exams do
         get "/results", to: "exams#results", as: "results"

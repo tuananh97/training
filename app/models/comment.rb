@@ -16,4 +16,6 @@ class Comment < ApplicationRecord
   def new_reply
     replies.build task_id: task_id
   end
+
+  scope :not_has_parents, ->{where(parent_id: nil).order(created_at: :desc)}
 end

@@ -1,0 +1,49 @@
+<% provide :title, t(".title", title: @exam.title) %>
+<div class="content-wrapper">
+  <div class="col-md-12">
+    <h3><strong><%= t ".results_exam" %>: <%= @exam.title %></strong></h3>
+    <br>
+    <center>
+    <%= t ".open_exam" %> <%= @exam.created_at.strftime(Settings.format_time_test) %><br>
+    <%= t ".time_exam" %><br>
+    <%= t ".grading" %><br>
+    </center>
+  </div>
+
+  <div class="col-md-8">
+    <strong><%= t ".history_test" %></strong><br><br>
+    <table class="table tests-table">
+      <thead>
+        <tr class="d-flex">
+          <th class="col-1"></th>
+          <th class="col-3"><%= t "tests.index.date" %></th>
+          <th class="col-3"><%= t "tests.index.score" %></th>
+          <th class="col-3"><%= t "tests.index.status" %></th>
+          <th colspan="3" class="col-2"><%= t "tests.index.action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tests.each_with_index do |test, index| %>
+          <tr class="d-flex">
+            <td class="col-1"><%= index + 1 %></td>
+            <td class="col-3"><%= test.updated_at.strftime(Settings.format_time_test) %></td>
+            <td class="col-3"><%= test.score %> (<%= test.correct_answer_of_user %>/<%= test.correct_answer_of_test %>)
+            </td>
+            <td class="col-3"><%= test.status %></td>
+            <% if test.status == t("tests.waitting") %>
+              <td class="col-2"><%= link_to t("tests.do_test"),  user_test_path(current_user, test), data: { confirm: "Are you ready to take the exam?" } %></td>
+            <% else %>
+              <td class="col-2"><%= link_to t("tests.view"),  user_test_path(current_user, test) %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <%= form_for current_user.tests.new(exam_id: @exam.id), url: user_tests_path(current_user), method: :post do |f| %>
+    <%= f.hidden_field :exam_id, autofocus: true, value: @exam.id %>
+    <%= f.hidden_field :status, value: :waitting, autofocus: true %>
+    <%= f.submit t(".start"), class: "btn btn-primary", data:{confirm: "Are you ready to take the exam?"} %>
+  <% end %>
+</div>

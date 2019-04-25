@@ -63,6 +63,7 @@ vi:
         not_found: "Khóa học không tồn tại!"
         confirm_delete_task: "Bạn có chắc chắn muốn xóa bài giảng không?"
         confirm_delete_subject: "Bạn có chắc chắn muốn xóa chủ đề không?"
+        not_permission: "You don't permission access this course!"
       edit:
         title: "Cập nhật thông tin khóa học"
         edit: "Lưu thay đổi"

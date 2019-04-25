@@ -28,16 +28,15 @@ vi:
         content: "Nội dung bài giảng"
         video: "Video bài giảng"
       exam:
-        title: "Nội dung bài giảng"
+        title: "Tên đề thi"
         number_question: "Số câu hỏi"
       question:
         content: "Nội dung câu hỏi"
         question_type: "Kiểu câu hỏi"
       answer:
-        content: "Nội dung câu hỏi"
+        content: "Nội dung câu trả lời"
       comment:
-        content: "Nội dung"
-
+        content: "Nội dung bình luận"
     errors:
       models:
         user:

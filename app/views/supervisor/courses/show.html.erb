@@ -108,7 +108,7 @@
         <strong><%= t ".trainee_course" %></strong>
       </h5>
       <% @trainees.each do |trainee| %>
-       <div><%= link_to trainee.name, user_path(trainee) %></div>
+       <div><%= link_to trainee.name, supervisor_course_progress_path(@course, trainee) %></div>
       <% end %>
     </div>
   </div>

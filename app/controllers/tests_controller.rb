@@ -16,6 +16,10 @@ class TestsController < HomePagesController
 
   def show
     @test = Test.find_by_id params[:id]
+    if @test.user != current_user
+      flash[:error] = t ".not_permission"
+      redirect_to root_path
+    end
     @questions = @test.questions.includes(:answers).page(params[:page]).per 3
   end
 

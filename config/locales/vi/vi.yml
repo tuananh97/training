@@ -91,6 +91,7 @@ vi:
       task_not_found: "Không tìm thấy bài học!"
       learn: "Học"
       unenroll: "Hủy đăng ký"
+      confirm_unenroll: "Bạn có chắc chắn muốn rút đăng ký vào khóa học này không?"
   users:
     edit:
       edit_profile: "Thay đổi thông tin cá nhân"
@@ -133,10 +134,11 @@ vi:
     learn: "Học khóa học"
     show:
       title: "Khóa học: %{course}"
-      members: "Danh sách thành viên"
       not_found: "Khóa học không tồn tại!"
-      not_permission: "Bạn không có quyền truy cập vào khóa học này!"
+      not_permission: "Bạn chưa đăng ký vào khóa học này!"
+      members: "Danh sách thành viên"
     exam_details:
+      not_permission: "Bạn chưa đăng ký vào khóa học chứa bài kiểm tra này!"
       title: "Bài kiểm tra %{title}"
       do_exam: "Làm bài kiểm tra"
       open_exam: "Bài thi được mở lúc"
@@ -145,11 +147,14 @@ vi:
       history_test: "Tóm tắt các lần làm bài trước đó"
       start: "Bắt đầu làm bài thi"
     progress_details:
+      not_permission: "Bạn chưa đăng kí vào khóa học này!"
       course: "Khóa học"
       description: "Mô tả"
       score: "Điểm: "
       time: "Thời gian"
       completed: "Hoàn thành"
+    check_permission:
+      not_permission: "Bạn không có quyền truy cập vào khóa học này!"
   tasks:
     find_task:
       not_found: "Bài học không tồn tại!"
@@ -184,6 +189,7 @@ vi:
       status: "Trạng thái"
       action: "Hành động"
     show:
+      not_permission: "Bạn không có quyền truy cập vào trang này!"
       title: "Làm bài kiểm tra %{title}"
       date: "Thời gian nộp bài:"
       score: "Điểm"
@@ -225,7 +231,7 @@ vi:
         not_found: "Không tìm thấy người dùng!"
     courses:
       index:
-        my_courses: "Khóa học của tối"
+        my_courses: "Khóa học của tôi"
         course: "Khóa học"
         subject: "Chủ đề"
         members: "Danh sách thành viên"

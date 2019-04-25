@@ -67,6 +67,7 @@ en:
         not_found: "This course not exist!"
         confirm_delete_task: "Are you want delete this task?"
         confirm_delete_subject: "Are you want delete this subject?"
+        not_permission: "You don't permission access this course!"
       edit:
         title: "Update Information Course"
         edit: "Save All Change"

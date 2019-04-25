@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_31_033157) do
+ActiveRecord::Schema.define(version: 2019_04_25_082607) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "question_id"
@@ -63,12 +63,12 @@ ActiveRecord::Schema.define(version: 2019_03_31_033157) do
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
     t.string "content"
-    t.boolean "is_read"
+    t.boolean "is_cancel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_notifications_on_user_id"
+    t.bigint "course_id"
+    t.index ["course_id"], name: "index_notifications_on_course_id"
   end
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -191,7 +191,7 @@ ActiveRecord::Schema.define(version: 2019_03_31_033157) do
 
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
-  add_foreign_key "notifications", "users"
+  add_foreign_key "notifications", "courses"
   add_foreign_key "subjects", "courses"
   add_foreign_key "tasks", "subjects"
   add_foreign_key "tests", "users"

@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def load_notifications
-    @notifications = current_user.notifications.order(:created_at).reverse
+    @notifications = current_user.get_notifications.reverse
   end
 
   def configure_permitted_parameters

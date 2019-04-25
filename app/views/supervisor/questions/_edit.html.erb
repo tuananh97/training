@@ -8,9 +8,9 @@
       <div class="form-group">
         <%= f.label :content, t(".content"), class: "required" %>
         <%= f.text_area :content, class: "form-control" %>
-      <div align="right" class="error-messages-devise" >
-        <%= @question.errors.full_messages_for(:content).first %>
-      </div>
+        <div align="right" class="error-messages-devise" >
+          <%= @question.errors.full_messages_for(:content).first %>
+        </div>
       </div>
     </div>
     <%= f.fields_for :answers do |answer| %>

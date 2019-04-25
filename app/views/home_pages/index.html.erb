@@ -44,12 +44,12 @@
               <ul class="follow-us clearfix">
                 <li><%= link_to t(".learn"), learn_path(my_course.id), class:"btn btn-success"%></li>
                 <li>
-                <%= form_for my_course.user_courses.find_by(user_id: current_user.id), html: {method: :delete} do |f| %>
-                  <%= hidden_field_tag :user_id, current_user.id %>
-                  <%= hidden_field_tag :course_id, my_course.id %>
-                  <%= f.submit t(".unenroll"), class: "btn btn-info", data: { confirm: 'Are you sure you want to unenroll this course?' } %>
-                <% end %>
-              </li>
+                  <%= form_for my_course.user_courses.find_by(user_id: current_user.id), html: {method: :delete} do |f| %>
+                    <%= hidden_field_tag :user_id, current_user.id %>
+                    <%= hidden_field_tag :course_id, my_course.id %>
+                    <%= f.submit t(".unenroll"), class: "btn btn-info", data: { confirm: t(".confirm_unenroll") } %>
+                  <% end %>
+                </li>
               </ul>
             </div>
           </li>

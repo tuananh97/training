@@ -19,11 +19,11 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   if Rails.env.production?
-    config.mailer_sender = "no-reply@domain.com"
+    config.mailer_sender = "no-reply@ftraining.com"
   elsif Rails.env.staging?
-    config.mailer_sender = "no-reply@staging.domain.com"
+    config.mailer_sender = "no-reply@staging.ftraining.com"
   else
-    config.mailer_sender = "no-reply@domain.com"
+    config.mailer_sender = "ftraining@domain.com"
   end
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
