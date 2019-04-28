@@ -60,7 +60,8 @@ class Supervisor::TasksController < Supervisor::BaseController
   end
 
   def send_notice
-      Notification.create! course_id: @course.id, content: t(".assign", course: @course.name, task: @task.name)
+    Notification.create! course_id: @course.id, content: t(".assign", course: @course.name,
+      task: @task.name)
   end
 
   def find_task

@@ -4,10 +4,8 @@
 </div>
 <%= form_for [:supervisor, @exam], remote: true do |f| %>
   <div class="modal-body">
-    <div class="form-group">
-      <%= f.label :subject_id, t(".title"), class: "required" %>
-      <%= f.text_field :subject_id, class: "form-control" %>
-    </div>
+
+    <%= f.hidden_field :subject_id, value: @subject.id %>
     <div class="form-group">
       <%= f.label :title, t(".title"), class: "required" %>
       <%= f.text_field :title, class: "form-control" %>
@@ -18,9 +16,9 @@
     <div class="form-group">
       <%= f.label :number_question, t(".number_question"), class: "required" %>
       <%= f.text_field :number_question, class: "form-control" %>
-    </div>
-    <div align="right" class="error-messages-devise" >
-      <%= @exam.errors.full_messages_for(:number_question).first %>
+      <div align="right" class="error-messages-devise" >
+        <%= @exam.errors.full_messages_for(:number_question).first %>
+      </div>
     </div>
   </div>
   <div class="modal-footer">

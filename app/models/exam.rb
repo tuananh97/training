@@ -4,5 +4,6 @@ class Exam < ApplicationRecord
   belongs_to :subject
 
   validates :title, presence: true
+  validates :number_question, presence: true
   scope :by_lastest, ->{order(created_at: :desc)}
 end

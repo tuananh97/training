@@ -20,7 +20,7 @@ class TestsController < HomePagesController
       flash[:error] = t ".not_permission"
       redirect_to root_path
     end
-    @questions = @test.questions.includes(:answers).page(params[:page]).per 3
+    @questions = @test.questions.includes(:answers)
   end
 
   def update

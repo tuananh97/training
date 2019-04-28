@@ -102,10 +102,19 @@ vi:
       finish:
         success: "Cập nhật thông tin khóa học thành công!"
         failure: "Cập nhật thông tin xảy ra lỗi!"
-    subjects:
+      trainee_progress:
+        back: "Quay lại trang quản lý khóa học"
+        description: "Mô tả"
+      task_exam_progress:
+        course: "Khóa học"
+        description: "Mô tả"
+        score: "Điểm: "
+        time: "Thời gian"
+        completed: "Hoàn thành"
       form_subject:
         subject: "Chủ đề"
         description: "Mô tả chính"
+    subjects:
       new:
         title: "Tạo chủ đề"
         create_subject: "Tạo chủ đề"
@@ -152,7 +161,6 @@ vi:
         create_task: "Tạo mới bài giảng"
         not_found: "Bài giảng không tồn tại"
       create:
-        assign: "You recently assgined to lecture %{task}"
         success: "Bạn đã tạo bài giảng thành công"
         failure: "Tạo bài giảng xảy ra lỗi."
         assign: "Khóa học %{course} có bài giảng mới <b><i>%{task}</i></b>"

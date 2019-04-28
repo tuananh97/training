@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :learns, only: :show
 
     scope :learn do
-      get "/exam_details/:id", to: "learns#exam_details", as: "exam_details"
+      get "/exam_details/:exam_id", to: "learns#exam_details", as: "exam_details"
       get "/courses/:course_id/my_progress", to: "learns#progress_details", as: "my_progress"
       resources :tasks, only: %i(show update)
     end

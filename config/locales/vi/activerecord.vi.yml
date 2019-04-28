@@ -10,6 +10,7 @@ vi:
         phone: "Điện thoại"
         address: "Địa chỉ"
         avatar: "Hình đại diện"
+        remember_me: "Ghi nhớ tài khoản"
       course:
         name: "Tên khóa học"
         description: "Mô tả chính"

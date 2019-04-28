@@ -4,6 +4,6 @@
   <% flash.discard %>
 <% else %>
   $('.global-flash').html('<%= j render "layouts/flash", notice: flash[:success] %>');
-  $("#modal-window").hide();
-  window.location.reload();
+  $("#modal-window").modal('hide');
+  $(window.location.replace("/supervisor/exams/<%= @exam.id %>"))
 <% end %>

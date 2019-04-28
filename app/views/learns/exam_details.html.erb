@@ -23,19 +23,26 @@
         </tr>
       </thead>
       <tbody>
-        <% @tests.each_with_index do |test, index| %>
-          <tr class="d-flex">
-            <td class="col-1"><%= index + 1 %></td>
-            <td class="col-3"><%= test.updated_at.strftime(Settings.format_time_test) %></td>
-            <td class="col-3"><%= test.score %> (<%= test.correct_answer_of_user %>/<%= test.correct_answer_of_test %>)
-            </td>
-            <td class="col-3"><%= test.status %></td>
-            <% if test.status == t("tests.waitting") %>
-              <td class="col-2"><%= link_to t("tests.do_test"),  user_test_path(current_user, test), data: { confirm: "Are you ready to take the exam?" } %></td>
-            <% else %>
-              <td class="col-2"><%= link_to t("tests.view"),  user_test_path(current_user, test) %></td>
-            <% end %>
-          </tr>
+        <% if !@tests.exists? %>
+            <tr class="d-flex">
+              <td class="col-12" align="center"><%= t "tests.index.not_do" %></td>
+            </tr>
+        <% else %>
+          <% @tests.each_with_index do |test, index| %>
+            <tr class="d-flex">
+              <td class="col-1"><%= index + 1 %></td>
+              <td class="col-3"><%= test.updated_at.strftime(Settings.format_time_test) %></td>
+              <td class="col-3"><%= test.score %> (<%= test.correct_answer_of_user %>/<%= test.correct_answer_of_test %>)
+              </td>
+              <td class="col-3"><%= test.status %></td>
+              <% if test.status == t("tests.waitting") %>
+                <td class="col-2"><%= link_to t("tests.do_test"),  user_test_path(current_user, test),
+                  data: {confirm: t(".confirm")} %></td>
+              <% else %>
+                <td class="col-2"><%= link_to t("tests.view"),  user_test_path(current_user, test) %></td>
+              <% end %>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
@@ -44,6 +51,6 @@
   <%= form_for current_user.tests.new(exam_id: @exam.id), url: user_tests_path(current_user), method: :post do |f| %>
     <%= f.hidden_field :exam_id, autofocus: true, value: @exam.id %>
     <%= f.hidden_field :status, value: :waitting, autofocus: true %>
-    <%= f.submit t(".start"), class: "btn btn-primary", data:{confirm: "Are you ready to take the exam?"} %>
+    <%= f.submit t(".start"), class: "btn btn-primary", data: {confirm: t(".confirm")} %>
   <% end %>
 </div>

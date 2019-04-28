@@ -16,8 +16,8 @@ class Supervisor::ExamsController < Supervisor::BaseController
   end
 
   def new
-    @subject = Subject.find_by_id params[:subject_id]
     @exam = Exam.new
+    @subject = Subject.find_by_id params[:subject_id]
     respond_to do |format|
       format.js
     end
@@ -28,7 +28,6 @@ class Supervisor::ExamsController < Supervisor::BaseController
     if @exam.save
       respond_to do |format|
         format.js { flash[:success] = t ".success" }
-        format.html {redirect_to supervisor_exam_path @exam}
       end
     else
       respond_to do |format|
@@ -38,7 +37,6 @@ class Supervisor::ExamsController < Supervisor::BaseController
   end
 
   def edit
-    @subject = Subject.find_by_id params[:subject_id]
     respond_to do |format|
       format.js
     end
@@ -61,7 +59,7 @@ class Supervisor::ExamsController < Supervisor::BaseController
       @exam.tests.delete_all
       flash[:success] = t ".success"
     else
-      flash[:error] = t "..failed"
+      flash[:error] = t ".failed"
     end
     redirect_to supervisor_exams_path
   end

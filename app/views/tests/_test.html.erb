@@ -8,5 +8,5 @@
 		<% end %>
   </ol>
   <%= f.hidden_field :status, value: :done %>
-  <%= f.submit t(".submit"), class: "btn btn-info"  %>
+  <%= f.submit t(".submit"), class: "btn btn-info", data: { confirm: t(".confirm") } %>
 <% end %>

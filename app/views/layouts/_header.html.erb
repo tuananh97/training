@@ -31,6 +31,11 @@
             </li>
           <% elsif current_user.supervisor? %>
             <li class="nav-item">
+              <%= link_to home_path, class:"nav-link" do %>
+                <i class="fa fa-home"></i>&nbsp;<%= t ".home" %>
+              <% end %>
+            </li>
+            <li class="nav-item">
               <%= link_to supervisor_courses_path, class:"nav-link" do %>
                 <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".manage_courses" %>
               <% end %>

@@ -14,7 +14,7 @@ class TasksController < HomePagesController
     else
       flash[:error] = t ".failure"
     end
-    redirect_to task_path @task
+    redirect_to my_progress_path @task.subject.course.id
   end
 
   private

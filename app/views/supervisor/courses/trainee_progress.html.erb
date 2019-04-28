@@ -1,8 +1,9 @@
 <div class="content-wrapper">
   <div class="row">
     <div class="col-md-12" style="text-align: center">
-      <h3><strong><%= @course.name %></strong></h3>
-      <p><%= training_time(@course) %></p>
+      <h3><strong><%= @user.name %></strong></h3>
+      <p><h4><%= @course.name %></h4></p>
+      <p><h5><%= link_to t(".back"), supervisor_course_path(@course) %></h5></p>
     </div>
     <div class="row col-md-12">
       <% @course.subjects.each_with_index do |subject, index| %>

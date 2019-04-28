@@ -45,11 +45,13 @@ class Supervisor::QuestionsController < Supervisor::BaseController
 
   def update
     if @question.update_attributes question_params
-      flash[:success] = t ".success"
-      redirect_to supervisor_exam_path(@exam)
+      respond_to do |format|
+        format.js { flash[:success] = t ".success" }
+      end
     else
-      flash[:danger] = t ".failed"
-      render :edit
+      respond_to do |format|
+        format.js { flash[:error] = t ".failed" }
+      end
     end
   end
 

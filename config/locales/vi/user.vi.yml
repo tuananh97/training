@@ -1,0 +1,142 @@
+vi:
+  courses:
+    course:
+      view_details: "Xem thêm"
+    index:
+      search: "Tìm kiếm"
+    show:
+      enroll: "Ghi danh"
+  user_courses:
+    create:
+      success: "Ghi danh vào khóa học thành công!"
+      failed: "Ghi danh vào khóa học xảy ra lỗi!"
+      info: "Bạn đã tham gia khóa học này!"
+    destroy:
+      success: "Rút đăng kí khóa học thành công!"
+      failed: "Rút đăng kí khóa học thất bại, đã xảy ra lỗi!"
+    check_enroll_course:
+  learns:
+    learn: "Học khóa học"
+    show:
+      title: "Khóa học: %{course}"
+      not_found: "Khóa học không tồn tại!"
+      not_permission: "Bạn chưa đăng ký vào khóa học này!"
+      my_progress: "Tiến độ học"
+      members: "Danh sách thành viên"
+    exam_details:
+      not_permission: "Bạn chưa đăng ký vào khóa học chứa bài kiểm tra này!"
+      title: "Bài kiểm tra %{title}"
+      do_exam: "Làm bài kiểm tra"
+      confirm: "Bạn đã sẵn sàng để làm bài kiểm tra?"
+      open_exam: "Bài thi được mở lúc"
+      time_exam: "Thời gian làm bài: 40 phút"
+      grading: "Phương thức tính điểm: Lần cao nhất"
+      history_test: "Tóm tắt các lần làm bài trước đó"
+      start: "Bắt đầu làm bài thi"
+    progress_details:
+      back: "Quay lại trang lộ trình học"
+      not_permission: "Bạn chưa đăng kí vào khóa học này!"
+      description: "Mô tả"
+    task_exam_progress:
+      course: "Khóa học"
+      description: "Mô tả"
+      score: "Điểm: "
+      time: "Thời gian"
+      completed: "Hoàn thành"
+    check_permission:
+      not_permission: "Bạn không có quyền truy cập vào khóa học này!"
+  tasks:
+    find_task:
+      not_found: "Bài học không tồn tại!"
+      not_permission: "Bạn không có quyền truy cập vào bài học này"
+    show:
+      not_found: "Bài học không tồn tại!"
+      not_permission: "Bạn không có quyền truy cập vào bài học này!"
+      learn_task: "Học bài giảng"
+      finish: "Hoàn thành"
+      discussion: "Thảo luận"
+    comment_form:
+      submit: "Đăng bình luận"
+    update:
+      finish: "Hoàn thành bài học"
+      task: "Bài học"
+      success: "Bạn đã hoàn thành bài học"
+      failure: "Bạn đã hoàn thành bài học"
+  tests:
+    waitting: "waitting"
+    do_test: "Làm bài kiểm tra"
+    view: "Xem kết quả"
+    submit: "Nộp bài"
+    test:
+      submit: "Nộp bài"
+      confirm: "Bạn có chắc chắn muốn nộp bài"
+    create:
+      success: "Bạn đang bắt đầu làm bài kiểm tra !"
+      failed: "Tạo bài kiểm tra xảy ra lỗi"
+    update:
+      submit: "Nộp bài kiểm tra thành công"
+    index:
+      title: "Đề kiểm tra"
+      date: "Thời gian làm bài"
+      score: "Điểm"
+      not_do: "Chưa làm bài kiểm tra"
+      status: "Trạng thái"
+      action: "Hành động"
+    show:
+      not_permission: "Bạn không có quyền truy cập vào trang này!"
+      title: "Làm bài kiểm tra %{title}"
+      date: "Thời gian nộp bài:"
+      score: "Điểm"
+      back: "Quay lại"
+    submit:
+      confirm: "Bạn có chắc chắn muốn nộp bài ?"
+  comments:
+    comment:
+      commented: "<b>%{user}</b> đã bình luận %{time} trước."
+      edit: "Chỉnh sửa"
+      delete: "Xóa"
+      confirm: "Bạn có chắc chắn muốn xóa ?"
+      reply: "Trả lời"
+    load_comment:
+       danger: "Không tìm thấy bình luận!"
+    edit:
+      submit: "Cập nhật"
+    update:
+      danger: "Cập nhật nội dung bình luận xảy ra lỗi!"
+    destroy:
+      danger: "Xóa bình luận xảy ra lỗi!"
+    new_reply:
+      submit: "Đăng bình luận"
+  trainee:
+    users:
+      users:
+        view: "Xem trang cá nhân"
+      show:
+        profile: "Thông tin cá nhân"
+        count: "5"
+        completed_course: "Khóa học đã hoàn thành"
+        quantity_subject: "Chủ đề"
+      all_users:
+        title: "Danh sách thành viên"
+        all_users: "Danh sách thành viên"
+        view: "Xem trang cá nhân"
+      message:
+        not_found_member: "Không tìm thấy thành viên nào"
+        not_found: "Không tìm thấy người dùng!"
+    courses:
+      index:
+        my_courses: "Khóa học của tôi"
+        course: "Khóa học"
+        subject: "Chủ đề"
+        members: "Danh sách thành viên"
+        my_progress: "Xem"
+        view_progress: "Tiến dộ học tập"
+        course_members: "Xem"
+      show_member:
+        title: "Danh sách thành viên trong khóa học"
+      show:
+        course: "Khóa học"
+        description: "Mô tả"
+        score: "Điểm: "
+        time: "Thời gian"
+        completed: "Hoàn thành"

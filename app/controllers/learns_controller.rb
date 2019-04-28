@@ -1,7 +1,6 @@
 class LearnsController < HomePagesController
-  before_action :find_course, except: :progress_details
   before_action :find_exam, only: :exam_details
-  before_action :check_permission, except: :progress_details
+  before_action :check_permission, except: :exam_details
 
   def show
     @members = @course.users.not_admin
@@ -23,6 +22,7 @@ class LearnsController < HomePagesController
   private
 
   def check_permission
+    find_course
     if UserCourse.find_by(user_id: current_user, course_id: @course.id).nil?
       flash[:error] = t ".not_permission"
       redirect_to root_path
@@ -30,7 +30,7 @@ class LearnsController < HomePagesController
   end
 
   def find_exam
-    @exam = Exam.find_by_id params[:id]
+    @exam = Exam.find_by id: params[:exam_id]
     return if @exam
     flash[:error] = t ".not_found"
     redirect_to root_path
