@@ -61,7 +61,7 @@ class Supervisor::ExamsController < Supervisor::BaseController
     else
       flash[:error] = t ".failed"
     end
-    redirect_to supervisor_exams_path
+    redirect_to  supervisor_course_path @exam.subject.course
   end
 
   private

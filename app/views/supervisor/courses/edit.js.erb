@@ -1,2 +1,4 @@
 $("#supervisors").html("<%= j render partial: "manage_supervisor", collection: @supervisors, as: :supervisor %>");
 $("#paginator").html("<%= j paginate(@supervisors, theme: "twitter-bootstrap-4", remote: true) %>");
+$("#trainees").html("<%= j render partial: "manage_trainee", collection: @trainees, as: :trainee %>");
+$("#paginator").html("<%= j paginate(@trainees, theme: "twitter-bootstrap-4", remote: true) %>");

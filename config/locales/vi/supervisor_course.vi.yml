@@ -41,6 +41,7 @@ vi:
       create:
         success: "Bạn đã tạo khóa học thành công!"
         failure: "Tạo khóa học xảy ra lỗi"
+        assign: "Chào mừng bạn đến với khóa học <b><i>%{course}</i></b>"
       subject_fields:
         confirm_delete: "Bạn có chắc chắn muốn xóa không?"
         del_title: "Xóa chủ đề"
@@ -114,6 +115,8 @@ vi:
       form_subject:
         subject: "Chủ đề"
         description: "Mô tả chính"
+      send_notice:
+        assign: "Chào mừng bạn đến với khóa học <b><i>%{course}</i></b>"
     subjects:
       new:
         title: "Tạo chủ đề"

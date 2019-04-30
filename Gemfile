@@ -25,7 +25,8 @@ gem "i18n-js"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "kaminari"
-gem "mini_magick"
+gem 'mini_magick', '~> 4.8'
+gem 'aws-sdk-s3', '~>1'
 gem "mini_racer"
 gem "momentjs-rails"
 gem "puma", "~> 3.11"

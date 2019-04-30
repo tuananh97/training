@@ -41,7 +41,11 @@ module ApplicationHelper
   end
 
   def get_image course
-    course.avatar.present? ? course.avatar.url : Settings.image_course
+    if course.avatar.attached?
+      course.avatar
+    else
+      Settings.image_course
+    end
   end
 
   def get_avatar user

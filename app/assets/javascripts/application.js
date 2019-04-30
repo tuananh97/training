@@ -24,4 +24,5 @@
 //= require bootstrap-datepicker
 //= require custom
 //= require notificationscenter
+//= require direct_uploads
 //= require cable

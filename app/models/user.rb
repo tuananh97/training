@@ -40,6 +40,6 @@ class User < ApplicationRecord
 
   def get_notifications
     user_courses = self.courses.select(:id)
-    Notification.where(course_id: user_courses).order(created_at: :desc)
+    Notification.where(course_id: user_courses).order(created_at: :asc)
   end
 end

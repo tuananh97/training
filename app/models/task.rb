@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
-  mount_uploader :video, VideoUploader
+
+  has_one_attached :video
 
   has_many :trainee_tasks, dependent: :destroy
   belongs_to :subject

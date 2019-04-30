@@ -15,7 +15,8 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :video, t(".video") %><br>
-  <%= f.hidden_field :video_cache %>
-  <%= f.file_field :video, accept: "video/mp4,video/mkv,video/avi" %>
+  <div><%= f.file_field :video, accept: "video/mp4,video/mkv,video/avi", direct_upload: true %></div>
+  <% if @task.video.attached? %>
+    <%= link_to @task.video.filename, @task.video %>
+  <% end %>
 </div>

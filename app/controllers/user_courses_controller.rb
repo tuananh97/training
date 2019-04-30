@@ -22,6 +22,11 @@ class UserCoursesController < ApplicationController
       @trainee = User.find_by_id @user.id
       @trainee.trainee_tasks.where(course_id: @course.id).delete_all
       @trainee.trainee_subjects.where(course_id: @course.id).delete_all
+      @course.subjects.each do |subj|
+        subj.exams.each do |exam|
+          @trainee.tests.where(exam_id: exam.id).delete_all
+        end
+      end
     end
     if @course.remove_user @user
       flash[:success] = t ".success"

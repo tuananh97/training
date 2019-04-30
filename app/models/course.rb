@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
   enum status: {init: 0, start: 1, finish: 2}
-  mount_uploader :avatar, AvatarUploader
+  has_one_attached :avatar
 
   has_many :subjects, dependent: :destroy
   has_many :user_courses

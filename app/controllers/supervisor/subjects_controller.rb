@@ -35,8 +35,13 @@ class Supervisor::SubjectsController < Supervisor::BaseController
 
   def destroy
     if @subject.destroy
-      TraineeTask.where(course_id: @course.id).delete_all
-      TraineeSubject.where(course_id: @course.id).delete_all
+      @subject.tasks.each do |task|
+        TraineeTask.where(task_id: task.id).delete_all
+      end
+      @subject.exams.each do |exam|
+        Test.where(exam_id: exam.id).delete_all
+        Exam.where(id: exam.id).delete
+      end
       flash[:success] = t ".success"
     else
       flash[:error] = t ".failure"

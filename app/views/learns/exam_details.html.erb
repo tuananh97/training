@@ -32,14 +32,14 @@
             <tr class="d-flex">
               <td class="col-1"><%= index + 1 %></td>
               <td class="col-3"><%= test.updated_at.strftime(Settings.format_time_test) %></td>
-              <td class="col-3"><%= test.score %> (<%= test.correct_answer_of_user %>/<%= test.correct_answer_of_test %>)
+              <td class="col-3"><%= test.score %> (<%= test.correct_answer_of_user %>/<%= test.exam.number_question %>)
               </td>
               <td class="col-3"><%= test.status %></td>
               <% if test.status == t("tests.waitting") %>
-                <td class="col-2"><%= link_to t("tests.do_test"),  user_test_path(current_user, test),
+                <td class="col-2"><%= link_to t("tests.do_test"), user_test_path(current_user, test),
                   data: {confirm: t(".confirm")} %></td>
               <% else %>
-                <td class="col-2"><%= link_to t("tests.view"),  user_test_path(current_user, test) %></td>
+                <td class="col-2"><%= link_to t("tests.view"), user_test_path(current_user, test) %></td>
               <% end %>
             </tr>
           <% end %>

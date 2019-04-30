@@ -11,10 +11,10 @@ vi:
       success: "Ghi danh vào khóa học thành công!"
       failed: "Ghi danh vào khóa học xảy ra lỗi!"
       info: "Bạn đã tham gia khóa học này!"
+      assign: "Bạn đã tham gia vào khóa học <b>%{course}</b>"
     destroy:
       success: "Rút đăng kí khóa học thành công!"
       failed: "Rút đăng kí khóa học thất bại, đã xảy ra lỗi!"
-    check_enroll_course:
   learns:
     learn: "Học khóa học"
     show:

@@ -7,8 +7,8 @@
       <p><%= @task.content.html_safe %></p>
     </div>
     <div class="col-md-6">
-      <% if @task.video.present? %>
-      <%= video_tag(@task.video.url, height: '500', width: '700', controls: true) %>
+      <% if @task.video.attached? %>
+        <%= video_tag rails_blob_path(@task.video), controls: true %>
       <% end %>
       <% if TraineeTask.find_by(trainee_id: current_user.id, task_id: @task.id) != nil %>
         <% unless TraineeTask.find_by(trainee_id: current_user.id, task_id: @task.id).finish? %>

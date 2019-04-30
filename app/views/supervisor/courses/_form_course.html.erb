@@ -26,7 +26,6 @@
 
 <div class="field form-group">
   <div class="fix-bot-pic upload-pic pic-profile">
-    <%= f.hidden_field :avatar_cache %>
     <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png",
       autofocus: true, class: "input-file previewIMG" %>
     <label tabindex="0" class="input-file-trigger"> <%= t ".avatar" %>
