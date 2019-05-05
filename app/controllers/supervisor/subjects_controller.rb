@@ -69,8 +69,9 @@ class Supervisor::SubjectsController < Supervisor::BaseController
   def assign_subject
     UserCourse.trainees_on_course(@course.id).each do |user|
       TraineeSubject.bulk_insert(ignore: true) do |worker_subject|
-        worker_subject.add(trainee_id: user.user_id,
-        subject_id: @subject.id, course_id: @course.id)
+        if User.find_by(id: user.user_id).trainee?
+          worker_subject.add(trainee_id: user.user_id, subject_id: @subject.id, course_id: @course.id)
+        end
       end
     end
   end

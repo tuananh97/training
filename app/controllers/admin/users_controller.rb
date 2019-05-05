@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   before_action :load_user, only: %i(edit update destroy)
+  before_action :check_admin, only: %i(edit update destroy)
 
   def index
     @q = User.ransack params[:q]
@@ -56,5 +57,13 @@ class Admin::UsersController < Admin::BaseController
     return if @user
     flash[:error] = t ".not_found"
     redirect_to admin_users_path
+  end
+
+  def check_admin
+    @user = User.find_by id: params[:id]
+    if @user.admin?
+      flash[:error] = t ".not_access"
+      redirect_to admin_users_path
+    end
   end
 end

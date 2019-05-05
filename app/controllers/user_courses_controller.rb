@@ -44,8 +44,7 @@ class UserCoursesController < ApplicationController
   end
 
   def check_enroll_course
-    @user_course = current_user.user_courses.where(course_id:
-      params[:user_course][:course_id])
+    @user_course = current_user.user_courses.where(course_id: params[:user_course][:course_id])
     if @user_course.present?
       flash[:info] = t ".info"
       redirect_to home_path
@@ -59,8 +58,7 @@ class UserCoursesController < ApplicationController
         course_id: @course.id)
         TraineeTask.bulk_insert(ignore: true) do |work_task|
           subject.tasks.each do |task|
-            work_task.add(trainee_id: current_user.id, task_id: task.id,
-            course_id: @course.id)
+            work_task.add(trainee_id: current_user.id, task_id: task.id, course_id: @course.id)
           end
         end
       end

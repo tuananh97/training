@@ -17,7 +17,6 @@ class LearnsController < HomePagesController
       flash[:error] = t ".not_permission"
       redirect_to root_path
     end
-
     return if @course
     flash[:error] = t ".not_found"
     redirect_to root_path

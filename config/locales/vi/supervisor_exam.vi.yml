@@ -31,8 +31,8 @@ vi:
         confirm: "Bạn có chắc chắn muốn xóa câu hỏi này?"
         add_question: "Thêm câu hỏi"
       do_test:
-        create_demo_test: Create test demo"
-        create_test: "Teacher create sample test of exam"
+        create_demo_test: "Tạo bài thi mẫu"
+        create_test: "Giáo viên tạo bài thi mẫu"
       create:
         success: "Bạn đã tạo đề kiểm tra thành công"
         failed: "Tạo đề kiểm tra xảy ra lỗi."

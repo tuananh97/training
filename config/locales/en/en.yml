@@ -17,6 +17,8 @@ en:
     mailer:
       invite_user: "Invitation Mail"
       send: "Dear"
+      account_create_trainee:
+      account_create_supervisor:
       create_by_admin: "Your account has been create by admin:"
       email: "Email:"
       password: "Password:"
@@ -48,7 +50,7 @@ en:
       time_test: "%H:%M %d/%m/%Y"
   layouts:
     header:
-      logo: "UET Learning Online"
+      logo: "Training Online"
       home: "Home"
       signup: "Sign up"
       login: "Log in"

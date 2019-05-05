@@ -24,11 +24,13 @@ vi:
     mailer:
       invite_user: "Mời tham gia hệ thống"
       send: "Xin chào"
-      create_by_admin: "Tài khoản của bạn đã được tạo bới quản trị viên với thông tin đăng nhập sau: "
+      create_supervisor: "Bạn đã được tạo tài khoản giáo viên bới quản trị viên."
+      create_trainee: "Bạn đã được tạo tài khoản học viên bới quản trị viên."
+      create_by_admin: "Tài khoản của bạn đã được tạo với thông tin đăng nhập sau: "
       email: "Địa chỉ email:"
       password: "Mật khẩu:"
       link: "Để đăng nhập vào hệ thống bạn truy cập vào địa chỉ sau: "
-      p: "Sau khi đăng nhập bạn hãy đổi mật khẩu ngay"
+      change_pass: "Sau khi đăng nhập bạn hãy đổi mật khẩu ngay."
   submit: "Submit"
   base_title: "UET Learning Online"
   time:
@@ -38,7 +40,7 @@ vi:
       time_test: "%H:%M %d/%m/%Y"
   layouts:
     header:
-      logo: "UET Learning Online"
+      logo: "Training Online"
       home: "Trang chủ"
       signup: "Đăng ký tài khoản"
       login: "Đăng nhập"

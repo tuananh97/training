@@ -25,6 +25,11 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
       @trainee = User.find_by_id @user.id
       @trainee.trainee_tasks.where(course_id: @course.id).delete_all
       @trainee.trainee_subjects.where(course_id: @course.id).delete_all
+      @course.subjects.each do |subj|
+        subj.exams.each do |exam|
+          @trainee.tests.where(exam_id: exam.id).delete_all
+        end
+      end
     end
     if @course.remove_user @user
       remove_sucess
@@ -39,8 +44,7 @@ class Supervisor::UserCoursesController < Supervisor::BaseController
   def set_trainee_course
     TraineeSubject.bulk_insert(ignore: true) do |worker_subject|
       @course.subjects.each do |subject|
-        worker_subject.add(trainee_id: @user.id, subject_id: subject.id,
-        course_id: @course.id)
+        worker_subject.add(trainee_id: @user.id, subject_id: subject.id, course_id: @course.id)
           TraineeTask.bulk_insert(ignore: true) do |work_task|
             subject.tasks.each do |task|
               work_task.add(trainee_id: @user.id, task_id: task.id,

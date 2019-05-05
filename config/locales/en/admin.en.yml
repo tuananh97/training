@@ -8,6 +8,7 @@ en:
         success: "Update user information success"
         fail: "Add new user error. Please recheck information!"
       destroy:
+        not_access: "ddddddddddddd"
         success: "Delete this user success"
         warning: "Don't delete this user. Please recheck information!"
       check_supervisor:
@@ -42,6 +43,7 @@ en:
         view: "View"
       edit:
         edit_user: "Edit user"
+        not_access: "ddddddddddddd"
     courses:
       not_found_course: "Course not found!"
       index:

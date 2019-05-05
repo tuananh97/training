@@ -20,7 +20,6 @@ class ResetPasswordController < HomePagesController
   private
 
   def user_params
-    params.require(:user).permit :current_password, :password,
-      :password_confirmation
+    params.require(:user).permit :current_password, :password, :password_confirmation
   end
 end

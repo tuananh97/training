@@ -8,6 +8,7 @@ vi:
         success: "Cập nhật thông tin người dùng thành công"
         fail: "Cập nhật thông tin người dùng xảy ra lỗi. Bạn vui lòng kiểm tra lại thông tin!"
       destroy:
+        not_access: "Bạn không thể xóa tài khoản quản trị viên"
         success: "Xóa người dùng thành công"
         warning: "Không thể xóa người dùng này. Bạn vui lòng kiểm tra lại!"
       check_supervisor:
@@ -42,6 +43,7 @@ vi:
         edit: "Cập nhật"
         view: "Xem chi tiết"
       edit:
+        not_access: "Bạn không thể chỉnh sửa tài khoản quản trị viên"
         edit_user: "Cập nhật thông tin người dùng"
         email: "Địa chỉ email"
         name: "Họ và tên"

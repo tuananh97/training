@@ -3,9 +3,7 @@ class HomePagesController < ApplicationController
 
   def index
     @notifications = current_user.get_notifications.reverse
-    @my_courses = current_user.courses.page(params[:page])
-                        .per Settings.per_page
-    @supervisor_courses = current_user.courses.page(params[:page])
-                                      .per Settings.per_page
+    @my_courses = current_user.courses.page(params[:page]).per Settings.per_page
+    @supervisor_courses = current_user.courses.page(params[:page]).per Settings.per_page
   end
 end
