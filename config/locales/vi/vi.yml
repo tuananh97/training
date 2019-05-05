@@ -32,7 +32,7 @@ vi:
       link: "Để đăng nhập vào hệ thống bạn truy cập vào địa chỉ sau: "
       change_pass: "Sau khi đăng nhập bạn hãy đổi mật khẩu ngay."
   submit: "Submit"
-  base_title: "UET Learning Online"
+  base_title: "Training Online System"
   time:
     formats:
       own: "%H:%M:%S, %d-%m-%Y"
@@ -40,7 +40,7 @@ vi:
       time_test: "%H:%M %d/%m/%Y"
   layouts:
     header:
-      logo: "Training Online"
+      logo: "Training Online System"
       home: "Trang chủ"
       signup: "Đăng ký tài khoản"
       login: "Đăng nhập"

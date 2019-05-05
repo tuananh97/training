@@ -42,7 +42,7 @@ en:
     something_wrong: "Something went wrong! Can't not delete email shared!"
     update_failed: "Something went wrong! Can't not update email shared!"
     invalid_user: "Invalid user, Please try again!"
-  base_title: "UET Learning Online"
+  base_title: "Training Online System"
   time:
     formats:
       own: "%H:%M:%S, %d-%m-%Y"
@@ -50,7 +50,7 @@ en:
       time_test: "%H:%M %d/%m/%Y"
   layouts:
     header:
-      logo: "Training Online"
+      logo: "Training Online System"
       home: "Home"
       signup: "Sign up"
       login: "Log in"
