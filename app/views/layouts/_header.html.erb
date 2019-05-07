@@ -13,23 +13,21 @@
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
       <ul class="nav navbar-nav navbar-left">
         <% if user_signed_in? %>
+          <% if !current_user.trainee? %>
+            <li class="nav-item">
+              <%= link_to home_path, class:"nav-link" do %>
+                <i class="fa fa-home"></i>&nbsp;<%= t ".home" %>
+              <% end %>
+            </li>
+          <% end %>
           <% if current_user.admin? %>
             <li class="nav-item">
               <%= link_to admin_users_path, class:"nav-link" do %>
                 <i class="fa fa-user"></i>&nbsp;<%= t ".manage_users" %>
               <% end %>
             </li>
-            <li class="nav-item">
-              <%= link_to admin_courses_path, class:"nav-link" do %>
-                <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".manage_courses" %>
-              <% end %>
-            </li>
-          <% elsif current_user.supervisor? %>
-            <li class="nav-item">
-              <%= link_to home_path, class:"nav-link" do %>
-                <i class="fa fa-home"></i>&nbsp;<%= t ".home" %>
-              <% end %>
-            </li>
+          <% end %>
+          <% if current_user.supervisor? || current_user.admin? %>
             <li class="nav-item">
               <%= link_to supervisor_courses_path, class:"nav-link" do %>
                 <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".manage_courses" %>
@@ -40,7 +38,8 @@
                 <i class="fa fa-file-text"></i>&nbsp;<%= t ".manage_exams" %>
               <% end %>
             </li>
-          <% else %>
+          <% end %>
+          <% if current_user.trainee? %>
             <li class="nav-item">
               <%= link_to home_path, class:"nav-link" do %>
                 <i class="fa fa-graduation-cap"></i>&nbsp;<%= t ".mycourse" %>

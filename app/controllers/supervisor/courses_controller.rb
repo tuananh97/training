@@ -2,8 +2,8 @@ class Supervisor::CoursesController < Supervisor::BaseController
   before_action :find_course, except: %i(index create new trainee_progress finish)
 
   def index
-    @courses = current_user.courses.by_lastest
-                           .page(params[:page]).per Settings.per_page_index
+    @courses = current_user.courses.by_lastest.page(params[:page]).per Settings.per_page_index
+    @admincourses = Course.by_lastest.page(params[:page]).per Settings.per_page_index
   end
 
   def new
@@ -24,7 +24,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def show
-    if UserCourse.find_by(user_id: current_user, course_id: @course.id).nil?
+    if current_user.supervisor? && UserCourse.find_by(user_id: current_user, course_id: @course.id).nil?
       flash[:error] = t ".not_permission"
       redirect_to root_path
     end
@@ -39,7 +39,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def edit
-    if UserCourse.find_by(user_id: current_user, course_id: @course.id).nil?
+    if current_user.supervisor? && UserCourse.find_by(user_id: current_user, course_id: @course.id).nil?
       flash[:error] = t ".not_permission"
       redirect_to root_path
     end

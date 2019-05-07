@@ -35,7 +35,8 @@ vi:
       start: "Bắt đầu làm bài thi"
     progress_details:
       back: "Quay lại trang lộ trình học"
-      not_permission: "Bạn chưa đăng kí vào khóa học này!"
+      not_permission: "Bạn không có quyền truy cập vào trang này!"
+      not_enroll: "Bạn chưa đăng kí vào khóa học này!"
       description: "Mô tả"
     task_exam_progress:
       course: "Khóa học"

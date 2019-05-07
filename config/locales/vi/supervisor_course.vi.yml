@@ -24,6 +24,15 @@ vi:
         detail_subject: "Xem chi tiết chủ đề"
         finish_course: "Kết thúc khóa học"
         finish_subject: "Kết thúc chủ đề"
+      course:
+        add_course: "Tạo khóa học mới"
+        course: "Khóa học"
+        subject: "Chủ đề"
+        edit: "Cập nhật"
+        delete: "Xóa"
+        detail: "Xem chi tiết"
+        action: "Hành động"
+        confirm: "Bạn có chắc chắn muốn xóa khóa học này?"
       new:
         title: "Tạo khóa học mới"
         label: "Tên khóa học"
