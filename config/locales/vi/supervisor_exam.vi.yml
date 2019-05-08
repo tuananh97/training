@@ -15,6 +15,7 @@ vi:
         title: "Quản lý đề kiểm tra"
         exam: "Tên đề kiểm tra"
         subject: "Chủ đề"
+        course: "Khóa học"
         action: "Hành động"
         show: "Xem chi tiết"
         edit: "Cập nhật"

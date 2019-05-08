@@ -14,24 +14,24 @@
       <tr>
         <th></th>
         <th><%= t ".exam" %></th>
+        <th><%= t ".course" %></th>
         <th><%= t ".subject" %></th>
         <th><%= t ".action" %></th>
       </tr>
     </thead>
     <tbody>
-      <% @exams.each_with_index do |course, index| %>
+      <% @exams.each_with_index do |exam, index| %>
         <tr>
           <td><%= page_index params[:page], index, 5 %></td>
-          <td><%= course.title %>
-          </td>
-          <td><%= course.subject.name %>
-          </td>
+          <td><%= exam.title %></td>
+          <td><%= exam.subject.course.name %></td>
+          <td><%= exam.subject.name %></td>
           <td>
-            <%= link_to supervisor_exam_path(course) do %>
+            <%= link_to supervisor_exam_path(exam) do %>
              <i class="fa fa-leanpub" data-toogle="tooltip"
                 title="<%= t '.show' %>"></i>
             <% end %>&nbsp;&nbsp;
-            <%= link_to supervisor_exam_path(course), method: :delete,
+            <%= link_to supervisor_exam_path(exam), method: :delete,
               data: {confirm: t(".confirm")} do %>
              <i class="fa fa-trash" data-toogle="tooltip"
                 title="<%= t '.delete' %>"></i>

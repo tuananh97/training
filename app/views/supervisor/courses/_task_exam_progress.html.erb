@@ -51,7 +51,7 @@
       <% end %>
         <% subject.exams.each do |exam| %>
           <li>
-            <strong><%= exam.title %></strong>
+            <strong>Bài kiểm tra <%= exam.title %></strong>
             <% if trainee.tests.where(exam_id: exam.id).exists? %>
               <div class="pull-right status">
               <%= t ".score" %> <%= trainee.tests.where(exam_id: exam.id).order(score: :desc).first.score %>

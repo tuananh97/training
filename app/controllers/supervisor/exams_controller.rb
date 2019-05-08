@@ -24,6 +24,7 @@ class Supervisor::ExamsController < Supervisor::BaseController
   end
 
   def create
+    @subject = Subject.find_by_id params[:exam][:subject_id]
     @exam = Exam.new exam_params
     if @exam.save
       respond_to do |format|

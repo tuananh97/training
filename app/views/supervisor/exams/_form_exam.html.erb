@@ -4,7 +4,6 @@
 </div>
 <%= form_for [:supervisor, @exam], remote: true do |f| %>
   <div class="modal-body">
-
     <%= f.hidden_field :subject_id, value: @subject.id %>
     <div class="form-group">
       <%= f.label :title, t(".title"), class: "required" %>
@@ -23,7 +22,7 @@
   </div>
   <div class="modal-footer">
     <div class="actions form-group">
-      <%= f.submit t(".create") , class: "btn btn-primary",remote: true %>
+      <%= f.submit t(".create") , class: "btn btn-primary", remote: true %>
     </div>
   </div>
 <% end %>

@@ -1,13 +1,22 @@
 var total_subject = <%= @course.subjects.length %>;
 <% @course.subjects.each_with_index do |subject, index| %>
   var total_task = <%= subject.tasks.count %>;
-  var finish_task = 0
+  var total_exam = <%= subject.exams.count %>;
+  var finish_task = 0;
+  var finish_exam = 0;
   <% subject.tasks.each do |task| %>
     <% if check_status_task(trainee.id, task.id).finish? %>
       finish_task += 1;
     <% end %>
   <% end %>
-  var progress = 100*finish_task/total_task + "%";
+  <% subject.exams.each do |exam| %>
+    <% if check_do_exam? trainee.id, exam.id %>
+      finish_exam += 1;
+    <% end %>
+  <% end %>
+  var total_item = total_task + total_exam;
+  var finish_item = finish_task + finish_exam;
+  var progress = 100*finish_item/total_item + "%";
   var a = <%= index %>;
   var id = "#progress_subject_" + a;
   $(id).css({ "width": progress });

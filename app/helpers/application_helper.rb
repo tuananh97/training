@@ -16,6 +16,10 @@ module ApplicationHelper
     @trainee_task = TraineeTask.find_trainee_task(user_id, task_id)
   end
 
+  def check_do_exam? user_id, exam_id
+    Test.where(user_id: user_id, exam_id: exam_id).present?
+  end
+
   def custom_bootstrap_flash
     flash_messages = []
     option = "{'closeButton': true}"
