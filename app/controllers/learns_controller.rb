@@ -8,6 +8,10 @@ class LearnsController < HomePagesController
   end
 
   def exam_details
+    if UserCourse.find_by(user_id: current_user, course_id: @exam.subject.course.id).nil?
+      flash[:error] = t ".not_permission"
+      redirect_to root_path
+    end
    @tests = current_user.tests.where(exam_id: @exam.id)
   end
 
