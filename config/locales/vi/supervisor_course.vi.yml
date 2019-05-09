@@ -24,6 +24,7 @@ vi:
         detail_subject: "Xem chi tiết chủ đề"
         finish_course: "Kết thúc khóa học"
         finish_subject: "Kết thúc chủ đề"
+        not_permission: "Bạn không có quyền truy cập vào trang này!"
       course:
         add_course: "Tạo khóa học mới"
         course: "Khóa học"
@@ -73,7 +74,7 @@ vi:
         not_found: "Khóa học không tồn tại!"
         confirm_delete_task: "Bạn có chắc chắn muốn xóa bài giảng không?"
         confirm_delete_subject: "Bạn có chắc chắn muốn xóa chủ đề không?"
-        not_permission: "You don't permission access this course!"
+        not_permission: "Bạn không có quyền truy cập vào trang này!"
       edit:
         title: "Cập nhật thông tin khóa học"
         edit: "Lưu thay đổi"
